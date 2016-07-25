@@ -1,0 +1,51 @@
+@import 'bootstrap_and_overrides';
+/*
+ *= require jquery-ui/core
+ */
+
+p{
+  margin: 15px 0;
+}
+
+a:focus {
+  color: currentColor;
+  text-decoration: none;
+}
+
+/* form styles */
+fieldset.inputs .radio{
+  margin-left: 25px;
+}
+textarea.form-control{
+  padding: 6px 12px !important;
+}
+
+fieldset.form-actions{
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin: 20px 0px;
+}
+.row.mod-row-no-margins{
+  margin: 0;
+}
+.form-instructions{
+  margin-bottom: 15px !important;
+}
+
+.boolean-flag{
+  display: inline-block;
+  padding: 4px 8px;
+  font-weight: bold;
+  &.boolean-flag-true{
+    color: #6ad95d;
+  }
+  &.boolean-flag-false{
+    color: #d95d6a;
+  }
+  &.boolean-flag-xs{
+    font-size: 12px;
+    padding: 2px 4px;
+  }
+}
+
+

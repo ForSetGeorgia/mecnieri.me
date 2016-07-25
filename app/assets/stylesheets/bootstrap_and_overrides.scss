@@ -4,6 +4,9 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+// need this so bootstrap asset paths are correct
+@import "bootstrap-sprockets";
+
 // Core variables and mixins
 @import 'bootstrap/variables';
 

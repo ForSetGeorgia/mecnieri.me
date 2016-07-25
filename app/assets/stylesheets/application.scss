@@ -12,6 +12,8 @@ URL: https://gist.github.com/bobbygrace/9e961e8982f42eb91b80
 
 @charset 'UTF-8';
 
+@import 'normalize';
+
 @import 'variables';
 @import 'media-queries';
 @import 'bootstrap_and_overrides';
@@ -23,15 +25,11 @@ URL: https://gist.github.com/bobbygrace/9e961e8982f42eb91b80
 
 // Components
 @import 'components/actions';
-@import 'components/app-footer';
+@import 'components/app_footer';
 @import 'components/language_switcher';
 @import 'components/loading_indicator';
 @import 'components/primary_header';
+@import 'components/tabList';
+@import 'components/tabContent';
 @import 'components/translated_inputs';
-
-.actions-container {
-  background-color: #f9f9f9;
-  padding: 10px;
-  margin: 20px 0px;
-}
 

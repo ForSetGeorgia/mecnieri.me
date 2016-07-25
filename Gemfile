@@ -164,3 +164,25 @@ end
 
 #####################################################################
 ########################## Project Gems #############################
+
+# create permalinks
+gem 'friendly_id', '~> 5.1'
+
+# create permalinks with globalize
+gem 'friendly_id-globalize', '~> 1.0.0.alpha2'
+
+# create slugs with utf8 text
+gem 'babosa', '~> 1.0', '>= 1.0.2'
+
+# managing file attachments
+gem 'paperclip', '~> 4.3', '>= 4.3.6'
+
+# managing file attachments in translations
+gem 'paperclip-globalize3', '~> 2.2'
+
+# nested forms
+gem 'cocoon', '~> 1.2', '>= 1.2.9'
+
+# wysiwyg editor
+gem 'ckeditor', '~> 4.1', '>= 4.1.6'
+

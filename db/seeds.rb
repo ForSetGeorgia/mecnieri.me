@@ -30,3 +30,16 @@ if ENV['create_user_accounts'].present? && !Rails.env.production?
   end
 end
 
+# load test data
+if ENV['load_test_data'].present? && !Rails.env.production?
+  puts 'DELETING ALL EXISTING DATA (categories, experiments, etc)'
+  Category.destroy_all
+
+  puts 'CREATING CATEGORIES'
+  Category.create(title: 'Biology', color_hex: '#98d84d')
+  Category.create(title: 'Engineering', color_hex: '#40b4f1')
+  Category.create(title: 'Astronomy', color_hex: '#5e439c')
+  Category.create(title: 'Chemistry', color_hex: '#f9a334')
+  Category.create(title: 'Physics', color_hex: '#576adc')
+
+end

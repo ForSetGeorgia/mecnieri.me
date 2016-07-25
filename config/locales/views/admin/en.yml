@@ -3,3 +3,9 @@ en:
   admin:
     index:
       title: Admin Section
+    page_contents:
+      show:
+        title: '%{label}: %{label_value}'
+    categories:
+      show:
+        title: '%{label}: %{label_value}'

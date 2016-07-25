@@ -1,0 +1,60 @@
+<%
+  model_class = Category
+  page_title t('activerecord.models.category', count: 999)
+%>
+
+<div class='actions-container'>
+  <%= render partial: 'shared/index_actions',
+        locals: {
+          model_class: model_class,
+          new_path: new_admin_category_path
+        }
+  %>
+</div>
+
+<table class='table table-striped table-hover table-nonfluid datatable-admin'>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th><%=t 'activerecord.attributes.category.title' %></th>
+      <th><%=t 'activerecord.attributes.category.is_active' %></th>
+
+      <th class='action-col'><%=t 'shared.common.actions' %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td>
+          <%= link_to t('shared.actions.view'),
+                      admin_category_path(category),
+                      class: 'btn btn-default' %>
+        </td>
+
+        <td>
+          <div style="background-color: <%= category.color_hex %>; width: 15px;">&nbsp;</div>
+        </td>
+        <td><%= category.title %></td>
+        <td><%= format_boolean_flag(category.is_active?) %></td>
+
+        <td>
+          <%= if can? :edit, category
+                link_to t('shared.actions.edit'),
+                        edit_admin_category_path(category),
+                        class: 'btn btn-default'
+          end %>
+
+          <%= if can? :destroy, category
+                link_to t('shared.actions.destroy'),
+                        admin_category_path(category),
+                        method: :delete,
+                        data: { confirm: t('shared.prompts.confirm') },
+                        class: 'btn btn-danger'
+          end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

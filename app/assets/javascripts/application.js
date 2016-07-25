@@ -36,7 +36,7 @@
 //= require twitter/bootstrap/carousel
 //= require twitter/bootstrap/affix
 
-//= require_tree .
+//= require_tree ./application/
 
 ////////////////////////////////////////
 

@@ -47,4 +47,15 @@ module ApplicationHelper
     return locales
   end
 
+  # format the true/false value into yes/no with box
+  def format_boolean_flag(flag, small=false)
+    css_small = small == true ? 'boolean-flag-xs' : ''
+    if flag == true
+      return "<div class='boolean-flag boolean-flag-true #{css_small}'>#{t('shared.common.yes')}</div>".html_safe
+    else
+      return "<div class='boolean-flag boolean-flag-false #{css_small}'>#{t('shared.common.no')}</div>".html_safe
+    end
+  end
+
+
 end

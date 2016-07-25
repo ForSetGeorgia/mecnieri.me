@@ -1,0 +1,12 @@
+---
+en:
+  activerecord:
+    attributes:
+      category:
+        title: Title
+        description: Description
+        is_active: Is Active?
+    models:
+      category:
+        one: Category
+        other: Categories

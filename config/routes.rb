@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :users, constraints: { format: :html }
       resources :page_contents, constraints: { format: :html }
+      resources :categories, constraints: { format: :html }
     end
 
     root 'root#index'

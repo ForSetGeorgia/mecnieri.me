@@ -1,0 +1,14 @@
+<% model_class = Category %>
+<% page_title t('shared.actions.with_obj.new',
+                obj: t('activerecord.models.category', count: 1)) %>
+
+<div class='actions-container'>
+  <%= render partial: 'shared/new_actions',
+        locals: {
+          object: @category,
+          index_path: admin_categories_path
+                }
+  %>
+</div>
+
+<%= render partial: 'form' %>

@@ -1,0 +1,25 @@
+<%
+page_title t('.title',
+             label: t('activerecord.models.category', count: 1),
+             label_value: @category.title)
+%>
+
+<div class='actions-container'>
+  <%= render partial: 'shared/show_actions',
+        locals: {
+          object: @category,
+          index_path: admin_categories_path,
+          show_path: admin_category_path,
+          edit_path: edit_admin_category_path
+                }
+  %>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%=t 'activerecord.attributes.category.title' %>:</strong></dt>
+  <dd><%= @category.title %></dd>
+  <dt><strong><%=t 'activerecord.attributes.category.is_active' %>:</strong></dt>
+  <dd><%= @category.is_active %></dd>
+  <dt><strong><%=t 'activerecord.attributes.category.description' %>:</strong></dt>
+  <dd><%= simple_format_no_tags(@category.description) %></dd>
+</dl>
