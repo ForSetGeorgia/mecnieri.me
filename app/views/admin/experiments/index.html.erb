@@ -1,0 +1,60 @@
+<%
+  model_class = Experiment
+  page_title t('activerecord.models.experiment', count: 999)
+%>
+
+<div class='actions-container'>
+  <%= render partial: 'shared/index_actions',
+        locals: {
+          model_class: model_class,
+          new_path: new_admin_experiment_path
+        }
+  %>
+</div>
+
+<table class='table table-striped table-hover table-nonfluid datatable-admin'>
+  <thead>
+    <tr>
+      <th></th>
+      <th><%=t 'activerecord.attributes.experiment.title' %></th>
+      <th><%=t 'activerecord.attributes.experiment.intro' %></th>
+      <th><%=t 'activerecord.attributes.experiment.is_active' %></th>
+      <th><%=t 'activerecord.attributes.experiment.needs_adult_supervision' %></th>
+
+      <th class='action-col'><%=t 'shared.common.actions' %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @experiments.each do |experiment| %>
+      <tr>
+        <td>
+          <%= link_to t('shared.actions.view'),
+                      admin_experiment_path(experiment),
+                      class: 'btn btn-default' %>
+        </td>
+
+        <td><%= experiment.title %></td>
+        <td><%= simple_format_no_tags(experiment.intro) %></td>
+        <td><%= format_boolean_flag(experiment.is_active?) %></td>
+        <td><%= format_boolean_flag(experiment.needs_adult_supervision?) %></td>
+
+        <td>
+          <%= if can? :edit, experiment
+                link_to t('shared.actions.edit'),
+                        edit_admin_experiment_path(experiment),
+                        class: 'btn btn-default'
+          end %>
+
+          <%= if can? :destroy, experiment
+                link_to t('shared.actions.destroy'),
+                        admin_experiment_path(experiment),
+                        method: :delete,
+                        data: { confirm: t('shared.prompts.confirm') },
+                        class: 'btn btn-danger'
+          end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

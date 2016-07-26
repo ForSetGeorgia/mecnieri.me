@@ -3,6 +3,11 @@
 
 (function() {
 
+  $(document).ready(function() {
+    setupExperimentCocoon();
+    setupExperimentMove();
+  });
+
   $(document).on('page:change', function() {
     RMRichTextArea.load();
   });

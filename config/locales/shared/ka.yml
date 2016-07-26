@@ -27,8 +27,11 @@ ka:
     links:
       page_contents: გვერდის ტექსტის რედაქტირება
       admin: ადმინის სექცია
+      categories: Categories
+      experiments: Experiments
     labels:
       translated_field: "%{field} (%{language})"
+      model_object_title: '%{label}: %{label_value}'
     locale:
       short:
         en: En
@@ -45,3 +48,6 @@ ka:
     prompts:
       confirm: დარწმუნებული ხართ?
       forgot_password: დაგავიწყდათ პაროლი?
+    move_row:
+      up: Move the row up
+      down: Move the row down

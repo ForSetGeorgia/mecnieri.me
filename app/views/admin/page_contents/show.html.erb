@@ -1,7 +1,7 @@
 <% show_name = (can? :create, @page_content) ? true : false %>
 
 <%
-page_title t('.title',
+page_title t('shared.labels.model_object_title',
              label: t('activerecord.models.page_content', count: 1),
              label_value: @page_content.title)
 %>

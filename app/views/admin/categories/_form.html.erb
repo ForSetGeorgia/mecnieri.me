@@ -17,6 +17,7 @@
                   input_html: { class: 'js-become-rich-text-editor' } %>
     <% end %>
 
+    <%= f.input :color_hex, as: :color, :input_html => { maxlength: 7 } %>
     <%= f.input :is_active, as: :radio %>
 
   <% end %>

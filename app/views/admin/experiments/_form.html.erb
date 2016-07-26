@@ -1,0 +1,185 @@
+<% object = @experiment %>
+<%= semantic_form_for [:admin,object], html: {multipart: true} do |f| %>
+  <%= f.semantic_errors *f.object.errors.keys %>
+  <%= f.inputs do %>
+
+    <%= render layout: 'shared/form/translated_inputs',
+               locals: { object: object } do |enabled_locale, enabled_locale_name| %>
+      <%= f.input "title_#{enabled_locale}",
+                  label: t('shared.labels.translated_field',
+                   field: t('activerecord.attributes.experiment.title'),
+                   language: enabled_locale_name) %>
+      <%= f.input "intro_#{enabled_locale}",
+                  as: :text,
+                  label: t('shared.labels.translated_field',
+                   field: t('activerecord.attributes.experiment.intro'),
+                   language: enabled_locale_name),
+                  input_html: { class: 'js-become-rich-text-editor' } %>
+      <%= f.input "explanation_#{enabled_locale}",
+                  as: :text,
+                  label: t('shared.labels.translated_field',
+                   field: t('activerecord.attributes.experiment.explanation'),
+                   language: enabled_locale_name),
+                  input_html: { class: 'js-become-rich-text-editor' } %>
+      <%= f.input "warning_#{enabled_locale}",
+                  as: :text,
+                  label: t('shared.labels.translated_field',
+                   field: t('activerecord.attributes.experiment.warning'),
+                   language: enabled_locale_name),
+                  input_html: { class: 'js-become-rich-text-editor' } %>
+    <% end %>
+
+    <hr />
+
+    <div class="row">
+      <div class="col-sm-4">
+        <%= f.input :category_ids, as: :check_boxes, collection: @categories.map{|x| [x.title, x.id]}%>
+      </div>
+      <div class="col-sm-4">
+        <%= f.input :needs_adult_supervision, as: :radio %>
+      </div>
+      <div class="col-sm-4">
+        <%= f.input :is_active, as: :radio %>
+      </div>
+    </div>
+  <% end %>
+
+  <hr />
+
+  <div class="js-cocoon js-cocoon-ingredients">
+
+    <h3><%= t('activerecord.models.ingredient', count: 999) %></h3>
+
+    <%= render layout: 'shared/form/translated_inputs',
+               locals: { object: object, id_suffix: '-ingredient' } do |enabled_locale, enabled_locale_name| %>
+
+      <table class="table table-striped table-hover table-nonfluid table-ingredients">
+        <thead>
+          <tr>
+            <th></th>
+            <th>
+              <%= t('shared.labels.translated_field',
+                       field: t('activerecord.attributes.ingredient.content'),
+                       language: enabled_locale_name)
+              %><abbr title="required">*</abbr>
+            </th>
+            <th>
+              <%=t 'shared.common.actions' %>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% object.ingredients.sorted.each do |ing| %>
+            <%= f.semantic_fields_for :ingredients, ing do |ingredient| %>
+              <%= render partial: 'ingredient_fields', locals: {f: ingredient, object: ing, enabled_locale: enabled_locale} %>
+            <% end %>
+          <% end %>
+        <tfoot>
+          <tr>
+            <td colspan="3">
+              <%= link_to_add_association t('shared.actions.add'), f, :ingredients,
+                    :'data-association-insertion-node' => "#translation-#{enabled_locale}-ingredient table.table-ingredients tbody",
+                    :'data-association-insertion-method' => 'append',
+                    class: 'btn btn-primary',
+                    render_options: {locals: {enabled_locale: enabled_locale}} %>
+            </td>
+          </tr>
+        </tfoot>
+        </tbody>
+      </table>
+
+    <% end %>
+
+  </div>
+
+
+  <hr />
+
+  <div class="js-cocoon js-cocoon-directions">
+
+    <h3><%= t('activerecord.models.direction', count: 999) %></h3>
+
+    <%= render layout: 'shared/form/translated_inputs',
+               locals: { object: object, id_suffix: '-direction' } do |enabled_locale, enabled_locale_name| %>
+
+      <table class="table table-striped table-hover table-nonfluid table-directions">
+        <thead>
+          <tr>
+            <th></th>
+            <th style="width: 50%;">
+              <%= t('shared.labels.translated_field',
+                       field: t('activerecord.attributes.direction.content'),
+                       language: enabled_locale_name)
+              %><abbr title="required">*</abbr>
+            </th>
+            <th>
+              <%= t('shared.labels.translated_field',
+                       field: t('activerecord.attributes.direction.image'),
+                       language: enabled_locale_name)
+              %><abbr title="required">*</abbr>
+            </th>
+            <th>
+              <%=t 'shared.common.actions' %>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% object.directions.sorted.each do |dir, dir_index| %>
+            <%= f.semantic_fields_for :directions, dir do |direction| %>
+              <%= render partial: 'direction_fields', locals: {f: direction, object: dir, dir_index: dir_index, enabled_locale: enabled_locale} %>
+            <% end %>
+          <% end %>
+        <tfoot>
+          <tr>
+            <td colspan="3">
+              <%= link_to_add_association t('shared.actions.add'), f, :directions,
+                    :'data-association-insertion-node' => "#translation-#{enabled_locale}-direction table.table-directions tbody",
+                    :'data-association-insertion-method' => 'append',
+                    class: 'btn btn-primary',
+                    render_options: {locals: {enabled_locale: enabled_locale}} %>
+            </td>
+          </tr>
+        </tfoot>
+        </tbody>
+      </table>
+
+    <% end %>
+
+  </div>
+
+  <hr />
+
+  <h3><%= t('activerecord.attributes.experiment.thumbnails') %></h3>
+
+  <div class="file input optional form-group" id="experiment_thumbnail1_input">
+    <span class="form-label">
+      <label for="experiment_thumbnail1" class=" control-label"><%= t('activerecord.attributes.experiment.thumbnail1') %></label>
+    </span>
+    <% if object.thumbnail1.exists? %>
+      <%= image_tag(object.thumbnail1.url('small')) %>
+    <% end %>
+    <span class="form-wrapper">
+      <input accept=".jpg,.jpeg,.png,.gif" id="experiment_thumbnail1" name="experiment[thumbnail1]" type="file">
+    </span>
+  </div>
+
+  <div class="file input optional form-group" id="experiment_thumbnail2_input">
+    <span class="form-label">
+      <label for="experiment_thumbnail2" class=" control-label"><%= t('activerecord.attributes.experiment.thumbnail2') %></label>
+    </span>
+    <% if object.thumbnail2.exists? %>
+      <%= image_tag(object.thumbnail2.url('small')) %>
+    <% end %>
+    <span class="form-wrapper">
+      <input accept=".jpg,.jpeg,.png,.gif" id="experiment_thumbnail2" name="experiment[thumbnail2]" type="file">
+    </span>
+  </div>
+
+
+
+
+
+  <%= f.actions do %>
+    <%= f.action :submit, button_html: { class: 'btn btn-success' } %>
+  <% end %>
+<% end %>

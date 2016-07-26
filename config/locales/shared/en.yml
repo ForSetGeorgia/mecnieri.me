@@ -27,8 +27,11 @@ en:
     links:
       page_contents: Edit Page Text
       admin: Admin Section
+      categories: Categories
+      experiments: Experiments
     labels:
       translated_field: "%{field} (%{language})"
+      model_object_title: '%{label}: %{label_value}'
     locale:
       short:
         en: En
@@ -45,3 +48,6 @@ en:
     prompts:
       confirm: Are you sure?
       forgot_password: Forgot your password?
+    move_row:
+      up: Move the row up
+      down: Move the row down

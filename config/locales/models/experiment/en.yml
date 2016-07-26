@@ -1,0 +1,21 @@
+---
+en:
+  activerecord:
+    attributes:
+      experiment:
+        title: Title
+        intro: Introduction
+        explanation: Explanation
+        warning: Warning
+        needs_adult_supervision: Needs Adult Suppervision?
+        is_active: Is Public?
+        category_ids: Categories
+        ingredients: Ingredients
+        directions: Directions
+        thumbnail1: Initial Thumbnail
+        thumbnail2: Hover Thumbnail
+        thumbnails: Thumbnail Images
+    models:
+      experiment:
+        one: Experiment
+        other: Experiments

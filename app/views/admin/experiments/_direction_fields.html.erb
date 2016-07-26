@@ -1,0 +1,33 @@
+<%
+  object ||= nil
+  # if the dir_index is not provided, default to 'new_directions' so the cocoon gem can replace it with a random index number
+  dir_index ||= 'new_directions'
+%>
+<tr class="nested-fields">
+  <td>
+    <a class="move-up" href="#" title="<%= t('shared.move_row.up')%>"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></a>
+    <a class="move-down" href="#" title="<%= t('shared.move_row.down')%>"><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></a>
+  </td>
+  <td class="js-has-sort-order">
+    <%= f.input :sort_order, as: :hidden, input_html: {class: 'sort-order'} %>
+
+    <%= f.input "content_#{enabled_locale}",
+                as: :text,
+                label: false, input_html: {rows: 7} %>
+  </td>
+  <td>
+    <div class="file input optional form-group" id="experiment_directions_attributes_<%= dir_index %>_image_input">
+      <% if object.present? && object.image.exists? %>
+        <%= image_tag(object.image.url('small')) %>
+      <% end %>
+      <span class="form-wrapper">
+        <input accept=".jpg,.jpeg,.png,.gif" id="experiment_directions_attributes_<%= dir_index %>_image" name="experiment[directions_attributes][<%= dir_index %>][image]" type="file">
+      </span>
+    </div>
+  </td>
+  <td>
+    <%= link_to_remove_association t('shared.actions.destroy'), f,
+            data: { confirm: t('shared.prompts.confirm') },
+            class: 'btn btn-danger' %>
+  </td>
+</tr>

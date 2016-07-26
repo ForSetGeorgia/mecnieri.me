@@ -25,12 +25,26 @@ fieldset.form-actions{
   padding: 10px;
   margin: 20px 0px;
 }
+.checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"]{
+  position: inherit;
+  margin-left: 0px;
+  margin-top: 0px;
+  vertical-align: top;
+  margin-right: 4px;
+}
+.color input[type="color"]{
+  width: 100px;
+}
+
+
 .row.mod-row-no-margins{
   margin: 0;
 }
 .form-instructions{
   margin-bottom: 15px !important;
 }
+
+
 
 .boolean-flag{
   display: inline-block;
@@ -49,3 +63,7 @@ fieldset.form-actions{
 }
 
 
+/* experiments */
+.formtastic .table-directions  .text textarea{
+  width: 100%;
+}

@@ -1,0 +1,53 @@
+<%
+page_title t('shared.labels.model_object_title',
+             label: t('activerecord.models.experiment', count: 1),
+             label_value: @experiment.title)
+%>
+
+<div class='actions-container'>
+  <%= render partial: 'shared/show_actions',
+        locals: {
+          object: @experiment,
+          index_path: admin_experiments_path,
+          show_path: admin_experiment_path,
+          edit_path: edit_admin_experiment_path
+                }
+  %>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%=t 'activerecord.attributes.experiment.title' %>:</strong></dt>
+  <dd><%= @experiment.title %></dd>
+  <dt><strong><%=t 'activerecord.attributes.experiment.is_active' %>:</strong></dt>
+  <dd><%= @experiment.is_active %></dd>
+  <dt><strong><%=t 'activerecord.attributes.experiment.needs_adult_supervision' %>:</strong></dt>
+  <dd><%= @experiment.needs_adult_supervision %></dd>
+
+  <dt><strong><%=t 'activerecord.attributes.experiment.thumbnail1' %>:</strong></dt>
+  <dd><%= image_tag(@experiment.thumbnail1.url('big')) %></dd>
+  <dt><strong><%=t 'activerecord.attributes.experiment.thumbnail2' %>:</strong></dt>
+  <dd><%= image_tag(@experiment.thumbnail2.url('big')) %></dd>
+
+  <dt><strong><%=t 'activerecord.attributes.experiment.intro' %>:</strong></dt>
+  <dd><%= simple_format_no_tags(@experiment.intro) %></dd>
+  <dt><strong><%=t 'activerecord.attributes.experiment.explanation' %>:</strong></dt>
+  <dd><%= simple_format_no_tags(@experiment.explanation) %></dd>
+  <dt><strong><%=t 'activerecord.attributes.experiment.warning' %>:</strong></dt>
+  <dd><%= simple_format_no_tags(@experiment.warning) %></dd>
+
+  <h3><%= t('activerecord.models.ingredient', count: 999) %></h3>
+  <ul>
+    <% @experiment.ingredients.sorted.each do |ing| %>
+      <li><%= ing.content %></li>
+    <% end %>
+  </ul>
+
+  <h3><%= t('activerecord.models.direction', count: 999) %></h3>
+  <% @experiment.directions.sorted.each do |dir| %>
+    <div style="margin-top: 20px;">
+      <%= image_tag(dir.image.url('big')) %>
+      <br />
+      <%= simple_format_no_tags(dir.content) %>
+    </div>
+  <% end %>
+</dl>

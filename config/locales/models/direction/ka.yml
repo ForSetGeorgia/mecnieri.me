@@ -1,0 +1,12 @@
+---
+ka:
+  activerecord:
+    attributes:
+      direction:
+        content: Text
+        image: Image
+        sort_order: Sort Order
+    models:
+      direction:
+        one: Direction
+        other: Directions

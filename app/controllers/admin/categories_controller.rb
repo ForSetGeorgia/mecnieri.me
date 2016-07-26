@@ -69,7 +69,7 @@ class Admin::CategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
-      permitted = Category.globalize_attribute_names + [:is_active]
+      permitted = Category.globalize_attribute_names + [:is_active, :color_hex]
       params.require(:category).permit(*permitted)
     end
 end

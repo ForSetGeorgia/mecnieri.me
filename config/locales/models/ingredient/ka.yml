@@ -1,0 +1,11 @@
+---
+ka:
+  activerecord:
+    attributes:
+      ingredient:
+        content: Text
+        sort_order: Sort Order
+    models:
+      ingredient:
+        one: Ingredient
+        other: Ingredients

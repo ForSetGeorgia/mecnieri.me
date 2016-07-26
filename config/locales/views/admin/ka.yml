@@ -3,9 +3,3 @@ ka:
   admin:
     index:
       title: ადმინის სექცია
-    page_contents:
-      show:
-        title: '%{label}: %{label_value}'
-    categories:
-      show:
-        title: '%{label}: %{label_value}'

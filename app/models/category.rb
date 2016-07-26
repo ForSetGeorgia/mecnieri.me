@@ -7,6 +7,7 @@
 #  slug       :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  color_hex  :string(255)
 #
 
 class Category < AddMissingTranslation
@@ -18,6 +19,10 @@ class Category < AddMissingTranslation
   # Allows reference of specific translations, i.e. post.title_az
   # or post.title_en
   globalize_accessors
+
+  #######################
+  ## RELATIONSHIPS
+  has_and_belongs_to_many :experiments
 
   #######################
   ## VALIDATIONS

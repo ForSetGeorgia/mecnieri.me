@@ -1,0 +1,15 @@
+<% model_class = Experiment %>
+<% page_title t('shared.actions.with_obj.edit',
+                obj: t('activerecord.models.experiment', count: 1)) %>
+
+<div class='actions-container'>
+  <%= render partial: 'shared/edit_actions',
+        locals: {
+          object: @experiment,
+          show_path: admin_experiment_path(@experiment),
+          index_path: admin_experiments_path
+                }
+  %>
+</div>
+
+<%= render partial: 'form' %>

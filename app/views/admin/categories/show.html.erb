@@ -1,5 +1,5 @@
 <%
-page_title t('.title',
+page_title t('shared.labels.model_object_title',
              label: t('activerecord.models.category', count: 1),
              label_value: @category.title)
 %>
@@ -18,6 +18,8 @@ page_title t('.title',
 <dl class="dl-horizontal">
   <dt><strong><%=t 'activerecord.attributes.category.title' %>:</strong></dt>
   <dd><%= @category.title %></dd>
+  <dt><strong><%=t 'activerecord.attributes.category.color_hex' %>:</strong></dt>
+  <dd><div style="background-color: <%= @category.color_hex %>; width: 20px;">&nbsp;</div></dd>
   <dt><strong><%=t 'activerecord.attributes.category.is_active' %>:</strong></dt>
   <dd><%= @category.is_active %></dd>
   <dt><strong><%=t 'activerecord.attributes.category.description' %>:</strong></dt>
