@@ -3,3 +3,5 @@ ka:
   root:
     about:
       title: ამის შესახებ
+    experiments:
+      title: Experiments

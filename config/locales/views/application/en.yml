@@ -2,9 +2,7 @@
 en:
   application:
     navbar_header:
-      about: About Project
+      about: About
       account:
         edit_profile: Edit Profile
         logout: Logout
-      link1: 'link #1'
-      link2: 'link #2'

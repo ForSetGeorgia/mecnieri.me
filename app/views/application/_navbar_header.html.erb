@@ -7,12 +7,16 @@
     </button>
     <%= link_to t('shared.common.name'), root_path, class: 'navbar-brand' %>
     <div class="navbar-collapse collapse navbar-responsive-collapse">
-      <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to t('.link1'), "/path1"  %></li>
-        <li><%= link_to t('.link2'), "/path2"  %></li>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <form accept-charset="UTF-8" action="<%= experiments_path %>" class="navbar-form" id="search-form" method="get" role="search"><div style="margin:0;padding:0;display:inline"><input name="utf8" value="✓" type="hidden"></div>
+            <div class="form-group">
+              <input autocomplete="off" class="form-control search-input" id="q" name="q" placeholder="<%= t('shared.common.search') %>" tabindex="1" type="text" value="<%= params[:q] %>">
+            </div>
+          </form>
+        </li>
         <li><%= link_to t('.about'), about_path  %></li>
-      </ul>
-      <ul class='nav navbar-nav navbar-right'>
+
         <% if user_signed_in? %>
           <li class="dropdown">
             <a href="#" id="user-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -47,7 +51,8 @@
             </ul>
           </li>
         <% end %>
-
+<%
+=begin %>
         <li class='language-switcher-container'>
           <ul class='language-switcher'>
             <% I18n.available_locales.each do |locale| %>
@@ -66,6 +71,8 @@
             <% end %>
           </ul>
         </li>
+<%
+=end %>
       </ul>
     </div>
   </div>

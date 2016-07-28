@@ -1,0 +1,38 @@
+<% page_title t('.title') %>
+
+<% if @categories.present? %>
+  <div>
+    <% @categories.each do |category| %>
+      <div>
+        <%= link_to params.merge(category: category.slug) do %>
+          <%= category.title %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @experiments.present? %>
+  <div>
+    <% @exerpiments.each do |experiment| %>
+      <div>
+        <%= link_to experiment_path(experiment) do %>
+          <div>
+            <%= image_tag(experiment.thumbnail1.url('big'), alt: experiment.title) %>
+            <%= image_tag(experiment.thumbnail2.url('big'), alt: experiment.title) %>
+          </div>
+          <div>
+            <%= experiment.title %>
+          </div>
+          <div>
+            <%= truncate(strip_tags_nbsp(experiment.intro), 100, '...') %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p>
+    <%= t('shared.common.no_experiments_match') %>
+  </p>
+<% end %>

@@ -3,3 +3,5 @@ en:
   root:
     about:
       title: About
+    experiments:
+      title: Experiments

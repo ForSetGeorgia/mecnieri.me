@@ -22,6 +22,12 @@ class ApplicationController < ActionController::Base
   ##############################################
   # helpers
 
+  def set_global_vars
+    # indicate if the page title should be shown on the page
+    # if false, then it will only be used in <title> tag
+    @show_page_title = true
+  end
+
   def clean_filename(filename)
     filename.strip.to_slug.transliterate.to_s.gsub(' ', '_').gsub(/[\\ \/ \: \* \? \" \< \> \| \, \. ]/,'')
   end

@@ -24,6 +24,9 @@ ka:
         slogan: JumpStart Georgia - ჩვენ გაწვდით ინფორმაციას მონაცემებით და დიზაინით
       name: მეწნიერი.მე
       description: This is a description of the project that will appear in the meta tags.
+      no_experiments: At this time there are no experiments on file.
+      no_experiments_match: No experiments match your search request.
+      search: Search Experiments
     links:
       page_contents: გვერდის ტექსტის რედაქტირება
       admin: ადმინის სექცია

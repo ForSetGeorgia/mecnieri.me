@@ -1,1 +1,16 @@
-<% page_title t 'shared.common.name' %>
+
+<% if @categories.present? %>
+  <div>
+    <% @categories.each do |category| %>
+      <div>
+        <%= link_to experiments_path(category: category.slug) do %>
+          <%= category.title %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p>
+    <%= t('shared.common.no_experiments') %>
+  </p>
+<% end %>

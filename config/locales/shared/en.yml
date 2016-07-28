@@ -24,6 +24,9 @@ en:
         slogan: JumpStart Georgia - Informing Communities with Data and Design
       name: Metsnieri.me
       description: This is a description of the project that will appear in the meta tags.
+      no_experiments: At this time there are no experiments on file.
+      no_experiments_match: No experiments match your search request.
+      search: Search Experiments
     links:
       page_contents: Edit Page Text
       admin: Admin Section
