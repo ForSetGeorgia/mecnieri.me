@@ -1,14 +1,14 @@
 
 <% if @categories.present? %>
-  <div>
+  <ul class="list-inline">
     <% @categories.each do |category| %>
-      <div>
-        <%= link_to experiments_path(category: category.slug) do %>
+      <li>
+        <%= link_to experiments_path(category: category.slug), class: 'btn btn-default' do %>
           <%= category.title %>
         <% end %>
-      </div>
+      </li>
     <% end %>
-  </div>
+  </ul>
 <% else %>
   <p>
     <%= t('shared.common.no_experiments') %>

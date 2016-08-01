@@ -97,6 +97,18 @@ class Experiment < AddMissingTranslation
   scope :with_ingredients, -> {includes(ingredients: [:translations] )}
   scope :with_directions, -> {includes(directions: [:translations] )}
 
+  def self.by_category(category_scope)
+    if category_scope.present?
+      begin
+        c = Category.friendly.find(category_scope)
+        return includes(:categories).where(categories: {id: c.id})
+      rescue ActiveRecord::RecordNotFound  => e
+        # do nothing
+      end
+    end
+    return all
+  end
+
   #######################
   ## CALLBACKS
   before_save :set_active_at

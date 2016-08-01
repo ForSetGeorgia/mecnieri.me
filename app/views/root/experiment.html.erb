@@ -1,8 +1,15 @@
 <% page_title @experiment.title %>
 
+<% if @experiment.category_ids.present? %>
+  <div>
+    <% @experiment.categories.each do |cat| %>
+      <%= link_to cat.title, experiments_path(category: cat.slug) %>
+    <% end %>
+  </div>
+<% end %>
 
 <div>
-  <%= @exerpiment.intro %>
+  <%= @experiment.intro %>
 </div>
 
 <h3><%= t('activerecord.models.ingredient', count: 999) %></h3>
@@ -22,19 +29,23 @@
 <ul>
 <% @experiment.directions.sorted.each do |dir| %>
   <li style="margin-top: 20px;">
-    <%= image_tag(dir.image.url('big')) %>
-    <br />
+    <% if dir.image.exists? %>
+      <%= image_tag(dir.image.url('big')) %>
+      <br />
+    <% end %>
     <%= simple_format_no_tags(dir.content) %>
   </li>
 <% end %>
 </ul>
 
 <% if @experiment.warning.present? %>
+  <h3><%= t('activerecord.attributes.experiment.warning') %></h3>
   <div>
     <%= simple_format_no_tags(@experiment.warning) %>
   </div>
 <% end %>
 
+<h3><%= t('activerecord.attributes.experiment.explanation') %></h3>
 <div>
   <%= simple_format_no_tags(@experiment.explanation) %>
 </div>

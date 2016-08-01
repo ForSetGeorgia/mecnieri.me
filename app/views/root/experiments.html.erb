@@ -1,26 +1,30 @@
 <% page_title t('.title') %>
 
 <% if @categories.present? %>
-  <div>
+  <ul class="list-inline">
     <% @categories.each do |category| %>
-      <div>
-        <%= link_to params.merge(category: category.slug) do %>
+      <li>
+        <%= link_to params.merge(category: category.slug),  class: params[:category] == category.slug ? 'btn btn-primary' : 'btn btn-default' do %>
           <%= category.title %>
         <% end %>
-      </div>
+      </li>
     <% end %>
-  </div>
+  </ul>
 <% end %>
 
+<hr />
+
 <% if @experiments.present? %>
-  <div>
+  <ul>
     <% @experiments.each do |experiment| %>
-      <div>
+      <li>
         <%= link_to experiment_path(experiment) do %>
-          <div>
-            <%= image_tag(experiment.thumbnail1.url('big'), alt: experiment.title) %>
-            <%= image_tag(experiment.thumbnail2.url('big'), alt: experiment.title) %>
-          </div>
+          <% if experiment.thumbnail1.exists? %>
+            <div>
+              <%= image_tag(experiment.thumbnail1.url('big'), alt: experiment.title) %>
+              <%= image_tag(experiment.thumbnail2.url('big'), alt: experiment.title) %>
+            </div>
+          <% end %>
           <div>
             <%= experiment.title %>
           </div>
@@ -28,9 +32,9 @@
             <%= truncate(strip_tags_nbsp(experiment.intro), length: 100) %>
           </div>
         <% end %>
-      </div>
+      </li>
     <% end %>
-  </div>
+  </ul>
 <% else %>
   <p>
     <%= t('shared.common.no_experiments_match') %>

@@ -6,7 +6,7 @@ class RootController < ApplicationController
 
   def experiments
     @categories = Category.active.sorted
-    @experiments = Experiment.active.latest.search_for(params[:q])
+    @experiments = Experiment.active.latest.search_for(params[:q]).by_category(params[:category])
     @show_page_title = false
   end
 

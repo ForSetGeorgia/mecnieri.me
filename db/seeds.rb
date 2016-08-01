@@ -46,12 +46,52 @@ end
 # load test data
 if ENV['load_test_data'].present? && !Rails.env.production?
   puts 'CREATING CATEGORIES'
-  Category.create(title: 'Biology', color_hex: '#98d84d')
-  Category.create(title: 'Engineering', color_hex: '#40b4f1')
-  Category.create(title: 'Astronomy', color_hex: '#5e439c')
-  Category.create(title: 'Chemistry', color_hex: '#f9a334')
-  Category.create(title: 'Physics', color_hex: '#576adc')
+  categories = []
+  categories << Category.create(title: 'ბიოლოგია', color_hex: '#98d84d')
+  categories << Category.create(title: 'ინჟინერია', color_hex: '#40b4f1')
+  categories << Category.create(title: 'ასტრონომია', color_hex: '#5e439c')
+  categories << Category.create(title: 'ქიმია', color_hex: '#f9a334')
+  categories << Category.create(title: 'ფიზიკა', color_hex: '#576adc')
 
-  puts 'CREATING EXPERIMENTS'
+  path = "#{Rails.root}/db/test_data/"
+  if File.exists?(path + 'experiments.csv')
+    puts 'CREATING EXPERIMENTS'
+    csv = CSV.read(path + 'experiments.csv')
+    #columns:
+    #0 - title
+    #1 - intro
+    #2 - ingredients
+    #3 - directions
+    #4 - explanation
+    #5 - warning
+    #6 - category
+    #7 - adult supervision
+    #8 - thumb1
+    #9 - thumb2
 
+    if csv.length > 1
+      csv.each_with_index do |row, index|
+        if index > 0
+          puts "- adding experiment #{index}"
+          category = categories.select{|x| x.title.downcase == row[6].downcase}.first if row[6].present?
+          c_ids = category.present? ? [category.id] : nil
+          e = Experiment.new(title: row[0], intro: row[1], explanation: row[4], warning: row[5], category_ids: c_ids, needs_adult_supervision: row[7].present? && row[7].downcase == 'true' ? true : false, is_active: true)
+          ings = row[2].split("\n")
+          dirs = row[3].split("\n")
+          if ings.present?
+            ings.each_with_index do |ing, ing_index|
+              e.ingredients.build(content: ing, sort_order: ing_index+1)
+            end
+          end
+
+          if dirs.present?
+            dirs.each_with_index do |dir, dir_index|
+              e.directions.build(content: dir, sort_order: dir_index+1)
+            end
+          end
+          e.save
+        end
+      end
+    end
+  end
 end
