@@ -54,6 +54,14 @@ class Experiment < AddMissingTranslation
 
 
   #######################
+  ## SEARCHING
+
+  scoped_search in: :translations, on: [:title, :intro, :explanation]
+  ### NOTE - did not include the following models because could not figure out how to reference the the translation objects
+  # scoped_search in: :direction_translations, on: :content
+  # scoped_search in: :ingredient_translations, on: :content
+
+  #######################
   ## VALIDATIONS
 
   validates :title, presence: :true, uniqueness: :true

@@ -14,7 +14,7 @@
 
 <% if @experiments.present? %>
   <div>
-    <% @exerpiments.each do |experiment| %>
+    <% @experiments.each do |experiment| %>
       <div>
         <%= link_to experiment_path(experiment) do %>
           <div>
@@ -25,7 +25,7 @@
             <%= experiment.title %>
           </div>
           <div>
-            <%= truncate(strip_tags_nbsp(experiment.intro), 100, '...') %>
+            <%= truncate(strip_tags_nbsp(experiment.intro), length: 100) %>
           </div>
         <% end %>
       </div>

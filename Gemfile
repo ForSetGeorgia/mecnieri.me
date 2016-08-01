@@ -186,3 +186,5 @@ gem 'cocoon', '~> 1.2', '>= 1.2.9'
 # wysiwyg editor
 gem 'ckeditor', '~> 4.1', '>= 4.1.6'
 
+# basic searching
+gem 'scoped_search', '~> 3.2', '>= 3.2.2'

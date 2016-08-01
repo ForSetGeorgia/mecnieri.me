@@ -1,3 +1,40 @@
 <% page_title @experiment.title %>
 
 
+<div>
+  <%= @exerpiment.intro %>
+</div>
+
+<h3><%= t('activerecord.models.ingredient', count: 999) %></h3>
+<ul>
+  <% @experiment.ingredients.sorted.each do |ing| %>
+    <li><%= ing.content %></li>
+  <% end %>
+</ul>
+
+<% if @experiment.needs_adult_supervision %>
+  <div>
+    needs_adult_supervision
+  </div>
+<% end %>
+
+<h3><%= t('activerecord.models.direction', count: 999) %></h3>
+<ul>
+<% @experiment.directions.sorted.each do |dir| %>
+  <li style="margin-top: 20px;">
+    <%= image_tag(dir.image.url('big')) %>
+    <br />
+    <%= simple_format_no_tags(dir.content) %>
+  </li>
+<% end %>
+</ul>
+
+<% if @experiment.warning.present? %>
+  <div>
+    <%= simple_format_no_tags(@experiment.warning) %>
+  </div>
+<% end %>
+
+<div>
+  <%= simple_format_no_tags(@experiment.explanation) %>
+</div>

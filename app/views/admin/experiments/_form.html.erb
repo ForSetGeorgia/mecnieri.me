@@ -13,8 +13,7 @@
                   as: :text,
                   label: t('shared.labels.translated_field',
                    field: t('activerecord.attributes.experiment.intro'),
-                   language: enabled_locale_name),
-                  input_html: { class: 'js-become-rich-text-editor' } %>
+                   language: enabled_locale_name) %>
       <%= f.input "explanation_#{enabled_locale}",
                   as: :text,
                   label: t('shared.labels.translated_field',
