@@ -5,7 +5,7 @@ upstream puma_<%= application %> {
 server {
   listen 80;
 
-  server_name <%= web_url %> www.<%= web_url %>;
+  server_name <%= web_url %>;
   root <%= full_current_path %>/public;
   try_files $uri/index.html $uri @puma_<%= application %>;
 
@@ -113,5 +113,12 @@ server {
 
   location ~ \.(php|html)$ {
     return 405;
+  }
+
+  ##############################################################
+  # the following is to allow certbots/letsencrypt access to certs
+  ##############################################################
+  location ~ /.well-known {
+    allow all;
   }
 }

@@ -6,4 +6,4 @@ set :repository, 'https://github.com/JumpStartGeorgia/metsnieri.me.git'
 set :branch, 'master'
 set :web_url, 'dev-metsnieri.jumsptart.ge'
 set :visible_to_robots, false
-set :use_ssl, true
+set :use_ssl, false
