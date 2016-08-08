@@ -17,6 +17,14 @@
                   input_html: { class: 'js-become-rich-text-editor' } %>
     <% end %>
 
+    <div class="file input optional form-group" id="category_logo_input">
+      <% if object.present? && object.logo.exists? %>
+        <%= image_tag(object.logo.url, width: '20%') %>
+      <% end %>
+      <span class="form-wrapper">
+        <input accept=".svg" id="category_logo" name="category[logo]" type="file">
+      </span>
+    </div>
     <%= f.input :color_hex, as: :color, :input_html => { maxlength: 7 } %>
     <%= f.input :is_active, as: :radio %>
 

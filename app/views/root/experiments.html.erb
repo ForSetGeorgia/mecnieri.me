@@ -5,6 +5,8 @@
     <% @categories.each do |category| %>
       <li>
         <%= link_to params.merge(category: category.slug),  class: params[:category] == category.slug ? 'btn btn-primary' : 'btn btn-default' do %>
+          <%= image_tag(category.logo.url, width: '15%') %>
+          <br />
           <%= category.title %>
         <% end %>
       </li>

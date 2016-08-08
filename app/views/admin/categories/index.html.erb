@@ -18,6 +18,7 @@
       <th></th>
       <th><%=t 'activerecord.attributes.category.color_hex' %></th>
       <th><%=t 'activerecord.attributes.category.title' %></th>
+      <th><%=t 'activerecord.attributes.category.logo' %></th>
       <th><%=t 'activerecord.attributes.category.is_active' %></th>
 
       <th class='action-col'><%=t 'shared.common.actions' %></th>
@@ -37,6 +38,7 @@
           <div style="background-color: <%= category.color_hex %>; width: 15px;">&nbsp;</div>
         </td>
         <td><%= category.title %></td>
+        <td><%= image_tag(category.logo.url, width: '15%') %></td>
         <td><%= format_boolean_flag(category.is_active?) %></td>
 
         <td>
