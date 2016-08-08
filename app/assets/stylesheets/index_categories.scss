@@ -1,10 +1,22 @@
 
 /* test run*/
+body.root.index {
+	background-color: #70BAF7;
+}
+body.root.index .app-footer {
+	background-color: #70BAF7;
+}
+body.root.index .navbar-default {
+    background-color: #70BAF7;
+    border-color: #e7e7e7;
+    border: 0;
+}
 
 /*  category blocks */
-
-.index_categories li, .logo{
-	float: left;
+.index_categories{
+	text-align: center;
+}
+.index_categories li{
 	display: inline-block;
 	margin: 15px;
 	height: 250px;
@@ -41,15 +53,15 @@
 }
 /* logo div */
 
-.logo{
-	text-align: center;
-	margin-left: 55px;
+.index_categories .logo{
+	text-align: left;
 	border:0;
 }
 /* logo image*/
 
 .logo_image{
-	margin: 30px;
+	position:relative;
+	margin-top: 0px;
 }
 
 
@@ -59,7 +71,7 @@
 
 	.index_categories li, .logo{
 		height: 250px;
-		width: 35vw;
+		width: 350px;
 		margin-right: 30px;
 		margin-left: 30px;
 		margin-bottom: 40px;
@@ -67,7 +79,6 @@
 	
 	.logo{
 	
-		margin-left: 70px;
 	}
 
 }
@@ -79,12 +90,8 @@
 	.index_categories li, .logo{
 		height: 50vw;
 		width: 60vw;
-		
-
-
 }
 
 }
 
-body.root.index .app-footer {
-}
+
