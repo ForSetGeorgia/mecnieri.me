@@ -8,6 +8,7 @@ ka:
         is_active: Is Public?
         experiment_ids: Experiments
         color_hex: Color
+        logo: Logo
     models:
       category:
         one: Category

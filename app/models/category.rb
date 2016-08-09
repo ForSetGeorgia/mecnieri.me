@@ -13,6 +13,11 @@
 class Category < AddMissingTranslation
 
   #######################
+  ## ATTACHED FILE
+  has_attached_file :logo,
+                    :url => "/system/categories/:id/:filename"
+
+  #######################
   ## TRANSLATIONS
 
   translates :title, :description, :slug, :fallbacks_for_empty_translations => true
@@ -28,6 +33,9 @@ class Category < AddMissingTranslation
   ## VALIDATIONS
 
   validates :title, :color_hex, presence: :true, uniqueness: :true
+  validates_attachment :logo,
+    content_type: { content_type: ["image/svg+xml"] },
+    size: { in: 0..300.kilobytes }
 
   #######################
   ## SLUG DEFINITION (friendly_id)

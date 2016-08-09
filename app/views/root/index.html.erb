@@ -11,6 +11,8 @@
     <% @categories.each do |category| %>
       <li>
         <%= link_to experiments_path(category: category.slug), class: 'index_text' do %>
+          <%= image_tag(category.logo.url) %>
+          <br />
           <%= category.title %>
         <% end %>
       </li>
