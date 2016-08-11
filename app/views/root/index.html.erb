@@ -1,4 +1,5 @@
 
+<!-- uses index_categories.scss -->
 <div class = "index_categories">
 
 
@@ -10,8 +11,9 @@
 
     <% @categories.each do |category| %>
       <li>
-        <%= link_to experiments_path(category: category.slug), class: 'index_text' do %>
-          <%= image_tag(category.logo.url) %>
+        <!-- had to put image first, then text. couldn't find a good way to position them if they were in reverse order -->
+          <%= image_tag(category.logo.url, class: 'categoty_image') %>
+          <%= link_to experiments_path(category: category.slug), class: 'index_text' do %>
           <br />
           <%= category.title %>
         <% end %>
