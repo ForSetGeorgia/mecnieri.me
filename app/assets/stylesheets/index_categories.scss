@@ -46,10 +46,12 @@ width:98vw;
 .index_text {
   z-index: 100;
   position: absolute;
-  left: 130px;
+  
   top: 240px;
   font-size: 38px;
   color:inherit;
+  left: 50%;
+  transform: translateX(-50%);
 }
 /* hover*/
 .index_categories li:hover {
@@ -70,8 +72,10 @@ width:98vw;
 
 .logo_image{
   position: absolute;
-  left: 0;
-  top: 0;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  
 }
 
 

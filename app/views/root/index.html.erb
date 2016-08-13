@@ -6,17 +6,14 @@
 <% if @categories.present? %>
   <ul class="categories_main">
       <li class = "logo">
-        <%= link_to image_tag('Logo_mecnieri.svg', class: 'logo_image') %>
+        <%= image_tag('Logo_mecnieri.svg', class: 'logo_image') %>
       </li>
 
     <% @categories.each do |category| %>
       <li>
         <!-- had to put image first, then text. couldn't find a good way to position them if they were in reverse order -->
-          <%= image_tag(category.logo.url, class: 'categoty_image') %>
-          <%= link_to experiments_path(category: category.slug), class: 'index_text' do %>
-          <br />
-          <%= category.title %>
-        <% end %>
+          <%= link_to(image_tag(category.logo.url, class: 'categoty_image'), experiments_path(category: category.slug))%>
+          <%= link_to category.title, experiments_path(category: category.slug), class: 'index_text' %>          
       </li>
     <% end %>
   </ul>

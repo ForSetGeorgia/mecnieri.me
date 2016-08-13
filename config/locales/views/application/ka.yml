@@ -2,7 +2,7 @@
 ka:
   application:
     navbar_header:
-      about: About
+      about: შესახებ
       account:
         edit_profile: პროფილის შეცვლა
         logout: გასვლა
