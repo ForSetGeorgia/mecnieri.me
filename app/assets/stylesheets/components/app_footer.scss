@@ -19,12 +19,12 @@ body {
   height: $footer-height;
 
 }
-
-  .app-footer-left {
-    float: left;
-    margin: 0;
-  }
-
   .app-footer-right {
     float: right;
+  }
+
+  .app-footer-left {
+    float: right;
+    margin: 0;
+    margin-right: 10px;
   }
