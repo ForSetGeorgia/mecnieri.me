@@ -30,9 +30,6 @@ width:98vw;
   margin-bottom: 25px;
 	color: #2D1E49;
 	text-align: center;
-}
-
-.index_categories li {
   height: 359.662px;
   width: 442.212px;
   position: relative;
@@ -61,13 +58,21 @@ width:98vw;
 	text-decoration: none;
 	color:inherit;
 }
+/* manages the text paragraph of the logo, seperate class because of seperate hover */
+.logo .logo-text {
+  z-index: 100;
+  position: absolute;
+  top: 260px;
+  text-align: center;
+  font-size: 13px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #2D1E49;
 
-
+}
 /* logo div */
 
-.index_categories .logo{
-	text-align: left;
-}
+
 /* logo image*/
 
 .logo_image{
@@ -79,15 +84,7 @@ width:98vw;
 }
 
 
-/* adjusting margins for medium sized window*/
-@media (max-width: 1520px){
 
-  .index_categories li, .logo{
-    /* not sure if calc function works*/
-  	margin-left: calc((100vw-1326px)/6);
-  	margin-right:calc((100vw-1326px)/6);
-  }
-}
 /* smartphone size, because icons are so large most margins removed*/
 
 @media (max-width: 500px){
