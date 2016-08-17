@@ -5,6 +5,8 @@ html {
 
 body {
   margin-bottom: $footer-height;
+  
+
 }
 
 .app-footer {
@@ -15,13 +17,14 @@ body {
   padding: 7px 20px 0;
   color: #4f4f4f;
   height: $footer-height;
+
 }
-
-  .app-footer-left {
-    float: left;
-    margin: 0;
-  }
-
   .app-footer-right {
     float: right;
+  }
+
+  .app-footer-left {
+    float: right;
+    margin: 0;
+    margin-right: 10px;
   }

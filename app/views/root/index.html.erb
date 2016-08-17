@@ -1,13 +1,24 @@
 
+<!-- uses index_categories.scss -->
+<div class = "index_categories">
+
+
 <% if @categories.present? %>
-  <ul class="list-inline">
+  <ul class="categories_main">
+      <li class = "logo">
+        <%= image_tag('Logo_mecnieri.svg', class: 'logo_image') %>
+
+        <!-- hard-coded; will probably have to be fixed         -->
+        <p class="logo-text">
+          <%= t('.about').html_safe %>
+        </p>
+      </li>
+
     <% @categories.each do |category| %>
       <li>
-        <%= link_to experiments_path(category: category.slug), class: 'btn btn-default' do %>
-          <%= image_tag(category.logo.url) %>
-          <br />
-          <%= category.title %>
-        <% end %>
+        <!-- had to put image first, then text. couldn't find a good way to position them if they were in reverse order -->
+          <%= link_to(image_tag(category.logo.url, class: 'categoty_image'), experiments_path(category: category.slug))%>
+          <%= link_to category.title, experiments_path(category: category.slug), class: 'index_text' %>
       </li>
     <% end %>
   </ul>
@@ -16,3 +27,4 @@
     <%= t('shared.common.no_experiments') %>
   </p>
 <% end %>
+</div>
