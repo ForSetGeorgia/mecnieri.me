@@ -3,19 +3,18 @@ ka:
   activerecord:
     attributes:
       experiment:
-        title: Title
-        intro: Introduction
-        explanation: Explanation
-        warning: Warning
-        needs_adult_supervision: Needs Adult Suppervision?
-        is_active: Is Public?
-        category_ids: Categories
-        ingredients: Ingredients
-        directions: Directions
-        thumbnail1: Initial Thumbnail
-        thumbnail2: Hover Thumbnail
-        thumbnails: Thumbnail Images
+        intro: შესავალი
+        explanation: აღწერა
+        warning: გაფრთხილება
+        needs_adult_supervision: საჭიროებს უფროსის მეთვალყურებოას?
+        is_active: გამოქვეყნებულია?
+        category_ids: კატეგორიები
+        ingredients: ინგრედიენტები
+        directions: დირექტივები
+        thumbnail1: მთავარი გამოსახულება
+        thumbnail2: ჰავერ გამოსახულება
+        thumbnails: სურათი გამოსახულებისთვის
     models:
       experiment:
-        one: Experiment
-        other: Experiments
+        one: ექსპერიმენტი
+        other: ექსპერიმენტები
