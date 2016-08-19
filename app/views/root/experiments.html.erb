@@ -1,21 +1,29 @@
 <% page_title t('.title') %>
-
+<div class ="exp-categories">
 <% if @categories.present? %>
-  <ul class="list-inline">
+  <ul class="lcategories_main">
+    <li class = "logo">
+        <%= image_tag('Logo_mecnieri.svg', class: 'logo_image') %>
+    </li>
     <% @categories.each do |category| %>
-      <li>
-        <%= link_to params.merge(category: category.slug),  class: params[:category] == category.slug ? 'btn btn-primary' : 'btn btn-default' do %>
-          <%= image_tag(category.logo.url, width: '15%') %>
+      <li class = "categories-list">
+        <%= link_to params.merge(category: category.slug),  class: params[:category] == category.slug ? 'cat' : 'cat' do %>
+        <div class="categoty_image">
+          <%= image_tag(category.logo.url, width: '120px') %>
+          </div>
+          <div class="index_text">
           <br />
           <%= category.title %>
         <% end %>
+          </div>
       </li>
     <% end %>
   </ul>
 <% end %>
+</div>
 
 <hr />
-
+<div class="exp-list">
 <% if @experiments.present? %>
   <ul>
     <% @experiments.each do |experiment| %>
@@ -42,3 +50,4 @@
     <%= t('shared.common.no_experiments_match') %>
   </p>
 <% end %>
+</div>

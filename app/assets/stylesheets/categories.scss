@@ -1,0 +1,51 @@
+body.root.experiments .container {
+	padding: 0px;
+	width: 90vw;
+}
+body.root.experiments .container .main {
+	width: 20%;
+	height: 100px;
+}
+
+body.root.experiments .exp-categories li{
+  display: inline-block;
+  margin: 15px;
+  margin-top: 5px;
+  margin-bottom: 2px;
+  color: #2D1E49;
+  text-align: center;
+  height: 110px;
+  width: 120px;
+  position: relative;
+  text-align: center;
+}
+body.root.experiments .exp-categories .categoty_image {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+body.root.experiments .exp-categories .index_text {
+  z-index: 100;
+  position: absolute;
+  top: 45px;
+  font-size: 16px;
+  color:inherit;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+body.root.experiments .exp-categories .logo_image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 90px;
+}
+
+body.root.experiments .exp-categories .categories-list {
+	margin-right: 4vw;
+	margin-left: 4vw;
+}
+body.root.experiments .exp-list li{
+
+}
