@@ -84,7 +84,7 @@
             </tr>
           </thead>
           <tbody>
-            <% object.directions.sorted.each do |dir, dir_index| %>
+            <% object.directions.sorted.each_with_index do |dir, dir_index| %>
               <%= f.semantic_fields_for :directions, dir do |direction| %>
                 <%= render partial: 'direction_fields', locals: {f: direction, object: dir, dir_index: dir_index, enabled_locale: enabled_locale} %>
               <% end %>
