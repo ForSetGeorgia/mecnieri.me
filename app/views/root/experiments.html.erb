@@ -9,7 +9,7 @@
       <li class = "categories-list">
         <%= link_to params.merge(category: category.slug),  class: params[:category] == category.slug ? 'cat' : 'cat' do %>
         <div class="categoty_image">
-          <%= image_tag(category.logo.url, width: '120px') %>
+          <%= image_tag(category.logo.url, width: '110px') %>
           </div>
           <div class="index_text">
           <br />
@@ -30,15 +30,15 @@
       <li>
         <%= link_to experiment_path(experiment) do %>
           <% if experiment.thumbnail1.exists? %>
-            <div>
+            <div class="exp-thumbnail">
               <%= image_tag(experiment.thumbnail1.url('big'), alt: experiment.title) %>
               <%= image_tag(experiment.thumbnail2.url('big'), alt: experiment.title) %>
             </div>
           <% end %>
-          <div>
+          <div class="exp-title">
             <%= experiment.title %>
           </div>
-          <div>
+          <div class="exp-description">
             <%= truncate(strip_tags_nbsp(experiment.intro), length: 100) %>
           </div>
         <% end %>
