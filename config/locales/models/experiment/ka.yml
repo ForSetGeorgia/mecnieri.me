@@ -3,6 +3,7 @@ ka:
   activerecord:
     attributes:
       experiment:
+        title: სათაური
         intro: შესავალი
         explanation: აღწერა
         warning: გაფრთხილება
