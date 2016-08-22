@@ -35,11 +35,13 @@
               <%= image_tag(experiment.thumbnail2.url('big'), alt: experiment.title) %>
             </div>
           <% end %>
+          <div class="exp-text">
           <div class="exp-title">
             <%= experiment.title %>
           </div>
           <div class="exp-description">
             <%= truncate(strip_tags_nbsp(experiment.intro), length: 100) %>
+          </div>
           </div>
         <% end %>
       </li>
