@@ -27,6 +27,8 @@ en:
       no_experiments: At this time there are no experiments on file.
       no_experiments_match: No experiments match your search request.
       search: Search Experiments
+      'no': 'No'
+      'yes': 'Yes'
     links:
       page_contents: Edit Page Text
       admin: Admin Section
