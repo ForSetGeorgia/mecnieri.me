@@ -7,6 +7,15 @@ function updateTableIndex(tables){
   });
 }
 
+// update the index value of the add button in the image rows
+function updateImageRowAddButtons(){
+  var $rows = $('.js-cocoon .tab-pane:first table.table-images > tbody > tr');
+  for (var i=0;i<$rows.length;i++){
+    $($rows[i]).find('> td:last table tfoot a.add_fields').attr('data-association-insertion-node', '#translation-ka table.table-direction-images:eq(' + i + ') tbody');
+  }
+}
+
+
 // move a row in other tables to match the row that was just moved
 function moveRowInOtherTables(current_tab_pane, table_data_type, original_index, move_direction){
   var $tab_panes = current_tab_pane.closest('.js-cocoon').find('.tab-pane');
@@ -26,11 +35,31 @@ function moveRowInOtherTables(current_tab_pane, table_data_type, original_index,
         }
       }
     }
+
   });
+
+  // if this is the directions table,
+  // also move the rows in the images table in the first pane
+  if (table_data_type == 'directions'){
+    var $table_body = $('.js-cocoon .tab-pane:first table.table-images > tbody');
+    var $rows = $table_body.find(' > tr');
+    var $row_to_move = $table_body.find(' > tr:eq(' + original_index + ')');
+
+    if ($row_to_move.length > 0){
+
+      if (move_direction == 'up'){
+        $row_to_move.insertBefore($rows[original_index-1]);
+      }else{
+        $row_to_move.insertAfter($rows[original_index+1]);
+      }
+    }
+
+    // now make sure the add buttons all have the correct index
+    updateImageRowAddButtons();
+  }
+
+
 }
-
-
-
 
 function setupExperimentCocoon(){
   // add ingredient
@@ -92,6 +121,15 @@ function setupExperimentCocoon(){
       $('.js-cocoon .tab-pane[data-locale="' + page_locales[i] + '"] table.table-directions tbody').append($(row));
     }
 
+    // add the row to the images table in the first tab
+    // - copy the first row and strip out the content
+    var new_row = $('.js-cocoon .tab-pane:first table.table-images > tbody > tr:first').clone();
+    $(new_row).find('td:first').html('');
+    $(new_row).find('> td:last table tbody').html('');
+    var num_rows = $('.js-cocoon .tab-pane:first table.table-images > tbody > tr').length;
+    $(new_row).find('> td:last table tfoot a.add_fields').attr('data-association-insertion-node', '#translation-ka table.table-direction-images:eq(' + num_rows + ') tbody');
+    $('.js-cocoon .tab-pane:first table.table-images > tbody').append($(new_row));
+
     // update the row directions
     updateTableIndex($(this).closest('.js-cocoon').find('.tab-pane table.table-directions tbody'));
   });
@@ -109,6 +147,25 @@ function setupExperimentCocoon(){
       // hide row
       $(row).fadeOut();
     });
+  });
+
+
+  // add direction image
+  $('.js-cocoon .tab-pane').on('cocoon:after-insert', 'table.table-direction-images', function(e, insertedItem) {
+    // update the row direction
+    updateTableIndex($(this).closest('.js-cocoon').find('.tab-pane table.table-direction-images tbody'));
+  });
+
+
+  // when enter directions text, make sure it appears in the direction images too
+  // get the row index and then add the text to the same row in the images table
+  $('.js-cocoon .tab-pane:first table.table-directions').on('change', 'textarea', function(){
+    var $row = $(this).closest('tr');
+    var row_index = $(this).closest('tbody').find('tr').index($row);
+    var text = $(this).val();
+
+    $('.js-cocoon .tab-pane:first table.table-images > tbody > tr:eq(' + row_index + ') > td:first').html(text);
+
   });
 }
 

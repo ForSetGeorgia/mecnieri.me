@@ -27,11 +27,19 @@
 <ul>
 <% @experiment.directions.sorted.each do |dir| %>
   <li style="margin-top: 20px;">
-    <% if dir.image.exists? %>
-      <%= image_tag(dir.image.url('big')) %>
-      <br />
-    <% end %>
-    <%= simple_format_no_tags(dir.content) %>
+    <% if dir.images.present? %>
+      <ul>
+        <% dir.images.each do |img| %>
+          <% if img.image.exists? %>
+            <li>
+              <%= image_tag(img.image.url('big')) %>
+            </li>
+            <br />
+          <% end %>
+        <% end %>
+      </ul>
+   <% end %>
+   <%= simple_format_no_tags(dir.content) %>
   </li>
 <% end %>
 </ul>

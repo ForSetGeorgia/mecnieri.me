@@ -95,7 +95,7 @@ class Experiment < AddMissingTranslation
   scope :sorted, -> { with_translations(I18n.locale).order(:title) }
   scope :latest, -> { with_translations(I18n.locale).order(active_at: :desc, title: :asc)}
   scope :with_ingredients, -> {includes(ingredients: [:translations] )}
-  scope :with_directions, -> {includes(directions: [:translations] )}
+  scope :with_directions, -> {includes(directions: [:translations, :images] )}
 
   def self.by_category(category_scope)
     if category_scope.present?

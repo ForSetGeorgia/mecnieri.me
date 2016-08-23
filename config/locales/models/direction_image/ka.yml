@@ -1,0 +1,11 @@
+---
+ka:
+  activerecord:
+    attributes:
+      direction_image:
+        image: გამოსახულება
+        sort_order: თანმიმდევრობის რედაქტირება
+    models:
+      direction_image:
+        one: Direction Image
+        other: Direction Images

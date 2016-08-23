@@ -78,7 +78,11 @@ class Admin::ExperimentsController < ApplicationController
     def experiment_params
       permitted = Experiment.globalize_attribute_names + [
         :is_active, :needs_adult_supervision, :thumbnail1, :thumbnail2, category_ids: [],
-        directions_attributes: [Direction.globalize_attribute_names + [:id, :_destroy, :image, :sort_order, :experiment_id]],
+        directions_attributes: [
+          Direction.globalize_attribute_names +
+          [:id, :_destroy, :image, :sort_order, :experiment_id],
+          images_attributes: [:id, :_destroy, :image, :sort_order, :direction_id]
+        ],
         ingredients_attributes: [Direction.globalize_attribute_names + [:id, :_destroy, :sort_order, :experiment_id]]
       ]
       params.require(:experiment).permit(*permitted)

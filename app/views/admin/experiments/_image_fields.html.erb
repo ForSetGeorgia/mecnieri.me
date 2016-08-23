@@ -1,0 +1,35 @@
+<%
+  object ||= nil
+  # if the img_index is not provided, default to 'new_images' so the cocoon gem can replace it with a random index number
+  dir_index ||= 0
+  img_index ||= 'new_images'
+%>
+<tr class="nested-fields">
+  <td>
+    <div>
+      <a class="move-up" href="#" title="<%= t('shared.move_row.up')%>"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></a>
+      <a class="move-down" href="#" title="<%= t('shared.move_row.down')%>"><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></a>
+    </div>
+    <div class="delete-direction">
+      <%= link_to_remove_association t('shared.actions.destroy'), f,
+            data: { confirm: t('shared.prompts.confirm') },
+            class: 'btn btn-danger' %>
+    </div>
+  </td>
+  <td class="js-has-sort-order">
+    <div class="hidden input optional form-group" id="experiment_directions_attributes_<%= dir_index %>_images_attributes_<%= img_index %>_sort_order_input">
+      <span class="form-wrapper">
+        <input id="experiment_directions_attributes_<%= dir_index %>_images_attributes_<%= img_index %>_sort_order" class="sort-order" value="<%= object.sort_order if object.present?%>" name="experiment[directions_attributes][<%= dir_index %>][images_attributes][<%= img_index %>][sort_order]" type="hidden">
+      </span>
+    </div>
+
+    <div class="file input optional form-group" id="experiment_directions_attributes_<%= dir_index %>_images_attributes_<%= img_index %>_image_input">
+      <% if object.present? && object.image.exists? %>
+        <%= image_tag(object.image.url('small')) %>
+      <% end %>
+      <span class="form-wrapper">
+        <input accept=".jpg,.jpeg,.png,.gif" id="experiment_directions_attributes_<%= dir_index %>_images_attributes_<%= img_index %>_image" name="experiment[directions_attributes][<%= dir_index %>][images_attributes][<%= img_index %>][image]" type="file">
+      </span>
+    </div>
+  </td>
+</tr>
