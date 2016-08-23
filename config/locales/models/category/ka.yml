@@ -3,13 +3,13 @@ ka:
   activerecord:
     attributes:
       category:
-        title: Title
-        description: Description
-        is_active: Is Public?
-        experiment_ids: Experiments
-        color_hex: Color
-        logo: Logo
+        title: სათაური
+        description: აღწერა
+        is_active: გამოქვეყნებულია?
+        experiment_ids: ექსპერიმენტები
+        color_hex: ფერები
+        logo: ლოგო
     models:
       category:
-        one: Category
-        other: Categories
+        one: კატეგორია
+        other: კატეგორიები

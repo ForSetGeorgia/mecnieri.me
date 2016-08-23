@@ -1,6 +1,8 @@
 ---
 en:
   root:
+    index:
+      about: ექსპერიმენტები განკუთვნილია<br />12 წლამდე ასაკის ბავშვებისთვის.<br /><strong>სცადე, მარტივია!</strong>
     about:
       title: About
     experiments:

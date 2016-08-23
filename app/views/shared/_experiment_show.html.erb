@@ -1,0 +1,57 @@
+<% if @experiment.category_ids.present? %>
+  <div>
+    <% @experiment.categories.each do |cat| %>
+      <%= link_to cat.title, experiments_path(category: cat.slug) %>
+    <% end %>
+  </div>
+<% end %>
+
+<div>
+  <%= @experiment.intro %>
+</div>
+
+<h3><%= t('activerecord.models.ingredient', count: 999) %></h3>
+<ul>
+  <% @experiment.ingredients.sorted.each do |ing| %>
+    <li><%= ing.content %></li>
+  <% end %>
+</ul>
+
+<% if @experiment.needs_adult_supervision %>
+  <div>
+    needs_adult_supervision
+  </div>
+<% end %>
+
+<h3><%= t('activerecord.models.direction', count: 999) %></h3>
+<ul>
+<% @experiment.directions.sorted.each do |dir| %>
+  <li style="margin-top: 20px;">
+    <% if dir.images.present? %>
+      <ul>
+        <% dir.images.each do |img| %>
+          <% if img.image.exists? %>
+            <li>
+              <%= image_tag(img.image.url('big')) %>
+            </li>
+            <br />
+          <% end %>
+        <% end %>
+      </ul>
+   <% end %>
+   <%= simple_format_no_tags(dir.content) %>
+  </li>
+<% end %>
+</ul>
+
+<% if @experiment.warning.present? %>
+  <h3><%= t('activerecord.attributes.experiment.warning') %></h3>
+  <div>
+    <%= simple_format_no_tags(@experiment.warning) %>
+  </div>
+<% end %>
+
+<h3><%= t('activerecord.attributes.experiment.explanation') %></h3>
+<div>
+  <%= simple_format_no_tags(@experiment.explanation) %>
+</div>

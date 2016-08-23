@@ -15,17 +15,17 @@
 
 class Direction < AddMissingTranslation
   #######################
-  ## ATTACHED FILE
-  has_attached_file :image,
-                    :url => "/system/directions/:id/:style.:extension",
-                    :styles => {
-                        :'big' => {:geometry => "650x400#"},
-                        :'small' => {:geometry => "130x80#"}
-                    },
-                    :convert_options => {
-                      :'big' => '-quality 85',
-                      :'small' => '-quality 85'
-                    }
+  # ## ATTACHED FILE
+  # has_attached_file :image,
+  #                   :url => "/system/directions/:id/:style.:extension",
+  #                   :styles => {
+  #                       :'big' => {:geometry => "650x400#"},
+  #                       :'small' => {:geometry => "130x80#"}
+  #                   },
+  #                   :convert_options => {
+  #                     :'big' => '-quality 85',
+  #                     :'small' => '-quality 85'
+  #                   }
 
   #######################
   ## TRANSLATIONS
@@ -38,14 +38,16 @@ class Direction < AddMissingTranslation
   #######################
   ## RELATIONSHIPS
   belongs_to :experiments
+  has_many :images, class_name: 'DirectionImage', dependent: :destroy
+  accepts_nested_attributes_for :images, :reject_if => lambda { |x| x[:image].blank?}, allow_destroy: true
 
   #######################
   ## VALIDATIONS
 
   validates :content, :sort_order, presence: :true
-  validates_attachment :image,
-    content_type: { content_type: ["image/jpeg", "image/png", "image/gif"] },
-    size: { in: 0..4.megabytes }
+  # validates_attachment :image,
+  #   content_type: { content_type: ["image/jpeg", "image/png", "image/gif"] },
+  #   size: { in: 0..4.megabytes }
 
   #######################
   ## SCOPES

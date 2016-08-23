@@ -1,0 +1,11 @@
+---
+en:
+  activerecord:
+    attributes:
+      direction_image:
+        image: Image
+        sort_order: Sort Order
+    models:
+      direction:
+        one: Direction Image
+        other: Direction Images

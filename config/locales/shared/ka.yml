@@ -22,16 +22,16 @@ ka:
       actions: მოქმედებები
       jumpstart:
         slogan: JumpStart Georgia - ჩვენ გაწვდით ინფორმაციას მონაცემებით და დიზაინით
-      name: მეწნიერი.მე
-      description: This is a description of the project that will appear in the meta tags.
-      no_experiments: At this time there are no experiments on file.
-      no_experiments_match: No experiments match your search request.
-      search: Search Experiments
+      name: მეცნიერი.მე
+      description: ექსპერიმენტები განკუთვნილია 12 წლამდე ასაკის ბავშვებისთვის. სცადე, მარტივია!
+      no_experiments: ამ დროისთვის ფაილში არ მოიძებნა არცერთი ექსპერიმენტი.
+      no_experiments_match: ძიების შედეგად ექსპერიმენტი ვერ მოიძებნა.
+      search: ექსპერიმენტების მოძებნა
     links:
       page_contents: გვერდის ტექსტის რედაქტირება
       admin: ადმინის სექცია
-      categories: Categories
-      experiments: Experiments
+      categories: კატეგორიები
+      experiments: ექსპერიმენტები
     labels:
       translated_field: "%{field} (%{language})"
       model_object_title: '%{label}: %{label_value}'
@@ -52,5 +52,5 @@ ka:
       confirm: დარწმუნებული ხართ?
       forgot_password: დაგავიწყდათ პაროლი?
     move_row:
-      up: Move the row up
-      down: Move the row down
+      up: ველის ზემოთ აწევა
+      down: ველის ქვემოთ ჩამოწევა

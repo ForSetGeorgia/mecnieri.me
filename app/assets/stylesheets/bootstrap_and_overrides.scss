@@ -61,3 +61,8 @@
 
 // Make gray-light a bit lighter
 $gray-light: lighten($gray-base, 70%);
+
+// make sure the text at the bottom is not covered by the footer
+main{
+  margin-bottom: 50px;
+}
