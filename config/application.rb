@@ -35,7 +35,7 @@ module StarterTemplate
 
     config.i18n.default_locale = :ka
 
-    config.i18n.available_locales = [:ka]
+    config.i18n.available_locales = [:ka, :en]
 
     config.i18n.fallbacks = true
 

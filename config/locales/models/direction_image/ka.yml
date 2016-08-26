@@ -2,11 +2,10 @@
 ka:
   activerecord:
     attributes:
-      direction:
-        content: ტექსტი
+      direction_image:
         image: გამოსახულება
         sort_order: თანმიმდევრობის რედაქტირება
     models:
-      direction:
-        one: აღწერა
-        other: აღწერები
+      direction_image:
+        one: Direction Image
+        other: Direction Images

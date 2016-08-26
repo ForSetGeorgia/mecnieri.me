@@ -10,7 +10,7 @@
 
         <!-- hard-coded; will probably have to be fixed         -->
         <p class="logo-text">
-          ექსპერიმენტები განკუთვნილია <br>  12 წლამდე ასაკის ბავშვებისთვის.<br>  <b>სცადე, მარტივია!</b>
+          <%= t('.about').html_safe %>
         </p>
       </li>
 
@@ -18,7 +18,7 @@
       <li>
         <!-- had to put image first, then text. couldn't find a good way to position them if they were in reverse order -->
           <%= link_to(image_tag(category.logo.url, class: 'categoty_image'), experiments_path(category: category.slug))%>
-          <%= link_to category.title, experiments_path(category: category.slug), class: 'index_text' %>          
+          <%= link_to category.title, experiments_path(category: category.slug), class: 'index_text' %>
       </li>
     <% end %>
   </ul>

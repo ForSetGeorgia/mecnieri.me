@@ -8,6 +8,7 @@ class CreateDirections < ActiveRecord::Migration
     end
 
     add_attachment :directions, :image
+    add_index :directions, :experiment_id
     add_index :directions, :sort_order
 
     Direction.create_translation_table! content: :text
