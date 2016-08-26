@@ -129,7 +129,23 @@ body.root.experiments .exp-list li{
   background-color: red;
 }
 
-body.root.experiments .exp-list .exp-thumbnail{
+body.root.experiments .exp-list .exp-thumbnail1{
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  height: 265px;
+  background-color: black;
+}
+
+body.root.experiments .exp-list li:hover .exp-thumbnail1{
+  display: none;
+}
+body.root.experiments .exp-list li .exp-thumbnail2{
+  display: none;
+}
+body.root.experiments .exp-list li:hover .exp-thumbnail2{
+  display: block;
   position: absolute;
   left: 0;
   top: 0;
