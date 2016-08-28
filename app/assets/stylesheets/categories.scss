@@ -1,15 +1,32 @@
+/* adjusting compnents for the categories page*/
+
 body.root.experiments .container {
 	padding: 0px;
-	width: 90vw;
+	width: 95vw;
 }
 body.root.experiments .container .main {
 	width: 20%;
 	height: 100px;
 }
+body.root.experiments .navbar-brand{
+  display: none;
+}
+body.root.experiments .navbar-default {
+    background-color: transparent;
+    border-color: transparent;
+    border: 0;
+}
+
+body.root.experiments .app-footer {
+  background-color: transparent;
+}
+
+/* styling for "categories" bar */
 
 body.root.experiments .exp-categories ul{
   text-align: center;
 }
+
 body.root.experiments .exp-categories li{
   display: inline-block;
   margin: 15px;
@@ -22,11 +39,13 @@ body.root.experiments .exp-categories li{
   position: relative;
   text-align: center;
 }
+
 body.root.experiments .exp-categories .categoty_image {
   position: absolute;
   left: 0;
   top: 0;
 }
+
 body.root.experiments .exp-categories .index_text {
   z-index: 100;
   position: absolute;
@@ -63,6 +82,7 @@ body.root.experiments .exp-categories .index_text a:hover{
   color:inherit;
 }
 
+/* adjusting sizes to have elements in single row (column for mobile)*/
 
 @media (max-width: 1600px) {
   body.root.experiments .exp-categories .categories-list {
@@ -114,7 +134,16 @@ body.root.experiments .exp-categories .index_text a:hover{
 
 }
 
+/* styling for experiments*/
 
+body.root.experiments .exp-categories .seled .index_text{
+  color: inherit;
+}
+
+/* smaller sized experiments*/
+body.root.experiments .exp-list{
+  text-align: center;
+}
 body.root.experiments .exp-list li{
   display: inline-block;
   margin: 15px;
@@ -127,6 +156,12 @@ body.root.experiments .exp-list li{
   position: relative;
   text-align: center;
 }
+
+body.root.experiments .exp-list .big {
+    width: 600px;
+    height: 605px;
+}
+
 
 body.root.experiments .exp-list .exp-thumbnail1{
   position: absolute;
@@ -176,4 +211,42 @@ body.root.experiments .exp-list .exp-description{
   display: block;
   background-color: white;
   color: black;
+}
+/* larger sized experiments*/
+body.root.experiments .exp-list .big {
+    width: 600px;
+    height: 605px;
+}
+body.root.experiments .exp-list .big .exp-thumbnail1 {
+  height: 400px;
+}
+
+body.root.experiments .exp-list .big:hover .exp-thumbnail2 {
+  height: 400px;
+}
+
+body.root.experiments .exp-list .big .exp-text {
+  width: 350px;
+  top: 370px;
+}
+
+/* under 1450px making all experiments same size */
+@media (max-width: 1450px) {
+  body.root.experiments .exp-list .big {
+    height: 430px;
+    width: 426px;
+
+}
+body.root.experiments .exp-list .big .exp-thumbnail1 {
+  height: 284px;
+}
+
+body.root.experiments .exp-list .big:hover .exp-thumbnail2 {
+  height: 284px;
+}
+
+body.root.experiments .exp-list .big .exp-text {
+  width:240px;
+  top: 260px;
+}
 }

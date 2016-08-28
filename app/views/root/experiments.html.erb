@@ -10,9 +10,10 @@
     <% @categories.each do |category| 
       if params[:category] == category.slug 
         title_color = category.color_hex
-        class_name = '1'
+        class_name = 'seled'
       else
-        class_name = '2'
+        class_name = 'unseled'
+        color = '#000'
         end
       %>
       <li class = "categories-list">
@@ -31,7 +32,6 @@
 <% end %>
 </div>
 
-<hr />
 <div class="exp-list">
 <% if @experiments.present? %>
   <ul>
