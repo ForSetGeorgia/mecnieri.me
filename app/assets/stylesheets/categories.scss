@@ -122,11 +122,10 @@ body.root.experiments .exp-list li{
   margin-bottom: 25px;
   color: #2D1E49;
   text-align: center;
-  height: 400px;
-  width: 442.212px;
+  height: 430px;
+  width: 426px;
   position: relative;
   text-align: center;
-  background-color: red;
 }
 
 body.root.experiments .exp-list .exp-thumbnail1{
@@ -134,8 +133,9 @@ body.root.experiments .exp-list .exp-thumbnail1{
   left: 0;
   top: 0;
   display: block;
-  height: 265px;
   background-color: black;
+  height: 284px;
+
 }
 
 body.root.experiments .exp-list li:hover .exp-thumbnail1{
@@ -150,11 +150,12 @@ body.root.experiments .exp-list li:hover .exp-thumbnail2{
   left: 0;
   top: 0;
   display: block;
-  height: 265px;
+  height: 284px;
   background-color: black;
 }
 
 body.root.experiments .exp-list .exp-text {
+  width:240px;
   z-index: 100;
   position: absolute;
   top: 260px;
@@ -168,6 +169,7 @@ body.root.experiments .exp-list .exp-title{
   display: block;
   background-color: green;
   color: white;
+  height: 54px;
 }
 
 body.root.experiments .exp-list .exp-description{
