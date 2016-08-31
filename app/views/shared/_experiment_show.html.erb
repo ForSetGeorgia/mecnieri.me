@@ -6,52 +6,60 @@
   </div>
 <% end %>
 
-<div>
+<div class="exp-intro">
   <%= @experiment.intro %>
 </div>
 
-<h3><%= t('activerecord.models.ingredient', count: 999) %></h3>
-<ul>
-  <% @experiment.ingredients.sorted.each do |ing| %>
-    <li><%= ing.content %></li>
+<div class="exp-ingredients">
+  <h3><%= t('activerecord.models.ingredient', count: 999) %></h3>
+  <ul>
+    <% @experiment.ingredients.sorted.each do |ing| %>
+      <li><%= ing.content %></li>
+    <% end %>
+  </ul>
+
+  <% if @experiment.needs_adult_supervision %>
+    <div class="exp-adult-supervision">
+      needs_adult_supervision
+    </div>
   <% end %>
-</ul>
+</div>
 
-<% if @experiment.needs_adult_supervision %>
-  <div>
-    needs_adult_supervision
-  </div>
-<% end %>
-
-<h3><%= t('activerecord.models.direction', count: 999) %></h3>
-<ul>
-<% @experiment.directions.sorted.each do |dir| %>
-  <li style="margin-top: 20px;">
-    <% if dir.images.present? %>
-      <ul>
-        <% dir.images.each do |img| %>
-          <% if img.image.exists? %>
-            <li>
-              <%= image_tag(img.image.url('big')) %>
-            </li>
-            <br />
+<div class="exp-directions">
+  <h3><%= t('activerecord.models.direction', count: 999) %></h3>
+  <ul>
+  <% @experiment.directions.sorted.each do |dir| %>
+    <li style="margin-top: 20px;">
+      <% if dir.images.present? %>
+        <ul>
+          <% dir.images.each do |img| %>
+            <% if img.image.exists? %>
+              <li>
+                <%= image_tag(img.image.url('big')) %>
+              </li>
+              <br />
+            <% end %>
           <% end %>
-        <% end %>
-      </ul>
-   <% end %>
-   <%= simple_format_no_tags(dir.content) %>
-  </li>
-<% end %>
-</ul>
+        </ul>
+     <% end %>
+     <%= simple_format_no_tags(dir.content) %>
+    </li>
+  <% end %>
+  </ul>
+</div>
 
 <% if @experiment.warning.present? %>
-  <h3><%= t('activerecord.attributes.experiment.warning') %></h3>
-  <div>
-    <%= simple_format_no_tags(@experiment.warning) %>
+  <div class="exp-warning">
+    <h3><%= t('activerecord.attributes.experiment.warning') %></h3>
+    <div>
+      <%= simple_format_no_tags(@experiment.warning) %>
+    </div>
   </div>
 <% end %>
 
-<h3><%= t('activerecord.attributes.experiment.explanation') %></h3>
-<div>
-  <%= simple_format_no_tags(@experiment.explanation) %>
+<div class="exp-explanation">
+  <h3><%= t('activerecord.attributes.experiment.explanation') %></h3>
+  <div>
+    <%= simple_format_no_tags(@experiment.explanation) %>
+  </div>
 </div>
