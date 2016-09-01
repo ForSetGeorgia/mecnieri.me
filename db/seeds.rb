@@ -50,11 +50,11 @@ if ENV['load_test_data'].present? && !Rails.env.production?
   path = "#{Rails.root}/db/test_data/"
 
   categories = []
-  categories << Category.create(title: 'ბიოლოგია', color_hex: '#98d84d', logo: File.open(path + 'category_images/biology.svg'))
-  categories << Category.create(title: 'ინჟინერია', color_hex: '#40b4f1', logo: File.open(path + 'category_images/engineering.svg'))
-  categories << Category.create(title: 'ასტრონომია', color_hex: '#5e439c', logo: File.open(path + 'category_images/astronomy.svg'))
-  categories << Category.create(title: 'ქიმია', color_hex: '#f9a334', logo: File.open(path + 'category_images/chemistry.svg'))
-  categories << Category.create(title: 'ფიზიკა', color_hex: '#576adc', logo: File.open(path + 'category_images/physics.svg'))
+  categories << Category.create(title: 'ბიოლოგია')
+  categories << Category.create(title: 'ინჟინერია')
+  categories << Category.create(title: 'ასტრონომია')
+  categories << Category.create(title: 'ქიმია')
+  categories << Category.create(title: 'ფიზიკა')
 
   if File.exists?(path + 'experiments.csv')
     puts 'CREATING EXPERIMENTS'

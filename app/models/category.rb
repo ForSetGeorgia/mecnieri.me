@@ -7,15 +7,9 @@
 #  slug       :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  color_hex  :string(255)
 #
 
 class Category < AddMissingTranslation
-
-  #######################
-  ## ATTACHED FILE
-  has_attached_file :logo,
-                    :url => "/system/categories/:id/:filename"
 
   #######################
   ## TRANSLATIONS
@@ -32,10 +26,7 @@ class Category < AddMissingTranslation
   #######################
   ## VALIDATIONS
 
-  validates :title, :color_hex, presence: :true, uniqueness: :true
-  validates_attachment :logo,
-    content_type: { content_type: ["image/svg+xml"] },
-    size: { in: 0..300.kilobytes }
+  validates :title, presence: :true, uniqueness: :true
 
   #######################
   ## SLUG DEFINITION (friendly_id)
@@ -51,7 +42,7 @@ class Category < AddMissingTranslation
 
   # for locale sensitive transliteration with friendly_id
   def normalize_friendly_id(input)
-    input.to_s.to_slug.normalize.to_s
+    input.to_s.to_slug.normalize(transliterations: :georgian).to_s
   end
 
   #######################

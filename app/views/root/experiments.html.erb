@@ -1,5 +1,4 @@
-<% page_title t('.title') 
-   title_color = '#000'
+<% page_title t('.title')
    %>
 <div class ="exp-categories">
 <% if @categories.present? %>
@@ -7,19 +6,17 @@
     <li class = "logo">
         <%= image_tag('Logo_mecnieri.svg', class: 'logo_image') %>
     </li>
-    <% @categories.each do |category| 
-      if params[:category] == category.slug 
-        title_color = category.color_hex
+    <% @categories.each do |category|
+      if params[:category] == category.slug
         class_name = 'seled'
       else
         class_name = 'unseled'
-        color = '#000'
-        end
+      end
       %>
       <li class = "categories-list">
         <%= link_to params.merge(category: category.slug),  class: class_name do %>
         <div class="categoty_image">
-          <%= image_tag(category.logo.url, width: '110px') %>
+          <%= image_tag(category_icon_path(category.slug), width: '110px') %>
           </div>
           <div class="index_text">
           <br />
@@ -41,11 +38,11 @@
       <li class='<%= class_name %>'>
         <%= link_to experiment_path(experiment) do %>
           <% if experiment.thumbnail1.exists? %>
-              <%= image_tag(experiment.thumbnail1.url('big'), alt: experiment.title, class: "exp-thumbnail1") %> 
+              <%= image_tag(experiment.thumbnail1.url('big'), alt: experiment.title, class: "exp-thumbnail1") %>
               <%= image_tag(experiment.thumbnail2.url('big'), alt: experiment.title, class: "exp-thumbnail2") %>
           <% end %>
           <div class="exp-text">
-          <div class="exp-title", style="background-color: <%= title_color %>">
+          <div class="exp-title category-background-color <%= params[:category] %>">
             <%= experiment.title %>
           </div>
           <div class="exp-description">

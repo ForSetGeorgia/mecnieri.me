@@ -35,10 +35,10 @@
         </td>
 
         <td>
-          <div style="background-color: <%= category.color_hex %>; width: 15px;">&nbsp;</div>
+          <div class="category-background-color <%= category.slug %>" style="width: 15px;">&nbsp;</div>
         </td>
         <td><%= category.title %></td>
-        <td><%= image_tag(category.logo.url, width: '15%') %></td>
+        <td><%= image_tag(category_icon_path(category.slug), width: '15%') %></td>
         <td><%= format_boolean_flag(category.is_active?) %></td>
 
         <td>
