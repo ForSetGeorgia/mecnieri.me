@@ -3,8 +3,8 @@
 <div class ="exp-categories">
 <% if @categories.present? %>
   <ul class="lcategories_main">
-    <li class = "logo">
-        <%= image_tag('Logo_mecnieri.svg', class: 'logo_image') %>
+    <li class="logo">
+      <%= link_to(inline_svg('Logo_mecnieri.svg', class: 'logo_image'), root_path) %>
     </li>
     <% @categories.each do |category|
       if params[:category] == category.slug
@@ -13,14 +13,14 @@
         class_name = 'unseled'
       end
       %>
-      <li class = "categories-list">
-        <%= link_to params.merge(category: category.slug),  class: class_name do %>
-        <div class="categoty_image">
-          <%= image_tag(category_icon_path(category.slug), width: '110px') %>
+      <li class = "categories-list <%= class_name %>">
+        <%= link_to params.merge(category: category.slug) do %>
+          <div class="categoty_image">
+            <%= inline_svg(category_icon_path(category.slug), width: '110px') %>
           </div>
           <div class="index_text">
-          <br />
-          <%= category.title %>
+            <br />
+            <%= category.title %>
           </div>
         <% end %>
       </li>

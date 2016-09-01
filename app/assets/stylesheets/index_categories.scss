@@ -15,7 +15,7 @@ body.root.index .navbar-default {
 }
 
 body.root.index .container {
-  
+
 width:98vw;
 }
 
@@ -43,7 +43,7 @@ body.root.index .categoty_image {
 body.root.index .index_text {
   z-index: 100;
   position: absolute;
-  
+
   top: 240px;
   font-size: 38px;
   color:inherit;
@@ -51,13 +51,18 @@ body.root.index .index_text {
   transform: translateX(-50%);
 }
 /* hover*/
-body.root.index .index_categories li:hover {
+body.root.index .index_categories li.category-item:hover {
 	color:#596dd5;
+  background-color: #666;
+ .index_text:hover{
+    text-decoration: none;
+    color:inherit;
+  }
+  svg{
+    background-color: #666;
+  }
 }
-body.root.index .index_text:hover{
-	text-decoration: none;
-	color:inherit;
-}
+
 /* manages the text paragraph of the logo, seperate class because of seperate hover */
 body.root.index .logo .logo-text {
   z-index: 100;
@@ -80,7 +85,7 @@ body.root.index .logo_image{
   top: 60px;
   left: 50%;
   transform: translateX(-50%);
-  
+
 }
 
 
@@ -95,11 +100,11 @@ body.root.index .logo_image{
 
   }
   body.root.index .container {
-  
+
 	width:100vw;
 	margin-left: 0px;
 	margin-right: 0px;
 	padding: 0px;
 }
- 
+
 }

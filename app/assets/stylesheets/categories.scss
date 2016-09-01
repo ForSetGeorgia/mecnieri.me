@@ -73,8 +73,22 @@ body.root.experiments .exp-categories .categories-list {
 	margin-left: 4vw;
 }
 
+body.root.experiments .exp-categories li.seled {
+  background-color: #999;
+  .index_text{
+    color: inherit;
+  }
+  svg{
+    background-color: #999;
+  }
+}
+
 body.root.experiments .exp-categories li:hover {
   color:#596dd5;
+  background-color: #666;
+  svg{
+    background-color: #666;
+  }
 }
 
 body.root.experiments .exp-categories .index_text a:hover{
@@ -134,11 +148,6 @@ body.root.experiments .exp-categories .index_text a:hover{
 
 }
 
-/* styling for experiments*/
-
-body.root.experiments .exp-categories .seled .index_text{
-  color: inherit;
-}
 
 /* smaller sized experiments*/
 body.root.experiments .exp-list{
