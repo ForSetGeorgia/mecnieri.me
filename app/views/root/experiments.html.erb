@@ -16,7 +16,7 @@
       <li class = "categories-list <%= class_name %>">
         <%= link_to params.merge(category: category.slug) do %>
           <div class="categoty_image">
-            <%= inline_svg(category_icon_path(category.slug), width: '110px') %>
+            <%= inline_svg(category_icon_path(category.slug)) %>
           </div>
           <div class="index_text">
             <br />

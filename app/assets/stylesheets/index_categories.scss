@@ -37,7 +37,8 @@ body.root.index .index_categories li{
 }
 body.root.index .categoty_image {
   position: absolute;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   top: 0;
 }
 body.root.index .index_text {

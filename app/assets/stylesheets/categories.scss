@@ -39,17 +39,21 @@ body.root.experiments .exp-categories li{
   position: relative;
   text-align: center;
 }
-
 body.root.experiments .exp-categories .categoty_image {
   position: absolute;
   left: 0;
   top: 0;
 }
+body.root.experiments .exp-categories .categoty_image svg {
+  width: 110px;
+  height: 98px;
+
+}
 
 body.root.experiments .exp-categories .index_text {
   z-index: 100;
   position: absolute;
-  top: 45px;
+  top: 70px;
   font-size: 16px;
   color:inherit;
   left: 50%;
@@ -65,7 +69,8 @@ body.root.experiments .exp-categories .logo_image {
   position: absolute;
   left: 0;
   top: 0;
-  width: 90px;
+  height: 110px;
+  width: 110px;
 }
 
 body.root.experiments .exp-categories .categories-list {
