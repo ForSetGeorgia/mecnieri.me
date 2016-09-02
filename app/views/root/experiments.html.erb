@@ -32,27 +32,11 @@
 <div class="exp-list">
 <% if @experiments.present? %>
   <ul>
-    <% @experiments.each_with_index  do |experiment, index|
-    class_name = index < 2 ? 'big': "smaller" %>
-
-      <li class='<%= class_name %>'>
-        <%= link_to experiment_path(experiment) do %>
-          <% if experiment.thumbnail1.exists? %>
-              <%= image_tag(experiment.thumbnail1.url('big'), alt: experiment.title, class: "exp-thumbnail1") %>
-              <%= image_tag(experiment.thumbnail2.url('big'), alt: experiment.title, class: "exp-thumbnail2") %>
-          <% end %>
-          <div class="exp-text">
-          <div class="exp-title category-background-color <%= params[:category] %>">
-            <%= experiment.title %>
-          </div>
-          <div class="exp-description">
-            <%= truncate(strip_tags_nbsp(experiment.intro), length: 100) %>
-          </div>
-          </div>
-        <% end %>
-      </li>
-    <% end %>
+    <%= render partial: 'experiment_list' %>
   </ul>
+
+  <%= link_to_next_page(@experiments, t('helpers.links.more'), :remote => true, :id=>'load_more_link', :params => params) %>
+
 <% else %>
   <p>
     <%= t('shared.common.no_experiments_match') %>
