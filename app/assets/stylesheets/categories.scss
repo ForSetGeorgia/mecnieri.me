@@ -192,6 +192,7 @@ body.root.experiments .exp-list li:hover .exp-thumbnail1{
 }
 body.root.experiments .exp-list li .exp-thumbnail2{
   display: none;
+
 }
 body.root.experiments .exp-list li:hover .exp-thumbnail2{
   display: block;
@@ -264,3 +265,41 @@ body.root.experiments .exp-list .big .exp-text {
   top: 260px;
 }
 }
+
+#more-links-sp {
+  display: block;
+  height: 60px;
+  width: 80vw;
+  background-color: #2e2d2c;
+  position: relative;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 100px;
+  clear: both;
+}
+#load_more_link {
+  width:240px;
+  z-index: 100;
+  position: absolute;
+  top: 15px;
+  font-size: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+}
+#load_more_link:hover{
+  text-decoration: none;
+}
+
+
+body.root.experiments .exp-list li:hover {
+.exp-description {
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;  /* Firefox 3.5 - 3.6 */
+  box-shadow:         3px 3px 5px 6px #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+  
+ }
+}
+
+

@@ -55,9 +55,12 @@ body.root.index .index_text {
 body.root.index .index_categories li.category-item:hover {
 	color:#596dd5;
   background-color: #666;
+  .index_text{
+    color: white;
+  }
  .index_text:hover{
     text-decoration: none;
-    color:inherit;
+    color:white;
   }
   svg{
     background-color: #666;
@@ -68,7 +71,7 @@ body.root.index .index_categories li.category-item:hover {
 body.root.index .logo .logo-text {
   z-index: 100;
   position: absolute;
-  top: 260px;
+  top: 270px;
   text-align: center;
   font-size: 13px;
   left: 50%;
@@ -88,8 +91,31 @@ body.root.index .logo_image{
   transform: translateX(-50%);
 
 }
+body.root.index .index_categories .logo .hover-text{
+    display: none;
+}
 
 
+body.root.index .index_categories .logo:hover {
+  .logo-text{
+    display: none;
+  }
+  .logo_image{
+    display: none;
+  }
+  .hover-text{
+  display: block;
+  z-index: 100;
+  position: absolute;
+  top: 140px;
+  text-align: center;
+  font-size: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #2D1E49;
+
+  }
+}
 
 /* smartphone size, because icons are so large most margins removed*/
 

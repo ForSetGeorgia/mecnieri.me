@@ -34,9 +34,10 @@
   <ul>
     <%= render partial: 'experiment_list' %>
   </ul>
-
+<div id = "more-links-sp">
+<!-- the  "more-links-sp" div has to be inside the link -->
   <%= link_to_next_page(@experiments, t('helpers.links.more'), :remote => true, :id=>'load_more_link', :params => params) %>
-
+</div>
 <% else %>
   <p>
     <%= t('shared.common.no_experiments_match') %>

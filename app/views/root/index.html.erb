@@ -7,8 +7,10 @@
   <ul class="categories_main">
       <li class = "logo">
         <%= inline_svg('Logo_mecnieri.svg', class: 'logo_image')%>
-
-        <!-- hard-coded; will probably have to be fixed         -->
+<!-- hard-coded; please fix this  -->
+        <p class="hover-text">
+        აღმოაჩინე მეცნიერი!
+        </p>
         <p class="logo-text">
           <%= t('.about').html_safe %>
         </p>
@@ -16,7 +18,6 @@
 
     <% @categories.each do |category| %>
       <li class="category-item">
-        <!-- had to put image first, then text. couldn't find a good way to position them if they were in reverse order -->
           <%= link_to(inline_svg(category_icon_path(category.slug), class: 'categoty_image'), experiments_path(category: category.slug))%>
           <%= link_to category.title, experiments_path(category: category.slug), class: 'index_text' %>
       </li>
