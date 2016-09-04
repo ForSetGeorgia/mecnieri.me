@@ -169,6 +169,7 @@ body.root.experiments .exp-list li{
   width: 426px;
   position: relative;
   text-align: center;
+  overflow: hidden;
 }
 
 body.root.experiments .exp-list .big {
@@ -194,6 +195,16 @@ body.root.experiments .exp-list li .exp-thumbnail2{
   display: none;
 
 }
+#exp_second_image_helper{
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  height: 284px;
+  width: 426px;
+  overflow: hidden;
+}
 body.root.experiments .exp-list li:hover .exp-thumbnail2{
   display: block;
   position: absolute;
@@ -202,6 +213,19 @@ body.root.experiments .exp-list li:hover .exp-thumbnail2{
   display: block;
   height: 284px;
   background-color: black;
+  max-width: 150%;
+  -moz-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  
+  -moz-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+body.root.experiments .exp-list li:hover .exp-thumbnail2:hover {
+  -moz-transform: scale(1.0);
+  -webkit-transform: scale(1.0);
+  transform: scale(1.0);
 }
 
 body.root.experiments .exp-list .exp-text {
@@ -244,11 +268,16 @@ body.root.experiments .exp-list .big .exp-text {
   width: 350px;
   top: 370px;
 }
+#exp_second_image_helper{
+
+  height: 400px;
+  width: 600px;
+  }
 
 /* under 1450px making all experiments same size */
 @media (max-width: 1450px) {
   body.root.experiments .exp-list .big {
-    height: 430px;
+    height: 400px;
     width: 426px;
 
 }
@@ -301,5 +330,3 @@ body.root.experiments .exp-list li:hover {
   
  }
 }
-
-
