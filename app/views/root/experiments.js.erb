@@ -7,7 +7,7 @@
   (function show_item (i, items) {
     if (items.eq(i).length)
     {
-      items.eq(i).fadeIn(800);
+      items.eq(i).slideDown(800);
       setTimeout(show_item, 170, +i + 1, items);
     }
   })(0,
@@ -16,7 +16,7 @@
 
   $('#load_more_link')
     .show()
-    .replaceWith("<%= escape_javascript(link_to_next_page(@experiments, t('helpers.links.more'), :remote => true, :id=>'load_more_link', :params => params))%>");
+    .replaceWith("<%= escape_javascript(link_to_next_page(@experiments, t('shared.actions.more'), :remote => true, :id=>'load_more_link', :params => params))%>");
 
 
 <% else %>
