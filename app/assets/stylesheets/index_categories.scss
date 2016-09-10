@@ -2,6 +2,22 @@
 /* index css*/
 
 /* setting background color*/
+@font-face
+{
+  font-family: 'BebasNeue-Bold';
+  font-style: normal;
+  src: url('/assets/BebasNeue-Bold.otf');
+}
+
+@font-face
+{
+  font-family: 'DejaVuSans';
+  font-style: normal;
+  /*   src: url('/assets/BPG%20DejaVuSans%202.ttf'); */
+  src: url('/assets/BPG\ DejaVuSans\ 2.ttf ');
+}
+
+
 body.root.index {
 	background-color: #70BAF7;
 }
@@ -44,7 +60,7 @@ body.root.index .categoty_image {
 body.root.index .index_text {
   z-index: 100;
   position: absolute;
-
+  font-family: BebasNeue-Bold;
   top: 240px;
   font-size: 38px;
   color:inherit;
@@ -77,6 +93,7 @@ body.root.index .logo .logo-text {
   left: 50%;
   transform: translateX(-50%);
   color: #2D1E49;
+  font-family: 'DejaVuSans';
 
 }
 /* logo div */
@@ -92,18 +109,6 @@ body.root.index .logo_image{
 
 }
 body.root.index .index_categories .logo .hover-text{
-    display: none;
-}
-
-
-body.root.index .index_categories .logo:hover {
-  .logo-text{
-    display: none;
-  }
-  .logo_image{
-    display: none;
-  }
-  .hover-text{
   display: block;
   z-index: 100;
   position: absolute;
@@ -113,6 +118,19 @@ body.root.index .index_categories .logo:hover {
   left: 50%;
   transform: translateX(-50%);
   color: #2D1E49;
+  visibility: hidden;
+}
+
+
+body.root.index .index_categories .logo:hover {
+  .logo-text{
+  visibility: hidden;
+  }
+  .logo_image{
+  visibility: hidden;
+  }
+  .hover-text{
+  visibility: visible;
 
   }
 }
