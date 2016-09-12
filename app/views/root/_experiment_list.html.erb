@@ -2,7 +2,7 @@
     class_name = index < 2 && (params[:page].nil? || params[:page].to_s == '1') ? 'big': "smaller" %>
 
       <li class='<%= class_name %> js-vis-stay-visible'>
-        <%= link_to experiment_path(experiment) do %>
+        <%= link_to experiment_path(experiment,category: params[:category]) do %>
           <% if experiment.thumbnail1.exists? %>
               <%= image_tag(experiment.thumbnail1.url('big'), alt: experiment.title, class: "exp-thumbnail1") %>
               <div id = exp_second_image_helper>

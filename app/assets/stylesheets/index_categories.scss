@@ -2,11 +2,12 @@
 /* index css*/
 
 /* setting background color*/
+
 @font-face
 {
   font-family: 'BebasNeue-Bold';
   font-style: normal;
-  src: url('/assets/BebasNeue-Bold.otf');
+  src: image-url('fonts/BebasNeue-Bold.otf') format('opentype');
 }
 
 @font-face
@@ -14,7 +15,7 @@
   font-family: 'DejaVuSans';
   font-style: normal;
   /*   src: url('/assets/BPG%20DejaVuSans%202.ttf'); */
-  src: url('/assets/BPG\ DejaVuSans\ 2.ttf ');
+  src: image-url('fonts/BPG-DejaVuSans-2.ttf')  format('truetype');
 }
 
 
@@ -60,7 +61,7 @@ body.root.index .categoty_image {
 body.root.index .index_text {
   z-index: 100;
   position: absolute;
-  font-family: BebasNeue-Bold;
+  font-family: 'BebasNeue-Bold';
   top: 240px;
   font-size: 38px;
   color:inherit;

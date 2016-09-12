@@ -1,17 +1,23 @@
+<div class="experiment_first_element category-background-color <%=params[:category]%>">
+<h1>
+<%=@experiment.title%>
+</h1>
+
+
 <% if @experiment.category_ids.present? %>
-  <div>
+  <div class='experiment-selected-category'>
     <% @experiment.categories.each do |cat| %>
       <%= link_to cat.title, experiments_path(category: cat.slug) %>
     <% end %>
   </div>
 <% end %>
-
+</div>
 <div class="exp-intro">
   <%= @experiment.intro %>
 </div>
 
 <div class="exp-ingredients">
-  <h3><%= t('activerecord.models.ingredient', count: 999) %></h3>
+  <h3 class="category-font-color <%=params[:category]%>"><%= t('activerecord.models.ingredient', count: 999) %></h3>
   <ul>
     <% @experiment.ingredients.sorted.each do |ing| %>
       <li><%= ing.content %></li>
