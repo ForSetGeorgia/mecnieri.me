@@ -4,7 +4,7 @@ body.root.experiment .container {
 	padding-left: 0px;
 	width: 100vw;
 	text-align: center;
-	
+
 }
 
 body.root.experiment .primary-header {
@@ -57,34 +57,73 @@ body.root.experiment .exp-ingredients li{
 	font-size: 22px;
 
 }
-body.root.experiment .exp-directions ul{
-	padding-left: 0px;
-	font-size: 22px;
-}
+
+
 body.root.experiment .exp-directions{
 	padding-left: 20px;
 	padding-right: 20px;
 }
-body.root.experiment .exp-directions li{
-	display: inline-block;
-	list-style: none;
-	width: 650px;
-
-}
-
-body.root.experiment .exp-directions h3{ 
+body.root.experiment .exp-directions h3{
 	display: inline-block;
 	width:650px;
 	font-size: 34px;
 	text-align: left;
 }
+body.root.experiment .exp-directions .exp-directions-buttons{
+	.direction-previous > svg{
+		-webkit-transform: rotate(180deg);
+		-moz-transform: rotate(180deg);
+		-ms-transform: rotate(180deg);
+		-o-transform: rotate(180deg);
+		transform: rotate(180deg);
+	}
+
+	span{
+		cursor: pointer;
+		visibility:hidden;
+		&.active{
+			visibility:visible;
+		}
+	}
+
+	svg.hover{
+		display:none;
+	}
+
+	& > span:hover{
+		svg.no-hover{
+			display:none;
+		}
+		svg.hover{
+			display:inline;
+		}
+	}
+
+
+}
+body.root.experiment .exp-directions > ul{
+	padding-left: 0px;
+	font-size: 22px;
+}
+body.root.experiment .exp-directions .exp-direction-item{
+	display: none;
+	list-style: none;
+	width: 650px;
+}
+body.root.experiment .exp-directions .exp-direction-item.active{
+	display: inline-block;
+}
+body.root.experiment .exp-directions .exp-direction-index{
+	color: #fff;
+}
+
 body.root.experiment .exp-explanation {
 	display: block;
 	width: 100%;
 	background-color: #f6f6f6;
 	text-align: center;
 }
-body.root.experiment .exp-explanation h3{ 
+body.root.experiment .exp-explanation h3{
 	display: inline-block;
 	width:650px;
 	font-size: 34px;

@@ -34,3 +34,22 @@
     color: $fizika-color !important;
   }
 }
+
+.category-fill-color{
+  &.biologia .category-color{
+    fill: $biologia-color !important;
+  }
+  &.injineria .category-color{
+    fill: $injineria-color !important;
+  }
+  &.astronomia .category-color{
+    fill: $astronomia-color !important;
+  }
+  &.qimia .category-color{
+    fill: $qimia-color !important;
+  }
+  &.fizika .category-color{
+    fill: $fizika-color !important;
+  }
+}
+
