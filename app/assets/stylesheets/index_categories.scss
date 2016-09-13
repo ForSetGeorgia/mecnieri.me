@@ -18,6 +18,22 @@
   src: image-url('fonts/BPG-DejaVuSans-2.ttf')  format('truetype');
 }
 
+/* Removing navbar search defaults*/
+
+body.root.index .navbar-form{
+  background-color: inherit;
+
+}
+body.root.index .search-input{
+  background-color: inherit;
+  border: 0px;
+  box-shadow: none;
+  font-family: 'BebasNeue-Bold';
+  text-align: right;
+  font-size: 20px;
+  /* should box shadow also be removed? */
+
+}
 
 body.root.index {
 	background-color: #70BAF7;
@@ -29,6 +45,15 @@ body.root.index .navbar-default {
     background-color: #70BAF7;
     border-color: #e7e7e7;
     border: 0;
+    .navbar-brand {
+      display: none;
+    }
+}
+
+body.root.index .about-element{
+  font-family: 'BebasNeue-Bold';
+  font-size: 20px;
+
 }
 
 body.root.index .container {
@@ -58,32 +83,55 @@ body.root.index .categoty_image {
   transform: translateX(-50%);
   top: 0;
 }
+
 body.root.index .index_text {
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
   z-index: 100;
   position: absolute;
   font-family: 'BebasNeue-Bold';
   top: 240px;
   font-size: 38px;
-  color:inherit;
+  color:#2d1e49;
   left: 50%;
   transform: translateX(-50%);
 }
 /* hover*/
 body.root.index .index_categories li.category-item:hover {
-	color:#596dd5;
+  /*
   background-color: #666;
+  what is the correct color?
+  */
   .index_text{
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
     color: white;
   }
  .index_text:hover{
     text-decoration: none;
     color:white;
   }
+  /*
   svg{
     background-color: #666;
   }
+  */
 }
 
+body.root.index .index_text:not(:hover){
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+  color: #2d1e49;
+}
+body.root.index .index_categories li.category-item {
+-moz-border-radius: 70px;
+border-radius: 70px;
+background-color: #6EB5F5;
+
+}
 /* manages the text paragraph of the logo, seperate class because of seperate hover */
 body.root.index .logo .logo-text {
   z-index: 100;
