@@ -55,6 +55,9 @@ body.root.index .about-element{
   font-size: 20px;
 
 }
+body.root.index  .about-element a {
+  color: #323C71;
+}
 
 body.root.index .container {
 
@@ -85,9 +88,9 @@ body.root.index .categoty_image {
 }
 
 body.root.index .index_text {
-  -moz-transition:.5s;
-  -webkit-transition:.5s;
-  transition:.5s;
+  -moz-transition:0.80s;
+  -webkit-transition:.8s;
+  transition:0.8s;
   z-index: 100;
   position: absolute;
   font-family: 'BebasNeue-Bold';
@@ -121,9 +124,9 @@ body.root.index .index_categories li.category-item:hover {
 }
 
 body.root.index .index_text:not(:hover){
-  -moz-transition:.5s;
-  -webkit-transition:.5s;
-  transition:.5s;
+  -moz-transition:0.8s;
+  -webkit-transition:0.8s;
+  transition:.8s;
   color: #2d1e49;
 }
 body.root.index .index_categories li.category-item {
