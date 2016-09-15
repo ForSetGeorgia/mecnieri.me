@@ -1,4 +1,4 @@
-<div class="experiment_first_element category-background-color <%=params[:category]%>">
+<div class="experiment_first_element primary-header category-background-color <%=params[:category]%>">
 <h1>
 <%=@experiment.title%>
 </h1>
@@ -6,12 +6,14 @@
 
 <% if @experiment.category_ids.present? %>
   <div class='experiment-selected-category'>
+  კატეგორია:
     <% @experiment.categories.each do |cat| %>
       <%= link_to cat.title, experiments_path(category: cat.slug) %>
     <% end %>
   </div>
 <% end %>
 </div>
+<div class="inner-container">
 <div class="exp-intro">
   <%= @experiment.intro %>
 </div>
@@ -32,7 +34,7 @@
 </div>
 
 <div class="exp-directions">
-  <h3><%= t('activerecord.models.direction', count: 999) %></h3>
+  <h3 class="category-font-color <%=params[:category]%>"><%= t('activerecord.models.direction', count: 999) %></h3>
   <div class="exp-directions-buttons" data-current-index="0">
     <span class="direction-previous" data-type="previous"><%= inline_svg('arrow.svg', class: "no-hover category-fill-color #{params[:category]}")%><%= inline_svg('arrow_hover_active.svg', class: "hover category-fill-color #{params[:category]}")%></span>
     <span class="direction-next active" data-type="next"><%= inline_svg('arrow.svg', class: "no-hover category-fill-color #{params[:category]}")%><%= inline_svg('arrow_hover_active.svg', class: "hover category-fill-color #{params[:category]}")%></span>
@@ -65,15 +67,16 @@
 
 <% if @experiment.warning.present? %>
   <div class="exp-warning">
-    <h3><%= t('activerecord.attributes.experiment.warning') %></h3>
+    <h3 class="category-font-color <%=params[:category]%>"><%= t('activerecord.attributes.experiment.warning') %></h3>
     <div>
       <%= simple_format_no_tags(@experiment.warning) %>
     </div>
   </div>
 <% end %>
+</div>
 
 <div class="exp-explanation">
-  <h3><%= t('activerecord.attributes.experiment.explanation') %></h3>
+  <h3 class="category-font-color <%=params[:category]%>"><%= t('activerecord.attributes.experiment.explanation') %></h3>
   <div>
     <%= simple_format_no_tags(@experiment.explanation) %>
   </div>

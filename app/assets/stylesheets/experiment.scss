@@ -6,7 +6,9 @@ body.root.experiment .container {
 	text-align: center;
 
 }
-
+body.root.experiment .inner-container{
+	font-family: DejaVuSans;
+}
 body.root.experiment .primary-header {
 	display: block;
 	width: 100vw;
@@ -15,10 +17,14 @@ body.root.experiment .primary-header {
 	padding-top: 60px;
 	padding-bottom: 60px;
 	padding-left: 20px;
-	font-family:"BebasNeueRegular";
-
 }
-
+body.root.experiment .primary-header h1{
+	font-family: BebasNeue-Bold;
+	font-size: 70px;
+}
+body.root.experiment .primary-header .experiment-selected-category{
+	font-family: DejaVuSans;
+}
 body.root.experiment .navbar {
     background-color: transparent;
     border-color: transparent;
@@ -48,7 +54,7 @@ body.root.experiment .exp-ingredients h3 {
 	display: inline-block;
 	width: 650px;
 	text-align: left;
-	font-size: 34px;
+	font-size: 50px;
 }
 body.root.experiment .exp-ingredients li{
 	list-style-type: circle;
@@ -62,10 +68,14 @@ body.root.experiment .exp-directions{
 	padding-left: 20px;
 	padding-right: 20px;
 }
+body.root.experiment .exp-directions ul{
+	list-style: none;
+}
+
 body.root.experiment .exp-directions h3{
 	display: inline-block;
 	width:650px;
-	font-size: 34px;
+	font-size: 50px;
 	text-align: left;
 }
 body.root.experiment .exp-directions .exp-directions-buttons{
@@ -125,7 +135,7 @@ body.root.experiment .exp-explanation {
 body.root.experiment .exp-explanation h3{
 	display: inline-block;
 	width:650px;
-	font-size: 34px;
+	font-size: 50px;
 	text-align: left;
 }
 
@@ -143,4 +153,10 @@ body.root.experiment .app-footer {
 }
 body.root.experiment main {
     margin-bottom: 41px;
+    font-family: DejaVuSans;
+
+}
+body.root.experiment .category-font-color{
+	font-family: BebasNeue-Bold;
+	font-size: 60px;
 }

@@ -38,6 +38,7 @@ body.root.experiments .navbar-default {
     background-color: transparent;
     border-color: transparent;
     border: 0;
+    background-color: #ffffff !important; 
 }
 
 body.root.experiments .app-footer {
@@ -77,8 +78,8 @@ body.root.experiments .exp-categories .categoty_image svg {
 body.root.experiments .exp-categories .index_text {
   z-index: 100;
   position: absolute;
-  top: 70px;
-  font-size: 16px;
+  top: 75px;
+  font-size: 24px;
   color:inherit;
   left: 50%;
   transform: translateX(-50%);
