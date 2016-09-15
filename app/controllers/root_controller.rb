@@ -5,12 +5,24 @@ class RootController < ApplicationController
   end
 
   def experiments
-    @categories = Category.active.sorted
-    @experiments = Experiment.active.latest.search_for(params[:q]).by_category(params[:category])
-    @show_page_title = false
+    num = 3#6
+
+    if params[:page].nil? || params[:page].to_s == '1'
+      @show_page_title = false
+      @categories = Category.active.sorted
+      num = 5#11
+    end
+
+    @experiments = Experiment.active.latest.search_for(params[:q]).by_category(params[:category]).page(params[:page]).per(num)
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def experiment
+    @show_page_title = false
     begin
 
       @experiment = Experiment.active.with_ingredients.with_directions.friendly.find(params[:id])

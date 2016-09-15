@@ -188,3 +188,9 @@ gem 'ckeditor', '~> 4.1', '>= 4.1.6'
 
 # basic searching
 gem 'scoped_search', '~> 3.2', '>= 3.2.2'
+
+# View helper for inlining SVG images
+gem 'inline_svg', '~> 0.11.0'
+
+# pagination
+gem 'kaminari', '~> 0.17.0'

@@ -1,44 +1,43 @@
-<% page_title t('.title') %>
-
+<% page_title t('.title')
+   %>
+<div class ="exp-categories">
 <% if @categories.present? %>
-  <ul class="list-inline">
-    <% @categories.each do |category| %>
-      <li>
-        <%= link_to params.merge(category: category.slug),  class: params[:category] == category.slug ? 'btn btn-primary' : 'btn btn-default' do %>
-          <%= image_tag(category.logo.url, width: '15%') %>
-          <br />
-          <%= category.title %>
+  <ul class="lcategories_main">
+    <li class="logo">
+      <%= link_to(inline_svg('Logo_mecnieri.svg', class: 'logo_image'), root_path) %>
+    </li>
+    <% @categories.each do |category|
+      if params[:category] == category.slug
+        class_name = 'seled category-font-color'
+      else
+        class_name = 'unseled'
+      end
+      %>
+      <li class = "categories-list <%= class_name %>">
+        <%= link_to params.merge(category: category.slug) do %>
+          <div class="categoty_image">
+            <%= inline_svg(category_icon_path(category.slug)) %>
+          </div>
+          <div class="index_text">
+            <br />
+            <%= category.title %>
+          </div>
         <% end %>
       </li>
     <% end %>
   </ul>
 <% end %>
+</div>
 
-<hr />
-
+<div class="exp-list">
 <% if @experiments.present? %>
   <ul>
-    <% @experiments.each do |experiment| %>
-      <li>
-        <%= link_to experiment_path(experiment) do %>
-          <% if experiment.thumbnail1.exists? %>
-            <div>
-              <%= image_tag(experiment.thumbnail1.url('big'), alt: experiment.title) %>
-              <%= image_tag(experiment.thumbnail2.url('big'), alt: experiment.title) %>
-            </div>
-          <% end %>
-          <div>
-            <%= experiment.title %>
-          </div>
-          <div>
-            <%= truncate(strip_tags_nbsp(experiment.intro), length: 100) %>
-          </div>
-        <% end %>
-      </li>
-    <% end %>
+    <%= render partial: 'experiment_list' %>
   </ul>
+  <%= link_to_next_page(@experiments, t('shared.actions.more'), :remote => true, :id=>'load_more_link', :params => params) %>
 <% else %>
   <p>
     <%= t('shared.common.no_experiments_match') %>
   </p>
 <% end %>
+</div>

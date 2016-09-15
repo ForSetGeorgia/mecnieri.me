@@ -1,0 +1,28 @@
+<% if @experiments.present? %>
+  $('.exp-list ul')
+    .append($("<%= escape_javascript(render 'root/experiment_list')%>")
+      .hide()
+    );
+
+  (function show_item (i, items) {
+    if (items.eq(i).length)
+    {
+      items.eq(i).slideDown(800);
+      setTimeout(show_item, 170, +i + 1, items);
+    }
+  })(0,
+    $('.exp-list ul').find('[class*="js-vis-stay-visible"]:not(:visible)'));
+
+
+  $('#load_more_link')
+    .show()
+    .replaceWith("<%= escape_javascript(link_to_next_page(@experiments, t('shared.actions.more'), :remote => true, :id=>'load_more_link', :params => params))%>");
+
+
+<% else %>
+  $('#load_more_link').hide();
+
+  $('.exp-list ul')
+    .parent()
+    .append('<div id="no_records"><%= t("app.msgs.no_visual_records")%></div>');
+<% end %>

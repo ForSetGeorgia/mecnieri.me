@@ -1,0 +1,55 @@
+
+.category-background-color{
+  &.biologia{
+    background-color: $biologia-color !important;
+  }
+  &.injineria{
+    background-color: $injineria-color !important;
+  }
+  &.astronomia{
+    background-color: $astronomia-color !important;
+  }
+  &.qimia{
+    background-color: $qimia-color !important;
+  }
+  &.fizika{
+    background-color: $fizika-color !important;
+  }
+}
+
+.category-font-color{
+  &.biologia{
+    color: $biologia-color !important;
+  }
+  &.injineria{
+    color: $injineria-color !important;
+  }
+  &.astronomia{
+    color: $astronomia-color !important;
+  }
+  &.qimia{
+    color: $qimia-color !important;
+  }
+  &.fizika{
+    color: $fizika-color !important;
+  }
+}
+
+.category-fill-color{
+  &.biologia .category-color{
+    fill: $biologia-color !important;
+  }
+  &.injineria .category-color{
+    fill: $injineria-color !important;
+  }
+  &.astronomia .category-color{
+    fill: $astronomia-color !important;
+  }
+  &.qimia .category-color{
+    fill: $qimia-color !important;
+  }
+  &.fizika .category-color{
+    fill: $fizika-color !important;
+  }
+}
+

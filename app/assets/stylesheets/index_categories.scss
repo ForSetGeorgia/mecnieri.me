@@ -2,6 +2,39 @@
 /* index css*/
 
 /* setting background color*/
+
+@font-face
+{
+  font-family: 'BebasNeue-Bold';
+  font-style: normal;
+  src: image-url('fonts/BebasNeue-Bold.otf') format('opentype');
+}
+
+@font-face
+{
+  font-family: 'DejaVuSans';
+  font-style: normal;
+  /*   src: url('/assets/BPG%20DejaVuSans%202.ttf'); */
+  src: image-url('fonts/BPG-DejaVuSans-2.ttf')  format('truetype');
+}
+
+/* Removing navbar search defaults*/
+
+body.root.index .navbar-form{
+  background-color: inherit;
+
+}
+body.root.index .search-input{
+  background-color: inherit;
+  border: 0px;
+  box-shadow: none;
+  font-family: 'BebasNeue-Bold';
+  text-align: right;
+  font-size: 20px;
+  /* should box shadow also be removed? */
+
+}
+
 body.root.index {
 	background-color: #70BAF7;
 }
@@ -12,18 +45,30 @@ body.root.index .navbar-default {
     background-color: #70BAF7;
     border-color: #e7e7e7;
     border: 0;
+    .navbar-brand {
+      display: none;
+    }
+}
+
+body.root.index .about-element{
+  font-family: 'BebasNeue-Bold';
+  font-size: 20px;
+
+}
+body.root.index  .about-element a {
+  color: #323C71;
 }
 
 body.root.index .container {
-  
+
 width:98vw;
 }
 
 /*  category blocks */
-.index_categories{
+body.root.index .index_categories{
 	text-align: center;
 }
-.index_categories li{
+body.root.index .index_categories li{
 	display: inline-block;
 	margin: 15px;
   margin-top: 5px;
@@ -35,39 +80,72 @@ width:98vw;
   position: relative;
   text-align: center;
 }
-.categoty_image {
+body.root.index .categoty_image {
   position: absolute;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   top: 0;
 }
-.index_text {
+
+body.root.index .index_text {
+  -moz-transition:0.80s;
+  -webkit-transition:.8s;
+  transition:0.8s;
   z-index: 100;
   position: absolute;
-  
+  font-family: 'BebasNeue-Bold';
   top: 240px;
   font-size: 38px;
-  color:inherit;
+  color:#2d1e49;
   left: 50%;
   transform: translateX(-50%);
 }
 /* hover*/
-.index_categories li:hover {
-	color:#596dd5;
+body.root.index .index_categories li.category-item:hover {
+  /*
+  background-color: #666;
+  what is the correct color?
+  */
+  .index_text{
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+    color: white;
+  }
+ .index_text:hover{
+    text-decoration: none;
+    color:white;
+  }
+  /*
+  svg{
+    background-color: #666;
+  }
+  */
 }
-.index_text:hover{
-	text-decoration: none;
-	color:inherit;
+
+body.root.index .index_text:not(:hover){
+  -moz-transition:0.8s;
+  -webkit-transition:0.8s;
+  transition:.8s;
+  color: #2d1e49;
+}
+body.root.index .index_categories li.category-item {
+-moz-border-radius: 70px;
+border-radius: 70px;
+background-color: #6EB5F5;
+
 }
 /* manages the text paragraph of the logo, seperate class because of seperate hover */
-.logo .logo-text {
+body.root.index .logo .logo-text {
   z-index: 100;
   position: absolute;
-  top: 260px;
+  top: 270px;
   text-align: center;
   font-size: 13px;
   left: 50%;
   transform: translateX(-50%);
   color: #2D1E49;
+  font-family: 'DejaVuSans';
 
 }
 /* logo div */
@@ -75,15 +153,39 @@ width:98vw;
 
 /* logo image*/
 
-.logo_image{
+body.root.index .logo_image{
   position: absolute;
   top: 60px;
   left: 50%;
   transform: translateX(-50%);
-  
+
+}
+body.root.index .index_categories .logo .hover-text{
+  display: block;
+  z-index: 100;
+  position: absolute;
+  top: 140px;
+  text-align: center;
+  font-size: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #2D1E49;
+  visibility: hidden;
 }
 
 
+body.root.index .index_categories .logo:hover {
+  .logo-text{
+  visibility: hidden;
+  }
+  .logo_image{
+  visibility: hidden;
+  }
+  .hover-text{
+  visibility: visible;
+
+  }
+}
 
 /* smartphone size, because icons are so large most margins removed*/
 
@@ -95,11 +197,11 @@ width:98vw;
 
   }
   body.root.index .container {
-  
+
 	width:100vw;
 	margin-left: 0px;
 	margin-right: 0px;
 	padding: 0px;
 }
- 
+
 }

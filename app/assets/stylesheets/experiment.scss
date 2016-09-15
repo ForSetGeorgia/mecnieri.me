@@ -1,0 +1,146 @@
+
+body.root.experiment .container {
+	padding-right: 0px;
+	padding-left: 0px;
+	width: 100vw;
+	text-align: center;
+
+}
+
+body.root.experiment .primary-header {
+	display: block;
+	width: 100vw;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-top: 60px;
+	padding-bottom: 60px;
+	padding-left: 20px;
+	font-family:"BebasNeueRegular";
+
+}
+
+body.root.experiment .navbar {
+    background-color: transparent;
+    border-color: transparent;
+    margin-bottom: 0px;
+    border: 0;
+}
+
+body.root.experiment .exp-intro {
+	display: inline-block;
+	width: 650px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: left;
+	font-size: 24px;
+}
+body.root.experiment .exp-ingredients {
+	display: block;
+	width:100%;
+	text-align: center;
+}
+body.root.experiment .exp-ingredients ul {
+	display: inline-block;
+	text-align: left;
+	width: 650px;
+}
+body.root.experiment .exp-ingredients h3 {
+	display: inline-block;
+	width: 650px;
+	text-align: left;
+	font-size: 34px;
+}
+body.root.experiment .exp-ingredients li{
+	list-style-type: circle;
+	text-align: left;
+	font-size: 22px;
+
+}
+
+
+body.root.experiment .exp-directions{
+	padding-left: 20px;
+	padding-right: 20px;
+}
+body.root.experiment .exp-directions h3{
+	display: inline-block;
+	width:650px;
+	font-size: 34px;
+	text-align: left;
+}
+body.root.experiment .exp-directions .exp-directions-buttons{
+	.direction-previous > svg{
+		-webkit-transform: rotate(180deg);
+		-moz-transform: rotate(180deg);
+		-ms-transform: rotate(180deg);
+		-o-transform: rotate(180deg);
+		transform: rotate(180deg);
+	}
+
+	span{
+		cursor: pointer;
+		visibility:hidden;
+		&.active{
+			visibility:visible;
+		}
+	}
+
+	svg.hover{
+		display:none;
+	}
+
+	& > span:hover{
+		svg.no-hover{
+			display:none;
+		}
+		svg.hover{
+			display:inline;
+		}
+	}
+
+
+}
+body.root.experiment .exp-directions > ul{
+	padding-left: 0px;
+	font-size: 22px;
+}
+body.root.experiment .exp-directions .exp-direction-item{
+	display: none;
+	list-style: none;
+	width: 650px;
+}
+body.root.experiment .exp-directions .exp-direction-item.active{
+	display: inline-block;
+}
+body.root.experiment .exp-directions .exp-direction-index{
+	color: #fff;
+}
+
+body.root.experiment .exp-explanation {
+	display: block;
+	width: 100%;
+	background-color: #f6f6f6;
+	text-align: center;
+}
+body.root.experiment .exp-explanation h3{
+	display: inline-block;
+	width:650px;
+	font-size: 34px;
+	text-align: left;
+}
+
+body.root.experiment .exp-explanation p{
+	display: inline-block;
+	width: 650px;
+	text-align: left;
+	font-size: 24px;
+}
+body.root.experiment .app-footer {
+  background-color: #f6f6f6;
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+body.root.experiment main {
+    margin-bottom: 41px;
+}

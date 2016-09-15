@@ -18,6 +18,8 @@ URL: https://gist.github.com/bobbygrace/9e961e8982f42eb91b80
 @import 'media-queries';
 @import 'bootstrap_and_overrides';
 @import 'index_categories';
+@import 'categories';
+@import 'experiment';
 @import 'formtastic_overrides';
 
 // Font awesome icons
@@ -33,4 +35,20 @@ URL: https://gist.github.com/bobbygrace/9e961e8982f42eb91b80
 @import 'components/tabList';
 @import 'components/tabContent';
 @import 'components/translated_inputs';
+@import 'components/categories';
 
+
+@font-face
+{
+  font-family: 'BebasNeue-Bold';
+  font-style: normal;
+  src: image-url('fonts/BebasNeue-Bold.otf') format('opentype');
+}
+
+@font-face
+{
+  font-family: 'DejaVuSans';
+  font-style: normal;
+  /*   src: url('/assets/BPG%20DejaVuSans%202.ttf'); */
+  src: image-url('fonts/BPG-DejaVuSans-2.ttf')  format('truetype');
+}

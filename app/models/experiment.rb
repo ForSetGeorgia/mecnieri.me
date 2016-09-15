@@ -86,7 +86,7 @@ class Experiment < AddMissingTranslation
 
   # for locale sensitive transliteration with friendly_id
   def normalize_friendly_id(input)
-    input.to_s.to_slug.normalize.to_s
+    input.to_s.to_slug.normalize(transliterations: :georgian).to_s
   end
 
   #######################
