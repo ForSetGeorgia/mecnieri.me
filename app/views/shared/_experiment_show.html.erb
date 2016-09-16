@@ -6,7 +6,7 @@
 
 <% if @experiment.category_ids.present? %>
   <div class='experiment-selected-category'>
-  კატეგორია:
+  <span class='experiment-selected-category-label'><%= t('.category_label') %>:</span>
     <% @experiment.categories.each do |cat| %>
       <%= link_to cat.title, experiments_path(category: cat.slug) %>
     <% end %>

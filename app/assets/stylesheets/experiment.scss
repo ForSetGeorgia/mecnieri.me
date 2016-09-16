@@ -24,6 +24,14 @@ body.root.experiment .primary-header h1{
 }
 body.root.experiment .primary-header .experiment-selected-category{
 	font-family: DejaVuSans;
+	color: #fff;
+}
+body.root.experiment .primary-header .experiment-selected-category a{
+	font-family: DejaVuSans;
+	color: #fff;
+}
+body.root.experiment .primary-header .experiment-selected-category .experiment-selected-category-label{
+	opacity: 0.7;
 }
 body.root.experiment .navbar {
     background-color: transparent;

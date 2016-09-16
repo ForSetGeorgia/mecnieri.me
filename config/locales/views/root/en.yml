@@ -8,3 +8,6 @@ en:
       title: About
     experiments:
       title: Experiments
+  shared:
+    experiment_show:
+      category_label: Category
