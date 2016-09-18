@@ -168,3 +168,53 @@ body.root.experiment .category-font-color{
 	font-family: BebasNeue-Bold;
 	font-size: 60px;
 }
+
+
+
+@media (min-width:1300px){
+	body.root.experiment .inner-container{
+		width: 80%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	body.root.experiment .exp-direction-content{
+		width: 40%;
+		padding-top: 45px;
+		float: left;
+	}
+	body.root.experiment .exp-directions .active{
+		width: 100%;
+	}
+	body.root.experiment .exp-directions  .exp-directions-buttons{
+		position: relative;
+		top: 145px;
+		width: 100px;
+
+	}
+	body.root.experiment .exp-directions .active	.exp-direction-images {
+		float: right;
+		width: 50%
+	}
+	body.root.experiment .exp-directions .active	.exp-direction-images img{
+		width: 100%
+	}
+	body.root.experiment .exp-directions .exp-direction-index{
+		height: 112px;
+		width: 71px;
+		position: relative;
+		left: 51.5%;
+		top: 60px;
+		font-family: BebasNeue-Bold;
+		font-size: 80px;
+	}
+	body.root.experiment .exp-directions h3{
+		display: block;
+		width: 40%;
+		position: relative;
+		top:120px;
+		left: 30px;
+		font-size: 60px;
+	}
+
+
+}
