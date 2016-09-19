@@ -15,6 +15,7 @@ ka:
         thumbnail1: მთავარი გამოსახულება
         thumbnail2: ჰავერ გამოსახულება
         thumbnails: სურათი გამოსახულებისთვის
+        ingredient_image: Ingredient Image
     models:
       experiment:
         one: ექსპერიმენტი

@@ -19,6 +19,10 @@
 </div>
 
 <div class="exp-ingredients">
+  <div class="exp-igrendients-image">
+    <% img = @experiment.ingredient_image.exists? ? @experiment.ingredient_image.url('big') : image_path("categories/placeholders/#{params[:category]}.png") %>
+    <%= image_tag(img) %>
+  </div>
   <h3 class="category-font-color <%=params[:category]%>"><%= t('activerecord.models.ingredient', count: 999) %></h3>
   <ul>
     <% @experiment.ingredients.sorted.each do |ing| %>
@@ -42,18 +46,19 @@
   <ul>
   <% @experiment.directions.sorted.each_with_index do |dir, dir_index| %>
     <li data-index="<%= dir_index %>" class="exp-direction-item <%= dir_index == 0 ? 'active' : '' %>">
-      <% if dir.images.present? %>
-        <ul class="exp-direction-images">
+      <ul class="exp-direction-images">
+        <% if dir.images.present? %>
           <% dir.images.each do |img| %>
             <% if img.image.exists? %>
               <li>
                 <%= image_tag(img.image.url('big')) %>
               </li>
-              <br />
             <% end %>
           <% end %>
-        </ul>
-     <% end %>
+        <% else %>
+          <%= image_tag("categories/placeholders/#{params[:category]}.png") %>
+        <% end %>
+      </ul>
      <div class="exp-direction-index category-background-color <%= params[:category] %>">
       <%= dir_index +=1 %>
      </div>

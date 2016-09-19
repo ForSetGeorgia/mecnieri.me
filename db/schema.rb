@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160901123701) do
+ActiveRecord::Schema.define(version: 20160919134306) do
 
   create_table "categories", force: :cascade do |t|
     t.boolean  "is_active",              default: true
@@ -95,20 +95,24 @@ ActiveRecord::Schema.define(version: 20160901123701) do
   add_index "experiment_translations", ["title"], name: "index_experiment_translations_on_title", using: :btree
 
   create_table "experiments", force: :cascade do |t|
-    t.boolean  "needs_adult_supervision",             default: false
-    t.boolean  "is_active",                           default: false
+    t.boolean  "needs_adult_supervision",                   default: false
+    t.boolean  "is_active",                                 default: false
     t.datetime "active_at"
-    t.string   "slug",                    limit: 255
-    t.datetime "created_at",                                          null: false
-    t.datetime "updated_at",                                          null: false
-    t.string   "thumbnail1_file_name",    limit: 255
-    t.string   "thumbnail1_content_type", limit: 255
-    t.integer  "thumbnail1_file_size",    limit: 4
+    t.string   "slug",                          limit: 255
+    t.datetime "created_at",                                                null: false
+    t.datetime "updated_at",                                                null: false
+    t.string   "thumbnail1_file_name",          limit: 255
+    t.string   "thumbnail1_content_type",       limit: 255
+    t.integer  "thumbnail1_file_size",          limit: 4
     t.datetime "thumbnail1_updated_at"
-    t.string   "thumbnail2_file_name",    limit: 255
-    t.string   "thumbnail2_content_type", limit: 255
-    t.integer  "thumbnail2_file_size",    limit: 4
+    t.string   "thumbnail2_file_name",          limit: 255
+    t.string   "thumbnail2_content_type",       limit: 255
+    t.integer  "thumbnail2_file_size",          limit: 4
     t.datetime "thumbnail2_updated_at"
+    t.string   "ingredient_image_file_name",    limit: 255
+    t.string   "ingredient_image_content_type", limit: 255
+    t.integer  "ingredient_image_file_size",    limit: 4
+    t.datetime "ingredient_image_updated_at"
   end
 
   add_index "experiments", ["is_active"], name: "index_experiments_on_is_active", using: :btree

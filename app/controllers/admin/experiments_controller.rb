@@ -77,7 +77,7 @@ class Admin::ExperimentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def experiment_params
       permitted = Experiment.globalize_attribute_names + [
-        :is_active, :needs_adult_supervision, :thumbnail1, :thumbnail2, category_ids: [],
+        :is_active, :needs_adult_supervision, :thumbnail1, :thumbnail2, :ingredient_image, category_ids: [],
         directions_attributes: [
           Direction.globalize_attribute_names +
           [:id, :_destroy, :image, :sort_order, :experiment_id],
