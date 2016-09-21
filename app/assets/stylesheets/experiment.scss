@@ -172,6 +172,7 @@ body.root.experiment .category-font-color{
 
 
 @media (min-width:1300px){
+	 /* desktop size; elements in reverse order */
 	body.root.experiment .inner-container{
 		width: 80%;
 		margin-right: auto;
@@ -216,5 +217,47 @@ body.root.experiment .category-font-color{
 		font-size: 60px;
 	}
 
+	body.root.experiment .exp-ingredients	.exp-igrendients-image {
+		float: left;
+		width: 50%
+	}
+	body.root.experiment .exp-ingredients	.exp-igrendients-image img{
+		width: 100%
+	}
+	body.root.experiment .exp-ingredients ul {
+		width: 40%;
+	}
+	body.root.experiment .exp-ingredients h3{
+		width: 40%;
+		font-size: 60px;
+	}
+	body.root.experiment .exp-ingredients{
+		margin-top: 70px;
+	}
+	body.root.experiment .exp-intro {
+		float: left;
+		padding-bottom: 70px;
+		width: 80%;
+		margin-right: 10%;
+	}
+	body.root.experiment .primary-header h1{
+		font-size: 140px;
+	}
 
+
+}
+body.root.experiment .search-input{
+  border: 0px;
+  box-shadow: none;
+  font-family: 'BebasNeue-Bold';
+  color: #323C71;
+  text-align: right;
+  font-size: 20px;
+
+}
+
+body.root.experiment .about-element{
+  font-family: 'BebasNeue-Bold';
+  font-size: 20px;
+  color: #323C71;
 }
