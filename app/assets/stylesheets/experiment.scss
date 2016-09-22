@@ -6,7 +6,9 @@ body.root.experiment .container {
 	text-align: center;
 
 }
-
+body.root.experiment .inner-container{
+	font-family: DejaVuSans;
+}
 body.root.experiment .primary-header {
 	display: block;
 	width: 100vw;
@@ -15,10 +17,22 @@ body.root.experiment .primary-header {
 	padding-top: 60px;
 	padding-bottom: 60px;
 	padding-left: 20px;
-	font-family:"BebasNeueRegular";
-
 }
-
+body.root.experiment .primary-header h1{
+	font-family: BebasNeue-Bold;
+	font-size: 70px;
+}
+body.root.experiment .primary-header .experiment-selected-category{
+	font-family: DejaVuSans;
+	color: #fff;
+}
+body.root.experiment .primary-header .experiment-selected-category a{
+	font-family: DejaVuSans;
+	color: #fff;
+}
+body.root.experiment .primary-header .experiment-selected-category .experiment-selected-category-label{
+	opacity: 0.7;
+}
 body.root.experiment .navbar {
     background-color: transparent;
     border-color: transparent;
@@ -48,7 +62,7 @@ body.root.experiment .exp-ingredients h3 {
 	display: inline-block;
 	width: 650px;
 	text-align: left;
-	font-size: 34px;
+	font-size: 50px;
 }
 body.root.experiment .exp-ingredients li{
 	list-style-type: circle;
@@ -62,10 +76,14 @@ body.root.experiment .exp-directions{
 	padding-left: 20px;
 	padding-right: 20px;
 }
+body.root.experiment .exp-directions ul{
+	list-style: none;
+}
+
 body.root.experiment .exp-directions h3{
 	display: inline-block;
 	width:650px;
-	font-size: 34px;
+	font-size: 50px;
 	text-align: left;
 }
 body.root.experiment .exp-directions .exp-directions-buttons{
@@ -125,7 +143,7 @@ body.root.experiment .exp-explanation {
 body.root.experiment .exp-explanation h3{
 	display: inline-block;
 	width:650px;
-	font-size: 34px;
+	font-size: 50px;
 	text-align: left;
 }
 
@@ -143,4 +161,103 @@ body.root.experiment .app-footer {
 }
 body.root.experiment main {
     margin-bottom: 41px;
+    font-family: DejaVuSans;
+
+}
+body.root.experiment .category-font-color{
+	font-family: BebasNeue-Bold;
+	font-size: 60px;
+}
+
+
+
+@media (min-width:1300px){
+	 /* desktop size; elements in reverse order */
+	body.root.experiment .inner-container{
+		width: 80%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	body.root.experiment .exp-direction-content{
+		width: 40%;
+		padding-top: 45px;
+		float: left;
+	}
+	body.root.experiment .exp-directions .active{
+		width: 100%;
+	}
+	body.root.experiment .exp-directions  .exp-directions-buttons{
+		position: relative;
+		top: 145px;
+		width: 100px;
+
+	}
+	body.root.experiment .exp-directions .active	.exp-direction-images {
+		float: right;
+		width: 50%
+	}
+	body.root.experiment .exp-directions .active	.exp-direction-images img{
+		width: 100%
+	}
+	body.root.experiment .exp-directions .exp-direction-index{
+		height: 112px;
+		width: 71px;
+		position: relative;
+		left: 51.5%;
+		top: 60px;
+		font-family: BebasNeue-Bold;
+		font-size: 80px;
+	}
+	body.root.experiment .exp-directions h3{
+		display: block;
+		width: 40%;
+		position: relative;
+		top:120px;
+		left: 30px;
+		font-size: 60px;
+	}
+
+	body.root.experiment .exp-ingredients	.exp-igrendients-image {
+		float: left;
+		width: 50%
+	}
+	body.root.experiment .exp-ingredients	.exp-igrendients-image img{
+		width: 100%
+	}
+	body.root.experiment .exp-ingredients ul {
+		width: 40%;
+	}
+	body.root.experiment .exp-ingredients h3{
+		width: 40%;
+		font-size: 60px;
+	}
+	body.root.experiment .exp-ingredients{
+		margin-top: 70px;
+	}
+	body.root.experiment .exp-intro {
+		float: left;
+		padding-bottom: 70px;
+		width: 80%;
+		margin-right: 10%;
+	}
+	body.root.experiment .primary-header h1{
+		font-size: 140px;
+	}
+
+
+}
+body.root.experiment .search-input{
+  border: 0px;
+  box-shadow: none;
+  font-family: 'BebasNeue-Bold';
+  color: #323C71;
+  text-align: right;
+  font-size: 20px;
+
+}
+
+body.root.experiment .about-element{
+  font-family: 'BebasNeue-Bold';
+  font-size: 20px;
+  color: #323C71;
 }

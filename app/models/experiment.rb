@@ -36,6 +36,17 @@ class Experiment < AddMissingTranslation
                       :'small' => '-quality 85'
                     }
 
+  has_attached_file :ingredient_image,
+                    :url => "/system/experiments/:id/ingredient_image/:style.:extension",
+                    :styles => {
+                        :'big' => {:geometry => "670x430#"},
+                        :'small' => {:geometry => "134x86#"}
+                    },
+                    :convert_options => {
+                      :'big' => '-quality 85',
+                      :'small' => '-quality 85'
+                    }
+
   #######################
   ## TRANSLATIONS
 
@@ -69,6 +80,9 @@ class Experiment < AddMissingTranslation
     content_type: { content_type: ["image/jpeg", "image/png", "image/gif"] },
     size: { in: 0..4.megabytes }
   validates_attachment :thumbnail2,
+    content_type: { content_type: ["image/jpeg", "image/png", "image/gif"] },
+    size: { in: 0..4.megabytes }
+  validates_attachment :ingredient_image,
     content_type: { content_type: ["image/jpeg", "image/png", "image/gif"] },
     size: { in: 0..4.megabytes }
 

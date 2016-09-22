@@ -231,6 +231,18 @@
     </span>
   </div>
 
+  <div class="file input optional form-group" id="experiment_ingredient_image_input">
+    <span class="form-label">
+      <label for="experiment_ingredient_image" class=" control-label"><%= t('activerecord.attributes.experiment.ingredient_image') %></label>
+    </span>
+    <% if object.ingredient_image.exists? %>
+      <%= image_tag(object.ingredient_image.url('small')) %>
+    <% end %>
+    <span class="form-wrapper">
+      <input accept=".jpg,.jpeg,.png,.gif" id="experiment_ingredient_image" name="experiment[ingredient_image]" type="file">
+    </span>
+  </div>
+
 
 
 

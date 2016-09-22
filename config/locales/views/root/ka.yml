@@ -8,3 +8,6 @@ ka:
       title: ამის შესახებ
     experiments:
       title: ექსპერიმენტები
+  shared:
+    experiment_show:
+      category_label: კატეგორია

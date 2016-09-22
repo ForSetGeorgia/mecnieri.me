@@ -15,6 +15,7 @@ en:
         thumbnail1: Initial Thumbnail
         thumbnail2: Hover Thumbnail
         thumbnails: Thumbnail Images
+        ingredient_image: Ingredient Image
     models:
       experiment:
         one: Experiment

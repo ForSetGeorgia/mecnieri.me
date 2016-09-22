@@ -1,4 +1,4 @@
-<div class="experiment_first_element category-background-color <%=params[:category]%>">
+<div class="experiment_first_element primary-header category-background-color <%=params[:category]%>">
 <h1>
 <%=@experiment.title%>
 </h1>
@@ -6,17 +6,23 @@
 
 <% if @experiment.category_ids.present? %>
   <div class='experiment-selected-category'>
+  <span class='experiment-selected-category-label'><%= t('.category_label') %>:</span>
     <% @experiment.categories.each do |cat| %>
       <%= link_to cat.title, experiments_path(category: cat.slug) %>
     <% end %>
   </div>
 <% end %>
 </div>
+<div class="inner-container">
 <div class="exp-intro">
   <%= @experiment.intro %>
 </div>
 
 <div class="exp-ingredients">
+  <div class="exp-igrendients-image">
+    <% img = @experiment.ingredient_image.exists? ? @experiment.ingredient_image.url('big') : image_path("categories/placeholders/#{params[:category]}.png") %>
+    <%= image_tag(img) %>
+  </div>
   <h3 class="category-font-color <%=params[:category]%>"><%= t('activerecord.models.ingredient', count: 999) %></h3>
   <ul>
     <% @experiment.ingredients.sorted.each do |ing| %>
@@ -32,7 +38,7 @@
 </div>
 
 <div class="exp-directions">
-  <h3><%= t('activerecord.models.direction', count: 999) %></h3>
+  <h3 class="category-font-color <%=params[:category]%>"><%= t('activerecord.models.direction', count: 999) %></h3>
   <div class="exp-directions-buttons" data-current-index="0">
     <span class="direction-previous" data-type="previous"><%= inline_svg('arrow.svg', class: "no-hover category-fill-color #{params[:category]}")%><%= inline_svg('arrow_hover_active.svg', class: "hover category-fill-color #{params[:category]}")%></span>
     <span class="direction-next active" data-type="next"><%= inline_svg('arrow.svg', class: "no-hover category-fill-color #{params[:category]}")%><%= inline_svg('arrow_hover_active.svg', class: "hover category-fill-color #{params[:category]}")%></span>
@@ -40,18 +46,19 @@
   <ul>
   <% @experiment.directions.sorted.each_with_index do |dir, dir_index| %>
     <li data-index="<%= dir_index %>" class="exp-direction-item <%= dir_index == 0 ? 'active' : '' %>">
-      <% if dir.images.present? %>
-        <ul class="exp-direction-images">
+      <ul class="exp-direction-images">
+        <% if dir.images.present? %>
           <% dir.images.each do |img| %>
             <% if img.image.exists? %>
               <li>
                 <%= image_tag(img.image.url('big')) %>
               </li>
-              <br />
             <% end %>
           <% end %>
-        </ul>
-     <% end %>
+        <% else %>
+          <%= image_tag("categories/placeholders/#{params[:category]}.png") %>
+        <% end %>
+      </ul>
      <div class="exp-direction-index category-background-color <%= params[:category] %>">
       <%= dir_index +=1 %>
      </div>
@@ -65,15 +72,16 @@
 
 <% if @experiment.warning.present? %>
   <div class="exp-warning">
-    <h3><%= t('activerecord.attributes.experiment.warning') %></h3>
+    <h3 class="category-font-color <%=params[:category]%>"><%= t('activerecord.attributes.experiment.warning') %></h3>
     <div>
       <%= simple_format_no_tags(@experiment.warning) %>
     </div>
   </div>
 <% end %>
+</div>
 
 <div class="exp-explanation">
-  <h3><%= t('activerecord.attributes.experiment.explanation') %></h3>
+  <h3 class="category-font-color <%=params[:category]%>"><%= t('activerecord.attributes.experiment.explanation') %></h3>
   <div>
     <%= simple_format_no_tags(@experiment.explanation) %>
   </div>

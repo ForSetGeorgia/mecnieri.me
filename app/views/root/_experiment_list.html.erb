@@ -3,12 +3,14 @@
 
       <li class='<%= class_name %> js-vis-stay-visible'>
         <%= link_to experiment_path(experiment,category: params[:category]) do %>
-          <% if experiment.thumbnail1.exists? %>
-              <%= image_tag(experiment.thumbnail1.url('big'), alt: experiment.title, class: "exp-thumbnail1") %>
-              <div id = exp_second_image_helper>
-              <%= image_tag(experiment.thumbnail2.url('big'), alt: experiment.title, class: "exp-thumbnail2") %>
-              </div>
-          <% end %>
+          <%
+            img1 = experiment.thumbnail1.exists? ? experiment.thumbnail1.url('big') : image_path("categories/placeholders/#{params[:category]}.png")
+            img2 = experiment.thumbnail1.exists? ? experiment.thumbnail2.url('big') : image_path("categories/placeholders/#{params[:category]}.png")
+          %>
+          <%= image_tag(img1, alt: experiment.title, class: "exp-thumbnail1") %>
+          <div id = exp_second_image_helper>
+            <%= image_tag(img2, alt: experiment.title, class: "exp-thumbnail2") %>
+          </div>
           <div class="exp-text">
           <div class="exp-title category-background-color <%= params[:category] %>">
             <%= experiment.title %>
