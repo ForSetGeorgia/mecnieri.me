@@ -86,3 +86,15 @@
     <%= simple_format_no_tags(@experiment.explanation) %>
   </div>
 </div>
+
+<div class="experiment-nav previous">
+  <% if @previous_exp_id.present? %>
+    <%= link_to t('.previous_exp'), experiment_path(@previous_exp_id,category: params[:category], q: params[:q]) %>
+  <% end %>
+</div>
+<div class="experiment-nav next">
+  <% if @next_exp_id.present? %>
+    <%= link_to t('.next_exp'), experiment_path(@next_exp_id,category: params[:category], q: params[:q]) %>
+  <% end %>
+</div>
+
