@@ -78,14 +78,6 @@
     </div>
   </div>
 <% end %>
-</div>
-
-<div class="exp-explanation">
-  <h3 class="category-font-color <%=params[:category]%>"><%= t('activerecord.attributes.experiment.explanation') %></h3>
-  <div>
-    <%= simple_format_no_tags(@experiment.explanation) %>
-  </div>
-</div>
 
 <div class="experiment-nav previous">
   <% if @previous_exp_id.present? %>
@@ -97,4 +89,15 @@
     <%= link_to t('.next_exp'), experiment_path(@next_exp_id,category: params[:category], q: params[:q]) %>
   <% end %>
 </div>
+
+</div>
+
+<div class="exp-explanation">
+  <h3 class="category-font-color <%=params[:category]%>"><%= t('activerecord.attributes.experiment.explanation') %></h3>
+  <div>
+    <%= simple_format_no_tags(@experiment.explanation) %>
+  </div>
+</div>
+
+
 
