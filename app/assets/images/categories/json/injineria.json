@@ -1,0 +1,80 @@
+{
+  "animations": [
+    {
+      "id": "#borblis_mrgvali_foni",
+      "play_num": -1,
+      "duration": 1000,
+      "steps": 20,
+      "keyframes": {
+         "rotateKeyframes": [
+          {
+            "step": 0,
+            "angle": 0
+          },
+          {
+            "step": 20,
+            "angle": 360
+          }
+        ],
+        "opacityKeyframes": [
+          {
+            "step": 0,
+            "opacity": 0.5
+          },
+          {
+            "step": 0.01,
+            "opacity": 0.6
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "#wind-will",
+      "play_num": -1,
+      "duration": 1000,
+      "steps": 20,
+      "keyframes": {
+         "rotateKeyframes": [
+          {
+            "step": 0,
+            "angle": 0,
+            "offsetX": -0.5,
+            "offsetY": 13
+          },
+          {
+            "step": 20,
+            "angle": 360,
+            "offsetX": -0.5,
+            "offsetY": 13
+          }
+        ]
+      }
+    },
+
+
+    {
+      "id": "#light",
+      "play_num": -1,
+      "duration": 1200,
+      "steps": 2,
+      "keyframes": {
+         "opacityKeyframes": [
+          {
+            "step": 0,
+            "opacity": 1
+          },
+          {
+            "step": 1,
+            "opacity": 0.6
+          },
+          {
+            "step": 2,
+            "opacity": 1
+          }
+        ]
+      }
+    }
+ 
+  ]
+}
