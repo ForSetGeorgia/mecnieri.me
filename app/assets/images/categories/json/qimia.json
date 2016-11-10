@@ -1,0 +1,713 @@
+{
+  "animations": [
+    {
+      "id": "#bubble2",
+      "animation_id": "bubble2-translation",
+      "duration": 3000,
+      "steps": 11,  
+      "next_animation_id": "bubble2-opacity",
+      "final_animation_id": "bubble2-translation3",
+      "queue_id": 1, 
+      "keyframes": {
+         "translateKeyframes": [
+          {
+            "step": 0,
+            "x": 0,
+            "y": 0
+          },
+          {
+            "step": 2,
+            "x": -11,
+            "y": -20
+          },
+          {
+            "step": 3,
+            "x": -6,
+            "y": -30
+          },
+          {
+            "step": 4,
+            "x": -12,
+            "y": -40
+          },
+          {
+            "step": 5,
+            "x": -8,
+            "y": -50
+          },
+          {
+            "step": 6,
+            "x": -11,
+            "y": -60
+          },
+          {
+            "step": 11,
+            "x": -11,
+            "y": -130
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "#bubble2",
+      "animation_id": "bubble2-opacity",
+      "duration": 100,
+      "steps": 7,   
+      "next_animation_id": "bubble2-translation2",
+      "queue_id": 2,
+      "keyframes": {
+        "opacityKeyframes": [
+          {
+            "step": 0,
+            "opacity": 0
+          },
+          {
+            "step": 7,
+            "opacity": 0
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "#bubble2",
+      "animation_id": "bubble2-translation2",
+      "duration": 50,
+      "steps": 2,  
+      "next_animation_id": "bubble2-opacity2",
+      "queue_id": 3, 
+      "keyframes": {
+         "translateKeyframes": [
+          {
+            "step": 0,
+            "x": -11,
+            "y": -130
+          },
+          {
+            "step": 2,
+            "x": 0,
+            "y": 10
+          }
+        ]
+      }
+    }, 
+
+    {
+      "id": "#bubble2",
+      "animation_id": "bubble2-opacity2",
+      "duration": 100,
+      "steps": 1,   
+      "next_animation_id": "bubble2-translation3",
+      "queue_id": 3,
+      "keyframes": {
+        "opacityKeyframes": [
+          {
+            "step": 0,
+            "opacity": 0
+          },
+          {
+            "step": 1,
+            "opacity": 1
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "#bubble2",
+      "animation_id": "bubble2-translation3",
+      "duration": 100,
+      "steps": 2,  
+      "next_animation_id": "bubble2-translation",
+      "queue_id": -1, 
+      "keyframes": {
+         "translateKeyframes": [
+          {
+            "step": 0,
+            "x": 0,
+            "y": 10
+          },
+          {
+            "step": 2,
+            "x": 0,
+            "y": 0
+          }
+        ]
+      }
+    }, 
+
+
+    {
+      "id": "#bubble3",
+      "animation_id": "bubble3-translation",
+      "duration": 1700,
+      "steps": 7,  
+      "next_animation_id": "bubble3-opacity",
+      "final_animation_id": "bubble3-translation3",
+      "queue_id": 1, 
+      "keyframes": {
+         "translateKeyframes": [
+          {
+            "step": 0,
+            "x": 0,
+            "y": 0
+          },
+          {
+            "step": 1,
+            "x": 5,
+            "y": -15
+          },
+          {
+            "step": 2,
+            "x": 0,
+            "y": -30
+          },
+          {
+            "step": 3,
+            "x": 5,
+            "y": -45
+          },
+          {
+            "step": 4,
+            "x": -1,
+            "y": -60
+          },
+          {
+            "step": 5,
+            "x": 4,
+            "y": -75
+          },
+          {
+            "step": 7,
+            "x": 0,
+            "y": -100
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "#bubble3",
+      "animation_id": "bubble3-opacity",
+      "play_num": 1,
+      "duration": 100,
+      "steps": 7,   
+      "next_animation_id": "bubble3-translation2",
+      "queue_id": 2,
+      "keyframes": {
+        "opacityKeyframes": [
+          {
+            "step": 0,
+            "opacity": 0
+          },
+          {
+            "step": 7,
+            "opacity": 0
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "#bubble3",
+      "animation_id": "bubble3-translation2",
+      "duration": 200,
+      "steps": 2,  
+      "next_animation_id": "bubble3-opacity2",
+      "queue_id": 3, 
+      "keyframes": {
+         "translateKeyframes": [
+          {
+            "step": 0,
+            "x": -11,
+            "y": -100
+          },
+          {
+            "step": 2,
+            "x": 10,
+            "y": 30
+          }
+        ]
+      }
+    }, 
+
+    {
+      "id": "#bubble3",
+      "animation_id": "bubble3-opacity2",
+      "duration": 500,
+      "steps": 1,   
+      "next_animation_id": "bubble3-translation3",
+      "queue_id": 3,
+      "keyframes": {
+        "opacityKeyframes": [
+          {
+            "step": 0,
+            "opacity": 0
+          },
+          {
+            "step": 1,
+            "opacity": 1
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "#bubble3",
+      "animation_id": "bubble3-translation3",
+      "duration": 600,
+      "steps": 1,  
+      "next_animation_id": "bubble3-translation",
+      "queue_id": -1 , 
+      "keyframes": {
+         "translateKeyframes": [
+          {
+            "step": 0,
+            "x": 10,
+            "y": 30
+          },
+          {
+            "step": 1,
+            "x": 0,
+            "y": 0
+          }
+        ]
+      }
+    },
+
+
+    {
+      "id": "#bubble4",
+      "animation_id": "bubble4-translation",
+      "duration": 2000,
+      "steps":  7,  
+      "next_animation_id": "bubble4-opacity",
+      "final_animation_id": "bubble4-translation3",
+      "queue_id": 1, 
+      "keyframes": {
+         "translateKeyframes": [
+          {
+            "step": 0,
+            "x": 0,
+            "y": 0
+          },
+          {
+            "step": 1,
+            "x": -3,
+            "y": -14
+          },
+          {
+            "step": 2,
+            "x": 3,
+            "y": -28
+          },
+          {
+            "step": 3,
+            "x": 0,
+            "y": -42
+          },
+          {
+            "step": 7,
+            "x": 0,
+            "y": -80
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "#bubble4",
+      "animation_id": "bubble4-opacity",
+      "duration": 100,
+      "steps": 7,   
+      "next_animation_id": "bubble4-translation2",
+      "queue_id": 2,
+      "keyframes": {
+        "opacityKeyframes": [
+          {
+            "step": 0,
+            "opacity": 0
+          },
+          {
+            "step": 7,
+            "opacity": 0
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "#bubble4",
+      "animation_id": "bubble4-translation2",
+      "duration": 100,
+      "steps": 2,  
+      "next_animation_id": "bubble4-opacity2",
+      "queue_id": 3, 
+      "keyframes": {
+         "translateKeyframes": [
+          {
+            "step": 0,
+            "x": -5,
+            "y": -80
+          },
+          {
+            "step": 2,
+            "x": 0,
+            "y": 50
+          }
+        ]
+      }
+    }, 
+
+    {
+      "id": "#bubble4",
+      "animation_id": "bubble4-opacity2",
+      "duration": 500,
+      "steps": 1,   
+      "next_animation_id": "bubble4-translation3",
+      "queue_id": 3,
+      "keyframes": {
+        "opacityKeyframes": [
+          {
+            "step": 0,
+            "opacity": 0
+          },
+          {
+            "step": 1,
+            "opacity": 1
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "#bubble4",
+      "animation_id": "bubble4-translation3",
+      "duration": 1500,
+      "steps": 4,  
+      "next_animation_id": "bubble4-translation",
+      "queue_id": -1 , 
+      "keyframes": {
+         "translateKeyframes": [
+          {
+            "step": 0,
+            "x": 0,
+            "y": 50
+          },
+          {
+            "step": 1,
+            "x": -2,
+            "y": 45
+          },
+          {
+            "step": 2,
+            "x": 2,
+            "y": 30
+          },
+          {
+            "step": 3,
+            "x": -2,
+            "y": 15
+          },
+
+          {
+            "step": 4,
+            "x": 0,
+            "y": 0
+          }
+
+
+
+        ]
+      }
+    },
+
+
+    {
+      "id": "#bubble5",
+      "animation_id": "bubble5-translation",
+      "duration": 1000,
+      "steps":  1,  
+      "next_animation_id": "bubble5-opacity",
+      "final_animation_id": "bubble5-translation3",
+      "queue_id": 1, 
+      "keyframes": {
+         "translateKeyframes": [
+          {
+            "step": 0,
+            "x": 0,
+            "y": 0
+          },
+          {
+            "step": 1,
+            "x": 0,
+            "y": -40
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "#bubble5",
+      "animation_id": "bubble5-opacity",
+      "duration": 100,
+      "steps": 7,   
+      "next_animation_id": "bubble5-translation2",
+      "queue_id": 2,
+      "keyframes": {
+        "opacityKeyframes": [
+          {
+            "step": 0,
+            "opacity": 0
+          },
+          {
+            "step": 7,
+            "opacity": 0
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "#bubble5",
+      "animation_id": "bubble5-translation2",
+      "duration": 100,
+      "steps": 2,  
+      "next_animation_id": "bubble5-opacity2",
+      "queue_id": 3, 
+      "keyframes": {
+         "translateKeyframes": [
+          {
+            "step": 0,
+            "x": 0,
+            "y": -40
+          },
+          {
+            "step": 2,
+            "x": 0,
+            "y": 90
+          }
+        ]
+      }
+    }, 
+
+    {
+      "id": "#bubble5",
+      "animation_id": "bubble5-opacity2",
+      "duration": 500,
+      "steps": 1,   
+      "next_animation_id": "bubble5-translation3",
+      "queue_id": 3,
+      "keyframes": {
+        "opacityKeyframes": [
+          {
+            "step": 0,
+            "opacity": 0
+          },
+          {
+            "step": 1,
+            "opacity": 1
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "#bubble5",
+      "animation_id": "bubble5-translation3",
+      "duration": 1600,
+      "steps": 6,  
+      "next_animation_id": "bubble5-translation",
+      "queue_id": -1 , 
+      "keyframes": {
+         "translateKeyframes": [
+          {
+            "step": 0,
+            "x": 0,
+            "y": 90
+          },
+          {
+            "step": 1,
+            "x": -4,
+            "y": 75
+          },
+          {
+            "step": 2,
+            "x": 2,
+            "y": 60
+          },
+          {
+            "step": 3,
+            "x": -3,
+            "y": 45
+          },
+
+          {
+            "step": 4,
+            "x": 3,
+            "y": 30
+          },
+
+          {
+            "step": 5,
+            "x": -2,
+            "y": 15
+          },
+          {
+            "step": 6,
+            "x": 0,
+            "y": 0
+          }
+
+        ]
+      }
+    },
+
+
+    {
+      "id": "#bubble6",
+      "animation_id": "bubble6-translation",
+      "duration": 200,
+      "steps":  1,  
+      "next_animation_id": "bubble6-opacity",
+      "final_animation_id": "bubble6-translation3",
+      "queue_id": 1, 
+      "keyframes": {
+         "translateKeyframes": [
+          {
+            "step": 0,
+            "x": 0,
+            "y": 0
+          },
+          {
+            "step": 1,
+            "x": 0,
+            "y": -10
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "#bubble6",
+      "animation_id": "bubble6-opacity",
+      "duration": 100,
+      "steps": 7,   
+      "next_animation_id": "bubble6-translation2",
+      "queue_id": 2,
+      "keyframes": {
+        "opacityKeyframes": [
+          {
+            "step": 0,
+            "opacity": 0
+          },
+          {
+            "step": 7,
+            "opacity": 0
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "#bubble6",
+      "animation_id": "bubble6-translation2",
+      "duration": 200,
+      "steps": 2,  
+      "next_animation_id": "bubble6-opacity2",
+      "queue_id": 3, 
+      "keyframes": {
+         "translateKeyframes": [
+          {
+            "step": 0,
+            "x": 0,
+            "y": -10
+          },
+          {
+            "step": 2,
+            "x": 0,
+            "y": 100
+          }
+        ]
+      }
+    }, 
+
+    {
+      "id": "#bubble6",
+      "animation_id": "bubble6-opacity2",
+      "duration": 100,
+      "steps": 1,   
+      "next_animation_id": "bubble6-translation3",
+      "queue_id": 3,
+      "keyframes": {
+        "opacityKeyframes": [
+          {
+            "step": 0,
+            "opacity": 0
+          },
+          {
+            "step": 1,
+            "opacity": 1
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "#bubble6",
+      "animation_id": "bubble6-translation3",
+      "duration": 1800,
+      "steps": 6,  
+      "next_animation_id": "bubble6-translation",
+      "queue_id": -1, 
+      "keyframes": {
+         "translateKeyframes": [
+          {
+            "step": 0,
+            "x": 0,
+            "y": 100
+          },
+          {
+            "step": 1,
+            "x": -1.5,
+            "y": 75
+          },
+          {
+            "step": 2,
+            "x": 1.5,
+            "y": 60
+          },
+          {
+            "step": 3,
+            "x": -1.5,
+            "y": 45
+          },
+
+          {
+            "step": 4,
+            "x": 1.5,
+            "y": 30
+          },
+
+          {
+            "step": 5,
+            "x": 0,
+            "y": 15
+          },
+          {
+            "step": 6,
+            "x": 0,
+            "y": 0
+          }
+
+        ]
+      }
+    }
+
+   
+
+
+
+  ]
+}

@@ -1,0 +1,30 @@
+
+<!-- uses index_categories.scss -->
+<div class = "index_categories">
+
+
+<% if @categories.present? %>
+  <ul class="categories_main">
+      <li class = "logo">
+        <%= inline_svg('Logo_mecnieri.svg', class: 'logo_image')%>
+        <p class="hover-text">
+        <%= t('.discover') %>
+        </p>
+        <p class="logo-text">
+          <%= t('.about').html_safe %>
+        </p>
+      </li>
+
+    <% @categories.each do |category| %>
+      <li class="category-item">
+          <%= link_to(inline_svg(category_icon_path(category.slug), class: 'categoty_image'), experiments_path(category: category.slug))%>
+          <%= link_to category.title, experiments_path(category: category.slug), class: 'index_text' %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>
+    <%= t('shared.common.no_experiments') %>
+  </p>
+<% end %>
+</div>

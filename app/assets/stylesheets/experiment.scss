@@ -261,3 +261,24 @@ body.root.experiment .about-element{
   font-size: 20px;
   color: #323C71;
 }
+
+body.root.experiment .previous{
+	position: fixed;
+	left: 20px;
+	top:50vh;
+	z-index: -100;
+}
+body.root.experiment .next{
+	position: fixed;
+	right: 20px;
+	top:50vh;
+	z-index: -100;
+}
+@media (max-width:900px){
+	body.root.experiment .previous{
+	display: none;
+}
+body.root.experiment .next{
+	display: none;
+}
+}
