@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20160919134306) do
     t.datetime "updated_at",                          null: false
   end
 
+  add_index "directions", ["experiment_id"], name: "index_directions_on_experiment_id", using: :btree
   add_index "directions", ["sort_order"], name: "index_directions_on_sort_order", using: :btree
 
   create_table "experiment_translations", force: :cascade do |t|

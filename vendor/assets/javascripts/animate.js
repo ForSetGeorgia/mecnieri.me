@@ -12,7 +12,7 @@
 
   var svgAnimation = function (options) {
     var self = this;
-    self.options = extend({}, self.options);
+    self.options = extend({}, self.options);      
     extend(self.options, options);
     self.init();
   };
@@ -24,8 +24,11 @@
       data:                 null,
       canvas:               null,
       svg:                  null,
-      id:                   null,
+      id:                   null,    
       animations_array:     null,
+      elements_dict:       {}, 
+      play_interval: null,
+      on_element: false
    },
 
 
@@ -53,6 +56,7 @@
         // Success
         if (xobj.readyState === 4 && xobj.status === 200) {
           var json = JSON.parse(xobj.responseText);
+
           if (callback && typeof(callback) === "function") {
             callback(json);
           }
@@ -68,8 +72,8 @@
       @param {Object}   canvas
       @param {String}   svg
       @param {Array}    animations
-      @param {Int}      duration
-      @param {Function} callback
+      @param {Int}      duration 
+      @param {Function} callback 
     */
 
     loadSVG: function(canvas, svg, animations) {
@@ -81,81 +85,107 @@
         canvas.append(data);
         // Create tweens for each animation
         animations.forEach(function(animation) {
-          var element = canvas.select(animation.id);
-          // Create scale, rotate, and transform groups around an SVG node
-          self.createTransformGroup(element);
+          var element = self.options.elements_dict[animation.id];
+          if(element == null) {
+            element = canvas.select(animation.id); 
+            // Create scale, rotate, and transform groups around an SVG node
+            self.createTransformGroup(element);
+            self.options.elements_dict[animation.id] = element;
+          }
           // Create tween based on keyframes
           if (animation.keyframes.translateKeyframes) {
-            self.animations_array.push(new svgTween({
+            self.options.animations_array.push(new svgTween({
+              owner: self.options,
+              id: animation.id,
+              animation_id: animation.animation_id,
               element: element.select('.translate'),
               keyframes: animation.keyframes.translateKeyframes,
-              duration: animation.duration,
+              duration: animation.duration/animation.steps,
               steps: animation.steps,
-              play_num: animation.play_num
+              next_animation_id: animation.next_animation_id,
+              next_animation_step: animation.next_animation_step,
+              final_animation_id: animation.final_animation_id,
+              queue_id: animation.queue_id ? animation.queue_id : 1
             }));
           }
 
           if (animation.keyframes.rotateKeyframes) {
            self.options.animations_array.push(new svgTween({
+              owner: self.options,
+              id: animation.id,
+              animation_id: animation.animation_id,
               element: element.select('.rotate'),
               keyframes: animation.keyframes.rotateKeyframes,
               duration: animation.duration/animation.steps,
               steps: animation.steps,
-              play_num: animation.play_num
+              next_animation_id: animation.next_animation_id,
+              next_animation_step: animation.next_animation_step,
+              final_animation_id: animation.final_animation_id,
+              queue_id: animation.queue_id ? animation.queue_id : 1
             }));
 
           }
 
           if (animation.keyframes.scaleKeyframes) {
              self.options.animations_array.push(new svgTween({
+              owner: self.options,
+              id: animation.id,
+              animation_id: animation.animation_id,
               element: element.select('.scale'),
               keyframes: animation.keyframes.scaleKeyframes,
               duration: animation.duration/animation.steps,
               steps: animation.steps,
-              play_num: animation.play_num
+              next_animation_id: animation.next_animation_id,
+              next_animation_step: animation.next_animation_step,
+              final_animation_id: animation.final_animation_id,
+              queue_id: animation.queue_id ? animation.queue_id : 1
             }));
           }
 
           if (animation.keyframes.opacityKeyframes) {
             self.options.animations_array.push( new svgTween({
+              owner: self.options,
+              id: animation.id,
+              animation_id: animation.animation_id,
               element: element.select('.opacity'),
               keyframes: animation.keyframes.opacityKeyframes,
               duration: animation.duration/animation.steps,
               steps: animation.steps,
-              play_num: animation.play_num
-            }));
-          }
-          if (animation.keyframes.alongpathKeyframes) {
-             self.options.animations_array.push(new svgTween({
-              element: element.select('.alongpath'),
-              keyframes: animation.keyframes.alongpathKeyframes,
-              duration: animation.duration/animation.steps,
-              steps: animation.steps,
-              play_num: animation.play_num
+              next_animation_id: animation.next_animation_id,
+              next_animation_step: animation.next_animation_step,
+              final_animation_id: animation.final_animation_id,
+              queue_id: animation.queue_id ? animation.queue_id : 1
             }));
           }
 
         });
 
+        set_next_animations(self);
+
         $(self.options.id).hover(
           function(){
-              debounce(function(){
-                  self.options.animations_array.forEach(function(anim){
-                     anim.play();
-                  });
-              }, 400, true)();
-
-          },
+              self.options.on_element = true;
+              self.play_animations();
+          }, 
           function(){
-               self.options.animations_array.forEach(function(anim){
-                 anim.stop();
-              });
-          }
+              self.options.on_element = false;
+          } 
         );
-
+        
       });
 
     },
+
+    play_animations: function() {
+        var self = this;
+        self.options.animations_array.forEach(function(anim){
+           if(anim.options.queue_id == 1){
+              anim.play();
+           }
+        });
+    },
+
+
 
     /*
       Create scale, rotate, and transform groups around an SVG DOM node
@@ -165,7 +195,7 @@
       if (element.node) {
         if (element.node) {
           var childNodes = element.selectAll('*');
-
+          
           element.g().attr('class', 'translate')
             .g().attr('class', 'rotate')
             .g().attr('class', 'scale')
@@ -177,9 +207,29 @@
     }
   };
 
+  function set_next_animations(self) {
+    self.options.animations_array.forEach(function(anim){
+      anim.options.next_animation_tween = get_svgTween_by_anim_id(self, anim.options.next_animation_id);
+      anim.options.final_animation_tween = get_svgTween_by_anim_id(self, anim.options.final_animation_id);
+      if(anim.options.final_animation_tween == null) {
+        anim.options.final_animation_tween = anim.options.next_animation_tween;
+      }
+    });
+  }
+
+  function get_svgTween_by_anim_id(self, id) {
+    var result = null;
+    self.options.animations_array.forEach(function(anim){
+      if(anim.options.animation_id == id) {
+        result = anim;
+      }
+    });
+    return result;
+  }
+
   var svgTween = function (options) {
     var self = this;
-    self.options = extend({}, self.options);
+    self.options = extend({}, self.options);      
     extend(self.options, options);
     self.init();
   };
@@ -188,6 +238,8 @@
     constructor: svgTween,
 
     options: {
+      owner:      null, 
+      id:         null,
       element:    null,
       type:       null,
       keyframes:  null,
@@ -195,10 +247,15 @@
       originX:    null,
       originY:    null,
       steps:      null,
-      play_num:   null,
-      play_interval: null,
+      interval:   null,
+      next_animation_id: null,
+      next_animation_tween: null,
+      next_animation_step: null,
+      final_animation_id: null,
+      final_animation_tween: null,
+      queue_id:   null,
       is_playing: false,
-      waiting: true
+      time: 0
     },
 
 
@@ -211,46 +268,30 @@
 
     play: function(){
       var self = this;
-      if(self.options.is_playing){
-          self.options.waiting = true;
-          return;
+      if (self.options.is_playing && self.options.queue_id != -1) {
+        return;
+      }
+      else if(self.options.next_animation_id != null && self.options.queue_id == 1 && self.options.final_animation_tween.options.is_playing ) {
+        return;
+      }
+      if(self.options.queue_id == 1 && self.options.final_animation_id != null) {
+        self.options.final_animation_tween.options.is_playing = true;
       }
       // Set bbox to specific transform element (.translate, .scale, .rotate)
-      self.options.is_playing = true;
       var bBox = self.options.element.getBBox();
-      var total_dur = self.options.steps * self.options.duration ;
-      var played = 0;
+      var total_dur = self.options.steps * self.options.duration;
       self.play_animation(self, bBox);
-      self.options.play_interval = setInterval(function() {
-        if((self.options.play_num != -1  && (++played === self.options.play_num))) {
-           clearInterval(self.options.play_interval);
-        }
-        else {
-          self.play_animation(self, bBox);
-        }
-
-      }, total_dur);
     },
 
-    stop: function() {
-      var self = this;
-      if(self.options.play_interval != null) {
-        clearInterval(self.options.play_interval);
-        self.options.play_interval = null;
-        self.options.waiting = false;
-      }  else {
-        self.options.waiting = false;
-        clearInterval(self.options.play_interval);
-      }
-    },
+
 
     play_animation: function(self, bBox) {
       self.options.is_playing = true;
-      self.options.start_time = new Date().getTime();
       self.options.originX = self.options.keyframes[0].cx ? self.getOriginX(bBox, self.options.keyframes[0].cx) : self.getOriginX(bBox, 'center');
       self.options.originY = self.options.keyframes[0].cy ? self.getOriginY(bBox, self.options.keyframes[0].cy) : self.getOriginY(bBox, 'center');
     // Reset and play tween
       self.resetTween(self.options.element, self.options.type, self.options.keyframes, self.options.originX, self.options.originY);
+      self.options.time = new Date().getTime();
       self.playTween(self.options.element, self.options.type, self.options.keyframes, self.options.originX, self.options.originY, self.options.duration, 0);
     },
 
@@ -262,7 +303,7 @@
       @param {Array}  keyframes
       @param {String} originX - "left", "right", "center"
       @param {String} originY - "top", "bottom", "center"
-      @param {Int}    duration
+      @param {Int}    duration 
       @param {Int}    index
     */
     playTween: function(element, type, keyframes, originX, originY, duration, index) {
@@ -293,7 +334,6 @@
 
       // Set duration as an initial pause or the difference of steps in between keyframes
       newDuration = index ? ((keyframes[index].step - keyframes[(index-1)].step) * duration) : (keyframes[index].step * duration);
-
       // Set easing parameter
       easing = mina[keyframes[index].easing];
       // Skip first tween if animation immediately starts on step 0
@@ -310,40 +350,33 @@
           }
        }, newDuration);
       }
+      
 
       // Or animate tweens if keyframes exist
       else {
         if(type === 'opacity') {
           element.animate({
             opacity: transform
-          }, newDuration, easing, function() {
+          }, newDuration, easing, function() {     
             if (index !== (keyframes.length - 1)) {
               self.playTween(element, type, keyframes, originX, originY, duration, (index + 1));
-            }   else {
-              check_if_continue(self);
+            }else {
+              self.options.is_playing = false;  
+              check_if_continue(self);            
             }
-          });
-        }
 
-        else if (type === 'alongpath') {
-          animateAlongPath("M10-5-10,15M15,0,0,15M0-5-20,15", element, 0, 1000, function() {
-            if (index !== (keyframes.length - 1)) {
-              self.playTween(element, type, keyframes, originX, originY, duration, (index + 1));
-            } else {
-              check_if_continue(self);
-            }
           });
         }
         else {
           element.animate({
             transform: transform
-          }, newDuration, easing, function() {
-            if (index !== (keyframes.length - 1)) {
+          }, newDuration, easing, function() {       
+            if (index != (keyframes.length - 1)) {
               self.playTween(element, type, keyframes, originX, originY, duration, (index + 1));
             } else {
+              self.options.is_playing = false;  
               check_if_continue(self);
             }
-
           });
       }
 
@@ -388,7 +421,7 @@
         return;
       }
       element.transform(transform);
-
+      
     },
 
     /*
@@ -434,15 +467,25 @@
     }
   };
 
+
+  function check_if_continue(self) {
+    if( (self.options.queue_id != -1 || self.options.owner.on_element) && self.options.next_animation_id != null) {
+      self.options.next_animation_tween.play();
+    }         
+    else if(self.options.owner.on_element && self.options.next_animation_id == null){
+      self.play();
+    }
+  }
+
   /*
     Merges two objects together
-    @param  {Object}  a
+    @param  {Object}  a 
     @param  {Object}  b
     @return {Object}  sum
     http://stackoverflow.com/questions/11197247/javascript-equivalent-of-jquerys-extend-method
   */
   function extend(a, b) {
-    for (var key in b) {
+    for (var key in b) { 
       if (b.hasOwnProperty(key)) {
         a[key] = b[key];
       }
@@ -451,42 +494,32 @@
     return a;
   }
 
-  function check_if_continue(self) {
-    if( self.options.play_interval == null && self.options.waiting){
-      self.options.waiting = false;
-      self.options.is_playing = false;
-      self.play();
-    }
-    else if(self.options.play_interval == null){
-      self.options.is_playing = false;
-    }
-  }
+
 
 function debounce(func, wait, immediate) {
 
-    var timeout;
+    var timeout;           
 
     // Calling debounce returns a new anonymous function
     return function() {
-        var context = this,
+        var context = this, 
             args = arguments;
 
         var callNow = immediate && !timeout;
-        clearTimeout(timeout);
+        clearTimeout(timeout);   
         timeout = setTimeout(function() {
              timeout = null;
              if (!immediate) {
                func.apply(context, args);
              }
         }, wait);
-        if (callNow) func.apply(context, args);
-     };
+        if (callNow) func.apply(context, args);  
+     }; 
 };
 
   function animateAlongPath(path, element, start, dur, callback) {
     // Get the path length, so we know how many frames we will animate over
     var len = Snap.path.getTotalLength(path);
-    console.log(len);
     Snap.animate(start, len, function (value) {
       // movePoint gets the path attributes at a certain frame
       var movePoint = Snap.path.getPointAtLength(path, value);

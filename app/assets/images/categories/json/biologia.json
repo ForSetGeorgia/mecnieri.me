@@ -1,0 +1,206 @@
+{
+  "animations": [
+
+    {
+      "id": "#baqteria1",
+      "duration": 4000,
+      "steps": 4,   
+      "keyframes": {
+          "rotateKeyframes": [
+          {
+            "step": 0,
+            "angle": 0,
+            "cy": "center"
+          },
+
+          {
+            "step": 1,
+            "angle": 20,
+            "cy": "center"
+          },
+
+          {
+            "step": 3,
+            "angle": -20,
+            "cy": "center"
+          },
+
+          {
+            "step": 4,
+            "angle": 0,
+            "cy": "center"
+          }
+        ],
+
+        "translateKeyframes": [
+          {
+            "step": 0,
+            "x": 0,
+            "y": 0
+          },
+          {
+            "step": 1,
+            "x": 0,
+            "y": 0
+          },
+          {
+            "step": 2,
+            "x": 3,
+            "y": -7
+          },
+
+          {
+            "step": 3,
+            "x": -2,
+            "y": -7
+          },
+
+          {
+            "step": 4,
+            "x": 0,
+            "y": 0
+          }
+        ]
+
+
+      }
+    },
+
+
+
+    {
+      "id": "#baqteria3",
+      "duration": 3200,
+      "steps": 4,   
+      "keyframes": {
+          "rotateKeyframes": [
+          {
+            "step": 0,
+            "angle": 0,
+            "cy": "center"
+          },
+
+          {
+            "step": 2,
+            "angle": -30,
+            "cy": "center"
+          },
+
+          {
+            "step": 4,
+            "angle": 0,
+            "cy": "center"
+          }
+        ],
+
+        "translateKeyframes": [
+          {
+            "step": 0,
+            "x": 0,
+            "y": 0
+          },
+          {
+            "step": 2,
+            "x": -5,
+            "y": -5
+          },
+
+          {
+            "step": 4,
+            "x": 0,
+            "y": 0
+          }
+        ]
+
+
+      }
+    },
+
+
+    {
+      "id": "#baqteria2",
+      "duration": 3000,
+      "steps": 2,   
+      "keyframes": {
+          "rotateKeyframes": [
+          {
+            "step": 0,
+            "angle": 0
+          },
+
+          {
+            "step": 1,
+            "angle": 30,
+            "easing": "easeOutQuad"
+          },
+          {
+            "step": 2,
+            "angle": 0
+          }
+        ],
+
+        "translateKeyframes": [
+          {
+            "step": 0,
+            "x": 0,
+            "y": 0
+          },
+          {
+            "step": 1,
+            "x": 4,
+            "y": 5
+          },
+          {
+            "step": 2,
+            "x": 0,
+            "y": 0
+          }
+        ]
+
+      }
+    },
+
+    {
+      "id": "#baqteria4",
+      "duration": 2500,
+      "steps": 2,   
+      "keyframes": {
+          "rotateKeyframes": [
+          {
+            "step": 0,
+            "angle": 0
+          },
+
+          {
+            "step": 1,
+            "angle": 30
+          },
+          {
+            "step": 2,
+            "angle": 0
+          }
+        ],
+
+        "translateKeyframes": [
+          {
+            "step": 0,
+            "x": 0,
+            "y": 0
+          },
+          {
+            "step": 1,
+            "x": -5,
+            "y": -8
+          },
+          {
+            "step": 2,
+            "x": 0,
+            "y": 0
+          }
+        ]
+
+      }
+    }
+
+  ]
+}

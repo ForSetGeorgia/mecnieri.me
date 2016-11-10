@@ -2,9 +2,10 @@
   "animations": [
     {
       "id": "#borblis_mrgvali_foni",
-      "play_num": -1,
-      "duration": 1000,
-      "steps": 20,
+      "animation_id": "borblis_mrgvali_foni",
+      "play_num": 1,
+      "duration": 1300,
+      "steps": 1,
       "keyframes": {
          "rotateKeyframes": [
           {
@@ -12,18 +13,8 @@
             "angle": 0
           },
           {
-            "step": 20,
+            "step": 1,
             "angle": 360
-          }
-        ],
-        "opacityKeyframes": [
-          {
-            "step": 0,
-            "opacity": 0.5
-          },
-          {
-            "step": 0.01,
-            "opacity": 0.6
           }
         ]
       }
@@ -31,9 +22,10 @@
 
     {
       "id": "#wind-will",
-      "play_num": -1,
-      "duration": 1000,
-      "steps": 20,
+      "animation_id": "wind-will",
+      "play_num": 1,
+      "duration": 1300,
+      "steps": 1,    
       "keyframes": {
          "rotateKeyframes": [
           {
@@ -43,7 +35,7 @@
             "offsetY": 13
           },
           {
-            "step": 20,
+            "step": 1,
             "angle": 360,
             "offsetX": -0.5,
             "offsetY": 13
@@ -55,8 +47,9 @@
 
     {
       "id": "#light",
-      "play_num": -1,
-      "duration": 1200,
+      "animation_id": "light",
+      "play_num": 1,
+      "duration": 1300,
       "steps": 2,
       "keyframes": {
          "opacityKeyframes": [

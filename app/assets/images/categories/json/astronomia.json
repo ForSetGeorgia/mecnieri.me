@@ -1,0 +1,381 @@
+{
+  "animations": [
+    {
+      "id": "#kometa",
+      "animation_id": "kometa",
+      "play_num": 1,
+      "duration": 5000,
+      "steps": 30,   
+      "keyframes": {
+         "translateKeyframes": [
+          {
+            "step": 0,
+            "x": 0,
+            "y": 0
+          },
+          {
+            "step": 2,
+            "x": -134,
+            "y": 124
+          },
+          {
+            "step": 25,
+            "x": -134,
+            "y": 124
+          }
+        ]
+      }
+    },
+    {
+      "id": "#star4",
+      "animation_id": "star4",
+      "play_num": 1,
+      "duration": 1150,
+      "steps": 2,
+      "queue_id": -1,
+      "keyframes": {
+        "opacityKeyframes": [
+          {
+            "step": 0,
+            "opacity":  1
+          },
+          {
+            "step": 1,
+            "opacity": 0.2
+          },
+          {
+            "step": 2,
+            "opacity":  1
+          }
+        ]
+
+      }
+    },
+
+    {
+      "id": "#star4-opt",
+      "animation_id": "star4-opt",
+      "play_num": 1,
+      "duration": 750,
+      "steps": 2,
+      "next_animation_id": "star4",
+      "keyframes": {
+        "opacityKeyframes": [
+          {
+            "step": 0,
+            "opacity":  1
+          },
+          {
+            "step": 1,
+            "opacity": 0.2
+          },
+          {
+            "step": 2,
+            "opacity":  1
+          }
+        ]
+
+      }
+    },
+
+    {
+      "id": "#star3",
+      "animation_id": "star3",
+      "play_num": 1,
+      "duration": 1100,
+      "steps": 2,
+      "queue_id": -1,
+      "keyframes": {
+        "opacityKeyframes": [
+          {
+            "step": 0,
+            "opacity":  1
+          },
+          {
+            "step": 1,
+            "opacity": 0.2
+          },
+          {
+            "step": 2,
+            "opacity":  1
+          }
+        ]
+
+      }
+    },
+
+    {
+      "id": "#star3-opt",
+      "animation_id": "star3-opt",
+      "play_num": 1,
+      "duration": 800,
+      "steps": 2,
+      "next_animation_id": "star3",
+      "keyframes": {
+        "opacityKeyframes": [
+          {
+            "step": 0,
+            "opacity":  1
+          },
+          {
+            "step": 1,
+            "opacity": 0.2
+          },
+          {
+            "step": 2,
+            "opacity":  1
+          }
+        ]
+
+      }
+    },
+    {
+      "id": "#star2",
+      "animation_id": "star2",
+      "play_num": 1,
+      "duration": 1200,
+      "steps": 2,
+      "queue_id": -1,
+      "keyframes": {
+        "opacityKeyframes": [
+          {
+            "step": 0,
+            "opacity":  1
+          },
+          {
+            "step": 1,
+            "opacity": 0.2
+          },
+          {
+            "step": 2,
+            "opacity":  1
+          }
+        ]
+
+      }
+    },
+
+    {
+      "id": "#star2-opt",
+      "animation_id": "star2-opt",
+      "play_num": 1,
+      "duration": 400,
+      "steps": 2,
+      "next_animation_id": "star2",
+      "keyframes": {
+        "opacityKeyframes": [
+          {
+            "step": 0,
+            "opacity":  1
+          },
+          {
+            "step": 1,
+            "opacity": 0.2
+          },
+          {
+            "step": 2,
+            "opacity":  1
+          }
+        ]
+
+      }
+    },
+    {
+      "id": "#star1",
+      "animation_id": "star1",
+      "play_num": 1,
+      "duration": 1200,
+      "steps": 2,
+      "queue_id": -1,
+      "keyframes": {
+        "opacityKeyframes": [
+          {
+            "step": 0,
+            "opacity":  1
+          },
+          {
+            "step": 1,
+            "opacity": 0.2
+          },
+          {
+            "step": 2,
+            "opacity":  1
+          }
+        ]
+
+      }
+    },
+
+    {
+      "id": "#star1-opt",
+      "animation_id": "star1-opt",
+      "play_num": 1,
+      "duration": 600,
+      "steps": 2,
+      "next_animation_id": "star1",
+      "keyframes": {
+        "opacityKeyframes": [
+          {
+            "step": 0,
+            "opacity":  1
+          },
+          {
+            "step": 1,
+            "opacity": 0.2
+          },
+          {
+            "step": 2,
+            "opacity":  1
+          }
+        ]
+
+      }
+    },
+    {
+      "id": "#star5",
+      "animation_id": "star5",
+      "play_num": 1,
+      "duration": 1100,
+      "steps": 2,
+      "keyframes": {
+        "opacityKeyframes": [
+          {
+            "step": 0,
+            "opacity":  1
+          },
+          {
+            "step": 1,
+            "opacity": 0.2
+          },
+          {
+            "step": 2,
+            "opacity":  1
+          }
+        ]
+
+      }
+    },
+    {
+      "id": "#star6",
+      "animation_id": "star6",
+      "play_num": 1,
+      "duration": 1100,
+      "steps": 2,
+      "keyframes": {
+        "opacityKeyframes": [
+          {
+            "step": 0,
+            "opacity":  1
+          },
+          {
+            "step": 1,
+            "opacity": 0.2
+          },
+          {
+            "step": 2,
+            "opacity":  1
+          }
+        ]
+
+      }
+    },
+    {
+      "id": "#star7",
+      "animation_id": "star7",
+      "play_num": 1,
+      "duration": 1000,
+      "steps": 2,
+      "keyframes": {
+        "opacityKeyframes": [
+          {
+            "step": 0,
+            "opacity":  1
+          },
+          {
+            "step": 1,
+            "opacity": 0.2
+          },
+          {
+            "step": 2,
+            "opacity":  1
+          }
+        ]
+
+      }
+    },
+    {
+      "id": "#star8",
+      "animation_id": "star8",
+      "play_num": 1,
+      "duration": 1200,
+      "steps": 2,
+      "keyframes": {
+        "opacityKeyframes": [
+          {
+            "step": 0,
+            "opacity":  1
+          },
+          {
+            "step": 1,
+            "opacity": 0.2
+          },
+          {
+            "step": 2,
+            "opacity":  1
+          }
+        ]
+
+      }
+    },
+    {
+      "id": "#star9",
+      "animation_id": "star9",
+      "play_num": 1,
+      "duration": 1300,
+      "steps": 2,
+      "keyframes": {
+        "opacityKeyframes": [
+          {
+            "step": 0,
+            "opacity":  1
+          },
+          {
+            "step": 1,
+            "opacity": 0.2
+          },
+          {
+            "step": 2,
+            "opacity":  1
+          }
+        ]
+
+      }
+    },
+    {
+      "id": "#star10",
+      "animation_id": "star10",
+      "play_num": 1,
+      "duration": 1250,
+      "steps": 2,
+      "keyframes": {
+        "opacityKeyframes": [
+          {
+            "step": 0,
+            "opacity":  1
+          },
+          {
+            "step": 1,
+            "opacity": 0.2
+          },
+          {
+            "step": 2,
+            "opacity":  1
+          }
+        ]
+
+      }
+    }
+
+
+  ]
+}
