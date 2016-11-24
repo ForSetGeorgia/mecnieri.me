@@ -1,12 +1,11 @@
 <div class="navbar navbar-default navbar-static-top category-background-color <%=params[:category]%>">
   <div class="container">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <%= link_to t('shared.common.name'), root_path, class: 'navbar-brand' %>
-    <div class="navbar-collapse collapse navbar-responsive-collapse">
+
+    <% if @experiment.present? %>
+    <%= link_to(inline_svg('Logo_mecnieri.svg', class: 'logo_image'), root_path) %>
+    <% end %>
+
+    <div>
       <ul class="nav navbar-nav navbar-right">
         <li>
           <form accept-charset="UTF-8" action="<%= experiments_path %>" class="navbar-form" id="search-form" method="get" role="search"><div style="margin:0;padding:0;display:inline"><input name="utf8" value="✓" type="hidden"></div>

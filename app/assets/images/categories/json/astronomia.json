@@ -4,7 +4,7 @@
       "id": "#kometa",
       "animation_id": "kometa",
       "play_num": 1,
-      "duration": 5000,
+      "duration": 3200,
       "steps": 30,   
       "keyframes": {
          "translateKeyframes": [
@@ -14,7 +14,7 @@
             "y": 0
           },
           {
-            "step": 2,
+            "step": 2.6,
             "x": -134,
             "y": 124
           },
