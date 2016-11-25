@@ -14,7 +14,10 @@ body.root.experiments .search-input{
   text-align: right;
   font-size: 20px;
   /* should box shadow also be removed? */
+}
 
+.white-element {
+  fill: white;
 }
 
 body.root.experiments .about-element{
@@ -39,6 +42,7 @@ body.root.experiments .navbar-default {
     border-color: transparent;
     border: 0;
     background-color: #ffffff !important; 
+
 }
 
 body.root.experiments .app-footer {
@@ -63,6 +67,7 @@ body.root.experiments .exp-categories li{
   width: 110px;
   position: relative;
   text-align: center;
+
 }
 body.root.experiments .exp-categories .categoty_image {
   position: absolute;
@@ -110,6 +115,10 @@ border-radius: 25px;
 background-color: #6EB5F5;
   .index_text{
     color: inherit;
+  }
+
+  .white-element {
+    fill: #6EB5F5;
   }
 
 }

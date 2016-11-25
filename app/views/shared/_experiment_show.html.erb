@@ -1,101 +1,136 @@
-<div class="experiment_first_element primary-header category-background-color <%=params[:category]%>">
-<h1>
-<%=@experiment.title%>
-</h1>
 
-
-<% if @experiment.category_ids.present? %>
-  <div class='experiment-selected-category'>
-  <span class='experiment-selected-category-label'><%= t('.category_label') %>:</span>
-    <% @experiment.categories.each do |cat| %>
-      <%= link_to cat.title, experiments_path(category: cat.slug) %>
-    <% end %>
-  </div>
-<% end %>
-</div>
-<div class="inner-container">
-<div class="exp-intro">
-  <%= @experiment.intro %>
+<div class='exp-background category-background-color <%=params[:category]%>'>
+  <% img = image_path("categories/backgrounds/#{params[:category]}.svg") %>
+  <img class="up-left"  src=<%= img %>>
+  <img class="up-right" src= <%= img %>>
 </div>
 
-<div class="exp-ingredients">
-  <div class="exp-igrendients-image">
-    <% img = @experiment.ingredient_image.exists? ? @experiment.ingredient_image.url('big') : image_path("categories/placeholders/#{params[:category]}.png") %>
-    <%= image_tag(img) %>
-  </div>
-  <h3 class="category-font-color <%=params[:category]%>"><%= t('activerecord.models.ingredient', count: 999) %></h3>
-  <ul>
-    <% @experiment.ingredients.sorted.each do |ing| %>
-      <li><%= ing.content %></li>
-    <% end %>
-  </ul>
 
-  <% if @experiment.needs_adult_supervision %>
-    <div class="exp-adult-supervision">
-      needs_adult_supervision
-    </div>
-  <% end %>
-</div>
+<div class="experiment_first_element primary-header ">
 
-<div class="exp-directions">
-  <h3 class="category-font-color <%=params[:category]%>"><%= t('activerecord.models.direction', count: 999) %></h3>
-  <div class="exp-directions-buttons" data-current-index="0">
-    <span class="direction-previous" data-type="previous"><%= inline_svg('arrow.svg', class: "no-hover category-fill-color #{params[:category]}")%><%= inline_svg('arrow_hover_active.svg', class: "hover category-fill-color #{params[:category]}")%></span>
-    <span class="direction-next active" data-type="next"><%= inline_svg('arrow.svg', class: "no-hover category-fill-color #{params[:category]}")%><%= inline_svg('arrow_hover_active.svg', class: "hover category-fill-color #{params[:category]}")%></span>
-  </div>
-  <ul>
-  <% @experiment.directions.sorted.each_with_index do |dir, dir_index| %>
-    <li data-index="<%= dir_index %>" class="exp-direction-item <%= dir_index == 0 ? 'active' : '' %>">
-      <ul class="exp-direction-images">
-        <% if dir.images.present? %>
-          <% dir.images.each do |img| %>
-            <% if img.image.exists? %>
-              <li>
-                <%= image_tag(img.image.url('big')) %>
-              </li>
-            <% end %>
-          <% end %>
-        <% else %>
-          <%= image_tag("categories/placeholders/#{params[:category]}.png") %>
+  <div>
+    <h1>
+    <%=@experiment.title%>
+    </h1>
+    <% if @experiment.category_ids.present? %>
+      <div class='experiment-selected-category'>
+      <span class='experiment-selected-category-label'><%= t('.category_label') %>:</span>
+        <% @experiment.categories.each do |cat| %>
+          <%= link_to cat.title, experiments_path(category: cat.slug) %>
         <% end %>
-      </ul>
-     <div class="exp-direction-index category-background-color <%= params[:category] %>">
-      <%= dir_index +=1 %>
-     </div>
-     <div class="exp-direction-content">
-      <%= simple_format_no_tags(dir.content) %>
+      </div>
+    <% end %>
+
+    <div class='arrow category-background-color <%=params[:category]%>'>
+      <%= inline_svg('arrow_bottom_white.svg', class: 'arrow-image') %>
     </div>
-    </li>
-  <% end %>
-  </ul>
+
+
+
+  </div> 
+
 </div>
 
-<% if @experiment.warning.present? %>
-  <div class="exp-warning">
-    <h3 class="category-font-color <%=params[:category]%>"><%= t('activerecord.attributes.experiment.warning') %></h3>
-    <div>
-      <%= simple_format_no_tags(@experiment.warning) %>
-    </div>
-  </div>
-<% end %>
+<div class = "inner-container-wrap">
+  <div class="inner-container">
+      <div class='exp-video'> </div>
 
-<div class="experiment-nav previous">
+      <div class="exp-intro">
+        <%= @experiment.intro %>
+      </div>
+
+      <div class="exp-ingredients">
+        <h3 class="category-font-color <%=params[:category]%>"><%= t('activerecord.models.ingredient', count: 999) %></h3>
+        <div class='line-circle exp-lines'>
+          <div class="circle  category-background-color <%=params[:category]%>"></div>
+          <div class="line  category-background-color <%=params[:category]%>"></div>
+        </div>
+        <% img = @experiment.ingredient_image.exists? ? @experiment.ingredient_image.url('big') : image_path("categories/placeholders/#{params[:category]}.png") %>
+        <div class="exp-igrendients-image" style='background-image: url(<%= img %>)'>
+
+        </div>
+        <ul>
+          <h3 class="category-font-color <%=params[:category]%>"><%= t('activerecord.models.ingredient', count: 999) %></h3>
+          <% @experiment.ingredients.sorted.each do |ing| %>
+            <li><%= ing.content %></li>
+          <% end %>
+        </ul>
+
+      <!--   <% if @experiment.needs_adult_supervision %>
+          <div class="exp-adult-supervision">
+            needs_adult_supervision
+          </div>
+        <% end %> -->
+      </div>
+
+      <div class="exp-directions">
+        <h3 class="category-font-color <%=params[:category]%>"><%= t('activerecord.models.direction', count: 999) %></h3>
+        <div class="line  category-background-color <%=params[:category]%>"></div>
+        <div class="exp-directions-buttons" data-current-index="0">
+          <span class="direction-previous active" data-type="previous"><%= inline_svg('arrow.svg', class: "no-hover category-fill-color #{params[:category]}")%><%= inline_svg('arrow_hover_active.svg', class: "hover category-fill-color #{params[:category]}")%></span>
+          <span class="direction-next active" data-type="next"><%= inline_svg('arrow.svg', class: "no-hover category-fill-color #{params[:category]}")%><%= inline_svg('arrow_hover_active.svg', class: "hover category-fill-color #{params[:category]}")%></span>
+        </div>
+        <ul>
+        <% @experiment.directions.sorted.each_with_index do |dir, dir_index| %>
+          <li data-index="<%= dir_index %>" class="exp-direction-item <%= dir_index == 0 ? 'active' : '' %>">
+           <p class="exp-direction-content">
+            <%= simple_format_no_tags(dir.content) %>
+            </p>
+            <div class="exp-direction-images-wrap">
+                <% img = dir.images.present? && dir.images.first.image.url('big').exists? ? dir.images.first.image.url('big') : 
+                image_path("categories/placeholders/#{params[:category]}.png")  %>
+                <div class="exp-direction-images" style='background-image: url(<%= img %>)'>
+
+                </div>
+              <div class="exp-direction-index category-background-color <%= params[:category] %>">
+                <%= dir_index +=1 %>
+             </div>
+            </div>
+
+
+          </li>
+        <% end %>
+        </ul>
+      </div>
+
+      <% if @experiment.warning.present? %>
+        <div class="exp-warning">
+          <h4 class="category-font-color <%=params[:category]%>"><%= t('activerecord.attributes.experiment.warning') %></h4>
+          <div>
+            <%= simple_format_no_tags(@experiment.warning) %>
+          </div>
+        </div>
+      <% end %>
+  </div>
+</div>
+
+<div class="experiment-nav previous category-font-color <%=params[:category]%> category-fill-color <%=params[:category]%>">
   <% if @previous_exp_id.present? %>
     <%= link_to t('.previous_exp'), experiment_path(@previous_exp_id,category: params[:category], q: params[:q]) %>
+    <%= link_to inline_svg('arrow_bottom_white.svg', class: 'arrow-image category-color arrow-left') , experiment_path(@previous_exp_id,category: params[:category], q: params[:q]) %>
   <% end %>
+
 </div>
-<div class="experiment-nav next">
+
+<div class="experiment-nav next category-font-color <%=params[:category]%> category-fill-color <%=params[:category]%>">
   <% if @next_exp_id.present? %>
     <%= link_to t('.next_exp'), experiment_path(@next_exp_id,category: params[:category], q: params[:q]) %>
+    <%=link_to inline_svg('arrow_bottom_white.svg', class: 'arrow-image category-color arrow-right'),  
+     experiment_path(@next_exp_id,category: params[:category], q: params[:q]) %>
   <% end %>
-</div>
 
 </div>
 
 <div class="exp-explanation">
-  <h3 class="category-font-color <%=params[:category]%>"><%= t('activerecord.attributes.experiment.explanation') %></h3>
+  <% img = image_path("categories/backgrounds/#{params[:category]}.svg") %>
+  <div class='exp-explanation-background' style='background-image: url(<%= img %>)'></div>
+
   <div>
-    <%= simple_format_no_tags(@experiment.explanation) %>
+    <h3 class="category-font-color <%=params[:category]%> "><%= t('activerecord.attributes.experiment.explanation') %></h3>
+    <div class="line  category-background-color <%=params[:category]%>"></div>
+    <p>
+      <%= simple_format_no_tags(@experiment.explanation) %>
+    </p>
   </div>
 </div>
 

@@ -3,6 +3,9 @@
 
 /* setting background color*/
 
+$categories-color: #6eb5f5;
+
+
 @font-face
 {
   font-family: 'BebasNeue-Bold';
@@ -72,11 +75,21 @@ body.root.index .index_categories ul {
   list-style-type: none;
 }
 
+body.root.index .index_categories li a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-decoration: none;
+}
+
 body.root.index .index_categories li{
 	margin: 15px;
   margin-top: 5px;
   margin-bottom: 25px;
-	color: #2D1E49;
+	color: $categories-color;
   height: 359.662px;
   width: 442.212px;
   position: relative;
@@ -84,8 +97,11 @@ body.root.index .index_categories li{
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-}
 
+  .white-element {
+    fill: $categories-color;
+  }
+}
 
 body.root.index .index_text {
   -moz-transition:0.80s;
@@ -144,6 +160,10 @@ body.root.index .logo .logo-text {
   margin: 20px 0 20px 0;
   letter-spacing: 1px;
 
+}
+
+body.root.index form-control > *{
+  color: reds !important;
 }
 /* logo div */
 

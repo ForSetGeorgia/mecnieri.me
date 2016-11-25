@@ -79,10 +79,11 @@
     loadSVG: function(canvas, svg, animations) {
       var self = this;
       self.load = 1;
-
       Snap.load(svg, function(data) {
         // Place SVG nodes into DOM tree
         canvas.append(data);
+        self.options.elements_dict = {};
+
         // Create tweens for each animation
         animations.forEach(function(animation) {
           var element = self.options.elements_dict[animation.id];
@@ -171,7 +172,13 @@
               self.options.on_element = false;
           } 
         );
-        
+
+        $(self.options.id).click(
+          function(){
+              self.options.on_element = false;
+          } 
+        );
+
       });
 
     },
@@ -195,12 +202,10 @@
       if (element.node) {
         if (element.node) {
           var childNodes = element.selectAll('*');
-          
           element.g().attr('class', 'translate')
             .g().attr('class', 'rotate')
             .g().attr('class', 'scale')
             .g().attr('class', 'opacity')
-            .g().attr('class', 'alongpath')
             .append(childNodes);
         }
       }

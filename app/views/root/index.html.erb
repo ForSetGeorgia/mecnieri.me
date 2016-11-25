@@ -17,19 +17,18 @@
 
     <% @categories.each do |category| %>
       <li class="category-item" id="<%= "category_#{category.slug}" %>">
-          <% if File.exists? "#{Rails.root}/app/assets/images/#{category_json_path(category.slug)}" %>
-            <%= link_to experiments_path(category: category.slug),
+        <%= link_to experiments_path(category: category.slug),
                 class: 'category_image_animation',
                 id: "category_image_#{category.slug}",
-                'data-container-id': "#category_#{category.slug}",
+                'data-container-id': "category_img_#{category.slug}",
                 'data-svg': asset_url(category_icon_path(category.slug)),
                 'data-json': asset_url(category_json_path(category.slug)) do %>
-            <% end %>
-          <% else %>
-            <%= link_to(inline_svg(category_icon_path(category.slug), class: 'categoty_image'), experiments_path(category: category.slug))%>
-          <% end %>
-          <%= link_to category.title, experiments_path(category: category.slug), class: 'index_text' %>
-      </li>
+
+          <div id="<%= "category_img_#{category.slug}" %>"></div>
+
+          <span class="index_text"><%= category.title %></span>
+        <% end %>
+     </li>
     <% end %>
   </ul>
 <% else %>
