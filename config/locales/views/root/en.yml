@@ -8,6 +8,9 @@ en:
       title: About
     experiments:
       title: Experiments
+    experiment:
+      next_exp: Next Experiment
+      previous_exp: Previous Experiment
   shared:
     experiment_show:
       category_label: Category

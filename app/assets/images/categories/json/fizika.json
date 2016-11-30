@@ -1,0 +1,62 @@
+{
+  "animations": [
+    {
+      "id": "#bubble1-newton",
+      "animation_id": "bubble1",
+      "play_num": 1,
+      "duration": 400,
+      "steps": 2,
+      "next_animation_id": "bubble2",
+      "queue_id": 1,
+      "keyframes": {
+         "rotateKeyframes": [
+          {
+            "step": 0,
+            "angle": 0,
+            "cy": "top"
+          },
+          {
+            "step": 1,
+            "angle": 15,
+            "cy": "top"
+          },
+          {
+            "step": 2,
+            "angle": 0,
+            "cy": "top"
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "#bubble2-newton",
+      "animation_id": "bubble2",
+      "play_num": 1 ,
+      "duration": 400,
+      "steps": 2,
+      "next_animation_id": "bubble1",
+      "queue_id": -1,
+      "keyframes": {
+         "rotateKeyframes": [
+          {
+           "step": 0,
+            "angle": 0,
+            "cy": "top"
+          },
+          {
+            "step": 1,
+            "angle": -15,
+            "cy": "top"
+          },
+          {
+            "step": 2,
+            "angle": 0,
+            "cy": "top"
+          }
+        ]       
+      }
+    }
+ 
+  ]
+}

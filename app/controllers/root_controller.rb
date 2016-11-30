@@ -27,6 +27,12 @@ class RootController < ApplicationController
 
       @experiment = Experiment.active.with_ingredients.with_directions.friendly.find(params[:id])
 
+      # build the next/prev links
+      exp_ids = Experiment.active.latest.search_for(params[:q]).by_category(params[:category]).pluck(:id)
+      current_id_index = exp_ids.index(@experiment.id)
+      @next_exp_id = current_id_index == exp_ids.length-1 ? exp_ids[0] : exp_ids[current_id_index+1]
+      @previous_exp_id = current_id_index == 0 ? exp_ids[-1] : exp_ids[current_id_index-1]
+
     rescue ActiveRecord::RecordNotFound  => e
       redirect_to experiments_path,
                 alert: t('shared.msgs.does_not_exist')

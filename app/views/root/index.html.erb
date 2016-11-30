@@ -7,7 +7,6 @@
   <ul class="categories_main">
       <li class = "logo">
         <%= inline_svg('Logo_mecnieri.svg', class: 'logo_image')%>
-<!-- hard-coded; please fix this  -->
         <p class="hover-text">
         <%= t('.discover') %>
         </p>
@@ -17,10 +16,19 @@
       </li>
 
     <% @categories.each do |category| %>
-      <li class="category-item">
-          <%= link_to(inline_svg(category_icon_path(category.slug), class: 'categoty_image'), experiments_path(category: category.slug))%>
-          <%= link_to category.title, experiments_path(category: category.slug), class: 'index_text' %>
-      </li>
+      <li class="category-item" id="<%= "category_#{category.slug}" %>">
+        <%= link_to experiments_path(category: category.slug),
+                class: 'category_image_animation',
+                id: "category_image_#{category.slug}",
+                'data-container-id': "category_img_#{category.slug}",
+                'data-svg': asset_url(category_icon_path(category.slug)),
+                'data-json': asset_url(category_json_path(category.slug)) do %>
+
+          <div id="<%= "category_img_#{category.slug}" %>"></div>
+
+          <span class="index_text"><%= category.title %></span>
+        <% end %>
+     </li>
     <% end %>
   </ul>
 <% else %>
