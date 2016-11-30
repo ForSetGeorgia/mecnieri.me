@@ -1,8 +1,13 @@
 /* adjusting compnents for the categories page*/
 
+body.root.experiments a:hover {
+  text-decoration: none;
+}
+
+
 body.root.experiments .container {
 	padding: 0px;
-	width: 95vw;
+	width: 1400px;
 }
 
 body.root.experiments .search-input{
@@ -24,8 +29,8 @@ body.root.experiments .about-element{
   font-family: 'BebasNeue-Bold';
   font-size: 20px;
   color: #323C71;
-
 }
+
 body.root.experiments .about-element a {
   color: #323C71;
 }
@@ -34,15 +39,16 @@ body.root.experiments .container .main {
 	width: 20%;
 	height: 100px;
 }
+
 body.root.experiments .navbar-brand{
   display: none;
 }
+
 body.root.experiments .navbar-default {
     background-color: transparent;
     border-color: transparent;
     border: 0;
     background-color: #ffffff !important; 
-
 }
 
 body.root.experiments .app-footer {
@@ -52,23 +58,24 @@ body.root.experiments .app-footer {
 /* styling for "categories" bar */
 
 body.root.experiments .exp-categories ul{
-  text-align: center;
+  padding: 0;
   padding-bottom: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 body.root.experiments .exp-categories li{
   display: inline-block;
-  margin: 15px;
-  margin-top: 5px;
-  margin-bottom: 2px;
   color: #2D1E49;
   text-align: center;
   height: 110px;
   width: 110px;
   position: relative;
   text-align: center;
-
 }
+
 body.root.experiments .exp-categories .categoty_image {
   position: absolute;
   left: 0;
@@ -100,13 +107,11 @@ body.root.experiments .exp-categories .logo_image {
   position: absolute;
   left: 0;
   top: 0;
-  height: 110px;
-  width: 110px;
+  height: 130px;
+  width: 130px;
 }
 
 body.root.experiments .exp-categories .categories-list {
-	margin-right: 4vw;
-	margin-left: 4vw;
 }
 
 body.root.experiments .exp-categories li.seled {
@@ -133,275 +138,183 @@ body.root.experiments .exp-categories .index_text a:hover{
   color:inherit;
 }
 
-/* adjusting sizes to have elements in single row (column for mobile)*/
-
-@media (max-width: 1600px) {
-  body.root.experiments .exp-categories .categories-list {
-    margin-right: 3vw;
-    margin-left: 3vw;
-}
-
-}
-
-@media (max-width: 1250px) {
-  body.root.experiments .exp-categories .categories-list {
-    margin-right: 1vw;
-    margin-left: 1vw;
-}
-
-}
-@media (min-width:1780px){
-    body.root.experiments .exp-categories .categories-list {
-    margin-right: 2vw;
-    margin-left: 2vw;
-}
-
-}
-@media (max-width: 1075px) {
-  body.root.experiments .exp-categories .categories-list {
-    margin-right: 0vw;
-    margin-left: 0vw;
-}
-  body.root.experiments .lcategories_main{
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-}
-
-@media (max-width: 840px) {
-  body.root.experiments .lcategories_main{
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-}
-@media (max-width: 790px) {
-  body.root.experiments .exp-categories .categories-list {
-    margin-right: 3vw;
-    margin-left: 3vw;
-    width: 40%;
-  }
-  body.root.experiments .exp-categories .logo {
-    margin-right: 3vw;
-    margin-left: 3vw;
-    width: 40%;
-  }
-
-  body.root.experiments .exp-categories .categoty_image {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  body.root.experiments .exp-categories .logo_image {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  body.root.experiments .exp-categories .index_text {
-    font-size: 14px
-}
-}
-
-@media (max-width: 400px) {
-  body.root.experiments .exp-categories .categories-list{
-    width: 90%
-  }
-  body.root.experiments .exp-categories .categoty_image {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  body.root.experiments .exp-categories .logo_image {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  body.root.experiments .exp-categories .index_text {
-    font-size: 14px
-}
-
-}
 
 
-/* smaller sized experiments*/
+
+            /* EXPERIMENTS LIST */
+
 body.root.experiments .exp-list{
   text-align: center;
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0;
+  }
 }
+
+
 body.root.experiments .exp-list li{
+ 
   display: inline-block;
-  margin: 15px;
   margin-top: 5px;
   margin-bottom: 25px;
   color: #2D1E49;
   text-align: center;
-  height: 430px;
-  width: 426px;
   position: relative;
   text-align: center;
-  overflow: hidden;
-}
-
-body.root.experiments .exp-list .big {
-    width: 600px;
-    height: 605px;
-    margin-left: 70px;
-    margin-right: 70px;
-}
 
 
-body.root.experiments .exp-list .exp-thumbnail1{
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: block;
-  background-color: black;
-  height: 284px;
+  > a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .exp-thumbnail1{
+      display: block;
+      background-color: black;
+      background-position: center center;
+  }
+
+  .exp-thumbnail2{
+    display: none;
+  }
+
+  .exp_second_image_helper{
+    display: none;
+    overflow: hidden;
+  }
+
+  &.big {
+    .exp-thumbnail1, .exp_second_image_helper {
+      width: 660px;
+      height: 400px;
+    }
+
+    .exp-text {
+      width: 500px;
+    } 
+
+    .exp-description {
+       height: 130px;
+    }
+
+  }
+
+  &.smaller {
+    .exp-thumbnail1, .exp_second_image_helper {
+      width: 420px;
+      height: 280px;
+    }
+  }
+
 
 }
 
-body.root.experiments .exp-list li:hover .exp-thumbnail1{
-  display: none;
-}
-body.root.experiments .exp-list li .exp-thumbnail2{
-  display: none;
+
+
+body.root.experiments .exp-list li:hover {
+   .exp-thumbnail1{
+      display: none;
+    }
+
+    .exp_second_image_helper{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .exp-thumbnail2{
+      display: block;
+      height: 100%;
+      width: 100%;
+      max-width: 150%;
+
+      background-position: center center;
+
+      -moz-transform: scale(1.2);
+      -webkit-transform: scale(1.2);
+      transform: scale(1.2);
+
+      -moz-transition: all 0.5s;
+      -webkit-transition: all 0.5s;
+      transition: all 0.5s;
+    }
+
+    .exp-thumbnail2:hover {
+      -moz-transform: scale(1.0);
+      -webkit-transform: scale(1.0);
+      transform: scale(1.0);
+    }
+
+
+
+  .exp-text {
+    transition: box-shadow 0.3s ease-in-out;
+    -webkit-box-shadow: 0px 0px 29px 18px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 29px 18px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 29px 18px rgba(0,0,0,0.2);
+    transition: box-shadow 0.9s ease-in-out;
+
+   }
+  
 
 }
-#exp_second_image_helper{
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: block;
-  height: 284px;
-  width: 426px;
-  overflow: hidden;
-}
-body.root.experiments .exp-list li:hover .exp-thumbnail2{
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: block;
-  height: 284px;
-  background-color: black;
-  max-width: 150%;
-  -moz-transform: scale(1.2);
-  -webkit-transform: scale(1.2);
-  transform: scale(1.2);
 
-  -moz-transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+body.root.experiments .exp-list li:not(:hover) {
+  .exp-text {
+    transition:  0.3s ease-in-out;
+    box-shadow: none;
+  }
 }
-body.root.experiments .exp-list li:hover .exp-thumbnail2:hover {
-  -moz-transform: scale(1.0);
-  -webkit-transform: scale(1.0);
-  transform: scale(1.0);
-}
+
 
 body.root.experiments .exp-list .exp-text {
-  width:240px;
-  z-index: 100;
-  position: absolute;
-  top: 260px;
+  width:300px;
   font-size: 16px;
   color:inherit;
-  left: 50%;
-  transform: translateX(-50%);
+
+  position: relative;
+  top: -40px;
+  z-index: 100;
 }
 
 body.root.experiments .exp-list .exp-title{
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: green;
   color: white;
   height: 54px;
   font-size: 20px;
   font-family: BebasNeue-Bold;
+  letter-spacing: 3px;
+
 }
+
 body.root.experiments .exp-list .big .exp-title{
   font-size: 24px;
 }
-body.root.experiments .exp-list .exp-description{
-  display: block;
+
+body.root.experiments .exp-list .exp-description {
+  display: flex;
+
   background-color: white;
   color: black;
   font-family: DejaVuSans;
+  line-height: 30px;
+  padding: 20px 5px 0 5px;
+  margin: 0;
+  height: 160px;
+
 }
+
+
 /* larger sized experiments*/
-body.root.experiments .exp-list .big {
-    width: 600px;
-    height: 605px;
-}
-body.root.experiments .exp-list .big .exp-thumbnail1 {
-  height: 400px;
-}
 
-body.root.experiments .exp-list .big:hover .exp-thumbnail2 {
-  height: 400px;
-}
 
-body.root.experiments .exp-list .big .exp-text {
-  width: 350px;
-  top: 370px;
-}
-.big #exp_second_image_helper{
 
-  height: 400px;
-  width: 600px;
-  }
-
-/* under 1450px making all experiments same size */
-@media (max-width: 1605px) {
-  body.root.experiments .exp-list .big {
-    height: 500px;
-    width: 530px;
-    margin-left: 15px;
-    margin-right: 15px;
-
-}
-.big #exp_second_image_helper{
-    height: 376px;
-    width: 540px;
-  }
-body.root.experiments .exp-list .big .exp-thumbnail1 {
-  height: 376px;
-}
-
-body.root.experiments .exp-list .big:hover .exp-thumbnail2 {
-  height: 376px;
-}
-
-body.root.experiments .exp-list .big .exp-text {
-  top: 340px;
-}
-}
-@media (max-width: 1350px) {
-  body.root.experiments .exp-list .big {
-    height: 400px;
-    width: 426px;
-    margin-left: 15px;
-    margin-right: 15px;
-
-}
-body.root.experiments .exp-list .big .exp-thumbnail1 {
-  height: 284px;
-}
-
-body.root.experiments .exp-list .big:hover .exp-thumbnail2 {
-  height: 284px;
-}
-
-body.root.experiments .exp-list .big .exp-text {
-  width:240px;
-  top: 260px;
-}
-
-#exp_second_image_helper{
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: block;
-  height: 284px;
-  width: 426px;
-  overflow: hidden;
-}
-}
 #load_more_link {
   display: block;
   height: 60px;
@@ -411,25 +324,129 @@ body.root.experiments .exp-list .big .exp-text {
   font-size: 25px;
   color: white;
 }
+
 #load_more_link:hover{
   text-decoration: none;
 }
 
 
-body.root.experiments .exp-list li:hover {
-.exp-text {
-  transition: box-shadow 0.3s ease-in-out;
-  -webkit-box-shadow: 0px 0px 29px 18px rgba(0,0,0,0.2);
-  -moz-box-shadow: 0px 0px 29px 18px rgba(0,0,0,0.2);
-  box-shadow: 0px 0px 29px 18px rgba(0,0,0,0.2);
-  transition: box-shadow 0.9s ease-in-out;
+@media screen and (max-width: 1400px) {
+  
+  
+  body.root.experiments .container {
+    width: 95vw;
+  }
 
- }
-}
-body.root.experiments .exp-list li:not(:hover) {
-.exp-text {
-  transition:  0.3s ease-in-out;
-  box-shadow: none;
-}
+
+  body.root.experiments .exp-list li{
+
+    margin: 1vw;
+
+    &.big {
+      .exp-thumbnail1, .exp_second_image_helper {
+        width: 43vw;
+        height: 280px;
+      }
+
+      .exp-text {
+          width: 35vw;
+      }
+    }
+
+    &.smaller {
+      .exp-thumbnail1, .exp_second_image_helper {
+        width: 43vw;
+      }
+
+      .exp-text {
+          width: 35vw;
+      }
+    }
+
+
+  }
+
+
+  body.root.experiments .exp-list ul{
+      justify-content: center;
+  }
+
 }
 
+
+@media screen and (max-width: 975px) {
+
+    body.root.experiments .exp-categories ul{
+      justify-content: center;
+    }
+
+  
+    body.root.experiments .exp-categories li:not(.logo) { 
+      height: 60px;
+      display: flex;
+      align-items: center;
+      width: auto;
+      margin: 0 20px 0 20px;
+
+    }
+
+    body.root.experiments .categories-list {
+
+      .index_text {
+
+        position: relative;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        transform: none;
+        line-height: 24px;
+        padding: 0 10px 0 10px;
+        br {
+          display: none;
+        }
+
+      }
+
+      .categoty_image {
+        display: none;
+      }
+    }
+
+    body.root.experiments li.logo {
+      margin-right: 30px;
+      margin-bottom: 50px;
+    }
+  
+    body.root.experiments .exp-list li{
+
+      margin: 10px 0 10px 0;
+
+
+      &.big {
+        .exp-thumbnail1, .exp_second_image_helper {
+          width: 90vw;
+          height: 300px;
+        }
+
+        .exp-text {
+          width: 80vw;
+        }
+
+      }
+
+      &.smaller {
+        .exp-thumbnail1, .exp_second_image_helper {
+          width: 90vw;
+          height: 300px;
+        }
+
+        .exp-text {
+          width: 80vw;
+        }
+
+      }
+  }
+  
+
+}

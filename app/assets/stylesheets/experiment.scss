@@ -53,7 +53,7 @@ body.root.experiment .primary-header {
 		font-family: BebasNeue-Bold;
 		font-size: 100px;
 		line-height: 100px;
-		width: 800px;
+		width: 500px;
 		color: white;
 		margin: 0;
 		z-index: 100;
@@ -139,7 +139,7 @@ body.root.experiment .navbar {
 }
 
 
-body.root.experiment .exp-background {
+body.root.experiment .exp-header-background {
 		position: absolute;
 		left: 0;
 		top: 0;
@@ -153,6 +153,7 @@ body.root.experiment .exp-background {
 		img {
 			opacity: 0.2;
 			position: relative;
+			height: 400px;
 		}
 
 		.up-left {
@@ -161,10 +162,12 @@ body.root.experiment .exp-background {
 		}	
 
 		.up-right {
-			top: 0;
+			top: -100px;
 		}
 
 }
+
+
 
 
 body.root.experiment .experiment_first_element {
@@ -189,11 +192,31 @@ body.root.experiment .experiment_first_element {
 
 }
 
+body.root.experiment .inner-container-wrap, body.root.experiment .exp-explanation {
+	.exp-background {
+		position: absolute;
+		top: 0;
+		right: 0;
+		z-index: 2;
+		height: 100%;
+		width: 500px;
+		background-size: cover;	
+		z-index: 0;
+	}
+}
+
+
 body.root.experiment .inner-container-wrap {
+	position: relative;
 	width: 100%;
 	display: flex;
 	justify-content: center;
 	background-color: white;
+
+	.exp-background {
+		height: 300px;
+		margin-top: 100px; 
+	}
 }
 
 
@@ -443,6 +466,7 @@ body.root.experiment .exp-explanation {
 	background-color: #ececec;
 	display: flex;
 	justify-content: center;
+
 	h3 {
 		margin-top: 30px;
 	}
@@ -455,16 +479,6 @@ body.root.experiment .exp-explanation {
 
 }
 
-
-body.root.experiment .exp-explanation .exp-explanation-background {
-	position: absolute;
-	top: 0;
-	right: 0;
-	z-index: 2;
-	height: 100%;
-	width: 500px;
-	background-size: cover;	
-}
 
 body.root.experiment .exp-explanation > div {
 	width: 1240px;
@@ -503,6 +517,8 @@ body.root.experiment .category-font-color{
 
 body.root.experiment .experiment-nav {
 	z-index: 1000;
+	top:60vh;
+	position: fixed;
 
 	display: flex;
 	flex-direction: column;
@@ -540,15 +556,11 @@ body.root.experiment .experiment-nav {
 
 
 	&.previous{
-		position: fixed;
 		left: 20px;
-		top:50vh;
 	}	
 
 	&.next{
-		position: fixed;
 		right: 20px;
-		top:50vh;
 	}	
 
 }
@@ -562,7 +574,7 @@ body.root.experiment .experiment-nav {
 		display: none;
 	}
 
-	body.root.experiment .exp-background {
+	body.root.experiment .exp-header-background {
 		.up-right {
 			display: none;
 		}
@@ -591,12 +603,14 @@ body.root.experiment .experiment-nav {
 		left: calc(40vw - 40px);
 	}
 
-	body.root.experiment .exp-explanation .exp-explanation-background {
-		display: none;
+	body.root.experiment .inner-container-wrap, body.root.experiment .exp-explanation {
+		.exp-background {
+			display: none;
+		}
 	}
 
 
-	body.root.experiment .exp-background .up-left {
+	body.root.experiment .exp-header-background .up-left {
 		left: -200px;
 	}
 

@@ -1,5 +1,5 @@
 
-<div class='exp-background category-background-color <%=params[:category]%>'>
+<div class='exp-header-background category-background-color <%=params[:category]%>'>
   <% img = image_path("categories/backgrounds/#{params[:category]}.svg") %>
   <img class="up-left"  src=<%= img %>>
   <img class="up-right" src= <%= img %>>
@@ -32,6 +32,9 @@
 </div>
 
 <div class = "inner-container-wrap">
+  <% img = image_path("categories/backgrounds/#{params[:category]}.svg") %>
+  <div class='exp-background' style='background-image: url(<%= img %>)'></div>
+
   <div class="inner-container">
       <div class='exp-video'> </div>
 
@@ -123,7 +126,7 @@
 
 <div class="exp-explanation">
   <% img = image_path("categories/backgrounds/#{params[:category]}.svg") %>
-  <div class='exp-explanation-background' style='background-image: url(<%= img %>)'></div>
+  <div class='exp-background' style='background-image: url(<%= img %>)'></div>
 
   <div>
     <h3 class="category-font-color <%=params[:category]%> "><%= t('activerecord.attributes.experiment.explanation') %></h3>
