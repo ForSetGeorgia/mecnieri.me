@@ -16,6 +16,8 @@ ka:
         thumbnail2: ჰავერ გამოსახულება
         thumbnails: სურათი გამოსახულებისთვის
         ingredient_image: Ingredient Image
+        gif: Experiment GIF
+        youtube_url: URL of YouTube Video
     models:
       experiment:
         one: ექსპერიმენტი

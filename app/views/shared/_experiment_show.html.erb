@@ -36,7 +36,19 @@
   <div class='exp-background' style='background-image: url(<%= img %>)'></div>
 
   <div class="inner-container">
-      <div class='exp-video'> </div>
+      <% 
+        img = @experiment.gif.exists? ? @experiment.gif.url('xl') : image_path("categories/placeholders/#{params[:category]}.png") 
+        style=''
+        iframe = ''
+        if !@experiment.youtube_video_id.present?
+          style="background-image: url('#{img}')"
+        end
+      %>
+      <div class='exp-video' style="<%= style %>">
+        <% if @experiment.youtube_video_id.present? %>
+          <iframe width="700" height="450" src="https://www.youtube.com/embed/<%= @experiment.youtube_video_id %>?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+        <% end %>
+      </div>
 
       <div class="exp-intro">
         <%= @experiment.intro %>

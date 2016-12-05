@@ -70,6 +70,7 @@ if ENV['load_test_data'].present? && !Rails.env.production?
     #7 - adult supervision
     #8 - thumb1
     #9 - thumb2
+    #10 - youtube_url
 
     if csv.length > 1
       csv.each_with_index do |row, index|
@@ -91,6 +92,11 @@ if ENV['load_test_data'].present? && !Rails.env.production?
               e.directions.build(content: dir, sort_order: dir_index+1)
             end
           end
+
+          if row[10].present?
+            e.youtube_url = row[10]
+          end
+
           e.save
         end
       end

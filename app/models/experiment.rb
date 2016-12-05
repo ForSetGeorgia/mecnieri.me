@@ -18,10 +18,12 @@ class Experiment < AddMissingTranslation
   has_attached_file :thumbnail1,
                     :url => "/system/experiments/:id/thumb1/:style.:extension",
                     :styles => {
+                        :'xl' => {:geometry => "700x450#"},
                         :'big' => {:geometry => "426x284#"},
                         :'small' => {:geometry => "107x71#"}
                     },
                     :convert_options => {
+                      :'xl' => '-quality 85',
                       :'big' => '-quality 85',
                       :'small' => '-quality 85'
                     }
@@ -45,6 +47,13 @@ class Experiment < AddMissingTranslation
                     :convert_options => {
                       :'big' => '-quality 85',
                       :'small' => '-quality 85'
+                    }
+  has_attached_file :gif,
+                    :url => "/system/experiments/:id/gif/:style.:extension",
+                    :styles => {
+                        :'xl' => {:geometry => "700x450#"},
+                        :'big' => {:geometry => "426x284#"},
+                        :'small' => {:geometry => "107x71#"}
                     }
 
   #######################
@@ -76,6 +85,7 @@ class Experiment < AddMissingTranslation
   ## VALIDATIONS
 
   validates :title, presence: :true, uniqueness: :true
+  validates :youtube_url, :format => {:with => URI::regexp(['http','https'])}, :if => "!youtube_url.blank?"
   validates_attachment :thumbnail1,
     content_type: { content_type: ["image/jpeg", "image/png", "image/gif"] },
     size: { in: 0..4.megabytes }
@@ -85,6 +95,9 @@ class Experiment < AddMissingTranslation
   validates_attachment :ingredient_image,
     content_type: { content_type: ["image/jpeg", "image/png", "image/gif"] },
     size: { in: 0..4.megabytes }
+  validates_attachment :gif,
+    content_type: { content_type: ["image/gif"] },
+    size: { in: 0..5.megabytes }
 
   #######################
   ## SLUG DEFINITION (friendly_id)
@@ -133,6 +146,18 @@ class Experiment < AddMissingTranslation
       self.active_at = Time.now
     end
     return true
+  end
+
+
+  #######################
+  ## METHODS
+  def youtube_video_id
+    if self.youtube_url.present?
+      regex = /(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
+      result = regex.match(self.youtube_url)
+      return result[1].present? ? result[1] : nil
+    end
+    return nil
   end
 
   #######################

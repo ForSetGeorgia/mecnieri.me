@@ -106,7 +106,7 @@ group :development do
   # make dev environment faster
   gem 'rails-dev-boost', '~> 0.3.0'
   gem 'rb-fsevent', '>= 0.9.1' # needed for mac
-  # gem 'rb-inotify', '~> 0.9.7' # needed for linux
+  gem 'rb-inotify', '~> 0.9.7' # needed for linux
 
   # show model attributes (table fields) in model
   gem 'annotate', '~> 2.7'

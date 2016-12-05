@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160919134306) do
+ActiveRecord::Schema.define(version: 20161205083319) do
 
   create_table "categories", force: :cascade do |t|
     t.boolean  "is_active",              default: true
@@ -114,6 +114,11 @@ ActiveRecord::Schema.define(version: 20160919134306) do
     t.string   "ingredient_image_content_type", limit: 255
     t.integer  "ingredient_image_file_size",    limit: 4
     t.datetime "ingredient_image_updated_at"
+    t.string   "gif_file_name",                 limit: 255
+    t.string   "gif_content_type",              limit: 255
+    t.integer  "gif_file_size",                 limit: 4
+    t.datetime "gif_updated_at"
+    t.string   "youtube_url",                   limit: 255
   end
 
   add_index "experiments", ["is_active"], name: "index_experiments_on_is_active", using: :btree

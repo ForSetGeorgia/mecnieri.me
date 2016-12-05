@@ -16,6 +16,8 @@ en:
         thumbnail2: Hover Thumbnail
         thumbnails: Thumbnail Images
         ingredient_image: Ingredient Image
+        gif: Experiment GIF
+        youtube_url: URL of YouTube Video
     models:
       experiment:
         one: Experiment
