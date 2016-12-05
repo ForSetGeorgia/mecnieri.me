@@ -42,7 +42,6 @@ body.root.experiment .primary-header {
 	margin-bottom: 0px;
 	padding-top: 60px;
 	padding-bottom: 60px;
-	padding-left: 20px;
 	text-align: left;
 	> div {
 		position: relative;
@@ -50,13 +49,14 @@ body.root.experiment .primary-header {
 	}
 	
 	h1 {
+		position: relative;
 		font-family: BebasNeue-Bold;
 		font-size: 100px;
 		line-height: 100px;
 		width: 500px;
 		color: white;
 		margin: 0;
-		z-index: 100;
+		z-index: 13;
 	}
 
 	.experiment-selected-category{
@@ -241,18 +241,21 @@ body.root.experiment .inner-container{
 
 body.root.experiment .exp-video {
 	position: absolute;
-	width: 700px;
-	height: 450px;
-	/*background-color: red;*/
 	right: 0;
-	top: -430px;
+	bottom: -120px;
 	z-index: 12;
-
-	/*background-image: url("http://sciencehousefoundation.org/wp-content/uploads/2011/12/Screen-Shot-2011-12-30-at-12.47.04-PM-500x278.png");*/
 	background-position: center center;
 	background-size: cover;
+
+	iframe {
+		width: 700px;
+		height: 450px;
+	}
 }
 
+.exp-video-bring-front {
+	z-index: 14 !important;
+}
 
 
 body.root.experiment .exp-intro {
@@ -634,6 +637,22 @@ body.root.experiment .experiment-nav {
 		min-height: auto;
 	}
 
+	body.root.experiment .exp-video {
+		left: 0;
+		bottom: calc(-50.6vw - 150px);
+		right: auto;
+
+		iframe {
+			width: 90vw;
+			height: 50.6vw;
+		}
+	}
+
+
+	body.root.experiment .inner-container {
+		margin-top: calc(52vw);
+	}
+
 	body.root.experiment .inner-container h3{
 		margin-bottom: 20px;
 	}
@@ -655,14 +674,6 @@ body.root.experiment .experiment-nav {
 	}
 
 
-	body.root.experiment .exp-video {
-		position: relative;
-		width: 90vw;
-		height: 450px;
-		left: 0;
-		top: 0;
-		right: auto;
-	}
 
 	body.root.experiment .exp-intro {
 		width: 90vw;

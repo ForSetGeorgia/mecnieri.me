@@ -1,9 +1,12 @@
 var current_exp = 0;
 var mobile_width = 1010;
+var on_mobile = false;
 
 (function() {
 
   $(document).ready(function() {
+
+    video_button_click();
     
     $('body.root.experiment .exp-directions .exp-directions-buttons').on('click', 'span', function(){
       //buttons prev and nex
@@ -66,27 +69,77 @@ var mobile_width = 1010;
       mobile_experiments();
     }
 
+    act_on_resize();
+
+  });
+
+  $("#player").click();
+
+})();
+
+function video_button_click() {
+
+}
+
+function act_on_resize(){
+
     $( window ).resize(function() {
         if($( window ).width() >= mobile_width){
-          //if one of direction-items is already active
-          if( $('.exp-directions').find('.exp-direction-item.active').length == 1) {
-            return;
-          }
-
-          $('.exp-directions-buttons').show();
-          $('.exp-directions').find('.exp-direction-item').removeClass('active');
-          $('.exp-directions').find('.exp-direction-item:eq('+ current_exp +')').addClass('active');
+          not_mobile_experiments();
 
         } else {
           mobile_experiments();
         }
     });
+}
 
-  });
+function not_mobile_experiments(){
+    if(!on_mobile) {
+      return;
+    }
+    on_mobile = false;
+    // $('#experiment_header_elements_wrap').append($('#exp-video')); 
 
-})();
+    $('.exp-directions-buttons').show();
+    $('.exp-directions').find('.exp-direction-item').removeClass('active');
+    $('.exp-directions').find('.exp-direction-item:eq('+ current_exp +')').addClass('active');
+}
 
 function mobile_experiments(){
+    if(on_mobile) {
+      return;
+    }
+    on_mobile = true;
+    // $('.inner-container').prepend($('#exp-video')); 
     $('.exp-directions-buttons').hide();
     $('.exp-directions').find('.exp-direction-item').addClass('active');
+}
+
+
+// 3. This function creates an <iframe> (and YouTube player)
+//    after the API code downloads.
+var player;
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('player', {
+    videoId: $("#player").attr("data-video-id"),
+    events: {
+      'onStateChange': onPlayerStateChange
+    }
+  });
+}
+
+
+// 5. The API calls this function when the player's state changes.
+//    The function indicates that when playing a video (state=1),
+//    the player should play for six seconds and then stop.
+var done = false;
+function onPlayerStateChange(event) {
+  if (event.data == YT.PlayerState.PLAYING || event.data == YT.PlayerState.CUED || event.data == YT.PlayerState.BUFFERING) {
+      $("#exp-video").addClass("exp-video-bring-front");
+  }
+  else if( event.data == YT.PlayerState.ENDED || event.data == YT.PlayerState.PAUSED ){
+    $("#exp-video").removeClass("exp-video-bring-front");
+  }
+
+  
 }

@@ -62,6 +62,7 @@ function moveRowInOtherTables(current_tab_pane, table_data_type, original_index,
 }
 
 function setupExperimentCocoon(){
+
   // add ingredient
   $('.js-cocoon .tab-pane').on('cocoon:after-insert', 'table.table-ingredients', function(e, insertedItem) {
     var locale = $(this).data('locale');
