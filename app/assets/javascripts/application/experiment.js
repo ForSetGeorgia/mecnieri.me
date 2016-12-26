@@ -134,10 +134,10 @@ function onYouTubeIframeAPIReady() {
 //    the player should play for six seconds and then stop.
 var done = false;
 function onPlayerStateChange(event) {
-  if (event.data == YT.PlayerState.PLAYING || event.data == YT.PlayerState.CUED || event.data == YT.PlayerState.BUFFERING) {
+  if (event.data == YT.PlayerState.PLAYING || event.data == YT.PlayerState.CUED ) {
       $("#exp-video").addClass("exp-video-bring-front");
   }
-  else if( event.data == YT.PlayerState.ENDED || event.data == YT.PlayerState.PAUSED ){
+  else if( event.data == YT.PlayerState.ENDED || event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.BUFFERING ){
     $("#exp-video").removeClass("exp-video-bring-front");
   }
 
