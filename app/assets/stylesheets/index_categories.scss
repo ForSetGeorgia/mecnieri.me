@@ -23,6 +23,7 @@ $categories-color: #6eb5f5;
 
 /* Removing navbar search defaults*/
 
+
 body.root.index .navbar-form{
   background-color: #81BFFA;
 
@@ -35,7 +36,6 @@ body.root.index .search-input{
   text-align: right;
   font-size: 20px;
   /* should box shadow also be removed? */
-
 }
 
 body.root.index {
@@ -62,8 +62,17 @@ body.root.index  .about-element a {
   color: #323C71;
 }
 
-body.root.index .container {
-  width:98vw;
+body.root.index main .container{
+  width: 100%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 130px);
+  padding: 0;
+}
+
+body.root.index .index_categories {
+  width: 1500px;
 }
 
 /*  category blocks */
@@ -73,23 +82,15 @@ body.root.index .index_categories ul {
   flex-wrap: wrap;
   justify-content: center;
   list-style-type: none;
-}
-
-body.root.index .index_categories li a {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  text-decoration: none;
+  padding: 0;
+  margin: 0;
 }
 
 body.root.index .index_categories li{
-	margin: 15px;
+  margin: 15px;
   margin-top: 5px;
   margin-bottom: 25px;
-	color: $categories-color;
+  color: $categories-color;
   height: 359.662px;
   width: 442.212px;
   position: relative;
@@ -103,19 +104,32 @@ body.root.index .index_categories li{
   }
 }
 
+body.root.index .index_categories li a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-decoration: none;
+}
+
+
 /*LOGO*/
 
 body.root.index .logo-wrapper{
   padding-top: 40px;
   position: relative;
   &:hover {
-    .logo {
-        transform: rotateY(180deg);
-        opacity: 0.1;
+    .logo_image, .logo-text {
+        opacity: 0;
       }
 
-    .hover-text {
-      transform: rotateY(0deg);
+    .logo_image {
+      transform: rotate(360deg);
+    }
+      
+    .logo-back-text {
       opacity: 1;
     }
   }
@@ -140,34 +154,32 @@ body.root.index .logo {
   position: relative;
   width: 100%;
   height: 100%;
-  transform: rotateY(0deg);
-  transition: all 0.4s;
   opacity: 1;
 }
 
+body.root.index .logo_image {
+  transition: all 0.55s;
+  width: 100%;
+  height: auto;
+}
 
-body.root.index .logo-wrapper .logo-back-text, body.root.index .logo-wrapper .hover-text {
+
+body.root.index .logo-wrapper .logo-back-text {
   position: absolute;
   text-align: center;
   width: 100%;
   color: #2D1E49;
-  font-size: 30px;
+  font-size: 2em;
   font-family: 'BebasNeue-Bold';
-  letter-spacing: 2.5px;
+  letter-spacing: 2.2px;
+  opacity: 0;
+  transform: rotate(0);
+  transform-origin: 50% 52%;
+  transition: all 0.55s;
   p {
     margin: 0;
   }  
 } 
-
-body.root.index .logo-wrapper .logo-back-text {
-    opacity: 0.15;
-}
-
- body.root.index .logo-wrapper .hover-text  {
-    transition: all 0.4s;
-    transform: rotateY(-180deg);
-    opacity: 0;
- }
 
 
 
@@ -191,11 +203,38 @@ body.root.index .index_text {
   transition:0.8s;
   z-index: 100;
   font-family: 'BebasNeue-Bold';
-  font-size: 38px;
+  font-size: 2.6em;
   letter-spacing: 10px;
   color:#2d1e49;
   margin: 10px 0 40px 0;
 }
+
+
+body.root.index .index_text:not(:hover){
+  -moz-transition:0.8s;
+  -webkit-transition:0.8s;
+  transition:.8s;
+  color: #2d1e49;
+}
+
+body.root.index .index_categories li.category-item {
+  -moz-border-radius: 70px;
+  border-radius: 70px;
+  background-color: #6EB5F5;
+
+
+}
+
+body.root.index .index_categories li .category_image_animation {
+  overflow: hidden;
+
+  svg {
+    width: 100%;
+    height: auto;
+  }
+
+}
+
 /* hover*/
 body.root.index .index_categories li.category-item:hover {
   /*
@@ -219,44 +258,53 @@ body.root.index .index_categories li.category-item:hover {
   */
 }
 
-body.root.index .index_text:not(:hover){
-  -moz-transition:0.8s;
-  -webkit-transition:0.8s;
-  transition:.8s;
-  color: #2d1e49;
-}
-
-body.root.index .index_categories li.category-item {
-  -moz-border-radius: 70px;
-  border-radius: 70px;
-  background-color: #6EB5F5;
-}
-
-
-
-
 
 body.root.index form-control > *{
   color: reds !important;
 }
 
+@media (max-width: 1600px){
 
-/* smartphone size, because icons are so large most margins removed*/
-
-@media (max-width: 500px){
-
-  .index_categories li, .logo{
-  	margin-left: 0px;
-  	margin-right: 0px;
-
+  body.root.index .index_categories {
+    width: 100%;
   }
-  body.root.index .container {
-
-	width:100vw;
-	margin-left: 0px;
-	margin-right: 0px;
-	padding: 0px;
-}
 
 }
 
+@media (max-width: 1000px) {
+  body.root.index .index_categories li{
+    width: 45vw;
+  }
+}
+
+@media(max-width: 870px) {
+  body.root.index .index_categories li{
+    width: 500px;
+  }
+}
+
+
+
+@media(max-width: 550px) {
+  body.root.index .index_categories li{
+    width: 90vw;
+    height: 300px;
+    margin-left: 0;
+    margin-right: 0;
+    .index_text {
+      margin-bottom: 20px;
+    }
+  }
+
+
+
+  body.root.index .logo-wrapper .logo-back-text {
+    font-size: 1.5em;
+  } 
+}
+
+@media(max-width: 430px) {
+  body.root.index .index_text {
+    font-size: 2.3em;
+  }
+}
