@@ -8,7 +8,6 @@
     border-color: transparent;
     border: 0;
     color: black;
-
     .container {
       width: 100%;
     }
@@ -18,21 +17,24 @@
 
 .navbar .navbar-right {
   margin: 0;
-
   #search-form {
-    border-color: rgba(0,0,0,0.2) !important;
+    height: auto;
+    border-color: black !important;
     box-shadow: none !important;
+    border-right: 3px solid;
+    margin: 0;
   }
 }
 
 .navbar .search-input {
-
+  height: auto;
   border: none;
-  padding-right: 0;
+  padding: 0;
   background-color: inherit;
   box-shadow: none;
   text-align: right;
   font-size: 23px;
+  line-height: 23px;
   font-family: 'BebasNeue-Bold';
 
   &::-webkit-input-placeholder {
@@ -56,15 +58,31 @@
 
 .navbar .about-element {
   font-family: 'BebasNeue-Bold';
-  font-size: 23px;
-
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   a {
+    padding: 0 15px;
+    font-size: 23px;
+    line-height: 23px;
+    text-align: right !important;
     color: black !important;
     transition: all 0.3s;
-    text-align: right !important;
     &:hover, &:focus {
       color: white !important;
     }
+  }
+
+}
+
+@media screen and (max-width: 770px) {
+  .navbar .navbar-right #search-form {
+    border-color: rgba(0,0,0,0.2) !important;
+    border-right: none;
+  }
+
+  .navbar .about-element {
+    padding: 10px 15px;
   }
 
 }
