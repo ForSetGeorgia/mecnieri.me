@@ -115,15 +115,14 @@ body.root.experiments .exp-categories .categories-list {
 }
 
 body.root.experiments .exp-categories li.seled {
--moz-border-radius: 40px;
-border-radius: 25px;
-background-color: #6EB5F5;
+  -moz-border-radius: 40px;
+  border-radius: 25px;
   .index_text{
     color: inherit;
   }
 
-  .white-element {
-    fill: #6EB5F5;
+  a {
+    color: inherit;
   }
 
 }

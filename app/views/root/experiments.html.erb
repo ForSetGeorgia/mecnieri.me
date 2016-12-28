@@ -8,7 +8,7 @@
     </li>
     <% @categories.each do |category|
       if params[:category] == category.slug
-        class_name = 'seled category-font-color'
+        class_name = 'seled category-font-color ' +  category.slug
       else
         class_name = 'unseled'
       end
