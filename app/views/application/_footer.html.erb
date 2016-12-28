@@ -1,8 +1,9 @@
-<footer class='app-footer'>
-  <%= link_to image_tag('jumpstart_logo.svg', class: 'app-footer-right'),
-              'http://jumpstart.ge',
-              target: '_blank',
-              title: t('shared.common.jumpstart.slogan') %>
-  <p class='app-footer-left'>&copy; <%= Time.now.year %> | </p>
-
+<footer class='app-footer-wrapper'>
+	<div class='app-footer container'>
+	  <%= link_to image_tag('jumpstart_logo.svg', class: 'app-footer-right'),
+	              'http://jumpstart.ge',
+	              target: '_blank',
+	              title: t('shared.common.jumpstart.slogan') %>
+	  <p class='app-footer-left'>&copy; <%= Time.now.year %> | </p>
+	</div>
 </footer>

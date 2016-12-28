@@ -36,6 +36,8 @@ URL: https://gist.github.com/bobbygrace/9e961e8982f42eb91b80
 @import 'components/tabContent';
 @import 'components/translated_inputs';
 @import 'components/categories';
+@import 'components/navigation_bar.scss';
+
 
 
 @font-face
@@ -53,45 +55,3 @@ URL: https://gist.github.com/bobbygrace/9e961e8982f42eb91b80
   src: image-url('fonts/BPG-DejaVuSans-2.ttf')  format('truetype');
 }
 
-
-.navbar {
-
-    margin-bottom: 0px;
-    display: flex;
-   	justify-content: center;
-   	padding-top: 20px;
-    background-color: transparent;
-    border-color: transparent;
-    border: 0;
-
-    .container {
-    	width: 90%;
-    }
-
-	.search-input {
-		border: 0px;
-		box-shadow: none;
-		font-family: 'BebasNeue-Bold';
-		color: #323C71;
-		text-align: right;
-		font-size: 20px;
-	}
-
-   .about-element {
-		font-family: 'BebasNeue-Bold';
-	  	font-size: 20px;
-	}
-
-    .about-element > a {
-    	color: #333333;
-
-    	&:hover, &:focus {
-    		color: #464545;
-    	}
-    }
-
-   form {
-   		border: none;
-   }
-
-}

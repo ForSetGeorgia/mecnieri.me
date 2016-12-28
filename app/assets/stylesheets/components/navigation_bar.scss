@@ -1,0 +1,70 @@
+
+.navbar {
+    margin: 0 !important;
+    display: flex;
+   	justify-content: center;
+   	padding: 20px 0;
+    background-color: transparent;
+    border-color: transparent;
+    border: 0;
+    color: black;
+
+    .container {
+      width: 100%;
+    }
+}
+
+
+
+.navbar .navbar-right {
+  margin: 0;
+
+  #search-form {
+    border-color: rgba(0,0,0,0.2) !important;
+    box-shadow: none !important;
+  }
+}
+
+.navbar .search-input {
+
+  border: none;
+  padding-right: 0;
+  background-color: inherit;
+  box-shadow: none;
+  text-align: right;
+  font-size: 23px;
+  font-family: 'BebasNeue-Bold';
+
+  &::-webkit-input-placeholder {
+     color: black;
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+     color: black; 
+  }
+
+  &::-moz-placeholder {  /* Firefox 19+ */
+     color: black; 
+  }
+
+  &:-ms-input-placeholder {  
+     color: black;
+  }
+
+}
+
+
+.navbar .about-element {
+  font-family: 'BebasNeue-Bold';
+  font-size: 23px;
+
+  a {
+    color: black !important;
+    transition: all 0.3s;
+    text-align: right !important;
+    &:hover, &:focus {
+      color: white !important;
+    }
+  }
+
+}

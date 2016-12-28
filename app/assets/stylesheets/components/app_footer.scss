@@ -7,15 +7,20 @@ body {
   margin-bottom: $footer-height;
 }
 
-.app-footer {
+.app-footer-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
   position: absolute;
   bottom: 0;
+}
+
+.app-footer {
   width: 100%;
   background-color: #f8f8f8;
-  padding: 7px 20px 0;
+  padding: 0;
   color: #4f4f4f;
   height: $footer-height;
-
 }
 
 .app-footer-right {

@@ -10,7 +10,8 @@
         <li>
           <form accept-charset="UTF-8" action="<%= experiments_path %>" class="navbar-form" id="search-form" method="get" role="search"><div style="margin:0;padding:0;display:inline"><input name="utf8" value="✓" type="hidden"></div>
             <div class="form-group">
-              <input autocomplete="off" class="form-control search-input" id="q" name="q" placeholder="<%= t('shared.common.search') %>" tabindex="1" type="text" value="<%= params[:q] %>">
+              <input autocomplete="off" class="form-control search-input" id="q" name="q" placeholder="<%= t('shared.common.search') %>" tabindex="1" type="text" value="<%= params[:q] %>"
+              onfocus="this.placeholder = ''" onblur="this.placeholder = '<%= t('shared.common.search') %>'" >
             </div>
           </form>
         </li>

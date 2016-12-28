@@ -194,3 +194,6 @@ gem 'inline_svg', '~> 0.11.0'
 
 # pagination
 gem 'kaminari', '~> 0.17.0'
+
+#autoprefixer
+gem "autoprefixer-rails"
