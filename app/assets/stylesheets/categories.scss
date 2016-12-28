@@ -1,3 +1,5 @@
+$text-color: #2E1A4D;
+
 /* adjusting compnents for the categories page*/
 
 body.root.experiments a:hover {
@@ -10,16 +12,31 @@ body.root.experiments .container {
 	width: 1400px;
 }
 
-body.root.experiments .search-input{
-  background-color: none;
-  border: 0px;
-  box-shadow: none;
-  font-family: 'BebasNeue-Bold';
-  color: #323C71;
-  text-align: right;
-  font-size: 20px;
-  /* should box shadow also be removed? */
+body.root.experiments .navbar .search-input {
+
+  &::-webkit-input-placeholder {
+     color: $text-color;
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+     color: $text-color;
+  }
+
+  &::-moz-placeholder {  /* Firefox 19+ */
+     color: $text-color;
+  }
+
+  &:-ms-input-placeholder {  
+     color: $text-color;
+  }
+
 }
+
+
+body.root.experiments .navbar .about-element a {
+  color: $text-color !important;
+}
+
 
 .white-element {
   fill: white;
@@ -92,21 +109,23 @@ body.root.experiments .exp-categories .index_text {
   position: absolute;
   top: 75px;
   font-size: 24px;
-  color:inherit;
+  color: $text-color;
   left: 50%;
   transform: translateX(-50%);
   font-family: BebasNeue-Bold;
 }
 
 body.root.experiments .exp-categories .index_text a{
-  color: inherit;
+  color: $text-color; 
 }
 
+body body.root.experiments .exp-categories .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 body.root.experiments .exp-categories .logo_image {
-  position: absolute;
-  left: 0;
-  top: 0;
   height: 130px;
   width: 130px;
 }
@@ -378,7 +397,10 @@ body.root.experiments .exp-list .exp-description {
     body.root.experiments .exp-categories ul{
       justify-content: center;
     }
-
+    body.root.experiments .exp-categories .logo {
+      flex: 1 100%;
+      margin-bottom: 50px;
+    }
   
     body.root.experiments .exp-categories li:not(.logo) { 
       height: 60px;
@@ -413,8 +435,6 @@ body.root.experiments .exp-list .exp-description {
     }
 
     body.root.experiments li.logo {
-      margin-right: 30px;
-      margin-bottom: 50px;
     }
   
     body.root.experiments .exp-list li{

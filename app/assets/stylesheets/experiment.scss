@@ -1,5 +1,5 @@
 
-body.root.experiment div, body.root.experiment p{
+body.root.experiment main div, body.root.experiment main p{
 	line-height: 30px;
 }
 
@@ -22,7 +22,7 @@ body.root.experiment .navbar-static-top {
 }
 
 
-body.root.experiment .container {
+body.root.experiment main .container, body.root.experiment .navbar .container{
 	padding-right: 0px;
 	padding-left: 0px;
 	width: 100%;
@@ -510,18 +510,10 @@ body.root.experiment .experiment-nav {
 	}
 
 	.arrow-left {
-		-webkit-transform: rotate(90deg) translate(-160%, -40%);
-		-moz-transform: rotate(90deg) translate(-160%, -40%);
-		-ms-transform: rotate(90deg) translate(-160%, -40%);
-		-o-transform: rotate(90deg) translate(-160%, -40%);
 		transform: rotate(90deg) translate(-160%, -40%);
 	}
 
 	.arrow-right {
-		-webkit-transform: rotate(-90deg) translate(160%, 20%);
-		-moz-transform: rotate(-90deg) translate(160%, 20%);
-		-ms-transform: rotate(-90deg) translate(160%, 20%);
-		-o-transform: rotate(-90deg) translate(160%, 20%);
 		transform: rotate(-90deg)  translate(160%, 20%);
 	}
 
@@ -800,6 +792,14 @@ body.root.experiment .experiment-nav {
 	    	padding: 5px;
 	    	margin: 0;
 	    }
+
+		.about-element {
+		  justify-content: flex-start;
+		  padding-left: 0;
+		  a {
+			padding-left: 5px;
+		  }
+		}
 
 	}
 
