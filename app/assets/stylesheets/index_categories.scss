@@ -51,7 +51,7 @@ body.root.index main .container{
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 150px);
+  min-height: calc(100vh - 190px);
   padding: 0;
 }
 
@@ -111,7 +111,7 @@ body.root.index .logo-wrapper{
   position: relative;
 
   &:hover {
-    
+
     .logo_image, .logo-text {
         opacity: 0;
       }
