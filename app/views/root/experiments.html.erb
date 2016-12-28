@@ -14,9 +14,14 @@
       end
       %>
       <li class = "categories-list <%= class_name %>">
-        <%= link_to params.merge(category: category.slug) do %>
-          <div class="categoty_image">
-            <%= inline_svg(category_icon_path(category.slug)) %>
+        <%= link_to params.merge(category: category.slug) ,
+                class: 'category_image_animation',
+                id: "category_image_#{category.slug}",
+                'data-container-id': "category_img_#{category.slug}",
+                'data-svg': asset_url(category_icon_path(category.slug)),
+                'data-json': asset_url(category_json_path(category.slug)) do %>
+
+          <div class="categoty_image" id="<%= "category_img_#{category.slug}" %>">
           </div>
           <div class="index_text">
             <br />
