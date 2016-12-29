@@ -148,6 +148,8 @@ function experiments_navigation() {
 }
 
 function change_navigation(offset = 0) {
+    if(!$(".experiment_first_element .arrow").length)
+      return;
     var top_distance = $(".experiment_first_element .arrow").offset().top - offset;
     console.log('aa ' + top_distance);
     $('body.root.experiment .experiment-nav').css('top', top_distance + 'px');
