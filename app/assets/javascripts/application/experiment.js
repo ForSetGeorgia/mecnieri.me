@@ -5,9 +5,6 @@ var on_mobile = false;
 (function() {
 
   $(document).ready(function() {
-
-    experiments_navigation();
-
     $('body.root.experiment .exp-directions .exp-directions-buttons').on('click', 'span', function(){
       //buttons prev and nex
       var $previous = $(this).closest('.exp-directions-buttons').find('.direction-previous');
@@ -80,7 +77,6 @@ var on_mobile = false;
 function act_on_resize(){
 
     $( window ).resize(function() {
-        experiments_navigation();
 
         if($( window ).width() >= mobile_width){
           not_mobile_experiments();
@@ -143,6 +139,16 @@ function onPlayerStateChange(event) {
 
 
 function experiments_navigation() {
-    var top_distance = $(".experiment_first_element .arrow").offset().top;
+    $(document).ready(function() {
+      change_navigation(49);
+      $( window ).resize(function() {
+          change_navigation();
+      });
+    });
+}
+
+function change_navigation(offset = 0) {
+    var top_distance = $(".experiment_first_element .arrow").offset().top - offset;
+    console.log('aa ' + top_distance);
     $('body.root.experiment .experiment-nav').css('top', top_distance + 'px');
 }
