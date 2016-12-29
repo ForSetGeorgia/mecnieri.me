@@ -107,30 +107,30 @@ body.root.experiment .navbar {
 
 
 body.root.experiment .exp-header-background {
-		position: absolute;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 150vh;
-		z-index: -1;
-		display: flex;
-		justify-content: space-between;
-		align-items: flex-start;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 150vh;
+	z-index: -1;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
 
-		img {
-			opacity: 0.2;
-			position: relative;
-			height: 400px;
-		}
+	img {
+		opacity: 0.2;
+		position: relative;
+		height: 400px;
+	}
 
-		.up-left {
-			left: 40px;
-			top: 200px;
-		}	
+	.up-left {
+		left: 40px;
+		top: 200px;
+	}	
 
-		.up-right {
-			top: -100px;
-		}
+	.up-right {
+		top: -100px;
+	}
 
 }
 
@@ -487,7 +487,6 @@ body.root.experiment .category-font-color{
 
 body.root.experiment .experiment-nav {
 	z-index: 1000;
-	top:60vh;
 	position: fixed;
 
 	display: flex;

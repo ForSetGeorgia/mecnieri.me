@@ -6,8 +6,8 @@ var on_mobile = false;
 
   $(document).ready(function() {
 
-    video_button_click();
-    
+    experiments_navigation();
+
     $('body.root.experiment .exp-directions .exp-directions-buttons').on('click', 'span', function(){
       //buttons prev and nex
       var $previous = $(this).closest('.exp-directions-buttons').find('.direction-previous');
@@ -77,13 +77,11 @@ var on_mobile = false;
 
 })();
 
-function video_button_click() {
-
-}
-
 function act_on_resize(){
 
     $( window ).resize(function() {
+        experiments_navigation();
+
         if($( window ).width() >= mobile_width){
           not_mobile_experiments();
 
@@ -140,6 +138,11 @@ function onPlayerStateChange(event) {
   else if( event.data == YT.PlayerState.ENDED || event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.BUFFERING ){
     $("#exp-video").removeClass("exp-video-bring-front");
   }
-
   
+}
+
+
+function experiments_navigation() {
+    var top_distance = $(".experiment_first_element .arrow").offset().top;
+    $('body.root.experiment .experiment-nav').css('top', top_distance + 'px');
 }
