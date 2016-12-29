@@ -7,10 +7,10 @@
             img1 = experiment.thumbnail1.exists? ? experiment.thumbnail1.url('big') : image_path("categories/placeholders/#{params[:category]}.png")
             img2 = experiment.thumbnail1.exists? ? experiment.thumbnail2.url('big') : image_path("categories/placeholders/#{params[:category]}.png")  
           %>
-          <div class='exp-thumbnail1' style='background-image: url(<%= img1 %>)'></div>
-          <div class = 'exp_second_image_helper'>
-            <div class='exp-thumbnail2' style='background-image: url(<%= img2 %>)'></div>
-          </div>
+          <div class='exp-thumbnail1'>
+            <div class='thumb-image' style='background-image: url(<%= img1 %>)'>
+            </div>
+           </div>
           <div class="exp-text">
           <div class="exp-title category-background-color <%= params[:category] %>">
             <%= experiment.title %>

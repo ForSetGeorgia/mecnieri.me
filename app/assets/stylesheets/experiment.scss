@@ -40,8 +40,7 @@ body.root.experiment .primary-header {
 	width: 100%;
 	margin-top: 0px;
 	margin-bottom: 0px;
-	padding-top: 60px;
-	padding-bottom: 60px;
+	padding: 60px 0;
 	text-align: left;
 	> div {
 		position: relative;
@@ -783,6 +782,10 @@ body.root.experiment .experiment-nav {
 	    	margin: 10px 0 10px 0;
 	    }
 
+	    li {
+	    	margin: 10px 0 10px 0;
+	    }
+
 	    input {
 	    	text-align: left;
 	    }
@@ -803,10 +806,13 @@ body.root.experiment .experiment-nav {
 
 	}
 
+	body.root.experiment .primary-header {
+		padding: 0 0 60px 0;
 
-	body.root.experiment .primary-header h1 {
-		font-size: 80px;
-		line-height: 80px;
+		h1 {
+			font-size: 80px;
+			line-height: 80px;
+		}
 	}
 
 }

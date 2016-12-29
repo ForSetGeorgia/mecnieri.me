@@ -1,4 +1,8 @@
 $text-color: #2E1A4D;
+$c_start_w: 1370px;
+$big_thumb_w: 660px;
+$small_thumb_w: 430px;
+
 
 /* adjusting compnents for the categories page*/
 
@@ -9,7 +13,7 @@ body.root.experiments a:hover {
 
 body.root.experiments .container {
 	padding: 0px;
-	width: 1400px;
+	width: $c_start_w;
 }
 
 body.root.experiments .navbar .search-input {
@@ -38,18 +42,13 @@ body.root.experiments .navbar .about-element a {
 }
 
 
-.white-element {
-  fill: white;
-}
-
 body.root.experiments .about-element{
   font-family: 'BebasNeue-Bold';
   font-size: 20px;
   color: #323C71;
-}
-
-body.root.experiments .about-element a {
-  color: #323C71;
+  a {
+    color: #323C71;
+  }
 }
 
 body.root.experiments .container .main {
@@ -86,22 +85,19 @@ body.root.experiments .exp-categories ul{
 body.root.experiments .exp-categories li{
   display: inline-block;
   color: #2D1E49;
-  text-align: center;
   height: 110px;
   width: 110px;
   position: relative;
   text-align: center;
+
+  .white-element {
+    fill: white;
+  }
 }
 
-body.root.experiments .exp-categories .categoty_image {
-  position: absolute;
-  left: 0;
-  top: 0;
-}
 body.root.experiments .exp-categories .categoty_image svg {
   width: 110px;
   height: 98px;
-
 }
 
 body.root.experiments .exp-categories .index_text {
@@ -113,11 +109,11 @@ body.root.experiments .exp-categories .index_text {
   left: 50%;
   transform: translateX(-50%);
   font-family: BebasNeue-Bold;
+  a{
+    color: $text-color; 
+  }
 }
 
-body.root.experiments .exp-categories .index_text a{
-  color: $text-color; 
-}
 
 body body.root.experiments .exp-categories .logo {
   display: flex;
@@ -148,7 +144,6 @@ body.root.experiments .exp-categories li.seled {
 
 body.root.experiments .exp-categories li:hover {
   color:#596dd5;
-
 }
 
 body.root.experiments .exp-categories .index_text a:hover{
@@ -162,18 +157,19 @@ body.root.experiments .exp-categories .index_text a:hover{
             /* EXPERIMENTS LIST */
 
 body.root.experiments .exp-list{
+  margin-top: 40px;
   text-align: center;
   ul {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0;
   }
 }
 
 
 body.root.experiments .exp-list li{
- 
+
   display: inline-block;
   margin-top: 5px;
   margin-bottom: 25px;
@@ -182,32 +178,30 @@ body.root.experiments .exp-list li{
   position: relative;
   text-align: center;
 
-
   > a {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-
-  .exp-thumbnail1{
-      display: block;
-      background-color: black;
-      background-position: center center;
-  }
-
-  .exp-thumbnail2{
-    display: none;
-  }
-
-  .exp_second_image_helper{
-    display: none;
     overflow: hidden;
   }
 
+  .exp-thumbnail1 {
+    overflow: hidden;
+  }
+
+  .exp-thumbnail1 .thumb-image{
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: black;
+    background-position: center center;
+    transition: all 0.5s;
+  }
+
   &.big {
-    .exp-thumbnail1, .exp_second_image_helper {
-      width: 660px;
-      height: 400px;
+    .exp-thumbnail1 {
+      width: $big_thumb_w;
+      height: 380px;
     }
 
     .exp-text {
@@ -220,61 +214,37 @@ body.root.experiments .exp-list li{
 
   }
 
-  &.smaller {
-    .exp-thumbnail1, .exp_second_image_helper {
-      width: 420px;
-      height: 280px;
-    }
+  &.big:nth-child(odd) {
+    margin-right: calc((#{$c_start_w} - 2*#{$big_thumb_w}) / 2);
   }
 
+  &.big:nth-child(even) {
+    margin-left: calc((#{$c_start_w} - 2*#{$big_thumb_w}) / 2);
+  }
+
+  &.smaller {
+    .exp-thumbnail1 {
+      width: $small_thumb_w;
+      height: 280px;
+    }
+
+    margin-right: calc((#{$c_start_w} - 3*#{$small_thumb_w}) / 6);
+    margin-left: calc((#{$c_start_w} - 3*#{$small_thumb_w}) / 6);
+  }
 
 }
 
 
 
 body.root.experiments .exp-list li:hover {
-   .exp-thumbnail1{
-      display: none;
-    }
+  .exp-thumbnail1 .thumb-image{
+    transform: scale(1.2);
 
-    .exp_second_image_helper{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .exp-thumbnail2{
-      display: block;
-      height: 100%;
-      width: 100%;
-      max-width: 150%;
-
-      background-position: center center;
-
-      -moz-transform: scale(1.2);
-      -webkit-transform: scale(1.2);
-      transform: scale(1.2);
-
-      -moz-transition: all 0.5s;
-      -webkit-transition: all 0.5s;
-      transition: all 0.5s;
-    }
-
-    .exp-thumbnail2:hover {
-      -moz-transform: scale(1.0);
-      -webkit-transform: scale(1.0);
-      transform: scale(1.0);
-    }
-
-
+  }
 
   .exp-text {
     transition: box-shadow 0.3s ease-in-out;
-    -webkit-box-shadow: 0px 0px 29px 18px rgba(0,0,0,0.2);
-    -moz-box-shadow: 0px 0px 29px 18px rgba(0,0,0,0.2);
-    box-shadow: 0px 0px 29px 18px rgba(0,0,0,0.2);
-    transition: box-shadow 0.9s ease-in-out;
-
+    box-shadow: 0px 0px 53px 3px rgba(0,0,0,0.35);
    }
   
 
@@ -305,34 +275,28 @@ body.root.experiments .exp-list .exp-title{
   background-color: green;
   color: white;
   height: 54px;
-  font-size: 20px;
+  font-size: 1.4em;
   font-family: BebasNeue-Bold;
   letter-spacing: 3px;
-
 }
 
 body.root.experiments .exp-list .big .exp-title{
-  font-size: 24px;
+  font-size: 1.6em;
 }
 
 body.root.experiments .exp-list .exp-description {
   display: flex;
-
+  padding: 20px 5px 0 5px;
+  margin: 0;
+  height: 160px;
   background-color: white;
   color: black;
   font-family: DejaVuSans;
   line-height: 30px;
-  padding: 20px 5px 0 5px;
-  margin: 0;
-  height: 160px;
-
 }
 
 
 /* larger sized experiments*/
-
-
-
 #load_more_link {
   display: block;
   height: 60px;
@@ -360,8 +324,8 @@ body.root.experiments .exp-list .exp-description {
 
     margin: 1vw;
 
-    &.big {
-      .exp-thumbnail1, .exp_second_image_helper {
+    &.smaller {
+      .exp-thumbnail1 {
         width: 43vw;
         height: 280px;
       }
@@ -371,16 +335,15 @@ body.root.experiments .exp-list .exp-description {
       }
     }
 
-    &.smaller {
-      .exp-thumbnail1, .exp_second_image_helper {
-        width: 43vw;
-      }
-
-      .exp-text {
-          width: 35vw;
-      }
+    &.smaller:nth-child(odd) {
+      margin-right: 30px;
+      margin-left: 0;
     }
 
+    &.smaller:nth-child(even) {
+      margin-left: 30px;
+      margin-right: 0;
+    }
 
   }
 
@@ -393,6 +356,7 @@ body.root.experiments .exp-list .exp-description {
 
 
 @media screen and (max-width: 975px) {
+
 
     body.root.experiments .exp-categories ul{
       justify-content: center;
@@ -408,7 +372,6 @@ body.root.experiments .exp-list .exp-description {
       align-items: center;
       width: auto;
       margin: 0 20px 0 20px;
-
     }
 
     body.root.experiments .categories-list {
@@ -437,25 +400,44 @@ body.root.experiments .exp-list .exp-description {
     body.root.experiments li.logo {
     }
   
+    body.root.experiments .exp-list {
+      margin-top: 0;
+    }
+
     body.root.experiments .exp-list li{
 
       margin: 10px 0 10px 0;
 
 
-      &.big {
-        .exp-thumbnail1, .exp_second_image_helper {
-          width: 90vw;
-          height: 300px;
+      &.smaller {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+
+        .exp-thumbnail1 {
+          width: 600px;
+          height: 350px;
         }
 
         .exp-text {
-          width: 80vw;
+          width: 500px;
         }
 
       }
+
+  }
+
+}
+
+
+@media screen and (max-width: 700px) {
+
+    body.root.experiments .exp-list li{
 
       &.smaller {
-        .exp-thumbnail1, .exp_second_image_helper {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+
+        .exp-thumbnail1 {
           width: 90vw;
           height: 300px;
         }
@@ -465,7 +447,26 @@ body.root.experiments .exp-list .exp-description {
         }
 
       }
-  }
-  
 
+  }
+
+}
+
+
+@media screen and (max-width: 350px) {
+
+  body.root.experiments .exp-list li.smaller{
+      .exp-title {
+        font-size: 1.2em;
+      }
+
+      .exp-text {
+        font-size: 1em;
+      }
+
+      .exp-thumbnail1 {
+          height: 250px;
+      }
+
+    }
 }
