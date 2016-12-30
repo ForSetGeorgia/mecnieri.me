@@ -113,35 +113,45 @@ function mobile_experiments(){
 // 3. This function creates an <iframe> (and YouTube player)
 //    after the API code downloads.
 var player;
-var tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-window.onYouTubeIframeAPIReady = function () {
-    player = new YT.Player('player', {
-      videoId: $("#player").attr("data-video-id"),
-      events: {
-        'onStateChange': onPlayerStateChange
-    }
+
+
+
+
+(function(){
+  $(document).on('ready page:change', function() {
+      console.log('video load');
+      video_load();
   });
-}
-// 5. The API calls this function when the player's state changes.
-//    The function indicates that when playing a video (state=1),
-//    the player should play for six seconds and then stop.
-var done = false;
-function onPlayerStateChange(event) {
-  if (event.data == YT.PlayerState.PLAYING || event.data == YT.PlayerState.CUED ) {
-      $("#exp-video").addClass("exp-video-bring-front");
-  }
-  else if( event.data == YT.PlayerState.ENDED || event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.BUFFERING ){
-    $("#exp-video").removeClass("exp-video-bring-front");
-  }
-}
 
+})();
 
-function load_video() {
+function video_load() {
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
+    window.onYouTubeIframeAPIReady = function () {
+        player = new YT.Player('player', {
+          videoId: $("#player").attr("data-video-id"),
+          events: {
+            'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+    // 5. The API calls this function when the player's state changes.
+    //    The function indicates that when playing a video (state=1),
+    //    the player should play for six seconds and then stop.
+    var done = false;
+    function onPlayerStateChange(event) {
+      if (event.data == YT.PlayerState.PLAYING || event.data == YT.PlayerState.CUED ) {
+          $("#exp-video").addClass("exp-video-bring-front");
+      }
+      else if( event.data == YT.PlayerState.ENDED || event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.BUFFERING ){
+        $("#exp-video").removeClass("exp-video-bring-front");
+      }
+    }
 }
 
 
