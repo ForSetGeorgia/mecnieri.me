@@ -213,6 +213,8 @@ body.root.experiment .exp-video {
 	z-index: 12;
 	background-position: center center;
 	background-size: cover;
+	width: 700px;
+	height: 450px;
 
 	iframe {
 		width: 700px;
@@ -488,13 +490,14 @@ body.root.experiment .category-font-color{
 body.root.experiment .experiment-nav {
 	z-index: 1000;
 	position: fixed;
-
+	top: 50vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: flex-start;
+
 	a {
-		color: inherit !important;
+		color: inherit;
 		font-size: 20px;
 	}
 
@@ -523,6 +526,16 @@ body.root.experiment .experiment-nav {
 	&.next{
 		right: 20px;
 	}	
+
+	&.on-top {
+		a {
+			color: white;
+		}
+
+		path{
+			fill: white;
+		}
+	}
 
 }
 
@@ -599,6 +612,8 @@ body.root.experiment .experiment-nav {
 		left: 0;
 		bottom: calc(-50.6vw - 150px);
 		right: auto;
+		width: 90vw;
+		height: 50.6vw;
 
 		iframe {
 			width: 90vw;
@@ -606,8 +621,7 @@ body.root.experiment .experiment-nav {
 		}
 	}
 
-
-	body.root.experiment .inner-container {
+	body.root.experiment .inner-container.video-space {
 		margin-top: calc(52vw);
 	}
 

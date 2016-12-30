@@ -138,19 +138,35 @@ function onPlayerStateChange(event) {
 }
 
 
-function experiments_navigation() {
+function experiment_updates() {
     $(document).ready(function() {
-      change_navigation(49);
-      $( window ).resize(function() {
-          change_navigation();
-      });
+      add_video_space();
+      change_navigation_color();
+
+      $(window).scroll(function(){
+        change_navigation_color();
+      })
     });
 }
 
-function change_navigation(offset = 0) {
-    if(!$(".experiment_first_element .arrow").length)
+function add_video_space() {
+    if(!$("body.root.experiment #experiment_header_elements_wrap #exp-video").length) 
       return;
-    var top_distance = $(".experiment_first_element .arrow").offset().top - offset;
-    console.log('aa ' + top_distance);
-    $('body.root.experiment .experiment-nav').css('top', top_distance + 'px');
+    $("body.root.experiment main .inner-container").addClass('video-space');
 }
+
+function change_navigation_color() {
+    if(!$("body.root.experiment").length)
+      return;
+    var nav_offset = $("body.root.experiment .experiment-nav").offset().top;
+    var inner_offest = $("body.root.experiment .inner-container-wrap").offset().top;
+    
+    if(nav_offset < inner_offest && !$("body.root.experiment .experiment-nav").hasClass('on-top')) {
+        $("body.root.experiment .experiment-nav").addClass('on-top');
+    }
+
+    else if(nav_offset >= inner_offest && $("body.root.experiment .experiment-nav").hasClass('on-top')) {
+        $("body.root.experiment .experiment-nav").removeClass('on-top');
+    }
+}
+
