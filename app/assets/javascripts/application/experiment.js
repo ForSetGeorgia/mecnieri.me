@@ -113,16 +113,19 @@ function mobile_experiments(){
 // 3. This function creates an <iframe> (and YouTube player)
 //    after the API code downloads.
 var player;
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('player', {
-    videoId: $("#player").attr("data-video-id"),
-    events: {
-      'onStateChange': onPlayerStateChange
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+window.onYouTubeIframeAPIReady = function () {
+    player = new YT.Player('player', {
+      videoId: $("#player").attr("data-video-id"),
+      events: {
+        'onStateChange': onPlayerStateChange
     }
   });
 }
-
-
 // 5. The API calls this function when the player's state changes.
 //    The function indicates that when playing a video (state=1),
 //    the player should play for six seconds and then stop.
@@ -134,7 +137,11 @@ function onPlayerStateChange(event) {
   else if( event.data == YT.PlayerState.ENDED || event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.BUFFERING ){
     $("#exp-video").removeClass("exp-video-bring-front");
   }
-  
+}
+
+
+function load_video() {
+
 }
 
 
@@ -158,6 +165,7 @@ function add_video_space() {
 function change_navigation_color() {
     if(!$("body.root.experiment").length)
       return;
+    
     var nav_offset = $("body.root.experiment .experiment-nav").offset().top;
     var inner_offest = $("body.root.experiment .inner-container-wrap").offset().top;
     

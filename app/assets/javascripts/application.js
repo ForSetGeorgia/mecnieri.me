@@ -44,10 +44,3 @@
 //= require google-analytics-turbolinks
 
 
-// $(document).ready(function() {
-// 	$(function(){
-// 		var s = skrollr.init(); 
-// 		if (s.isMobile()) 
-//     		s.destroy();
-// 	});
-// });
