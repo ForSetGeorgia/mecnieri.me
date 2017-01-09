@@ -37,10 +37,7 @@
       <div id='exp-video' class='exp-video' style="<%= style %>">
         <% if @experiment.youtube_video_id.present? %>
           <div id='player' data-video-id=<%= @experiment.youtube_video_id %>>
-             <iframe width="700" height="450"  src="https://www.youtube.com/embed/<%= @experiment.youtube_video_id %>?rel=0&amp; showinfo=0" frameborder="0" allowfullscreen></iframe>
-
           </div>
-
         <% end %>
       </div>
 
@@ -158,4 +155,5 @@
 
 <script>
    experiment_updates();
+   append_video();
 </script>

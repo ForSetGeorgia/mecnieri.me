@@ -110,30 +110,18 @@ function mobile_experiments(){
 }
 
 
-// 3. This function creates an <iframe> (and YouTube player)
-//    after the API code downloads.
-var player;
-
-
-
-
-
-(function(){
-  $(document).on('ready page:change', function() {
-      console.log('video load');
-      video_load();
-  });
-
-})();
-
-function video_load() {
+var video_load = function () {
     var tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
     var firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
     window.onYouTubeIframeAPIReady = function () {
-        player = new YT.Player('player', {
+        if (!window.YT || window.ytplayer) {
+            return;
+        }
+
+        window.player = new YT.Player('player', {
           videoId: $("#player").attr("data-video-id"),
           events: {
             'onStateChange': onPlayerStateChange
@@ -148,10 +136,31 @@ function video_load() {
       if (event.data == YT.PlayerState.PLAYING || event.data == YT.PlayerState.CUED ) {
           $("#exp-video").addClass("exp-video-bring-front");
       }
-      else if( event.data == YT.PlayerState.ENDED || event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.BUFFERING ){
+      else if( event.data == YT.PlayerState.ENDED || 
+        event.data == YT.PlayerState.PAUSED || 
+        event.data == YT.PlayerState.BUFFERING ){
         $("#exp-video").removeClass("exp-video-bring-front");
       }
     }
+}
+
+
+function youtube_api_call() {
+    onYouTubeIframeAPIReady && onYouTubeIframeAPIReady();
+}
+
+
+function append_video() {
+    if(!$("body.root.experiment #experiment_header_elements_wrap #exp-video").length) 
+      return;
+
+    $(document).bind('ready page:change',  video_load);
+    $(document).bind('page:load', youtube_api_call);
+
+    $(document).on('page:before-change', function() {
+        $(document).unbind('ready page:change',  video_load);
+        $(document).unbind('page:load', youtube_api_call);
+    });
 }
 
 

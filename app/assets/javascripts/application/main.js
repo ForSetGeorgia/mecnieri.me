@@ -3,4 +3,7 @@
     $('html').attr('lang', gon.locale);
     setupTabs();
   });
+
 })();
+
+
