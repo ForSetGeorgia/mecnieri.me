@@ -10,5 +10,5 @@ Rails.application.config.assets.version = '1.0'
 # application.js, application.css, and all non-JS/CSS in app/assets folder
 # are already added.
 Rails.application.config.assets.precompile += %w( admin_styles.css admin_scripts.js ckeditor/*
-                                                  animate.js snap.svg.easing.min.js snap.svg.min.js  application.js 
+                                                  animate.js snap.svg.easing.min.js snap.svg.min.js
                                                 )
