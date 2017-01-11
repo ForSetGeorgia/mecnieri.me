@@ -73,6 +73,14 @@
                          language: enabled_locale_name)
                 %><abbr title="required">*</abbr>
               </th>
+              <% if enabled_locale == I18n.default_locale.to_s %>
+                <th>
+                  <%= t('shared.labels.translated_field',
+                           field: t('activerecord.attributes.direction.image'),
+                           language: enabled_locale_name)
+                  %><abbr title="required">*</abbr>
+                </th>
+              <% end %>
               <th>
                 <%=t 'shared.common.actions' %>
               </th>
@@ -87,7 +95,7 @@
           </tbody>
           <tfoot>
             <tr>
-              <td colspan="3">
+              <td colspan="<%= enabled_locale == I18n.default_locale.to_s ? 4 : 3 %>">
                 <%= link_to_add_association t('shared.actions.add'), f, :directions,
                       :'data-association-insertion-node' => "#translation-#{enabled_locale} table.table-directions tbody",
                       :'data-association-insertion-method' => 'append',
@@ -98,7 +106,7 @@
           </tfoot>
         </table>
 
-        <% if enabled_locale == I18n.default_locale.to_s %>
+        <% if false #enabled_locale == I18n.default_locale.to_s %>
           <hr />
 
           <h3><%= t('activerecord.models.direction_image', count: 999) %></h3>

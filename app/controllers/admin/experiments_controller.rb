@@ -83,8 +83,8 @@ class Admin::ExperimentsController < ApplicationController
         :gif, :youtube_url, category_ids: [],
         directions_attributes: [
           Direction.globalize_attribute_names +
-          [:id, :_destroy, :image, :sort_order, :experiment_id],
-          images_attributes: [:id, :_destroy, :image, :sort_order, :direction_id]
+          [:id, :_destroy, :image, :sort_order, :experiment_id]#,
+          #images_attributes: [:id, :_destroy, :image, :sort_order, :direction_id]
         ],
         ingredients_attributes: [Ingredient.globalize_attribute_names + [:id, :_destroy, :sort_order, :experiment_id]]
       ]

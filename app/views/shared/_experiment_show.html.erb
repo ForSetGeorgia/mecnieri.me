@@ -105,7 +105,7 @@
             <%= simple_format_no_tags(dir.content) %>
             </p>
             <div class="exp-direction-images-wrap">
-                <% img = dir.images.present? && dir.images.first.image.exists? ? dir.images.first.image.url('big') : 
+                <% img = dir.image.exists? ? dir.image.url('big') : 
                 image_path("categories/placeholders/#{category_slug}.png")  %>
                 <div class="exp-direction-images" style='background-image: url(<%= img %>)'>
 
