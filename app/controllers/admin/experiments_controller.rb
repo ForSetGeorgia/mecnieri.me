@@ -13,7 +13,9 @@ class Admin::ExperimentsController < ApplicationController
   # GET /experiments/1
   # GET /experiments/1.json
   def show
-  end
+   @show_page_title = false
+   @body_class = 'experiment_show'
+ end
 
   # GET /experiments/new
   def new
@@ -84,7 +86,7 @@ class Admin::ExperimentsController < ApplicationController
           [:id, :_destroy, :image, :sort_order, :experiment_id],
           images_attributes: [:id, :_destroy, :image, :sort_order, :direction_id]
         ],
-        ingredients_attributes: [Direction.globalize_attribute_names + [:id, :_destroy, :sort_order, :experiment_id]]
+        ingredients_attributes: [Ingredient.globalize_attribute_names + [:id, :_destroy, :sort_order, :experiment_id]]
       ]
       params.require(:experiment).permit(*permitted)
     end

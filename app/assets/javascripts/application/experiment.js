@@ -5,7 +5,7 @@ var on_mobile = false;
 (function() {
 
   $(document).ready(function() {
-    $('body.root.experiment .exp-directions .exp-directions-buttons').on('click', 'span', function(){
+    $('body.experiment_show .exp-directions .exp-directions-buttons').on('click', 'span', function(){
       //buttons prev and nex
       var $previous = $(this).closest('.exp-directions-buttons').find('.direction-previous');
       var $next = $(this).closest('.exp-directions-buttons').find('.direction-next');
@@ -151,7 +151,7 @@ function youtube_api_call() {
 
 
 function append_video() {
-    if(!$("body.root.experiment #experiment_header_elements_wrap #exp-video #player").length) 
+    if(!$("body.experiment_show #experiment_header_elements_wrap #exp-video #player").length) 
       return;
 
     $(document).bind('ready page:change',  video_load);
@@ -176,24 +176,24 @@ function experiment_updates() {
 }
 
 function add_video_space() {
-    if(!$("body.root.experiment #experiment_header_elements_wrap #exp-video").length) 
+    if(!$("body.experiment_show #experiment_header_elements_wrap #exp-video").length) 
       return;
-    $("body.root.experiment main .inner-container").addClass('video-space');
+    $("body.experiment_show main .inner-container").addClass('video-space');
 }
 
 function change_navigation_color() {
-    if(!$("body.root.experiment").length)
+    if(!$("body.experiment_show").length)
       return;
     
-    var nav_offset = $("body.root.experiment .experiment-nav").offset().top;
-    var inner_offest = $("body.root.experiment .inner-container-wrap").offset().top;
+    var nav_offset = $("body.experiment_show .experiment-nav").offset().top;
+    var inner_offest = $("body.experiment_show .inner-container-wrap").offset().top;
     
-    if(nav_offset < inner_offest && !$("body.root.experiment .experiment-nav").hasClass('on-top')) {
-        $("body.root.experiment .experiment-nav").addClass('on-top');
+    if(nav_offset < inner_offest && !$("body.experiment_show .experiment-nav").hasClass('on-top')) {
+        $("body.experiment_show .experiment-nav").addClass('on-top');
     }
 
-    else if(nav_offset >= inner_offest && $("body.root.experiment .experiment-nav").hasClass('on-top')) {
-        $("body.root.experiment .experiment-nav").removeClass('on-top');
+    else if(nav_offset >= inner_offest && $("body.experiment_show .experiment-nav").hasClass('on-top')) {
+        $("body.experiment_show .experiment-nav").removeClass('on-top');
     }
 }
 

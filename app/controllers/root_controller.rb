@@ -23,6 +23,8 @@ class RootController < ApplicationController
 
   def experiment
     @show_page_title = false
+    @body_class = 'experiment_show'
+
     begin
 
       @experiment = Experiment.active.with_ingredients.with_directions.friendly.find(params[:id])

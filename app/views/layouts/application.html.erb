@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html html="<%= I18n.locale %>">
   <%= render partial: 'application/head' %>
-  <body class="<%= controller_name %> <%= action_name %>">
+  <body class="<%= controller_name %> <%= action_name %> <%= @body_class %>">
     <%= Gon::Base.render_data %>
     <%= render partial: 'application/loading_indicator' %>
     <%= render partial: 'application/navbar_header' %>

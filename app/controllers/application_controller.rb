@@ -27,6 +27,9 @@ class ApplicationController < ActionController::Base
     # indicate if the page title should be shown on the page
     # if false, then it will only be used in <title> tag
     @show_page_title = true
+
+    # use this to set custom css class in body tag
+    @body_class = nil
   end
 
   def clean_filename(filename)
