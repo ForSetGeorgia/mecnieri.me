@@ -13,6 +13,7 @@ body.root.experiment h3 , h4{
 
 body.root.experiment .navbar-static-top {
 	background-color: transparent !important;
+   	padding: 40px 0 10px 0;
 }
 
 
@@ -20,6 +21,7 @@ body.root.experiment .navbar-static-top {
 	content: none !important;
 	display: none !important;
 }
+
 
 
 body.root.experiment main .container, body.root.experiment .navbar .container{
@@ -148,12 +150,9 @@ body.root.experiment .experiment_first_element {
 	> div {
 		position: relative;
 	}
-		
-
 
 	.arrow {
 		position: absolute;
-		bottom: -140px;
 		padding: 15px 15px 10px 15px;
 	}
 
@@ -630,7 +629,8 @@ body.root.experiment .experiment-nav {
 	}
 
 	body.root.experiment .primary-header .arrow {
-		bottom: -120px;	
+		padding: 10px 15px 10px 15px;
+
 		.arrow-image {
 			width: 15px;
 			height: auto;

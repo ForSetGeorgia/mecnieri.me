@@ -1,6 +1,9 @@
 var current_exp = 0;
 var mobile_width = 1010;
 var on_mobile = false;
+var arrow_change_width = 1010;
+var big_arrow;
+var video_loaded = false;
 
 (function() {
 
@@ -75,16 +78,15 @@ var on_mobile = false;
 })();
 
 function act_on_resize(){
+  $( window ).resize(function() {
 
-    $( window ).resize(function() {
+      if($( window ).width() >= mobile_width){
+        not_mobile_experiments();
 
-        if($( window ).width() >= mobile_width){
-          not_mobile_experiments();
-
-        } else {
-          mobile_experiments();
-        }
-    });
+      } else {
+        mobile_experiments();
+      }
+  });
 }
 
 function not_mobile_experiments(){
@@ -111,16 +113,14 @@ function mobile_experiments(){
 
 
 var video_load = function () {
+    if(video_loaded)
+      return;
+    video_loaded = true;
     var tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
     var firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
     window.onYouTubeIframeAPIReady = function () {
-        if (!window.YT || window.ytplayer) {
-            return;
-        }
-
         window.player = new YT.Player('player', {
           videoId: $("#player").attr("data-video-id"),
           events: {
@@ -151,29 +151,43 @@ function youtube_api_call() {
 
 
 function append_video() {
-    if(!$("body.root.experiment #experiment_header_elements_wrap #exp-video #player").length) 
-      return;
-
-    $(document).bind('ready page:change',  video_load);
-    $(document).bind('page:load', youtube_api_call);
-
-    $(document).on('page:before-change', function() {
-        $(document).unbind('ready page:change',  video_load);
-        $(document).unbind('page:load', youtube_api_call);
-    });
+  if(!$("body.root.experiment #experiment_header_elements_wrap #exp-video #player").length) 
+    return;
+  video_loaded = false;
+  $(document).bind('ready page:change',  video_load);
+  $(document).bind('page:load', youtube_api_call);
 }
+
+
+function video_unbind_on_before_change() {
+  $(document).on('page:before-change', function() {
+      $(document).unbind('ready page:change',  video_load);
+      $(document).unbind('page:load', youtube_api_call);
+  });
+}
+
+video_unbind_on_before_change();
 
 
 function experiment_updates() {
-    $(document).ready(function() {
-      add_video_space();
-      change_navigation_color();
-
-      $(window).scroll(function(){
-        change_navigation_color();
-      })
-    });
+    $(document).bind('ready page:change',  add_video_space);
+    $(document).bind('ready page:change',  change_navigation_color);
+    $(document).bind('ready page:change',  place_arrow);
+    $(window).bind('resize',  place_arrow);
+    $(window).bind('scroll',  change_navigation_color);
 }
+
+function experiment_unbinds() {
+  $(document).on('page:before-change', function() {
+      $(document).unbind('ready page:change',  add_video_space);
+      $(document).unbind('ready page:change',  change_navigation_color);
+      $(document).unbind('ready page:change',  place_arrow);
+      $(window).unbind('resize',  place_arrow);
+      $(window).unbind('scroll',  change_navigation_color);
+  });
+}
+
+experiment_unbinds();
 
 function add_video_space() {
     if(!$("body.root.experiment #experiment_header_elements_wrap #exp-video").length) 
@@ -184,7 +198,6 @@ function add_video_space() {
 function change_navigation_color() {
     if(!$("body.root.experiment").length)
       return;
-    
     var nav_offset = $("body.root.experiment .experiment-nav").offset().top;
     var inner_offest = $("body.root.experiment .inner-container-wrap").offset().top;
     
@@ -195,5 +208,11 @@ function change_navigation_color() {
     else if(nav_offset >= inner_offest && $("body.root.experiment .experiment-nav").hasClass('on-top')) {
         $("body.root.experiment .experiment-nav").removeClass('on-top');
     }
+}
+
+function place_arrow(first) {
+    var selected_category  = $('body.root.experiment .primary-header .experiment-selected-category');
+    var top_space = selected_category.position().top + selected_category.height();
+    $('body.root.experiment .primary-header .arrow').css({'top' : top_space + 'px'});
 }
 

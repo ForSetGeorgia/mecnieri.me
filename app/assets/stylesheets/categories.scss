@@ -259,7 +259,7 @@ body.root.experiments .exp-list li:hover {
 
 body.root.experiments .exp-list li:not(:hover) {
   .exp-text {
-    transition:  0.3s ease-in-out;
+    transition: box-shadow 0.3s ease-in-out;
     box-shadow: none;
   }
 }
@@ -453,25 +453,33 @@ body.root.experiments .exp-list .exp-description {
 
       }
 
-  }
+    }
 
 }
 
 
 @media screen and (max-width: 350px) {
 
-  body.root.experiments .exp-list li.smaller{
+  body.root.experiments .exp-list li{
+
+    &.smaller {
+
       .exp-title {
         font-size: 1.2em;
       }
 
-      .exp-text {
-        font-size: 1em;
+      .exp-thumbnail1 {
+        width: 90vw;
+        height: 250px;
       }
 
-      .exp-thumbnail1 {
-          height: 250px;
+      .exp-text {
+        font-size: 1em;
+        width: 80vw;
       }
 
     }
+
+  }
+
 }
