@@ -197,6 +197,3 @@ gem 'kaminari', '~> 0.17.0'
 
 #autoprefixer
 gem "autoprefixer-rails"
-
-#skrollr.js
-gem 'skrollr-rails'

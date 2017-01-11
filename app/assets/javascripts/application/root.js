@@ -18,7 +18,7 @@ function logo_change() {
 			logo_width = new_width;
 			place_logo_text();
 		}
-	})
+	});
 }
 
 function place_logo_text() {

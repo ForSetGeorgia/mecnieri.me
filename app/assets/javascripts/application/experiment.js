@@ -151,7 +151,7 @@ function youtube_api_call() {
 
 
 function append_video() {
-    if(!$("body.root.experiment #experiment_header_elements_wrap #exp-video").length) 
+    if(!$("body.root.experiment #experiment_header_elements_wrap #exp-video #player").length) 
       return;
 
     $(document).bind('ready page:change',  video_load);

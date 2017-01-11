@@ -220,7 +220,7 @@ body.root.index .index_categories li.category-item {
 
 body.root.index .index_categories li .category_image_animation {
   overflow: hidden;
-
+  height: auto;
   svg {
     width: 100%;
     height: auto;
@@ -284,7 +284,7 @@ body.root.index form-control > *{
     height: 300px;
 
     .category_image_animation svg {
-      height: auto;
+      height: 169.2px;
       width: 200px;
     }
   }
@@ -302,7 +302,7 @@ body.root.index form-control > *{
     height: 280px;
 
     .category_image_animation svg {
-      height: auto;
+      height: 135.4px;
       width: 160px;
     }
   }
@@ -339,7 +339,7 @@ body.root.index form-control > *{
     }
 
     .category_image_animation svg {
-      height: auto;
+      height: 220px;
       width: 260px;
     }
   }
@@ -357,7 +357,7 @@ body.root.index form-control > *{
 
 
     .category_image_animation svg {
-      height: auto;
+      height: 169.2px;
       width: 200px;
     }
 
