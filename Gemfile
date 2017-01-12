@@ -197,3 +197,6 @@ gem 'kaminari', '~> 0.17.0'
 
 #autoprefixer
 gem "autoprefixer-rails"
+
+# turn urls in text into links
+gem 'rails_autolink', '~> 1.1', '>= 1.1.6'

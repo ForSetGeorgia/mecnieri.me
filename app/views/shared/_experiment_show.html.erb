@@ -80,7 +80,7 @@
         <ul>
           <h3 class="category-font-color <%=category_slug%>"><%= t('activerecord.models.ingredient', count: 999) %></h3>
           <% @experiment.ingredients.sorted.each do |ing| %>
-            <li><%= ing.content %></li>
+            <li><%= auto_link(ing.content, :urls, :target => "_blank") %></li>
           <% end %>
         </ul>
 
@@ -102,7 +102,7 @@
         <% @experiment.directions.sorted.each_with_index do |dir, dir_index| %>
           <li data-index="<%= dir_index %>" class="exp-direction-item <%= dir_index == 0 ? 'active' : '' %>">
            <p class="exp-direction-content">
-            <%= simple_format_no_tags(dir.content) %>
+            <%= auto_link(simple_format_no_tags(dir.content), :urls, :target => "_blank") %>
             </p>
             <div class="exp-direction-images-wrap">
                 <% img = dir.image.exists? ? dir.image.url('big') : 
