@@ -307,11 +307,16 @@ body.root.experiments .exp-list .exp-description {
 #load_more_link {
   display: block;
   height: 60px;
-  background-color: #2e2d2c;
   margin-top: 100px;
   padding-top: 12px;
-  font-size: 25px;
   color: white;
+  background-color: #2C1A4E;
+  font-family: BebasNeue-Bold;
+  font-size: 25px;
+  letter-spacing: 2px;
+  span {
+    color: gray;
+  }
 }
 
 #load_more_link:hover{

@@ -1,4 +1,6 @@
+
 <% if @experiments.present? %>
+  var load_count = 0;
   $('.exp-list ul')
     .append($("<%= escape_javascript(render 'root/experiment_list')%>")
       .hide()
@@ -9,7 +11,10 @@
     {
       items.eq(i).slideDown(800);
       setTimeout(show_item, 170, +i + 1, items);
-    }
+    } else {
+      var exp_left = <%= @total_experiments %> - $('body.root.experiments .exp-list ul li').length;
+        $('#load_more_link').append( "<span class='exp-left'> (" + exp_left + ")</span>" );
+    } 
   })(0,
     $('.exp-list ul').find('[class*="js-vis-stay-visible"]:not(:visible)'));
 

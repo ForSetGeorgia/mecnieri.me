@@ -38,10 +38,16 @@
   <ul>
     <%= render partial: 'experiment_list' %>
   </ul>
-  <%= link_to_next_page(@experiments, t('shared.actions.more'), :remote => true, :id=>'load_more_link', :params => params) %>
+  <%= link_to_next_page @experiments, t('shared.actions.more'), :remote => true, :id=>'load_more_link', :params => params do%>
+  <% end %>
 <% else %>
   <p>
     <%= t('shared.common.no_experiments_match') %>
   </p>
 <% end %>
 </div>
+
+
+<script>
+  $('#load_more_link').append( "<span class='exp-left'> (<%= @total_experiments - 5 %>)</span>" );
+</script>
