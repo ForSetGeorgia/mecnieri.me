@@ -17,6 +17,18 @@
                 as: :text,
                 label: false, input_html: {rows: 7} %>
   </td>
+  <% if enabled_locale == I18n.default_locale.to_s %>
+    <td>
+      <div class="file input optional form-group" id="experiment_directions_attributes_<%= dir_index %>_image_input">
+        <% if object.present? && object.image.exists? %>
+          <%= image_tag(object.image.url('small')) %>
+        <% end %>
+        <span class="form-wrapper">
+          <input accept=".jpg,.jpeg,.png,.gif" id="experiment_directions_attributes_<%= dir_index %>_image" name="experiment[directions_attributes][<%= dir_index %>][image]" type="file">
+        </span>
+      </div>
+    </td>
+  <% end %>
   <td>
     <%= link_to_remove_association t('shared.actions.destroy'), f,
           data: { confirm: t('shared.prompts.confirm') },

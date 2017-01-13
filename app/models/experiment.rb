@@ -2,13 +2,30 @@
 #
 # Table name: experiments
 #
-#  id                      :integer          not null, primary key
-#  needs_adult_supervision :boolean          default(FALSE)
-#  is_active               :boolean          default(FALSE)
-#  active_at               :datetime
-#  slug                    :string(255)
-#  created_at              :datetime         not null
-#  updated_at              :datetime         not null
+#  id                            :integer          not null, primary key
+#  needs_adult_supervision       :boolean          default(FALSE)
+#  is_active                     :boolean          default(FALSE)
+#  active_at                     :datetime
+#  slug                          :string(255)
+#  created_at                    :datetime         not null
+#  updated_at                    :datetime         not null
+#  thumbnail1_file_name          :string(255)
+#  thumbnail1_content_type       :string(255)
+#  thumbnail1_file_size          :integer
+#  thumbnail1_updated_at         :datetime
+#  thumbnail2_file_name          :string(255)
+#  thumbnail2_content_type       :string(255)
+#  thumbnail2_file_size          :integer
+#  thumbnail2_updated_at         :datetime
+#  ingredient_image_file_name    :string(255)
+#  ingredient_image_content_type :string(255)
+#  ingredient_image_file_size    :integer
+#  ingredient_image_updated_at   :datetime
+#  gif_file_name                 :string(255)
+#  gif_content_type              :string(255)
+#  gif_file_size                 :integer
+#  gif_updated_at                :datetime
+#  youtube_url                   :string(255)
 #
 
 class Experiment < AddMissingTranslation
@@ -122,7 +139,8 @@ class Experiment < AddMissingTranslation
   scope :sorted, -> { with_translations(I18n.locale).order(:title) }
   scope :latest, -> { with_translations(I18n.locale).order(active_at: :desc, title: :asc)}
   scope :with_ingredients, -> {includes(ingredients: [:translations] )}
-  scope :with_directions, -> {includes(directions: [:translations, :images] )}
+  scope :with_directions, -> {includes(directions: [:translations] )}
+#  scope :with_directions, -> {includes(directions: [:translations, :images] )}
 
   def self.by_category(category_scope)
     if category_scope.present?

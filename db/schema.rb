@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161205083319) do
+ActiveRecord::Schema.define(version: 20170111101245) do
 
   create_table "categories", force: :cascade do |t|
     t.boolean  "is_active",              default: true
@@ -43,20 +43,6 @@ ActiveRecord::Schema.define(version: 20161205083319) do
   add_index "category_translations", ["slug"], name: "index_category_translations_on_slug", using: :btree
   add_index "category_translations", ["title"], name: "index_category_translations_on_title", using: :btree
 
-  create_table "direction_images", force: :cascade do |t|
-    t.integer  "direction_id",       limit: 4
-    t.integer  "sort_order",         limit: 1,   default: 1
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
-    t.string   "image_file_name",    limit: 255
-    t.string   "image_content_type", limit: 255
-    t.integer  "image_file_size",    limit: 4
-    t.datetime "image_updated_at"
-  end
-
-  add_index "direction_images", ["direction_id"], name: "index_direction_images_on_direction_id", using: :btree
-  add_index "direction_images", ["sort_order"], name: "index_direction_images_on_sort_order", using: :btree
-
   create_table "direction_translations", force: :cascade do |t|
     t.integer  "direction_id", limit: 4,     null: false
     t.string   "locale",       limit: 255,   null: false
@@ -69,10 +55,14 @@ ActiveRecord::Schema.define(version: 20161205083319) do
   add_index "direction_translations", ["locale"], name: "index_direction_translations_on_locale", using: :btree
 
   create_table "directions", force: :cascade do |t|
-    t.integer  "experiment_id", limit: 4
-    t.integer  "sort_order",    limit: 1, default: 1
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.integer  "experiment_id",      limit: 4
+    t.integer  "sort_order",         limit: 1,   default: 1
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
   end
 
   add_index "directions", ["experiment_id"], name: "index_directions_on_experiment_id", using: :btree
