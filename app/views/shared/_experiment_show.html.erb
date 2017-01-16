@@ -61,7 +61,11 @@
   <div class='exp-background' style='background-image: url(<%= img %>)'></div>
 
   <div class="inner-container">
-
+      <% if @experiment.needs_adult_supervision %>
+        <div class="exp-adult-supervision">
+          <p><%= t('.adult_supervision') %></p>
+        </div>
+      <% end %>
 
       <div class="exp-intro">
         <%= @experiment.intro %>
@@ -84,11 +88,7 @@
           <% end %>
         </ul>
 
-      <!--   <% if @experiment.needs_adult_supervision %>
-          <div class="exp-adult-supervision">
-            needs_adult_supervision
-          </div>
-        <% end %> -->
+
       </div>
 
       <div class="exp-directions">

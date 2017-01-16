@@ -74,7 +74,17 @@
 
 }
 
+.navbar .dropdown{
+  text-align: right;
+  padding-right: 15px;
+  a {
+    padding: 0 0 0 15px;
+  }
 
+  li {
+    text-align: right;
+  }
+}
 
 @media screen and (max-width: 767px) {
   .navbar .navbar-right #search-form {

@@ -6,15 +6,16 @@ class RootController < ApplicationController
 
   def experiments
     @num = 3#6
-
+    padding = 2
     if params[:page].nil? || params[:page].to_s == '1'
       @show_page_title = false
       @categories = Category.active.sorted
       @num = 5#11
+      padding = 0
     end
 
-    @experiments = Experiment.active.latest.search_for(params[:q]).by_category(params[:category]).page(params[:page]).per(@num)
-    @total_experiments = @experiments.total_count + 2 
+    @experiments = Experiment.active.latest.search_for(params[:q]).by_category(params[:category]).page(params[:page]).per(@num).padding(padding)
+    @total_experiments = @experiments.total_count 
 
     respond_to do |format|
       format.html

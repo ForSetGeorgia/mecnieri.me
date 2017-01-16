@@ -49,5 +49,5 @@
 
 
 <script>
-  $('#load_more_link').append( "<span class='exp-left'> (<%= @total_experiments - 5 %>)</span>" );
+  $('#load_more_link').append( "<span class='exp-left'> (<%= @total_experiments -  @num%>)</span>" );
 </script>

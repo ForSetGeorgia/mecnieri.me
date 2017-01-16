@@ -20,7 +20,6 @@
 
 
   $('#load_more_link')
-    .show()
     .replaceWith("<%= escape_javascript(link_to_next_page(@experiments, t('shared.actions.more'), :remote => true, :id=>'load_more_link', :params => params))%>");
 
 

@@ -213,7 +213,7 @@ function change_navigation_color() {
 
 function place_arrow(first) {
     var selected_category  = $('body.root.experiment .primary-header .experiment-selected-category');
-    var top_space = selected_category.position().top + selected_category.height();
+    var top_space = selected_category.position().top + selected_category.height() + 10;
     $('body.root.experiment .primary-header .arrow').css({'top' : top_space + 'px'});
 }
 
