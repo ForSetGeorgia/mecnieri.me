@@ -2,6 +2,8 @@
 var logo_height, logo_width;
 
 $( document ).ready(function() {
+	if($('body.root.index').length == 0)
+		return;
 	logo_height = $(".logo-wrapper .logo_image").height();
 	logo_width = $(".logo-wrapper .logo_image").width();
 	place_logo_text();
@@ -10,6 +12,8 @@ $( document ).ready(function() {
 
 function logo_change() {
 	$(window).resize(function(){
+		if($('body.root.index').length == 0)
+			return;
 		var new_height = $(".logo-wrapper .logo_image").height();
 		var new_width = $(".logo-wrapper .logo_image").width();
 
