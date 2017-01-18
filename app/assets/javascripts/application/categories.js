@@ -28,7 +28,6 @@ function categories_list_change() {
 var hover_bind = function(e) {
 	$(e.target).addClass('hover-effect');
 	$(e.target).unbind('mouseenter', hover_bind);
-	console.log('kuku');
 }
 
 function hover_effect_bind() {

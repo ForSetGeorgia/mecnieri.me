@@ -614,7 +614,7 @@ body.experiment_show .experiment-nav {
 }
 
 
-@media screen and (max-width: 1010px) {
+@media screen and (max-width: 1130px) {
 	body.experiment_show  h3{
 		font-size: 45px;
 		letter-spacing: 8px;
@@ -664,7 +664,7 @@ body.experiment_show .experiment-nav {
 	body.experiment_show .inner-container .exp-igrendients-image, 
 	body.experiment_show .inner-container .exp-direction-images {
 		width: 90vw;
-		height: 40vw;
+		height: 45vw;
 		margin-bottom: 20px;
 	}
 
@@ -747,6 +747,7 @@ body.experiment_show .experiment-nav {
 	body.experiment_show .exp-directions .exp-direction-item.active{
 		display: flex;
 		flex-direction: column;
+		margin-bottom: 30px;
 
 		.exp-direction-images {
 			position: relative;

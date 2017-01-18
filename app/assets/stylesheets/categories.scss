@@ -375,7 +375,7 @@ body.root.experiments .exp-list .exp-description {
     &.smaller {
       .exp-thumbnail {
         width: 43vw;
-        height: 280px;
+        height: 350px;
       }
 
       .exp-text {
@@ -383,14 +383,9 @@ body.root.experiments .exp-list .exp-description {
       }
     }
 
-    &.smaller:nth-child(odd) {
-      margin-right: 30px;
-      margin-left: 0;
-    }
-
-    &.smaller:nth-child(even) {
-      margin-left: 30px;
-      margin-right: 0;
+    &.smaller {
+      margin-right: 15px !important;
+      margin-left: 15px !important;
     }
 
   }

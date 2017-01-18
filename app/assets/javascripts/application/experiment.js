@@ -1,7 +1,7 @@
 var current_exp = 0;
-var mobile_width = 1010;
+var mobile_width = 1130;
 var on_mobile = false;
-var arrow_change_width = 1010;
+var arrow_change_width = 1130;
 var big_arrow;
 var video_loaded = false;
 
