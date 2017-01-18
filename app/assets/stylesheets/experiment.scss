@@ -200,6 +200,8 @@ body.experiment_show .inner-container{
 		width: 590px;
 		height: 375px;
 		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
 	}
 	
 }
@@ -421,7 +423,6 @@ body.experiment_show .exp-warning {
 	flex-direction: column;
 	align-items: flex-start;
 	text-align: left;
-	margin-top: -40px !important;
 	position: relative;
 	width: 550px;
 	border-width: 0.3px;
