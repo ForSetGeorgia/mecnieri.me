@@ -49,12 +49,8 @@ class Experiment < AddMissingTranslation
                     :styles => {
                         :'big' => {:geometry => "426x284#"},
                         :'small' => {:geometry => "107x71#"}
-                    },
-                    :convert_options => {
-                      :'big' => '-quality 100',
-                      :'small' => '-quality 100'
                     }
-
+                    
   has_attached_file :ingredient_image,
                     :url => "/system/experiments/:id/ingredient_image/:style.:extension",
                     :styles => {
