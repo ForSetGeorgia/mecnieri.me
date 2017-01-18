@@ -16,19 +16,35 @@ body {
 }
 
 .app-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   background-color: #f8f8f8;
-  padding: 0;
   color: #4f4f4f;
   height: $footer-height;
-}
 
-.app-footer-right {
-  float: right;
 }
 
 .app-footer-left {
-  float: right;
   margin: 0;
   margin-right: 10px;
+  display: flex;
+  align-items: center;
+  svg {
+    width: 30px;
+    height: auto;
+  }
+
+  .share > *{
+    margin: 0 3px;
+  }
+
+  a[title='facebook'] path {
+    fill: #1027a6;
+  }
+
+  a[title='twitter'] path {
+    fill: #099bcf;
+  }
 }

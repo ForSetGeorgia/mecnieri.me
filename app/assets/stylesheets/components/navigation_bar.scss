@@ -75,10 +75,13 @@
 }
 
 .navbar .dropdown{
+  z-index: 10;
   text-align: right;
   padding-right: 15px;
   a {
-    padding: 0 0 0 15px;
+    text-align: left;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   li {
@@ -90,6 +93,13 @@
   .navbar .navbar-right #search-form {
     border-color: rgba(0,0,0,0.2) !important;
     border-right: none;
+  }
+
+  .navbar .dropdown{
+    a {
+      text-align: right;
+      padding-right: 0 !important;
+    }
   }
 
   .navbar .about-element {

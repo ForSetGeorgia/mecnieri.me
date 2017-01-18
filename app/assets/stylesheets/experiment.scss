@@ -487,10 +487,15 @@ body.experiment_show .exp-explanation .line {
 
 
 
-body.experiment_show .app-footer {
+body.experiment_show .app-footer-wrapper {
   background-color: #ececec;
-  padding: 10px;
+  .app-footer {
+  	width: 1240px;
+	padding: 10px 0;
+  	background-color: inherit;
+  }
 }
+
 body.experiment_show main {
     margin-bottom: 41px;
     font-family: DejaVuSans;
@@ -585,6 +590,7 @@ body.experiment_show .experiment-nav {
 	}
 
 	body.experiment_show .exp-explanation > div,  body.experiment_show .navbar .container, 
+	body.experiment_show .app-footer-wrapper .container,
 	body.experiment_show .primary-header > div {
 		width: 90vw;
 	}
