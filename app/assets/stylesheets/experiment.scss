@@ -401,6 +401,7 @@ body.experiment_show .exp-directions .exp-direction-item.active{
 	.exp-direction-index {
 		position: absolute;
 		top: 65px;
+		left: 0;
 	}
 }
 
@@ -515,8 +516,14 @@ body.experiment_show .experiment-nav {
 	top: 50vh;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: flex-start;
+	height: 50px;
+	opacity: 0.5;
+	transition: opacity 0.2s;
+
+	&:hover{
+		opacity: 1;
+	}
 
 	a {
 		color: inherit;

@@ -9,6 +9,9 @@ var last_width = -1;
 (function() {
 
   $(document).ready(function() {
+    if($('body.experiment_show').length == 0) {
+      return;
+    }
     $('body.experiment_show .exp-directions .exp-directions-buttons').on('click', 'span', function(){
       //buttons prev and nex
       var $previous = $(this).closest('.exp-directions-buttons').find('.direction-previous');
@@ -64,13 +67,8 @@ var last_width = -1;
       $next.addClass('active');
       $previous.addClass('active');
 
-    })
+    });
 
-    if($( window ).width() <= mobile_width) {
-      mobile_experiments();
-    }
-
-    act_on_resize();
 
   });
 
@@ -78,16 +76,7 @@ var last_width = -1;
 
 })();
 
-function act_on_resize(){
-  $( window ).resize(function() {
 
-      if($( window ).width() > mobile_width){
-        not_mobile_experiments();
-      } else {
-        mobile_experiments();
-      }
-  });
-}
 
 function not_mobile_experiments(){
     if(!on_mobile) {
@@ -172,8 +161,8 @@ video_unbind_on_before_change();
 function experiment_updates() {
     $(document).bind('ready page:change',  add_video_space);
     $(document).bind('ready page:change',  change_navigation_color);
-    $(document).bind('ready page:change',  place_content);
-    $(window).bind('resize',  place_content);
+    $(document).bind('ready page:change',  content_update);
+    $(window).bind('resize',  content_update);
     $(window).bind('scroll',  change_navigation_color);
 }
 
@@ -181,8 +170,8 @@ function experiment_unbinds() {
   $(document).on('page:before-change', function() {
       $(document).unbind('ready page:change',  add_video_space);
       $(document).unbind('ready page:change',  change_navigation_color);
-      $(document).unbind('ready page:change',  place_content);
-      $(window).unbind('resize',  place_content);
+      $(document).unbind('ready page:change',  content_update);
+      $(window).unbind('resize',  content_update);
       $(window).unbind('scroll',  change_navigation_color);
       last_width = -1;
   });
@@ -212,7 +201,7 @@ function change_navigation_color() {
     }
 }
 
-function place_content() {
+function content_update() {
     if(last_width != -1 && last_width == $(window).width())
         return;
     last_width = $(window).width();
@@ -224,20 +213,27 @@ function place_content() {
     var top_space = body.find('.experiment_first_element').height() - body.find('.experiment_first_element').css('height')/2 ;
     body.find('.primary-header .arrow').css({'top' : top_space + 'px'});
 
-    var exp_directions = body.find('.exp-directions');
+    directions_update();
+}
 
-    var number = exp_directions.find('.exp-direction-item.active .exp-direction-index');
-    if($( window ).width() <= mobile_width) {
-      exp_directions.find('.exp-direction-item .exp-direction-index').css({'top': exp_directions.find('.exp-direction-content').position().top + 'px'});
-      console.log('aa');
-    } else {
-      exp_directions.find('.exp-direction-item .exp-direction-index').css({"top": ""});
-      var buttons_offset = exp_directions.find('.exp-direction-item.active .exp-direction-images-wrap').position().left
-         - exp_directions.find('.exp-directions-buttons').width()/2;
-      var line_top = number.position().top + number.height()/2;
-      var dir_buttons = exp_directions.find('.exp-directions-buttons');
-      dir_buttons.css({'left': buttons_offset + 'px', 'top': (line_top - dir_buttons.height()/2) + 'px'});
-      exp_directions.find('.line').css({'width': buttons_offset + 'px', 'top': line_top + 'px'});
-    }
+
+function directions_update() {
+  var body = $('body.root.experiment');
+  var exp_directions = body.find('.exp-directions');
+  var number = exp_directions.find('.exp-direction-item.active .exp-direction-index');
+  if($( window ).width() <= mobile_width) {
+    mobile_experiments();
+    exp_directions.find('.exp-direction-item .exp-direction-index').css({'top': exp_directions.find('.exp-direction-content').position().top + 'px'});
+  } else {
+    not_mobile_experiments();
+    exp_directions.find('.exp-direction-item .exp-direction-index').css({"top": ""});
+    var buttons_offset = exp_directions.find('.exp-direction-item.active .exp-direction-images-wrap').position().left
+       - exp_directions.find('.exp-directions-buttons').width()/2;
+    var line_top = number.position().top + number.height()/2;
+    var dir_buttons = exp_directions.find('.exp-directions-buttons');
+    dir_buttons.css({'left': buttons_offset + 'px', 'top': (line_top - dir_buttons.height()/2) + 'px'});
+    exp_directions.find('.line').css({'width': buttons_offset + 'px', 'top': line_top + 'px'});
+  }
+
 
 }
