@@ -45,5 +45,6 @@ class RootController < ApplicationController
   end
 
   def about
+    @is_about = true
   end
 end

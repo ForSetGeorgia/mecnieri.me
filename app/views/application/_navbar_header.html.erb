@@ -1,7 +1,7 @@
 <div class="navbar navbar-default navbar-static-top category-background-color <%=params[:category]%>">
   <div class="container">
 
-    <% if @experiment.present? %>
+    <% if @experiment.present? or @is_about %>
     <%= link_to(inline_svg('Logo_mecnieri.svg', class: 'logo_image'), root_path) %>
     <% end %>
 
