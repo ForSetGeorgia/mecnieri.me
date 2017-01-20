@@ -86,8 +86,6 @@ body.root.experiments .exp-categories ul{
 body.root.experiments .exp-categories li{
   display: inline-block;
   color: #2D1E49;
-  height: 110px;
-  width: 110px;
   position: relative;
   text-align: center;
 
@@ -101,8 +99,16 @@ body.root.experiments .exp-categories li{
     display: flex;
     flex-direction: column;
     align-items: center;
-
   }
+
+  #category_img_qimia {
+    padding-right: 15px;
+  }
+
+  #category_img_fizika {
+    padding-left: 10px;
+  }
+
 }
 
 body.root.experiments .exp-categories .category_image svg {
@@ -193,21 +199,30 @@ body.root.experiments .exp-list li{
     overflow: hidden;
   }
 
-  .exp-thumbnail1 {
+  .exp-thumbnail {
     overflow: hidden;
   }
 
-  .exp-thumbnail1 .thumb-image{
+  .exp-thumbnail .thumb-image{
     width: 100%;
     height: 100%;
     display: block;
-    background-color: black;
     background-position: center center;
-    transition: all 0.5s;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .exp-thumbnail .thumb-image.first-image.hover-effect {
+    animation: reverse-scaling 1s;
+    animation-fill-mode: forwards;
+  }
+
+  .exp-thumbnail .thumb-image.second-image {
+    display: none;
   }
 
   &.big {
-    .exp-thumbnail1 {
+    .exp-thumbnail {
       width: $big_thumb_w;
       height: 380px;
     }
@@ -231,7 +246,7 @@ body.root.experiments .exp-list li{
   }
 
   &.smaller {
-    .exp-thumbnail1 {
+    .exp-thumbnail {
       width: $small_thumb_w;
       height: 280px;
     }
@@ -245,9 +260,14 @@ body.root.experiments .exp-list li{
 
 
 body.root.experiments .exp-list li:hover {
-  .exp-thumbnail1 .thumb-image{
-    transform: scale(1.2);
+  .exp-thumbnail .first-image{
+    display: none;
+  }
 
+  .exp-thumbnail .second-image{
+    display: block;
+    animation: scaling 1s;
+    animation-fill-mode: forwards;
   }
 
   .exp-text {
@@ -257,9 +277,30 @@ body.root.experiments .exp-list li:hover {
 
 }
 
+@keyframes scaling {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+
+@keyframes reverse-scaling {
+  0% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
 body.root.experiments .exp-list li:not(:hover) {
   .exp-text {
-    transition:  0.3s ease-in-out;
+    transition: box-shadow 0.3s ease-in-out;
     box-shadow: none;
   }
 }
@@ -307,11 +348,16 @@ body.root.experiments .exp-list .exp-description {
 #load_more_link {
   display: block;
   height: 60px;
-  background-color: #2e2d2c;
-  margin-top: 100px;
+  margin-top: 30px;
   padding-top: 12px;
-  font-size: 25px;
   color: white;
+  background-color: #2C1A4E;
+  font-family: BebasNeue-Bold;
+  font-size: 25px;
+  letter-spacing: 2px;
+  span {
+    color: gray;
+  }
 }
 
 #load_more_link:hover{
@@ -332,9 +378,9 @@ body.root.experiments .exp-list .exp-description {
     margin: 1vw;
 
     &.smaller {
-      .exp-thumbnail1 {
+      .exp-thumbnail {
         width: 43vw;
-        height: 280px;
+        height: 350px;
       }
 
       .exp-text {
@@ -342,14 +388,9 @@ body.root.experiments .exp-list .exp-description {
       }
     }
 
-    &.smaller:nth-child(odd) {
-      margin-right: 30px;
-      margin-left: 0;
-    }
-
-    &.smaller:nth-child(even) {
-      margin-left: 30px;
-      margin-right: 0;
+    &.smaller {
+      margin-right: 15px !important;
+      margin-left: 15px !important;
     }
 
   }
@@ -407,8 +448,6 @@ body.root.experiments .exp-list .exp-description {
 
 @media screen and (max-width: 975px) {
 
-
-
     body.root.experiments .exp-list li{
 
       margin: 10px 0 10px 0;
@@ -418,7 +457,7 @@ body.root.experiments .exp-list .exp-description {
         margin-left: 0 !important;
         margin-right: 0 !important;
 
-        .exp-thumbnail1 {
+        .exp-thumbnail {
           width: 600px;
           height: 350px;
         }
@@ -442,7 +481,7 @@ body.root.experiments .exp-list .exp-description {
         margin-left: 0 !important;
         margin-right: 0 !important;
 
-        .exp-thumbnail1 {
+        .exp-thumbnail {
           width: 90vw;
           height: 300px;
         }
@@ -453,25 +492,33 @@ body.root.experiments .exp-list .exp-description {
 
       }
 
-  }
+    }
 
 }
 
 
 @media screen and (max-width: 350px) {
 
-  body.root.experiments .exp-list li.smaller{
+  body.root.experiments .exp-list li{
+
+    &.smaller {
+
       .exp-title {
         font-size: 1.2em;
       }
 
-      .exp-text {
-        font-size: 1em;
+      .exp-thumbnail {
+        width: 90vw;
+        height: 250px;
       }
 
-      .exp-thumbnail1 {
-          height: 250px;
+      .exp-text {
+        font-size: 1em;
+        width: 80vw;
       }
 
     }
+
+  }
+
 }

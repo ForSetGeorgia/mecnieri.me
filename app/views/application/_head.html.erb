@@ -37,6 +37,13 @@
   <%= stylesheet_link_tag  *(css), :media => "all" %>
 
   <%= render partial: 'application/head/favicons' %>
+  
+  <% if @facebook_app_id %>
+    <script>
+      var fb_app_id = '<%= @facebook_app_id %>';
+      // var addthis_id = '<%= @addthis_id %>';
+    </script>
+  <% end %>
 
   <%
     # add extra scripts if the user is signed in

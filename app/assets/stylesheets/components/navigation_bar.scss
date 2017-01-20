@@ -6,7 +6,7 @@
    	padding: 40px 0;
     background-color: transparent;
     border-color: transparent;
-    border: 0;
+    border: 0 !important;
     color: black;
     .container {
       width: 100%;
@@ -74,12 +74,32 @@
 
 }
 
+.navbar .dropdown{
+  z-index: 10;
+  text-align: right;
+  padding-right: 15px;
+  a {
+    text-align: left;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 
+  li {
+    text-align: right;
+  }
+}
 
 @media screen and (max-width: 767px) {
   .navbar .navbar-right #search-form {
     border-color: rgba(0,0,0,0.2) !important;
     border-right: none;
+  }
+
+  .navbar .dropdown{
+    a {
+      text-align: right;
+      padding-right: 0 !important;
+    }
   }
 
   .navbar .about-element {

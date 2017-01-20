@@ -14,3 +14,4 @@ en:
   shared:
     experiment_show:
       category_label: Category
+      adult_supervision: Needs adult supervision!

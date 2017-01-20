@@ -1,18 +1,23 @@
     <% @experiments.each_with_index  do |experiment, index|
+      category_slug = experiment.categories.first.slug
+      if category_slug.nil?
+        slug =  @experiment.categories.first.slug
+        category_slug = slug if slug
+      end
     class_name = index < 2 && (params[:page].nil? || params[:page].to_s == '1') ? 'big': "smaller" %>
 
       <li class='<%= class_name %> js-vis-stay-visible'>
         <%= link_to experiment_path(experiment,category: params[:category], q: params[:q]) do %>
           <%
-            img1 = experiment.thumbnail1.exists? ? experiment.thumbnail1.url('big') : image_path("categories/placeholders/#{params[:category]}.png")
-            img2 = experiment.thumbnail1.exists? ? experiment.thumbnail2.url('big') : image_path("categories/placeholders/#{params[:category]}.png")  
+            img1 = experiment.thumbnail1.exists? ? experiment.thumbnail1.url('big') : image_path("categories/placeholders/#{category_slug}.png")
+            img2 = experiment.thumbnail1.exists? ? experiment.thumbnail2.url('big') : image_path("categories/placeholders/#{category_slug}.png")  
           %>
-          <div class='exp-thumbnail1'>
-            <div class='thumb-image' style='background-image: url(<%= img1 %>)'>
-            </div>
-           </div>
+          <div class='exp-thumbnail'>
+            <div class='thumb-image first-image' style='background-image: url(<%= img1 %>)'></div>
+            <div class='thumb-image second-image' style='background-image: url(<%= img2 %>)'></div>
+          </div>
           <div class="exp-text">
-          <div class="exp-title category-background-color <%= params[:category] %>">
+          <div class="exp-title category-background-color <%= category_slug %>">
             <%= experiment.title %>
           </div>
           <div class="exp-description">
@@ -22,3 +27,7 @@
         <% end %>
       </li>
     <% end %>
+
+    <script>
+      hover_effect();
+    </script>

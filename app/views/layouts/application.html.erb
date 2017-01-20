@@ -3,6 +3,10 @@
   <%= render partial: 'application/head' %>
   <body class="<%= controller_name %> <%= action_name %> <%= @body_class %>">
     <%= Gon::Base.render_data %>
+    
+    <div id="fb-root"></div>
+
+
     <%= render partial: 'application/loading_indicator' %>
     <%= render partial: 'application/navbar_header' %>
     <%= render partial: 'application/main' %>

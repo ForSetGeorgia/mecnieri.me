@@ -38,7 +38,10 @@ URL: https://gist.github.com/bobbygrace/9e961e8982f42eb91b80
 @import 'components/categories';
 @import 'components/navigation_bar.scss';
 
-
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 @font-face
 {

@@ -49,12 +49,8 @@ class Experiment < AddMissingTranslation
                     :styles => {
                         :'big' => {:geometry => "426x284#"},
                         :'small' => {:geometry => "107x71#"}
-                    },
-                    :convert_options => {
-                      :'big' => '-quality 85',
-                      :'small' => '-quality 85'
                     }
-
+                    
   has_attached_file :ingredient_image,
                     :url => "/system/experiments/:id/ingredient_image/:style.:extension",
                     :styles => {
@@ -109,7 +105,7 @@ class Experiment < AddMissingTranslation
     size: { in: 0..4.megabytes }
   validates_attachment :gif,
     content_type: { content_type: ["image/gif"] },
-    size: { in: 0..5.megabytes }
+    size: { in: 0..7.megabytes }
 
   #######################
   ## SLUG DEFINITION (friendly_id)
