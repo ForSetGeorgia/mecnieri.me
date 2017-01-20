@@ -86,8 +86,6 @@ body.root.experiments .exp-categories ul{
 body.root.experiments .exp-categories li{
   display: inline-block;
   color: #2D1E49;
-  height: 110px;
-  width: 110px;
   position: relative;
   text-align: center;
 
@@ -101,8 +99,16 @@ body.root.experiments .exp-categories li{
     display: flex;
     flex-direction: column;
     align-items: center;
-
   }
+
+  #category_img_qimia {
+    padding-right: 15px;
+  }
+
+  #category_img_fizika {
+    padding-left: 10px;
+  }
+
 }
 
 body.root.experiments .exp-categories .category_image svg {
