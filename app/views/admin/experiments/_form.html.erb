@@ -256,7 +256,7 @@
       <label for="experiment_gif" class=" control-label"><%= t('activerecord.attributes.experiment.gif') %></label>
     </span>
     <% if object.gif.exists? %>
-      <%= image_tag(object.gif.url('small')) %>
+      <%= image_tag(object.gif.url, width: 100) %>
     <% end %>
     <span class="form-wrapper">
       <input accept=".gif" id="experiment_gif" name="experiment[gif]" type="file">

@@ -37,7 +37,7 @@
     </div>
 
       <% 
-        img = @experiment.gif.exists? ? @experiment.gif.url('xl') : image_path("categories/placeholders/#{category_slug}.png") 
+        img = @experiment.gif.exists? ? @experiment.gif.url : image_path("categories/placeholders/#{category_slug}.png") 
         style=''
         iframe = ''
         if !@experiment.youtube_video_id.present?

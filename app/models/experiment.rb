@@ -66,12 +66,7 @@ class Experiment < AddMissingTranslation
                       :'small' => '-quality 85'
                     }
   has_attached_file :gif,
-                    :url => "/system/experiments/:id/gif/:style.:extension",
-                    :styles => {
-                        :'xl' => {:geometry => "700x450#"},
-                        :'big' => {:geometry => "426x284#"},
-                        :'small' => {:geometry => "107x71#"}
-                    }
+                    :url => "/system/experiments/:id/gif/:style.:extension"
 
   #######################
   ## TRANSLATIONS
