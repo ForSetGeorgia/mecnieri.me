@@ -173,7 +173,7 @@ video_unbind_on_before_change();
 function experiment_updates() {
     $(document).bind('ready page:change',  add_video_space);
     $(document).bind('ready page:change',  change_navigation_color);
-    $(document).bind('ready page:load',  place_arrow);
+    $(document).bind('ready page:change',  place_arrow);
     $(window).bind('resize',  place_arrow);
     $(window).bind('scroll',  change_navigation_color);
 }
@@ -182,7 +182,7 @@ function experiment_unbinds() {
   $(document).on('page:before-change', function() {
       $(document).unbind('ready page:change',  add_video_space);
       $(document).unbind('ready page:change',  change_navigation_color);
-      $(document).unbind('ready page:load',  place_arrow);
+      $(document).unbind('ready page:change',  place_arrow);
       $(window).unbind('resize',  place_arrow);
       $(window).unbind('scroll',  change_navigation_color);
       last_width = -1;
@@ -218,7 +218,7 @@ function place_arrow(first) {
         return;
     last_width = $(window).width();
     var selected_category  = $('body.root.experiment .primary-header .experiment-selected-category');
-    var top_space = selected_category.position().top + selected_category.height() + 10;
+    var top_space = $('body.root.experiment .experiment_first_element').height() - $('body.root.experiment .experiment_first_element').css('height') ;
     $('body.root.experiment .primary-header .arrow').css({'top' : top_space + 'px'});
 }
 
