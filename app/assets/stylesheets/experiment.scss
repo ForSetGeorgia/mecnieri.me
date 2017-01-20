@@ -329,6 +329,10 @@ body.experiment_show .exp-directions{
 }
 
 body.experiment_show .exp-directions .exp-directions-buttons{
+	position: absolute;
+	top: 70px;
+	z-index: 1;
+
 	.direction-previous > svg{
 		-webkit-transform: rotate(180deg);
 		-moz-transform: rotate(180deg);
@@ -358,17 +362,14 @@ body.experiment_show .exp-directions .exp-directions-buttons{
 		}
 	}
 
-	position: absolute;
-	top: 70px;
-	left: 0;
+
 }
 
 body.experiment_show .exp-directions .line {
 	position: absolute;
 	top: 90px;
-	left: 90px;
+	left: 0;
 	height: 2px;
-	width: 600px;
 	z-index: 0;
 }
 
@@ -376,6 +377,7 @@ body.experiment_show .exp-directions .line {
 body.experiment_show .exp-directions .exp-direction-item{
 	display: none;
 	list-style: none;
+	position: relative;
 }
 
 body.experiment_show .exp-directions .exp-direction-item.active{
@@ -387,7 +389,7 @@ body.experiment_show .exp-directions .exp-direction-item.active{
 	}
 
 	.exp-direction-content {
-		margin-top: 137px;
+		margin-top: 150px;
 		text-align: left;
 		width: 550px;
 	}
@@ -398,8 +400,7 @@ body.experiment_show .exp-directions .exp-direction-item.active{
 
 	.exp-direction-index {
 		position: absolute;
-		left: -20px;
-		top: 53px;	
+		top: 65px;
 	}
 }
 
@@ -408,8 +409,7 @@ body.experiment_show .exp-directions .exp-direction-item.active{
 body.experiment_show .exp-directions .exp-direction-index{
 	color: white;
 	height: 72px;
-	line-height: 72px;
-
+	line-height: 80px;
 	width: 40px;
 	font-family: BebasNeue-Bold;
 	font-size: 60px;
@@ -769,7 +769,7 @@ body.experiment_show .experiment-nav {
 			position: absolute;
 			left: 0;
 			top: auto;
-			bottom: -70px;	
+			z-index: 1;
 		}
 	}
 

@@ -104,15 +104,15 @@
            <p class="exp-direction-content">
             <%= auto_link(simple_format_no_tags(dir.content), :urls, :target => "_blank") %>
             </p>
+            <div class="exp-direction-index category-background-color <%= category_slug %>">
+                <%= dir_index +=1 %>
+            </div>
             <div class="exp-direction-images-wrap">
                 <% img = dir.image.exists? ? dir.image.url('big') : 
                 image_path("categories/placeholders/#{category_slug}.png")  %>
                 <div class="exp-direction-images" style='background-image: url(<%= img %>)'>
 
                 </div>
-              <div class="exp-direction-index category-background-color <%= category_slug %>">
-                <%= dir_index +=1 %>
-             </div>
             </div>
 
 
