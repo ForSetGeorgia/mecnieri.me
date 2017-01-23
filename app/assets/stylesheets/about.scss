@@ -6,23 +6,10 @@ body.about {
 		width: 1400px;
 	}
 
-	.navbar {
-	    .container {
-	    	display: flex;
-	    	flex-direction: row;
-	   	    align-items: center;
-	    	justify-content: space-between;
-	    	margin: 0;
+	.navbar .about-element a {
+	    &:hover, &:focus {
+	      color: #646997 !important;
 	    }
-
-	   .logo_image {
-	   		width: 150px;
-	   		height: 150px;
-	   }
-
-	   form {
-	   		border: none;
-	   }
 	}
  
  	main .container {

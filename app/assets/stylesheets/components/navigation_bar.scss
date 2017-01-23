@@ -13,6 +13,24 @@
     }
 }
 
+body.experiment_show .navbar, body.about .navbar {
+    .container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0;
+    }
+
+    .logo_image {
+      width: 150px;
+      height: 150px;
+    }
+
+    form {
+      border: none;
+    }
+}
 
 
 .navbar .navbar-right {
