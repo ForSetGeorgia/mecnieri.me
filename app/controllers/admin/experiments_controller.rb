@@ -73,7 +73,6 @@ class Admin::ExperimentsController < ApplicationController
     # get data needed for drop downs
     def set_dropdowns
       @categories = Category.active.sorted
-
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

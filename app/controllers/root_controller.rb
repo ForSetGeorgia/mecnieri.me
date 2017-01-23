@@ -24,6 +24,7 @@ class RootController < ApplicationController
   end
 
   def experiment
+    @categories = Category.active.sorted
     @show_page_title = false
     @body_class = 'experiment_show'
 
@@ -45,6 +46,7 @@ class RootController < ApplicationController
   end
 
   def about
+    @categories = Category.active.sorted
     @is_about = true
   end
 end

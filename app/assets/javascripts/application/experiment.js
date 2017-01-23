@@ -207,7 +207,7 @@ function content_update() {
     last_width = $(window).width();
     var body = $('body.root.experiment');
 
-    body.find('.exp-header-background').css({'height': body.find('.inner-container-wrap').offset().top + 'px'});
+    // body.find('.exp-header-background').css({'height': body.find('.inner-container-wrap').offset().top + 'px'});
 
     var selected_category  = body.find('.experiment-selected-category');
     var top_space = body.find('.experiment_first_element').height() - body.find('.experiment_first_element').css('height')/2 ;

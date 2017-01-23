@@ -2,11 +2,12 @@
   <div class="container">
 
     <% if @experiment.present? or @is_about %>
-    <%= link_to(inline_svg('Logo_mecnieri.svg', class: 'logo_image'), root_path) %>
+    <%= link_to inline_svg('Logo_mecnieri.svg', class: 'logo_image'), root_path, class: 'logo-link' %>
     <% end %>
 
     <div>
       <ul class="nav navbar-nav navbar-right">
+
         <li>
           <form accept-charset="UTF-8" action="<%= experiments_path %>" class="navbar-form" id="search-form" method="get" role="search"><div style="margin:0;padding:0;display:inline"><input name="utf8" value="✓" type="hidden"></div>
             <div class="form-group">
@@ -15,6 +16,32 @@
             </div>
           </form>
         </li>
+
+        <% if @experiment.present? or @is_about %>
+          <li class="dropdown categories">
+            <a href="#" id="categories-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+              <%= t('.categories') %>
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+            <% @categories.each do |category|
+              if params[:category] == category.slug
+                class_name = 'seled category-font-color ' +  category.slug
+              else
+                class_name = 'unseled'
+              end
+              %>
+
+              <li class = "dropdown-elem  category-font-color <%= category.slug %> ">
+                <%= link_to  experiments_path(category: category.slug) do %>
+                    <%= category.title %>
+                <% end %>
+              </li>
+            <% end %> 
+            </ul>   
+          </li>
+        <% end %>
+        
         <li class="about-element"><%= link_to t('.about'), about_path  %></li>
 
         <% if user_signed_in? %>

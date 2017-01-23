@@ -3,6 +3,7 @@ en:
   application:
     navbar_header:
       about: About
+      categories: Categories
       account:
         edit_profile: Edit Profile
         logout: Logout

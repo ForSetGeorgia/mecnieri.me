@@ -3,6 +3,7 @@ ka:
   application:
     navbar_header:
       about: შესახებ
+      categories: კატეგორიები
       account:
         edit_profile: პროფილის შეცვლა
         logout: გასვლა

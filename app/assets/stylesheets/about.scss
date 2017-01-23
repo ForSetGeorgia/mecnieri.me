@@ -1,12 +1,14 @@
 
 body.about {
+	font-size: 10px;
+
 	.container {
 		width: 1400px;
 	}
 
 	.navbar {
-
 	    .container {
+	    	display: flex;
 	    	flex-direction: row;
 	   	    align-items: center;
 	    	justify-content: space-between;
@@ -23,5 +25,48 @@ body.about {
 	   }
 	}
  
+ 	main .container {
+ 		h1 {
+ 			padding-left: 10px;
+ 		}
+
+ 		div {
+ 			font-size: 1.7rem;
+ 			padding: 15px 10px;
+ 		}
+
+ 		.about-funding {
+ 			border-top: 1px solid;
+ 			border-color: #b6b6b6;
+ 		}
+ 	}
+
+}
+
+
+@media screen and (max-width: 1500px) {
+	body.about .container{
+		width: 90vw;
+	}
+}
+
+
+@media screen and (max-width: 500px) {
+	body.about .container{
+		width: 98vw;
+	}
+	 
+ 	body.about main .container {
+ 		h1 {
+ 			font-size: 2.5rem;
+ 		}
+
+ 		div {
+ 			font-size: 1.5rem;
+ 			padding: 15px 10px;
+ 		}
+
+ 	}
+
 
 }

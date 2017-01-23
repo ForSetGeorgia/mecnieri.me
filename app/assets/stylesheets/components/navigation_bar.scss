@@ -7,7 +7,7 @@
     background-color: transparent;
     border-color: transparent;
     border: 0 !important;
-    color: black;
+    color: #DE9136;
     .container {
       width: 100%;
     }
@@ -17,13 +17,21 @@
 
 .navbar .navbar-right {
   margin: 0;
+
   #search-form {
     height: auto;
-    border-color: black !important;
+    border-color: #2C1A4D !important;
     box-shadow: none !important;
     border-right: 3px solid;
     margin: 0;
   }
+
+  li, a {
+    font-size: 23px;
+    line-height: 32px;
+    font-family: 'BebasNeue-Bold';
+  }
+
 }
 
 .navbar .search-input {
@@ -34,38 +42,33 @@
   box-shadow: none;
   text-align: right;
   font-size: 23px;
-  line-height: 23px;
-  font-family: 'BebasNeue-Bold';
 
   &::-webkit-input-placeholder {
-     color: black;
+     color: #2C1A4D;
   }
 
   &:-moz-placeholder { /* Firefox 18- */
-     color: black; 
+     color: #2C1A4D; 
   }
 
   &::-moz-placeholder {  /* Firefox 19+ */
-     color: black; 
+     color: #2C1A4D; 
   }
 
   &:-ms-input-placeholder {  
-     color: black;
+     color: #2C1A4D;
   }
 
 }
 
 
 .navbar .about-element {
-  font-family: 'BebasNeue-Bold';
   display: flex;
   align-items: center;
   justify-content: flex-end;
   a {
     padding: 0 15px;
-    font-size: 23px;
-    line-height: 23px;
-    color: black !important;
+    color: #2C1A4D !important;
     transition: all 0.3s;
     &:hover, &:focus {
       color: white !important;
@@ -74,20 +77,30 @@
 
 }
 
-.navbar .dropdown{
+.navbar .dropdown { 
   z-index: 10;
   text-align: right;
   padding-right: 15px;
+  color: #2C1A4D !important;
+
+  &.open > a, &.open > a:hover, &.open > a:focus {
+    background-color: transparent !important;
+  }
+
   a {
     text-align: left;
     padding-top: 0;
     padding-bottom: 0;
+    color: inherit !important;
   }
 
   li {
     text-align: right;
   }
+
 }
+
+
 
 @media screen and (max-width: 767px) {
   .navbar .navbar-right #search-form {
@@ -105,5 +118,52 @@
   .navbar .about-element {
     padding: 10px 15px;
   }
+
+  body.experiment_show .navbar, body.about .navbar {
+    .container {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      height: auto;
+      margin: 0;
+    }
+
+    .container > * {
+      text-align: left;
+    }
+
+    ul, li {
+      margin: 10px 0 10px 0;
+    }
+
+    input {
+      text-align: left;
+    }
+
+    form {
+      width: 90vw;
+      padding: 5px;
+      margin: 0;
+    }
+
+    .dropdown{
+      a {
+        text-align: left;
+        padding: 5px !important;
+        color: #2C1A4D !important;
+      }
+    }
+
+
+    .about-element {
+      justify-content: flex-start;
+      padding-left: 0;
+      a {
+      padding-left: 5px;
+      }
+    }
+
+  }
+
 
 }
