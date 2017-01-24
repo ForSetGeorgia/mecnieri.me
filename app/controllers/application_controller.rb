@@ -33,6 +33,7 @@ class ApplicationController < ActionController::Base
 
     @facebook_app_id = ENV['FACEBOOK_APP_ID']
 
+    @categories = Category.active.sorted
   end
 
   def clean_filename(filename)

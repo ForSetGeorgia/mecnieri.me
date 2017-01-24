@@ -1,7 +1,6 @@
 # Non-resource pages
 class RootController < ApplicationController
   def index
-    @categories = Category.active.sorted
   end
 
   def experiments
@@ -9,7 +8,7 @@ class RootController < ApplicationController
     padding = 2
     if params[:page].nil? || params[:page].to_s == '1'
       @show_page_title = false
-      @categories = Category.active.sorted
+
       @num = 5#11
       padding = 0
     end
@@ -24,7 +23,7 @@ class RootController < ApplicationController
   end
 
   def experiment
-    @categories = Category.active.sorted
+
     @show_page_title = false
     @body_class = 'experiment_show'
 
@@ -46,7 +45,6 @@ class RootController < ApplicationController
   end
 
   def about
-    @categories = Category.active.sorted
     @is_about = true
   end
 end
