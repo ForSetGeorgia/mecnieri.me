@@ -90,24 +90,8 @@ body.experiment_show .primary-header {
 
 
 
-body.experiment_show .navbar {
-
-    .container {
-    	flex-direction: row;
-   	    align-items: center;
-    	justify-content: space-between;
-    	width: 1240px;
-    	margin: 0;
-    }
-
-   .logo_image {
-   		width: 150px;
-   		height: 150px;
-   }
-
-   form {
-   		border: none;
-   }
+body.experiment_show .navbar .container {
+	width: 1240px;
 }
 
 

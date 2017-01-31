@@ -7,12 +7,30 @@
     background-color: transparent;
     border-color: transparent;
     border: 0 !important;
-    color: #DE9136;
+    color: $navigation-color;
     .container {
       width: 100%;
     }
 }
 
+body.experiment_show .navbar, body.about .navbar {
+    .container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0;
+    }
+
+    .logo_image {
+      width: 150px;
+      height: 150px;
+    }
+
+    form {
+      border: none;
+    }
+}
 
 
 .navbar .navbar-right {
@@ -20,7 +38,7 @@
 
   #search-form {
     height: auto;
-    border-color: #2C1A4D !important;
+    border-color: $navigation-color !important;
     box-shadow: none !important;
     border-right: 3px solid;
     margin: 0;
@@ -44,19 +62,19 @@
   font-size: 23px;
 
   &::-webkit-input-placeholder {
-     color: #2C1A4D;
+     color: $navigation-color;
   }
 
   &:-moz-placeholder { /* Firefox 18- */
-     color: #2C1A4D; 
+     color: $navigation-color; 
   }
 
   &::-moz-placeholder {  /* Firefox 19+ */
-     color: #2C1A4D; 
+     color: $navigation-color; 
   }
 
   &:-ms-input-placeholder {  
-     color: #2C1A4D;
+     color: $navigation-color;
   }
 
 }
@@ -68,7 +86,7 @@
   justify-content: flex-end;
   a {
     padding: 0 15px;
-    color: #2C1A4D !important;
+    color: $navigation-color !important;
     transition: all 0.3s;
     &:hover, &:focus {
       color: white !important;
@@ -81,7 +99,7 @@
   z-index: 10;
   text-align: right;
   padding-right: 15px;
-  color: #2C1A4D !important;
+  color: $navigation-color !important;
 
   &.open > a, &.open > a:hover, &.open > a:focus {
     background-color: transparent !important;
@@ -150,7 +168,7 @@
       a {
         text-align: left;
         padding: 5px !important;
-        color: #2C1A4D !important;
+        color: $navigation-color !important;
       }
     }
 
