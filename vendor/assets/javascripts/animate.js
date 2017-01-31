@@ -82,6 +82,8 @@
       Snap.load(svg, function(data) {
         // Place SVG nodes into DOM tree
         canvas.append(data);
+        if(is_touch_device())
+          return;
         self.options.elements_dict = {};
 
         // Create tweens for each animation
@@ -172,12 +174,13 @@
               self.options.on_element = false;
           } 
         );
-
         $(self.options.id).click(
           function(){
               self.options.on_element = false;
           } 
         );
+
+
 
       });
 

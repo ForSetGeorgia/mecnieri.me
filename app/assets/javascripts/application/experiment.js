@@ -234,9 +234,3 @@ function directions_update() {
   }
 
 }
-
-function experiment_touch() {
-  if(is_touch_device()) {
-    $('body').addClass('touch');
-  }
-}
