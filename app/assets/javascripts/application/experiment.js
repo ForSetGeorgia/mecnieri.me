@@ -1,6 +1,5 @@
 var current_exp = 0;
 var mobile_width = 1130;
-var on_mobile = false;
 var arrow_change_width = 1130;
 var big_arrow;
 var video_loaded = false;
@@ -79,21 +78,12 @@ var last_width = -1;
 
 
 function not_mobile_experiments(){
-    if(!on_mobile) {
-      return;
-    }
-    on_mobile = false;
     $('.exp-directions-buttons').show();
     $('.exp-directions').find('.exp-direction-item').removeClass('active');
     $('.exp-directions').find('.exp-direction-item:eq('+ current_exp +')').addClass('active');
 }
 
 function mobile_experiments(){
-    if(on_mobile) {
-      return;
-    }
-    on_mobile = true;
-    // $('.inner-container').prepend($('#exp-video')); 
     $('.exp-directions-buttons').hide();
     $('.exp-directions').find('.exp-direction-item').addClass('active');
 }
@@ -220,7 +210,6 @@ function directions_update() {
   var exp_directions = body.find('.exp-directions');
   if($( window ).width() <= mobile_width) {
     mobile_experiments();
-    alert();
     exp_directions.find('.exp-direction-item .exp-direction-index').css({'top': exp_directions.find('.exp-direction-content').position().top + 'px'});
   } else {
     not_mobile_experiments();
