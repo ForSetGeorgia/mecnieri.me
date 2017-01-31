@@ -220,6 +220,7 @@ function directions_update() {
   var exp_directions = body.find('.exp-directions');
   if($( window ).width() <= mobile_width) {
     mobile_experiments();
+    alert();
     exp_directions.find('.exp-direction-item .exp-direction-index').css({'top': exp_directions.find('.exp-direction-content').position().top + 'px'});
   } else {
     not_mobile_experiments();
