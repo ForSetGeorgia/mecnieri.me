@@ -83,8 +83,6 @@ function not_mobile_experiments(){
       return;
     }
     on_mobile = false;
-    // $('#experiment_header_elements_wrap').append($('#exp-video')); 
-
     $('.exp-directions-buttons').show();
     $('.exp-directions').find('.exp-direction-item').removeClass('active');
     $('.exp-directions').find('.exp-direction-item:eq('+ current_exp +')').addClass('active');
@@ -220,12 +218,12 @@ function content_update() {
 function directions_update() {
   var body = $('body.root.experiment');
   var exp_directions = body.find('.exp-directions');
-  var number = exp_directions.find('.exp-direction-item.active .exp-direction-index');
   if($( window ).width() <= mobile_width) {
     mobile_experiments();
     exp_directions.find('.exp-direction-item .exp-direction-index').css({'top': exp_directions.find('.exp-direction-content').position().top + 'px'});
   } else {
     not_mobile_experiments();
+    var number = exp_directions.find('.exp-direction-item.active .exp-direction-index');
     exp_directions.find('.exp-direction-item .exp-direction-index').css({"top": ""});
     var buttons_offset = exp_directions.find('.exp-direction-item.active .exp-direction-images-wrap').position().left
        - exp_directions.find('.exp-directions-buttons').width()/2;
@@ -234,6 +232,5 @@ function directions_update() {
     dir_buttons.css({'left': buttons_offset + 'px', 'top': (line_top - dir_buttons.height()/2) + 'px'});
     exp_directions.find('.line').css({'width': buttons_offset + 'px', 'top': line_top + 'px'});
   }
-
 
 }
