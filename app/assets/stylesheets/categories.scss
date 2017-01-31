@@ -212,10 +212,6 @@ body.root.experiments .exp-list li{
     background-repeat: no-repeat;
   }
 
-  .exp-thumbnail .thumb-image.first-image.hover-effect {
-    animation: reverse-scaling 1s;
-    animation-fill-mode: forwards;
-  }
 
   .exp-thumbnail .thumb-image.second-image {
     display: none;
@@ -257,9 +253,12 @@ body.root.experiments .exp-list li{
 
 }
 
+body.root.experiments.no-touch .exp-thumbnail .thumb-image.first-image.hover-effect {
+    animation: reverse-scaling 1s;
+    animation-fill-mode: forwards;
+}
 
-
-body.root.experiments .exp-list li:hover {
+body.root.experiments.no-touch .exp-list li:hover {
   .exp-thumbnail .first-image{
     display: none;
   }
@@ -274,7 +273,6 @@ body.root.experiments .exp-list li:hover {
     transition: box-shadow 0.3s ease-in-out;
     box-shadow: 0px 0px 53px 3px rgba(0,0,0,0.15);
    }
-
 }
 
 @keyframes scaling {
@@ -298,7 +296,7 @@ body.root.experiments .exp-list li:hover {
   }
 }
 
-body.root.experiments .exp-list li:not(:hover) {
+body.root.experiments.no-touch .exp-list li:not(:hover) {
   .exp-text {
     transition: box-shadow 0.3s ease-in-out;
     box-shadow: none;
