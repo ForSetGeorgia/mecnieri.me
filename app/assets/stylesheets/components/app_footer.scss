@@ -7,6 +7,10 @@ body {
   margin-bottom: $footer-height;
 }
 
+main {
+  margin-bottom: $footer-height !important;
+}
+
 .app-footer-wrapper {
   display: flex;
   justify-content: center;
