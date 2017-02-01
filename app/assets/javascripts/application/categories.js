@@ -31,6 +31,7 @@ var hover_bind = function(e) {
 }
 
 function hover_effect_bind() {
+	$("body.root.experiments .exp-list li .first-image").removeClass('hover-effect');
 	$("body.root.experiments .exp-list li .first-image").bind('mouseenter', hover_bind);
 	$(document).unbind('ready page:change', hover_effect_bind);
 }

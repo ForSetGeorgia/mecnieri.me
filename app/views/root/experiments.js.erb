@@ -9,6 +9,7 @@
   (function show_item (i, items) {
     if (items.eq(i).length)
     {
+      $(items.eq(i)).bind('mouseenter', hover_bind);
       items.eq(i).slideDown(800);
       setTimeout(show_item, 170, +i + 1, items);
     } else {
