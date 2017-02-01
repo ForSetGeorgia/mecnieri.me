@@ -118,6 +118,14 @@ body.experiment_show .navbar, body.about .navbar {
 
 }
 
+body.about, body.experiments{
+   .navbar .about-element a {
+        &:hover, &:focus {
+          color: #a4a4a4 !important;
+        }
+    }
+}
+
 
 
 @media screen and (max-width: 767px) {
