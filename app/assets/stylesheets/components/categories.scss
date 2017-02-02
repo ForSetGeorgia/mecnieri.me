@@ -33,6 +33,24 @@
   &.fizika{
     color: $fizika-color !important;
   }
+}
+
+.category-hover-color:hover{
+  &.biologia{
+    color: $biologia-color !important;
+  }
+  &.injineria{
+    color: $injineria-color !important;
+  }
+  &.astronomia{
+    color: $astronomia-color !important;
+  }
+  &.qimia{
+    color: $qimia-color !important;
+  }
+  &.fizika{
+    color: $fizika-color !important;
+  }
 
 }
 

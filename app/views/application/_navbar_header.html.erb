@@ -26,13 +26,13 @@
             <ul class="dropdown-menu" role="menu">
             <% @categories.each do |category|
               if params[:category] == category.slug
-                class_name = 'seled category-font-color ' +  category.slug
+                class_name = 'seled category-hover-color ' +  category.slug
               else
                 class_name = 'unseled'
               end
               %>
 
-              <li class = "dropdown-elem  category-font-color <%= category.slug %> ">
+              <li class = "dropdown-elem  category-hover-color <%= category.slug %> ">
                 <%= link_to  experiments_path(category: category.slug) do %>
                     <%= category.title %>
                 <% end %>

@@ -71,6 +71,11 @@ body.experiment_show .primary-header {
 		a {
 			font-family: inherit;
 			color: inherit;
+			transition: all 0.2s;
+		}
+
+		a:hover {
+			opacity: 0.7;
 		}
 
 		.experiment-selected-category-label{ 

@@ -203,22 +203,29 @@ body.root.experiments .exp-list li{
     overflow: hidden;
   }
 
-  .exp-thumbnail .thumb-image{
+  .thumb-image{
     width: 100%;
     height: 100%;
     display: block;
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
+    transition: opacity 0.9s, transform 0.9s;
   }
 
+  .first-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 
-  .exp-thumbnail .thumb-image.second-image {
-    display: none;
+  .second-image {
+    opacity: 0;
   }
 
   &.big {
-    .exp-thumbnail {
+
+    .exp-thumbnail, .first-image {
       width: $big_thumb_w;
       height: 380px;
     }
@@ -230,7 +237,6 @@ body.root.experiments .exp-list li{
     .exp-description {
        height: 130px;
     }
-
   }
 
   &.big:nth-child(odd) {
@@ -242,7 +248,7 @@ body.root.experiments .exp-list li{
   }
 
   &.smaller {
-    .exp-thumbnail {
+    .exp-thumbnail, .first-image {
       width: $small_thumb_w;
       height: 280px;
     }
@@ -253,20 +259,22 @@ body.root.experiments .exp-list li{
 
 }
 
-body.root.experiments.no-touch .exp-thumbnail .thumb-image.first-image.hover-effect {
-    animation: reverse-scaling 1s;
-    animation-fill-mode: forwards;
+body.root.experiments.no-touch .exp-thumbnail .thumb-image.second-image.hover-effect {
+    transform: scale(1);
 }
 
 body.root.experiments.no-touch .exp-list li:hover {
+  .exp-thumbnail {
+    background-color: black;
+  }
+
   .exp-thumbnail .first-image{
-    display: none;
+    opacity: 0;
   }
 
   .exp-thumbnail .second-image{
-    display: block;
-    animation: scaling 1s;
-    animation-fill-mode: forwards;
+    transform: scale(1.2);
+    opacity: 1;
   }
 
   .exp-text {
@@ -275,26 +283,6 @@ body.root.experiments.no-touch .exp-list li:hover {
    }
 }
 
-@keyframes scaling {
-  0% {
-    transform: scale(1);
-  }
-
-  100% {
-    transform: scale(1.2);
-  }
-}
-
-
-@keyframes reverse-scaling {
-  0% {
-    transform: scale(1.2);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
 
 body.root.experiments.no-touch .exp-list li:not(:hover) {
   .exp-text {
@@ -376,7 +364,7 @@ body.root.experiments .exp-list .exp-description {
     margin: 1vw;
 
     &.smaller {
-      .exp-thumbnail {
+      .exp-thumbnail, .first-image  {
         width: 43vw;
         height: 350px;
       }
@@ -455,7 +443,7 @@ body.root.experiments .exp-list .exp-description {
         margin-left: 0 !important;
         margin-right: 0 !important;
 
-        .exp-thumbnail {
+        .exp-thumbnail, .first-image  {
           width: 600px;
           height: 350px;
         }
@@ -484,7 +472,7 @@ body.root.experiments .exp-list .exp-description {
         margin-left: 0 !important;
         margin-right: 0 !important;
 
-        .exp-thumbnail {
+        .exp-thumbnail, .first-image  {
           width: 90vw;
           height: 300px;
         }
@@ -510,7 +498,7 @@ body.root.experiments .exp-list .exp-description {
         font-size: 1.2em;
       }
 
-      .exp-thumbnail {
+      .exp-thumbnail, .first-image  {
         width: 90vw;
         height: 250px;
       }

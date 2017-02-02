@@ -101,8 +101,13 @@ body.experiment_show .navbar, body.about .navbar {
   padding-right: 15px;
   color: $navigation-color !important;
 
-  &.open > a, &.open > a:hover, &.open > a:focus {
+  &.open > a, &.open > a:hover, &.open > a:focus,
+  .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus  {
     background-color: transparent !important;
+  }
+
+  .dropdown-menu {
+    box-shadow: 0 6px 12px rgba(135, 135, 135, 0.175);
   }
 
   a {
@@ -110,13 +115,17 @@ body.experiment_show .navbar, body.about .navbar {
     padding-top: 0;
     padding-bottom: 0;
     color: inherit !important;
+    transition: 0.3s;
   }
 
   li {
     text-align: right;
   }
 
+
 }
+
+
 
 body.about, body.experiments{
    .navbar .about-element a {
