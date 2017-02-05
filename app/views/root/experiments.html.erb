@@ -14,7 +14,7 @@
       end
       %>
       <li class = "categories-list <%= class_name %>">
-        <%= link_to params.merge(category: category.slug) ,
+        <%= link_to experiments_path(category: category.slug),
                 class: 'category_image_animation',
                 id: "category_image_#{category.slug}",
                 'data-container-id': "category_img_#{category.slug}",

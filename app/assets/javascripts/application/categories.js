@@ -25,16 +25,16 @@ function categories_list_change() {
 	}
 }
 
-var hover_bind = function(e) {
-	$(e.target).addClass('hover-effect');
-	$(e.target).unbind('mouseenter', hover_bind);
-}
+// var hover_bind = function(e) {
+// 	$(e.target).addClass('hover-effect');
+// 	$(e.target).unbind('mouseenter', hover_bind);
+// }
 
-function hover_effect_bind() {
-	$("body.root.experiments .exp-list li .first-image").bind('mouseenter', hover_bind);
-	$(document).unbind('ready page:change', hover_effect_bind);
-}
+// function hover_effect_bind() {
+// 	$("body.root.experiments .exp-list li .second-image").bind('mouseenter', hover_bind);
+// 	$(document).unbind('ready page:change', hover_effect_bind);
+// }
 
-function hover_effect() {
-	$(document).bind('ready page:change', hover_effect_bind);
-}
+// function hover_effect() {
+// 	$(document).bind('ready page:change', hover_effect_bind);
+// }

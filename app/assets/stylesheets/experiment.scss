@@ -71,6 +71,11 @@ body.experiment_show .primary-header {
 		a {
 			font-family: inherit;
 			color: inherit;
+			transition: all 0.2s;
+		}
+
+		a:hover {
+			opacity: 0.7;
 		}
 
 		.experiment-selected-category-label{ 
@@ -90,24 +95,8 @@ body.experiment_show .primary-header {
 
 
 
-body.experiment_show .navbar {
-
-    .container {
-    	flex-direction: row;
-   	    align-items: center;
-    	justify-content: space-between;
-    	width: 1240px;
-    	margin: 0;
-    }
-
-   .logo_image {
-   		width: 150px;
-   		height: 150px;
-   }
-
-   form {
-   		border: none;
-   }
+body.experiment_show .navbar .container {
+	width: 1240px;
 }
 
 
@@ -837,6 +826,10 @@ body.experiment_show .experiment-nav {
 	body.experiment_show .primary-header h1 {
 		font-size: 65px;
 	}
+
+	body.experiment_show .exp-ingredients .line-circle {
+		top: 45px;
+	}
 }
 
 
@@ -854,4 +847,6 @@ body.experiment_show .experiment-nav {
     	width: 150px;
     	height: 150px;
 	}
+
+
 }

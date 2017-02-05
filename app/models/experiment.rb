@@ -38,11 +38,6 @@ class Experiment < AddMissingTranslation
                         :'xl' => {:geometry => "700x450#"},
                         :'big' => {:geometry => "426x284#"},
                         :'small' => {:geometry => "107x71#"}
-                    },
-                    :convert_options => {
-                      :'xl' => '-quality 85',
-                      :'big' => '-quality 85',
-                      :'small' => '-quality 85'
                     }
   has_attached_file :thumbnail2,
                     :url => "/system/experiments/:id/thumb2/:style.:extension",

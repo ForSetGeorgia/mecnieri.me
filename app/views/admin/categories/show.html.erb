@@ -19,7 +19,7 @@ page_title t('shared.labels.model_object_title',
   <dt><strong><%=t 'activerecord.attributes.category.title' %>:</strong></dt>
   <dd><%= @category.title %></dd>
   <dt><strong><%=t 'activerecord.attributes.category.logo' %>:</strong></dt>
-  <dd><%= image_tag(@category_icon_path(category.slug)) %></dd>
+  <dd><%= image_tag(category_icon_path(@category.slug)) %></dd>
   <dt><strong><%=t 'activerecord.attributes.category.color_hex' %>:</strong></dt>
   <dd><div class="category-background-color <%= @category.slug %>" style="width: 20px;">&nbsp;</div></dd>
   <dt><strong><%=t 'activerecord.attributes.category.is_active' %>:</strong></dt>

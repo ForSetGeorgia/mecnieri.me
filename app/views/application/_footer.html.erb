@@ -1,21 +1,25 @@
 <footer class='app-footer-wrapper'>
 	<div class='app-footer container'>
 	  <div class='app-footer-left'>
-		<p class='app-footer-left'>&copy; <%= Time.now.year %></p>
-		<div class='share'>
-	      <%= link_to inline_svg("share_fb.svg"), 
-	            "https://www.facebook.com/share.php?u=#{root_url}",
-	            :title => "facebook", :target => "_blank" %>
-	      <%= link_to inline_svg("share_twitter.svg"), 
-	            "https://twitter.com/share?url=#{root_url}", :title => "twitter",
-	            :target => "_blank" %>
-	    </div>
+		<p class='date'>&copy; <%= Time.now.year %></p>
+		<div class="addthis_toolbox addthis_default_style"  addthis:url="<%= root_path %>">
+			<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+		</div>
 	 </div>
+
 	  <%= link_to image_tag('jumpstart_logo.svg', class: 'app-footer-right'),
 	              'http://jumpstart.ge',
 	              target: '_blank',
 	              title: t('shared.common.jumpstart.slogan') %>
 
-
 	</div>
+
 </footer>
+
+<script>
+	var addthis_id = "<%= @addthis_id %>";
+	initAdthis();
+</script>
+
+
+

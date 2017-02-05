@@ -7,6 +7,10 @@ body {
   margin-bottom: $footer-height;
 }
 
+main {
+  margin-bottom: $footer-height !important;
+}
+
 .app-footer-wrapper {
   display: flex;
   justify-content: center;
@@ -29,20 +33,28 @@ body {
   margin-right: 10px;
   display: flex;
   align-items: center;
-  svg {
-    width: 30px;
-    height: auto;
+
+  a {
+    margin-bottom: 0 !important;
   }
 
-  .share > *{
-    margin: 0 3px;
+  .fb-like, .tweet_iframe_widget {
+    height: auto !important;
   }
 
-  a[title='facebook'] path {
-    fill: #1027a6;
+  .date {
+    margin-right: 10px;
   }
 
-  a[title='twitter'] path {
-    fill: #099bcf;
-  }
+}
+
+
+@media screen and (max-width: 400px) {
+    
+    .app-footer-right {
+      width: 75px;
+      height: auto; 
+    }
+
+
 }
