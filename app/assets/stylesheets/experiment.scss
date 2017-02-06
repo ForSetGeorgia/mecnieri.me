@@ -442,11 +442,11 @@ body.experiment_show .exp-warning {
 
 body.experiment_show .exp-explanation {
 	position: relative;
-	display: block;
 	width: 100%;
 	background-color: #ececec;
 	display: flex;
-	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 
 	h3 {
 		margin-top: 30px;
@@ -458,8 +458,10 @@ body.experiment_show .exp-explanation {
 		font-size: 18px;
 	}
 
+	.addthis_toolbox {
+		margin: 20px 0;
+	}
 }
-
 
 body.experiment_show .exp-explanation > div {
 	width: 1240px;

@@ -1,18 +1,20 @@
+
 <footer class='app-footer-wrapper'>
 	<div class='app-footer container'>
-	  <div class='app-footer-left'>
-		<p class='date'>&copy; <%= Time.now.year %></p>
-		<div class="addthis_toolbox addthis_default_style"  addthis:url="<%= root_url %>">
+		<div class="footer-left addthis_toolbox addthis_default_style"  addthis:url="<%= root_url %>">
 			<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 		</div>
-	 </div>
-	<div class="fb-follow app-footer-right" data-href="https://facebook.com/JumpStartGeorgia/" data-layout="standard" data-size="small" data-show-faces="false"></div>
 
-	  <%= link_to image_tag('jumpstart_logo.svg', class: 'app-footer-right'),
-	              'http://jumpstart.ge',
-	              target: '_blank',
-	              title: t('shared.common.jumpstart.slogan') %>
+		<div class="fb-follow show-follow" data-href="https://facebook.com/JumpStartGeorgia/" data-layout="standard" data-size="small" data-show-faces="false"></div>
 
+		<div class="fb-follow hide-follow" data-href="https://facebook.com/JumpStartGeorgia/" data-layout="button_count" data-size="small" data-show-faces="false"></div>
+		<div class='default'>
+			<p class='date'>&copy; <%= Time.now.year %></p>
+			<%= link_to image_tag('jumpstart_logo.svg'),
+			              'http://jumpstart.ge',
+			              target: '_blank',
+			              title: t('shared.common.jumpstart.slogan') %>
+		</div>
 	</div>
 
 

@@ -160,7 +160,13 @@
       <%= simple_format_no_tags(@experiment.explanation) %>
     </p>
   </div>
+
+  <div class="addthis_toolbox addthis_default_style"  addthis:url="<%= current_url %>">
+    <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+  </div>
 </div>
+
+
 
 <div class="fb-comments" data-href="<%= current_url %>" data-numposts="5"></div>
 
