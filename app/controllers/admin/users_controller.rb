@@ -57,7 +57,7 @@ class Admin::UsersController < ApplicationController
     @user.destroy
     respond_to do |format|
       format.html do
-        redirect_to users_url,
+        redirect_to admin_users_url,
                     notice: t('shared.msgs.success_destroyed',
                               obj: t('activerecord.models.user', count: 1))
       end
