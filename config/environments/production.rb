@@ -83,6 +83,6 @@ Rails.application.configure do
 
   # Sets the domain used in email links
   config.action_mailer.default_url_options = {
-    host: ENV['PRODUCTION_WEB_URL']
+    host: ENV['PRODUCTION_WEB_URL'], :protocol => 'https'
   }
 end
