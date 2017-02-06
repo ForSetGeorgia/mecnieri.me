@@ -38,13 +38,6 @@
 
   <%= render partial: 'application/head/favicons' %>
   
-  <% if @facebook_app_id %>
-    <script>
-      var fb_app_id = '<%= @facebook_app_id %>';
-      // var addthis_id = '<%= @addthis_id %>';
-    </script>
-  <% end %>
-
   <%
     # add extra scripts if the user is signed in
     js = ["application"]
@@ -58,10 +51,4 @@
   <%= javascript_include_tag *(js) %>
   <script src = "https://www.youtube.com/player_api"></script>
 
-  <script type="text/javascript">
-    var addthis_id = "<%= @addthis_id %>";
-    var facebook_id = <%= @facebook_id %>; 
-    initAdthis();
-    fb_load();
-  </script>
 </head>
