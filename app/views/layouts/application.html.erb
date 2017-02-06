@@ -16,10 +16,11 @@
       <%= render partial: 'application/google_analytics' %>
     <% end %>
 
-  </body>
+    <script type="text/javascript">
+      initAdthis();
+      fb_load();
+    </script>
 
-  <script type="text/javascript">
-    fb_load();
-  </script>
+  </body>
 
 </html>

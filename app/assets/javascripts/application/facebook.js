@@ -2,16 +2,19 @@ var fbRoot = null;
 var fbEventsBound = false;
 
 function fb_load() {
-	(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=" + facebook_id;
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
+	if (gon.facebook_id){
+    (function(d, s, id) {
+  	  var js, fjs = d.getElementsByTagName(s)[0];
+  	  if (d.getElementById(id)) return;
+  	  js = d.createElement(s); js.id = id;
+  	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=" + gon.facebook_id;
+  	  fjs.parentNode.insertBefore(js, fjs);
+  	}(document, 'script', 'facebook-jssdk'));
 
-	if(!fbEventsBound) 
-		fb_binds();
+  	if(!fbEventsBound) 
+  		fb_binds();
+    
+  }
 };
 
 function fb_binds() {

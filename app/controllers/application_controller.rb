@@ -31,9 +31,9 @@ class ApplicationController < ActionController::Base
     # use this to set custom css class in body tag
     @body_class = nil
     
-    @addthis_id = ENV['ADDTHIS_ID']
+    gon.addthis_id = ENV['ADDTHIS_ID']
 
-    @facebook_id = ENV['FACEBOOK_APP_ID']
+    gon.facebook_id = ENV['FACEBOOK_APP_ID']
 
     @categories = Category.active.sorted
   end
