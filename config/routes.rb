@@ -18,7 +18,12 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :users, constraints: { format: :html }
       resources :page_contents, constraints: { format: :html }
-      resources :categories, constraints: { format: :html }
+      resources :categories, constraints: { format: :html } do
+        member do
+          post 'up', to: 'categories#up'
+          post 'down', to: 'categories#down'
+        end
+      end
       resources :experiments, constraints: { format: :html }
     end
 

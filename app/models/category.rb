@@ -7,6 +7,7 @@
 #  slug       :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  sort_order :integer          default(1)
 #
 
 class Category < AddMissingTranslation
@@ -47,8 +48,10 @@ class Category < AddMissingTranslation
 
   #######################
   ## SCOPES
+  acts_as_list column: :sort_order
+
   scope :active, -> { where(is_active: true) }
-  scope :sorted, -> { with_translations(I18n.locale).order(:title) }
+  scope :sorted, -> { with_translations(I18n.locale).order(sort_order: :asc, title: :asc) }
 
   #######################
   #######################
