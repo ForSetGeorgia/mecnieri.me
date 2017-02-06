@@ -33,6 +33,8 @@ class ApplicationController < ActionController::Base
     
     @addthis_id = ENV['ADDTHIS_ID']
 
+    @facebook_id = ENV['FACEBOOK_APP_ID']
+
     @categories = Category.active.sorted
   end
 

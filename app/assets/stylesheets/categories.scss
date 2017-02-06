@@ -260,7 +260,7 @@ body.root.experiments .exp-list li{
 }
 
 body.root.experiments.no-touch .exp-thumbnail .thumb-image.second-image.hover-effect {
-    transform: scale(1);
+    transform: scale(1.1);
 }
 
 body.root.experiments.no-touch .exp-list li:hover {
@@ -273,7 +273,7 @@ body.root.experiments.no-touch .exp-list li:hover {
   }
 
   .exp-thumbnail .second-image{
-    transform: scale(1.2);
+    transform: scale(1);
     opacity: 1;
   }
 

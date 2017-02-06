@@ -7,11 +7,12 @@ var last_width = -1;
 
 (function() {
 
-  $(document).ready(function() {
+  $(document).on("ready, page:change", function() {
     if($('body.experiment_show').length == 0) {
       return;
     }
-    
+    current_exp = 0; 
+
     $('body.experiment_show .exp-directions .exp-directions-buttons').on('click', 'span', function(){
       //buttons prev and nex
       var $previous = $(this).closest('.exp-directions-buttons').find('.direction-previous');
@@ -225,4 +226,4 @@ function directions_update() {
     exp_directions.find('.line').css({'width': buttons_offset + 'px', 'top': line_top + 'px'});
   }
 
-}
+} 

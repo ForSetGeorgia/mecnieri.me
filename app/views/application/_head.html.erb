@@ -57,4 +57,11 @@
   %>
   <%= javascript_include_tag *(js) %>
   <script src = "https://www.youtube.com/player_api"></script>
+
+  <script type="text/javascript">
+    var addthis_id = "<%= @addthis_id %>";
+    var facebook_id = <%= @facebook_id %>; 
+    initAdthis();
+    fb_load();
+  </script>
 </head>

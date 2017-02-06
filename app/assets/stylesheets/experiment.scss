@@ -481,12 +481,18 @@ body.experiment_show .exp-explanation .line {
 
 
 body.experiment_show .app-footer-wrapper {
-  background-color: #ececec;
   .app-footer {
   	width: 1240px;
 	padding: 10px 0;
   	background-color: inherit;
   }
+}
+
+body.experiment_show .fb-comments {
+	width: 1240px !important;
+	> span, iframe { 
+		width: 100% !important;
+	}
 }
 
 body.experiment_show main {
@@ -560,9 +566,6 @@ body.experiment_show .experiment-nav {
 }
 
 
-
-
-
 @media screen and (max-width: 1550px) {
 	body.experiment_show .experiment-nav {
 		display: none;
@@ -573,9 +576,6 @@ body.experiment_show .experiment-nav {
 			display: none;
 		}
 	}
-
-
-
 }
 
 @media screen and (max-width: 1300px) {
@@ -590,8 +590,8 @@ body.experiment_show .experiment-nav {
 
 	body.experiment_show .exp-explanation > div,  body.experiment_show .navbar .container, 
 	body.experiment_show .app-footer-wrapper .container,
-	body.experiment_show .primary-header > div {
-		width: 90vw;
+	body.experiment_show .primary-header > div, body.experiment_show .fb-comments {
+		width: 90vw !important;
 	}
 
 	body.experiment_show .exp-ingredients .line-circle {
