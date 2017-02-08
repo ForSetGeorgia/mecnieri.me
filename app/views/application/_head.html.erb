@@ -19,10 +19,7 @@
   <% if @experiment.present? && @experiment.thumbnail1.exists? %>
     <meta property="og:image" content="<%= full_url(@experiment.thumbnail1.url(:original)) %>" />
   <% end %>
-  <% if @experiment.present? && @experiment.gif.exists? %>
-    <meta property="og:image" content="<%= full_url(@experiment.gif.url(:original)) %>" />
-  <% end %>
-  <!--meta property="og:image" content="<%= full_url("/assets/shareimage.png") %>" /-->
+  <meta property="og:image" content="<%= asset_url("fb-share.jpg") %>" />
   <meta property="og:site_name" content="<%= t("shared.common.name") %>" />
 
 

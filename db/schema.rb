@@ -11,17 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170111101245) do
+ActiveRecord::Schema.define(version: 20170206130714) do
 
   create_table "categories", force: :cascade do |t|
     t.boolean  "is_active",              default: true
     t.string   "slug",       limit: 255
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+    t.integer  "sort_order", limit: 4,   default: 1
   end
 
   add_index "categories", ["is_active"], name: "index_categories_on_is_active", using: :btree
   add_index "categories", ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
+  add_index "categories", ["sort_order"], name: "index_categories_on_sort_order", using: :btree
 
   create_table "categories_experiments", id: false, force: :cascade do |t|
     t.integer "category_id",   limit: 4, null: false

@@ -200,3 +200,6 @@ gem "autoprefixer-rails"
 
 # turn urls in text into links
 gem 'rails_autolink', '~> 1.1', '>= 1.1.6'
+
+# move items up and down in list
+gem 'acts_as_list', '~> 0.9.1'

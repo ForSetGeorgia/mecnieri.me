@@ -6,6 +6,7 @@
   $(document).ready(function() {
     setupExperimentCocoon();
     setupExperimentMove();
+    setupCategoryMove();
   });
 
   $(document).on('page:change', function() {

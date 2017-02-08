@@ -1,6 +1,6 @@
 class Admin::CategoriesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: [:show, :edit, :update, :destroy, :up, :down]
   authorize_resource
 
   # GET /categories
@@ -30,7 +30,7 @@ class Admin::CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to [:admin,@category], notice: t('shared.msgs.success_created',
+        format.html { redirect_to admin_categories_path, notice: t('shared.msgs.success_created',
                             obj: t('activerecord.models.category', count: 1))}
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class Admin::CategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to [:admin,@category], notice: t('shared.msgs.success_updated',
+        format.html { redirect_to admin_categories_path, notice: t('shared.msgs.success_updated',
                             obj: t('activerecord.models.category', count: 1))}
       else
         format.html { render :edit }
@@ -59,6 +59,18 @@ class Admin::CategoriesController < ApplicationController
       format.html { redirect_to admin_categories_url, notice: t('shared.msgs.success_destroyed',
                               obj: t('activerecord.models.category', count: 1))}
     end
+  end
+
+  # move the category up
+  def up
+    @category.move_higher
+    render json: nil , status: :created
+  end
+
+  # move the category down
+  def down
+    @category.move_lower
+    render json: nil , status: :created
   end
 
   private
