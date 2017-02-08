@@ -195,6 +195,10 @@ body.experiment_show .inner-container{
 		background-size: cover;
 	}
 	
+	body.experiment_show .inner-container .exp-direction-images-wrap {
+		width: 590px;
+	}
+
 }
 
 
@@ -585,7 +589,7 @@ body.experiment_show .experiment-nav {
 		font-family: DejaVuSans;
 		width: 90vw;
 
-		.exp-igrendients-image, .exp-direction-images {
+		.exp-igrendients-image, .exp-direction-images, .exp-direction-images-wrap {
 			width: 40vw;
 		}
 	}
@@ -662,13 +666,15 @@ body.experiment_show .experiment-nav {
 	}
 
 	body.experiment_show .inner-container .exp-igrendients-image, 
-	body.experiment_show .inner-container .exp-direction-images {
+	body.experiment_show .inner-container .exp-direction-images{
 		width: 90vw;
 		height: 45vw;
 		margin-bottom: 20px;
 	}
 
-
+	body.experiment_show .inner-container .exp-direction-images-wrap {
+		width: 90vw;
+	}
 
 	body.experiment_show .exp-intro {
 		width: 90vw;
