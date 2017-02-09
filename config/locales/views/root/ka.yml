@@ -16,10 +16,12 @@ ka:
     experiments:
       title: ექსპერიმენტები
     experiment:
-      next_exp: Next Experiment
-      previous_exp: Previous Experiment
+      next_exp: შემდეგი ექსპერიმენტი
+      previous_exp: წინა ექსპერიმენტი
   shared:
     experiment_show:
       category_label: კატეგორია
       adult_supervision: საჭიროებს მშობლის მეთვალყურეობას!
+      next_exp: შემდეგი ექსპ
+      previous_exp: წინა ექსპ
 

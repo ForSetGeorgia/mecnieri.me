@@ -95,8 +95,12 @@
         <h3 class="category-font-color <%=category_slug%>"><%= t('activerecord.models.direction', count: 999) %></h3>
         <div class="line  category-background-color <%=category_slug%>"></div>
         <div class="exp-directions-buttons" data-current-index="0">
-          <span class="direction-previous active" data-type="previous"><%= inline_svg('arrow.svg', class: "no-hover category-fill-color #{category_slug}")%><%= inline_svg('arrow_hover_active.svg', class: "hover category-fill-color #{category_slug}")%></span>
-          <span class="direction-next active" data-type="next"><%= inline_svg('arrow.svg', class: "no-hover category-fill-color #{category_slug}")%><%= inline_svg('arrow_hover_active.svg', class: "hover category-fill-color #{category_slug}")%></span>
+          <span class="direction-previous active" data-type="previous">
+            <%= inline_svg('arr.svg', class: "no-hover category-fill-color #{category_slug}")%>
+            <%= inline_svg('arr_hover_active.svg', class: "hover category-fill-color #{category_slug}")%></span>
+          <span class="direction-next active" data-type="next">
+            <%= inline_svg('arr.svg', class: "no-hover category-fill-color #{category_slug}")%>
+            <%= inline_svg('arr_hover_active.svg', class: "hover category-fill-color #{category_slug}")%></span>
         </div>
         <ul>
         <% @experiment.directions.sorted.each_with_index do |dir, dir_index| %>

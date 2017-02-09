@@ -7,5 +7,5 @@ ka:
         sort_order: თანმიმდევრობის რედაქტირება
     models:
       direction_image:
-        one: Direction Image
-        other: Direction Images
+        one: მიმართულების ფოტო
+        other: მიმართულების ფოტოები

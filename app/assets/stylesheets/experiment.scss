@@ -303,9 +303,10 @@ body.experiment_show .exp-ingredients ul {
 
 
 body.experiment_show .exp-directions{
-	width:100%;
 	position: relative;
-	
+	width:100%;
+
+
 	ul{
 		list-style: none;
 		padding: 0;
@@ -321,11 +322,14 @@ body.experiment_show .exp-directions{
 		left: 0;
 	}
 
+
 }
 
 body.experiment_show .exp-directions .exp-directions-buttons{
 	position: absolute;
 	top: 70px;
+	height: 72px;
+	margin-top: 5px;
 	z-index: 1;
 
 	.direction-previous > svg{
@@ -344,6 +348,11 @@ body.experiment_show .exp-directions .exp-directions-buttons{
 		}
 	}
 
+	svg {
+		width: 44px;
+		height: 72px;
+	}
+	
 	svg.hover{
 		display:none;
 	}
@@ -547,7 +556,7 @@ body.experiment_show .experiment-nav {
 	}
 
 	.arrow-right {
-		transform: rotate(-90deg)  translate(160%, 20%);
+		transform: rotate(-90deg)  translate(160%, 50%);
 	}
 
 

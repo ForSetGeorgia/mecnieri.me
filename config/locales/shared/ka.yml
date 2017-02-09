@@ -8,7 +8,7 @@ ka:
       log_in: შესვლა
       view: ნახვა
       add: დამატება
-      more: More
+      more: მეტის ჩატვირთვა
       with_obj:
         cancel: "%{obj}-ის გაუქმება"
         create: "%{obj}-ის შექმნა"
