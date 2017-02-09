@@ -4,6 +4,10 @@ $(document).on("page:before-change", function() {
   $(".loading-indicator").fadeIn();
 });
 
-$(document).on("page:load", function() {
-  $(".loading-indicator").fadeOut();
+$(window).load(function() {
+	 $(".loading-indicator").fadeOut();
 });
+
+// $(document).on("page:load, page:change", function() {
+//   $(".loading-indicator").fadeOut();
+// });
