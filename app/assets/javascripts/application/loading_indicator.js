@@ -4,6 +4,6 @@ $(document).on("page:before-change", function() {
   $(".loading-indicator").fadeIn();
 });
 
-$(document).on("page:change", function() {
+$(document).on("page:load", function() {
   $(".loading-indicator").fadeOut();
 });
