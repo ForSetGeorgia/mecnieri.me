@@ -137,20 +137,18 @@
 </div>
 
 <div class="experiment-nav previous category-font-color <%=category_slug%> category-fill-color <%=category_slug%>">
-  <% if @previous_exp_id.present? %>
-    <%= link_to t('.previous_exp'), experiment_path(@previous_exp_id,category: category_slug, q: params[:q]) %>
-    <%= link_to inline_svg('arrow_bottom_white.svg', class: 'arrow-image category-color arrow-left') , experiment_path(@previous_exp_id,category: category_slug, q: params[:q]) %>
+  <% if @previous_exp.present? %>
+    <%= link_to t('.previous_exp'), experiment_path(@previous_exp,category: category_slug, q: params[:q]) %>
+    <%= link_to inline_svg('arrow_bottom_white.svg', class: 'arrow-image category-color arrow-left') , experiment_path(@previous_exp,category: category_slug, q: params[:q]) %>
   <% end %>
-
 </div>
 
 <div class="experiment-nav next category-font-color <%=category_slug%> category-fill-color <%=category_slug%>">
-  <% if @next_exp_id.present? %>
-    <%= link_to t('.next_exp'), experiment_path(@next_exp_id,category: category_slug, q: params[:q]) %>
+  <% if @next_exp.present? %>
+    <%= link_to t('.next_exp'), experiment_path(@next_exp,category: category_slug, q: params[:q]) %>
     <%=link_to inline_svg('arrow_bottom_white.svg', class: 'arrow-image category-color arrow-right'),  
-     experiment_path(@next_exp_id,category: category_slug, q: params[:q]) %>
+     experiment_path(@next_exp,category: category_slug, q: params[:q]) %>
   <% end %>
-
 </div>
 
 <div class="exp-explanation">
