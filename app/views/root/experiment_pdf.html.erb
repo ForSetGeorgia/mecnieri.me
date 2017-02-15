@@ -21,22 +21,23 @@
   <% if @experiment.present? && @experiment.thumbnail1.exists? %>
     <meta property="og:image" content="<%= full_url(@experiment.thumbnail1.url(:original)) %>" />
   <% end %>
-  <meta property="og:image" content="<%= asset_url("fb-share.jpg") %>" />
   <meta property="og:site_name" content="<%= t("shared.common.name") %>" />
 
 
   <%= csrf_meta_tags %>
 
-  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
-  <![endif]-->
-
-
-  <%= render partial: 'application/head/favicons' %>
+  <style> 
+	@font-face
+	{
+	  font-family: 'BebasNeue-Bold';
+	  font-style: normal;
+	  src: image-url('<%= full_url("app/assets/images/fonts/BebasNeue-Bold.otf") %>') format('opentype');
+	}
+  </style>
 
 </head>
 <body>
+
 
 <%
   category_slug = params[:category]
@@ -51,112 +52,96 @@
 %>
 
 
-<div class='exp-header-background category-background-color <%=category_slug%>'>
-  <% img = image_path("categories/backgrounds/#{category_slug}.svg") %>
-  <img class="up-left"  src=<%= img %>>
-  <img class="up-right" src= <%= img %>>
-</div>
-
-
-<div class="experiment_first_element primary-header ">
-
-  <div id='experiment_header_elements_wrap'>
-    <h1>
-    <%=@experiment.title%>
-    </h1>
-    <% if @experiment.category_ids.present? %>
-      <div class='experiment-selected-category'>
-      <span class='experiment-selected-category-label'><%= t('.category_label') %>:</span>
-        <% @experiment.categories.each do |cat| %>
-          <%= link_to cat.title, experiments_path(category: cat.slug) %>
-        <% end %>
-      </div>
+<% if @experiment.category_ids.present? %>
+  <div class='experiment-selected-category category-font-color <%=category_slug%>'>
+  <span class='experiment-selected-category-label '><%= t('.category_label') %>:</span>
+    <% @experiment.categories.each do |cat| %>
+      <%= cat.title %>
     <% end %>
-  </div> 
-
-</div>
-
-<div class = "inner-container-wrap">
-
-  <div class="inner-container">
-      <% if @experiment.needs_adult_supervision %>
-        <div class="exp-adult-supervision">
-          <p><%= t('.adult_supervision') %></p>
-        </div>
-      <% end %>
-
-      <div class="exp-intro">
-        <%= @experiment.intro %>
-      </div>
-
-      <div class="exp-ingredients">
-        <h3 class="category-font-color <%=category_slug%>"><%= t('activerecord.models.ingredient', count: 999) %></h3>
-        <div class='line-circle exp-lines'>
-          <div class="circle  category-background-color <%=category_slug%>"></div>
-          <div class="line  category-background-color <%=category_slug%>"></div>
-        </div>
-        <% img = @experiment.ingredient_image.exists? ? @experiment.ingredient_image.url('big') : image_path("categories/placeholders/#{category_slug}.png") %>
-        <div class="exp-igrendients-image" style='background-image: url(<%= img %>)'>
-
-        </div>
-        <ul>
-          <h3 class="category-font-color <%=category_slug%>"><%= t('activerecord.models.ingredient', count: 999) %></h3>
-          <% @experiment.ingredients.sorted.each do |ing| %>
-            <li><%= auto_link(ing.content, :urls, :target => "_blank") %></li>
-          <% end %>
-        </ul>
-
-
-      </div>
-
-      <div class="exp-directions">
-        <h3 class="category-font-color <%=category_slug%>"><%= t('activerecord.models.direction', count: 999) %></h3>
-        <ul>
-        <% @experiment.directions.sorted.each_with_index do |dir, dir_index| %>
-          <li data-index="<%= dir_index %>" class="exp-direction-item <%= dir_index == 0 ? 'active' : '' %>">
-           <p class="exp-direction-content">
-            <%= auto_link(simple_format_no_tags(dir.content), :urls, :target => "_blank") %>
-            </p>
-            <div class="exp-direction-index category-background-color <%= category_slug %>">
-                <%= dir_index +=1 %>
-            </div>
-            <div class="exp-direction-images-wrap">
-                <% img = dir.image.exists? ? dir.image.url('big') : 
-                image_path("categories/placeholders/#{category_slug}.png")  %>
-                <div class="exp-direction-images" style='background-image: url(<%= img %>)'>
-
-                </div>
-            </div>
-
-
-          </li>
-        <% end %>
-        </ul>
-      </div>
-
-      <% if @experiment.warning.present? %>
-        <div class="exp-warning">
-          <h4 class="category-font-color <%=category_slug%>"><%= t('activerecord.attributes.experiment.warning') %></h4>
-          <div>
-            <%= simple_format_no_tags(@experiment.warning) %>
-          </div>
-        </div>
-      <% end %>
   </div>
+<% end %>
+
+<main>
+
+
+
+<div class='experiment_header'>
+	<% img =  image_path("Logo_mecnieri.svg") %>
+	<img class='logo' src="<%= full_url(img) %>"> </img>
+
+	<div class='experiment_header_text'>
+		<% if @experiment.needs_adult_supervision %>
+	    <div class="exp-adult-supervision">
+	      <p><%= t('.adult_supervision') %></p>
+	    </div>
+		<% end %>
+		<h1 class='category-font-color <%=category_slug%>'>
+		<%=@experiment.title%>
+		</h1>
+		<div class="exp-intro">
+			<%= @experiment.intro %>
+		</div>
+	</div>
+</div> 
+
+
+
+
+<div class="inner-container">
+  <div class="exp-ingredients">
+    <h3 class="category-font-color <%=category_slug%>"><%= t('activerecord.models.ingredient', count: 999) %></h3>
+    <% img = @experiment.ingredient_image.exists? ? @experiment.ingredient_image.url('big') : image_path("categories/placeholders/#{category_slug}.png") %>
+    <div class='ingredients-sub-wrap'>
+	    <div class="exp-ingrendients-image">
+	    	<img src="<%= full_url(img) %>"> </img>
+	    </div>
+	    <ul>
+	      <% @experiment.ingredients.sorted.each do |ing| %>
+	        <li><%= auto_link(ing.content, :urls, :target => "_blank") %></li>
+	      <% end %>
+	    </ul>
+	 </div>
+  </div>
+
+  <div class="exp-directions">
+    <h3 class="category-font-color <%=category_slug%>"><%= t('activerecord.models.direction', count: 999) %></h3>
+    <ul>
+    <% @experiment.directions.sorted.each_with_index do |dir, dir_index| %>
+      <li class="exp-direction-item">
+        <div class="exp-direction-index category-background-color <%= category_slug %>">
+            <%= dir_index +=1 %>
+        </div>
+       	<p class="exp-direction-content">
+            <%= auto_link(simple_format_no_tags(dir.content), :urls, :target => "_blank") %>
+        </p>
+        <% img = dir.image.exists? ? dir.image.url('big') : image_path("categories/placeholders/#{category_slug}.png")  %>
+        <div class="exp-direction-images">
+			<img src="<%= full_url(img) %>"> </img>
+        </div>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+
+  <% if @experiment.warning.present? %>
+  	<div class='exp-warning-wrap'>
+	    <div class="exp-warning">
+	      <h4 class="category-font-color <%=category_slug%>"><%= t('activerecord.attributes.experiment.warning') %></h4>
+	      <div>
+	        <%= simple_format_no_tags(@experiment.warning) %>
+	      </div>
+	    </div>
+    </div>
+  <% end %>
 </div>
 
 <div class="exp-explanation">
-
-  <div>
-    <h3 class="category-font-color <%=category_slug%> "><%= t('activerecord.attributes.experiment.explanation') %></h3>
-    <div class="line  category-background-color <%=category_slug%>"></div>
-    <p>
-      <%= simple_format_no_tags(@experiment.explanation) %>
-    </p>
-  </div>
-
+	<h3 class="category-font-color <%=category_slug%> "><%= t('activerecord.attributes.experiment.explanation') %></h3>
+	<p>
+	  <%= simple_format_no_tags(@experiment.explanation) %>
+	</p>
 </div>
-
+</main>
 
 </body>
 </html>
