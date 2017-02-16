@@ -31,8 +31,17 @@
 	{
 	  font-family: 'BebasNeue-Bold';
 	  font-style: normal;
-	  src: image-url('<%= full_url("app/assets/images/fonts/BebasNeue-Bold.otf") %>') format('opentype');
+	  src: url('<%= asset_url("fonts/BebasNeue-Bold.otf") %>') format('opentype');
 	}
+
+  @font-face
+  {
+    font-family: 'DejaVuSans';
+    font-style: normal;
+    src: url('<%= asset_url("fonts/BPG-DejaVuSans-2.ttf") %>')  format('truetype');
+  }
+
+
   </style>
 
 </head>
@@ -54,7 +63,7 @@
 
 <% if @experiment.category_ids.present? %>
   <div class='experiment-selected-category category-font-color <%=category_slug%>'>
-  <span class='experiment-selected-category-label '><%= t('.category_label') %>:</span>
+  <span class='experiment-selected-category-label '><%= t('root.experiment_pdf.category_label') %>:</span>
     <% @experiment.categories.each do |cat| %>
       <%= cat.title %>
     <% end %>
@@ -70,14 +79,14 @@
 	<img class='logo' src="<%= full_url(img) %>"> </img>
 
 	<div class='experiment_header_text'>
-		<% if @experiment.needs_adult_supervision %>
-	    <div class="exp-adult-supervision">
-	      <p><%= t('.adult_supervision') %></p>
-	    </div>
-		<% end %>
 		<h1 class='category-font-color <%=category_slug%>'>
 		<%=@experiment.title%>
 		</h1>
+    <% if @experiment.needs_adult_supervision %>
+      <div class="exp-adult-supervision">
+        <p><%= t('root.experiment_pdf.adult_supervision') %></p>
+      </div>
+    <% end %>
 		<div class="exp-intro">
 			<%= @experiment.intro %>
 		</div>
@@ -108,15 +117,17 @@
     <ul>
     <% @experiment.directions.sorted.each_with_index do |dir, dir_index| %>
       <li class="exp-direction-item">
-        <div class="exp-direction-index category-background-color <%= category_slug %>">
-            <%= dir_index +=1 %>
+        <div class='wrap'>
+          <div class="exp-direction-index category-background-color <%= category_slug %>">
+              <%= dir_index +=1 %>
+          </div>
+         	<p class="exp-direction-content">
+              <%= auto_link(simple_format_no_tags(dir.content), :urls, :target => "_blank") %> 
+          </p>
         </div>
-       	<p class="exp-direction-content">
-            <%= auto_link(simple_format_no_tags(dir.content), :urls, :target => "_blank") %>
-        </p>
         <% img = dir.image.exists? ? dir.image.url('big') : image_path("categories/placeholders/#{category_slug}.png")  %>
         <div class="exp-direction-images">
-			<img src="<%= full_url(img) %>"> </img>
+			     <img src="<%= full_url(img) %>"> </img>
         </div>
       </li>
     <% end %>

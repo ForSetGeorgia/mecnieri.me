@@ -45,10 +45,10 @@ class RootController < ApplicationController
           html = render_to_string(:layout => false , :action => "experiment_pdf.html.erb", :formats => [:html], :handler => [:erb])
           kit = PDFKit.new(html)
           full_path = "#{request.protocol}#{request.host_with_port}"
-          PDFKit.new(html)
-          kit.stylesheets << 'app/assets/stylesheets/experiment_pdf.css'
+          css = view_context.asset_path('experiment_pdf.css')
+          kit.stylesheets << "#{Rails.root}/public#{css}"
           filename = "random name"
-          send_data(kit.to_pdf, :filename => "#{filename}.pdf", :type => 'application/pdf', :disposition  => "inline", :page_size=>"A4" )
+          send_data(kit.to_pdf, :filename => "#{filename}.pdf", :type => 'application/pdf', :disposition  => "inline", :page_size=>"A4",  )
           return # to avoid double render call
         }
       end

@@ -18,10 +18,14 @@ ka:
     experiment:
       next_exp: შემდეგი ექსპერიმენტი
       previous_exp: წინა ექსპერიმენტი
+    experiment_pdf:
+      category_label: კატეგორია
+      adult_supervision: საჭიროებს მშობლის მეთვალყურეობას!
   shared:
     experiment_show:
       category_label: კატეგორია
       adult_supervision: საჭიროებს მშობლის მეთვალყურეობას!
       next_exp: შემდეგი ექსპ
       previous_exp: წინა ექსპ
+      pdf_download: გადმოწერე PDF
 
