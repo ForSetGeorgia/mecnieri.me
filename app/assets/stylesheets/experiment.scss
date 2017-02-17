@@ -471,9 +471,6 @@ body.experiment_show .exp-explanation {
 		font-size: 18px;
 	}
 
-	.addthis_toolbox {
-		margin: 20px 0;
-	}
 }
 
 body.experiment_show .exp-explanation > div {
@@ -493,7 +490,32 @@ body.experiment_show .exp-explanation .line {
 	margin-bottom: 15px;
 }
 
+body.experiment_show .exp-explanation .exp-links {
+	flex-direction: row;
+	align-items: center;
+	margin: 20px 0;
 
+	.pdf-download {
+		margin-right: 10px;
+		margin-bottom: 5px;
+		padding: 4px 10px 1px 10px;	
+		opacity: 0.85;
+		transition: opacity 0.2s;
+	}
+
+	.pdf-download a {
+		text-decoration: none;
+		color: white;
+		font-family: BebasNeue-Bold;
+		font-size: 20px;
+		line-height: 33px;
+	}
+
+	.pdf-download:hover {
+		opacity: 1;
+	}
+
+}
 
 body.experiment_show .app-footer-wrapper {
   .app-footer {

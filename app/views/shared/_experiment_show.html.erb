@@ -10,6 +10,7 @@
   end
 %>
 
+
 <div class='exp-header-background category-background-color <%=category_slug%>'>
   <% img = image_path("categories/backgrounds/#{category_slug}.svg") %>
   <img class="up-left"  src=<%= img %>>
@@ -163,9 +164,15 @@
     </p>
   </div>
 
-  <div class="addthis_toolbox addthis_default_style"  addthis:url="<%= current_url %>">
-    <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+  <div class='exp-links'>
+    <div class="pdf-download category-background-color <%=category_slug%>">
+      <%= link_to t('.pdf_download'), params.merge(:format => 'pdf'), target: :blank %>
+    </div>
+    <div class="addthis_toolbox addthis_default_style"  addthis:url="<%= current_url %>">
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    </div>
   </div>
+
 </div>
 
 

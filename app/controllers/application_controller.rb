@@ -42,6 +42,21 @@ class ApplicationController < ActionController::Base
     filename.strip.to_slug.transliterate.to_s.gsub(' ', '_').gsub(/[\\ \/ \: \* \? \" \< \> \| \, \. ]/,'')
   end
 
+
+  def create_pdf_file
+    html = render_to_string(:layout => false , :template => "root/experiment_pdf.html.erb", :formats => [:html], :handler => [:erb])
+    kit = PDFKit.new(html)
+    full_path = "#{request.protocol}#{request.host_with_port}"
+    css = view_context.asset_path('experiment_pdf.css')
+    kit.stylesheets << "#{Rails.root}/public#{css}"
+
+    return kit.to_pdf
+  end
+
+  def create_pdf_filename(experiment_title)
+    return clean_filename("#{I18n.t('shared.common.name')} - #{experiment_title}")
+  end
+
   ##############################################
   # Authorization #
 

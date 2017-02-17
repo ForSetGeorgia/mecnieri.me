@@ -39,6 +39,14 @@ class RootController < ApplicationController
       @next_exp = Experiment.find(next_exp_id)
       @previous_exp = Experiment.find(previous_exp_id)
 
+      respond_to do |format|
+        format.html
+        format.pdf {
+          send_data(create_pdf_file, :filename => "#{create_pdf_filename(@experiment.title)}.pdf", :type => 'application/pdf', :disposition  => "inline", :page_size=>"A4",  )
+          return # to avoid double render call
+        }
+      end
+
     rescue ActiveRecord::RecordNotFound  => e
       redirect_to experiments_path,
                 alert: t('shared.msgs.does_not_exist')

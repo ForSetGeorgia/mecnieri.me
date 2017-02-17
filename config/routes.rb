@@ -24,7 +24,7 @@ Rails.application.routes.draw do
           post 'down', to: 'categories#down'
         end
       end
-      resources :experiments, constraints: { format: :html }
+      resources :experiments
     end
 
     root 'root#index'

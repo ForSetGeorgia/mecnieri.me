@@ -11,9 +11,13 @@ en:
     experiment:
       next_exp: Next Experiment
       previous_exp: Previous Experiment
+    experiment_pdf:
+      category_label: Category
+      adult_supervision: Needs adult supervision!
   shared:
     experiment_show:
       category_label: Category
       adult_supervision: Needs adult supervision!
       next_exp: Next Exp
       previous_exp: Previous Exp
+      pdf_download: Download PDF

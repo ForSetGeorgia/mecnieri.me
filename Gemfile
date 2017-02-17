@@ -203,3 +203,8 @@ gem 'rails_autolink', '~> 1.1', '>= 1.1.6'
 
 # move items up and down in list
 gem 'acts_as_list', '~> 0.9.1'
+
+#generate pdfs
+gem "pdfkit", "~> 0.8.2"
+
+gem "wkhtmltopdf-binary", "~> 0.12.3.1" # generate pdfs

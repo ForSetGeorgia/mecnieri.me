@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <%-
+    title = (content_for?(:page_title) && yield(:page_title) != t('shared.common.name') ? "#{strip_tags_nbsp(yield(:page_title))} | #{t('shared.common.name')}" :
+              t('shared.common.name')).html_safe
+    desc = t("shared.common.description").html_safe
+  -%>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+
+  <meta property="og:title" content="<%= title %>">
+  <meta name="description" content="<%= desc %>">
+  <meta property="og:description" content="<%= desc %>" />
+  <meta property="og:type" content="non_profit" />
+  <meta property="og:url" content="<%= current_url %>" />
+  <% if @experiment.present? && @experiment.thumbnail1.exists? %>
+    <meta property="og:image" content="<%= full_url(@experiment.thumbnail1.url(:original)) %>" />
+  <% end %>
+  <meta property="og:site_name" content="<%= t("shared.common.name") %>" />
+
+
+  <%= csrf_meta_tags %>
+
+  <style> 
+	@font-face
+	{
+	  font-family: 'BebasNeue-Bold';
+	  font-style: normal;
+	  src: url('<%= asset_url("fonts/BebasNeue-Bold.otf") %>') format('opentype');
+	}
+
+  @font-face
+  {
+    font-family: 'DejaVuSans';
+    font-style: normal;
+    src: url('<%= asset_url("fonts/BPG-DejaVuSans-2.ttf") %>')  format('truetype');
+  }
+
+
+  </style>
+
+</head>
+<body>
+
+
+<%
+  category_slug = params[:category]
+  if category_slug.nil?
+    if @experiment.categories.length > 0
+      category_slug = @experiment.categories.first.slug
+    else
+      slug = Category.pluck(:slug).first
+      category_slug = slug if slug
+    end
+  end
+%>
+
+
+<% if @experiment.category_ids.present? %>
+  <div class='experiment-selected-category category-font-color <%=category_slug%>'>
+  <span class='experiment-selected-category-label '><%= t('root.experiment_pdf.category_label') %>:</span>
+    <% @experiment.categories.each do |cat| %>
+      <%= cat.title %>
+    <% end %>
+  </div>
+<% end %>
+
+<main>
+
+
+
+<div class='experiment_header'>
+	<% img =  image_path("Logo_mecnieri.svg") %>
+	<img class='logo' src="<%= full_url(img) %>"> </img>
+
+	<div class='experiment_header_text'>
+		<h1 class='category-font-color <%=category_slug%>'>
+		<%=@experiment.title%>
+		</h1>
+    <% if @experiment.needs_adult_supervision %>
+      <div class="exp-adult-supervision">
+        <p><%= t('root.experiment_pdf.adult_supervision') %></p>
+      </div>
+    <% end %>
+		<div class="exp-intro">
+			<%= @experiment.intro %>
+		</div>
+	</div>
+</div> 
+
+
+
+
+<div class="inner-container">
+  <div class="exp-ingredients">
+    <h3 class="category-font-color <%=category_slug%>"><%= t('activerecord.models.ingredient', count: 999) %></h3>
+    <% img = @experiment.ingredient_image.exists? ? @experiment.ingredient_image.url('big') : image_path("categories/placeholders/#{category_slug}.png") %>
+    <div class='ingredients-sub-wrap'>
+	    <div class="exp-ingrendients-image">
+	    	<img src="<%= full_url(img) %>"> </img>
+	    </div>
+	    <ul>
+	      <% @experiment.ingredients.sorted.each do |ing| %>
+	        <li><%= auto_link(ing.content, :urls, :target => "_blank") %></li>
+	      <% end %>
+	    </ul>
+	 </div>
+  </div>
+
+  <div class="exp-directions">
+    <h3 class="category-font-color <%=category_slug%>"><%= t('activerecord.models.direction', count: 999) %></h3>
+    <ul>
+    <% @experiment.directions.sorted.each_with_index do |dir, dir_index| %>
+      <li class="exp-direction-item">
+        <div class='wrap'>
+          <div class="exp-direction-index category-background-color <%= category_slug %>">
+              <%= dir_index +=1 %>
+          </div>
+         	<p class="exp-direction-content">
+              <%= auto_link(simple_format_no_tags(dir.content), :urls, :target => "_blank") %> 
+          </p>
+        </div>
+        <% img = dir.image.exists? ? dir.image.url('big') : image_path("categories/placeholders/#{category_slug}.png")  %>
+        <div class="exp-direction-images">
+			     <img src="<%= full_url(img) %>"> </img>
+        </div>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+
+  <% if @experiment.warning.present? %>
+  	<div class='exp-warning-wrap'>
+	    <div class="exp-warning">
+	      <h4 class="category-font-color <%=category_slug%>"><%= t('activerecord.attributes.experiment.warning') %></h4>
+	      <div>
+	        <%= simple_format_no_tags(@experiment.warning) %>
+	      </div>
+	    </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="exp-explanation">
+	<h3 class="category-font-color <%=category_slug%> "><%= t('activerecord.attributes.experiment.explanation') %></h3>
+	<p>
+	  <%= simple_format_no_tags(@experiment.explanation) %>
+	</p>
+</div>
+</main>
+
+</body>
+</html>
