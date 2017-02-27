@@ -218,7 +218,7 @@ main {
 	width: 670px;
 	display: -webkit-box; /* wkhtmltopdf uses this one */
 	-webkit-box-orient: vertical; 
-    -webkit-box-align: center; /* WebKit */
+    /*-webkit-box-align: center; /* WebKit */*/
   	line-height: 20px;
 }
 
