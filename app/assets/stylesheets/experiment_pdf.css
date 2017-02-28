@@ -221,9 +221,6 @@ main {
 	page-break-before: always;
 }
 
-.exp-explanation h3 {
-	page-break-after: always;
-}
 
 .exp-explanation {
 	width: 670px;
@@ -232,12 +229,12 @@ main {
   	line-height: 20px;
   	margin: 0;
 	padding: 0;
-	break-inside: avoid;
 }
 
 .exp-explanation p {
-  	margin: 0;
 	padding: 0;
+	page-break-inside: avoid;
+	margin: 10px 0;
 }
 
 
