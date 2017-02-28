@@ -178,8 +178,8 @@ main {
 .exp-direction-content {
 	width: 300px;
 	padding-top: 15px;
+	margin: 20px 0;
 	line-height: 20px;
-	page-break-inside:avoid;
 }
 
 .exp-direction-images {
@@ -204,8 +204,7 @@ main {
 	border: 2px solid;
 	border-color: red;
 	padding: 15px 30px;
-	margin-bottom: 40px;
-
+	margin: 40px 0 20px 0;
 }
 
 .exp-warning h4 {
@@ -233,8 +232,7 @@ main {
 
 .exp-explanation p {
 	padding: 0;
-	page-break-inside: avoid;
-	margin: 13px 0;
+	margin: 20px 0;
 }
 
 
