@@ -1,9 +1,16 @@
 
+html {
+	margin: 0;
+	padding: 0;
+	border: none !important;
+}
+
 body {
 	font-family: DejaVuSans;
 	font-size: 14px;
 	margin: 0;
 	padding: 0;
+	margin: 20px 0;
 }
 
 
@@ -214,12 +221,23 @@ main {
 	page-break-before: always;
 }
 
+.exp-explanation h3 {
+	page-break-after: always;
+}
+
 .exp-explanation {
 	width: 670px;
-	display: -webkit-box; /* wkhtmltopdf uses this one */
-	-webkit-box-orient: vertical; 
-    /*-webkit-box-align: center; /* WebKit */*/
+/*	display: -webkit-box;  
+	-webkit-box-orient: vertical; */
   	line-height: 20px;
+  	margin: 0;
+	padding: 0;
+	break-inside: avoid;
+}
+
+.exp-explanation p {
+  	margin: 0;
+	padding: 0;
 }
 
 
