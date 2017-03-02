@@ -156,12 +156,13 @@ main {
 	margin-bottom: 50px;
 	width: 670px;
 	line-height: 20px;
-	page-break-inside:avoid;
+	page-break-before: always;
 }
 
 .wrap {
 	display: inline-block;
 	float: left;
+	page-break-inside: avoid;
 }
 
 .exp-direction-index {
@@ -180,14 +181,19 @@ main {
 	padding-top: 15px;
 	margin: 20px 0;
 	line-height: 20px;
+	page-break-inside: avoid;
 }
 
 .exp-direction-images {
 	display: inline-block;
 	float: right;
 	margin-left: 40px;
+	page-break-inside:avoid;
 }
 
+.exp-direction-images img {
+	page-break-inside: avoid;
+}
 
 .exp-warning-wrap {
 	display: -webkit-box; /* wkhtmltopdf uses this one */
@@ -205,6 +211,7 @@ main {
 	border-color: red;
 	padding: 15px 30px;
 	margin: 40px 0 20px 0;
+	page-break-inside: avoid;
 }
 
 .exp-warning h4 {
@@ -223,16 +230,22 @@ main {
 
 .exp-explanation {
 	width: 670px;
-/*	display: -webkit-box;  
-	-webkit-box-orient: vertical; */
   	line-height: 20px;
   	margin: 0;
 	padding: 0;
+	page-break-inside: auto;
+
+}
+
+.exp-explanation h3{
+	/*page-break-before: always;*/
 }
 
 .exp-explanation p {
 	padding: 0;
-	margin: 20px 0;
+	margin: 10px 10px;
+	display: block;
+	page-break-before: auto;
 }
 
 

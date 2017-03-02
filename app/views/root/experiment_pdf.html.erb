@@ -124,6 +124,7 @@
          	<p class="exp-direction-content">
               <%= auto_link(simple_format_no_tags(dir.content), :urls, :target => "_blank") %> 
           </p>
+
         </div>
         <% img = dir.image.exists? ? dir.image.url('big') : image_path("categories/placeholders/#{category_slug}.png")  %>
         <div class="exp-direction-images">

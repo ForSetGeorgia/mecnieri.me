@@ -498,12 +498,14 @@ body.experiment_show .exp-explanation .exp-links {
 	.pdf-download {
 		margin-right: 10px;
 		margin-bottom: 5px;
-		padding: 4px 10px 1px 10px;	
+
 		opacity: 0.85;
 		transition: opacity 0.2s;
 	}
 
 	.pdf-download a {
+		display: block;
+		padding: 6px 10px 1px 10px;	
 		text-decoration: none;
 		color: white;
 		font-family: BebasNeue-Bold;
