@@ -34,11 +34,13 @@ class RootController < ApplicationController
       # build the next/prev links
       exp_ids = Experiment.active.latest.search_for(params[:q]).by_category(params[:category]).pluck(:id)
       current_id_index = exp_ids.index(@experiment.id)
-      next_exp_id = current_id_index == exp_ids.length-1 ? exp_ids[0] : exp_ids[current_id_index+1]
-      previous_exp_id = current_id_index == 0 ? exp_ids[-1] : exp_ids[current_id_index-1]
-      @next_exp = Experiment.find(next_exp_id)
-      @previous_exp = Experiment.find(previous_exp_id)
-
+      unless current_id_index.nil?
+        next_exp_id = current_id_index == exp_ids.length-1 ? exp_ids[0] : exp_ids[current_id_index+1]
+        previous_exp_id = current_id_index == 0 ? exp_ids[-1] : exp_ids[current_id_index-1]
+        @next_exp = Experiment.find(next_exp_id)
+        @previous_exp = Experiment.find(previous_exp_id)
+      end
+  
       respond_to do |format|
         format.html
         format.pdf {

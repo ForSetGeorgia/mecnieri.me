@@ -92,6 +92,7 @@
 
       </div>
 
+
       <div class="exp-directions">
         <h3 class="category-font-color <%=category_slug%>"><%= t('activerecord.models.direction', count: 999) %></h3>
         <div class="line  category-background-color <%=category_slug%>"></div>
@@ -144,6 +145,7 @@
   <% end %>
 </div>
 
+
 <div class="experiment-nav next category-font-color <%=category_slug%> category-fill-color <%=category_slug%>">
   <% if @next_exp.present? %>
     <%= link_to t('.next_exp'), experiment_path(@next_exp,category: category_slug, q: params[:q]) %>
@@ -151,6 +153,7 @@
      experiment_path(@next_exp,category: category_slug, q: params[:q]) %>
   <% end %>
 </div>
+
 
 <div class="exp-explanation">
   <% img = image_path("categories/backgrounds/#{category_slug}.svg") %>
