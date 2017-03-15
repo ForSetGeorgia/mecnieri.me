@@ -5,4 +5,5 @@ set :application, 'Mecnieri'
 set :repository, 'https://github.com/JumpStartGeorgia/metsnieri.me.git'
 set :branch, 'master'
 set :web_url, 'mecnieri.me'
+set :secondary_web_url, 'www.mecnieri.me'
 set :use_ssl, true

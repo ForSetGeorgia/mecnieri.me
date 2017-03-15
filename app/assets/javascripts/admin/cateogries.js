@@ -16,7 +16,7 @@ function setupCategoryMove(){
     if ($rows.length > 0){
       var index = $rows.index(row);
 
-      if (index){
+      if (index != -1){
         if (direction == 'up' && index > 0 ){
           row.insertBefore($rows[index-1]);
         }else if (direction == 'down' && index < $rows.length){
