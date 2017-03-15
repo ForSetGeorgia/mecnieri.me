@@ -1,9 +1,16 @@
 
+html {
+	margin: 0;
+	padding: 0;
+	border: none !important;
+}
+
 body {
 	font-family: DejaVuSans;
 	font-size: 14px;
 	margin: 0;
 	padding: 0;
+	margin: 20px 0;
 }
 
 
@@ -149,12 +156,13 @@ main {
 	margin-bottom: 50px;
 	width: 670px;
 	line-height: 20px;
-	page-break-inside:avoid;
+	page-break-before: always;
 }
 
 .wrap {
 	display: inline-block;
 	float: left;
+	page-break-inside: avoid;
 }
 
 .exp-direction-index {
@@ -171,16 +179,21 @@ main {
 .exp-direction-content {
 	width: 300px;
 	padding-top: 15px;
+	margin: 20px 0;
 	line-height: 20px;
-	page-break-inside:avoid;
+	page-break-inside: avoid;
 }
 
 .exp-direction-images {
 	display: inline-block;
 	float: right;
 	margin-left: 40px;
+	page-break-inside:avoid;
 }
 
+.exp-direction-images img {
+	page-break-inside: avoid;
+}
 
 .exp-warning-wrap {
 	display: -webkit-box; /* wkhtmltopdf uses this one */
@@ -197,8 +210,8 @@ main {
 	border: 2px solid;
 	border-color: red;
 	padding: 15px 30px;
-	margin-bottom: 40px;
-
+	margin: 40px 0 20px 0;
+	page-break-inside: avoid;
 }
 
 .exp-warning h4 {
@@ -214,12 +227,25 @@ main {
 	page-break-before: always;
 }
 
+
 .exp-explanation {
 	width: 670px;
-	display: -webkit-box; /* wkhtmltopdf uses this one */
-	-webkit-box-orient: vertical; 
-    -webkit-box-align: center; /* WebKit */
   	line-height: 20px;
+  	margin: 0;
+	padding: 0;
+	page-break-inside: auto;
+
+}
+
+.exp-explanation h3{
+	/*page-break-before: always;*/
+}
+
+.exp-explanation p {
+	padding: 0;
+	margin: 10px 10px;
+	display: block;
+	page-break-before: auto;
 }
 
 

@@ -29,6 +29,7 @@ main {
   height: $footer-height;
 
   .date {
+    margin: 0;
     margin-right: 5px;
     padding-right: 5px;
     border-right: 2px solid;
@@ -88,7 +89,7 @@ main {
 
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 420px) {
 
   .app-footer {
     justify-content: center;

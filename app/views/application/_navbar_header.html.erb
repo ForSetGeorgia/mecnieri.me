@@ -1,4 +1,17 @@
-<div class="navbar navbar-default navbar-static-top category-background-color <%=params[:category]%>">
+<%
+  category_slug = params[:category]
+  if category_slug.nil? and @experiment
+    if @experiment.categories.length > 0
+      category_slug = @experiment.categories.first.slug
+    else
+      slug = Category.pluck(:slug).first
+      category_slug = slug if slug
+    end
+  end
+%>
+
+
+<div class="navbar navbar-default navbar-static-top category-background-color <%=category_slug%>">
   <div class="container">
 
     <% if @experiment.present? or @is_about %>
