@@ -4,6 +4,9 @@
     title = (content_for?(:page_title) && yield(:page_title) != t('shared.common.name') ? "#{strip_tags_nbsp(yield(:page_title))} | #{t('shared.common.name')}" :
               t('shared.common.name')).html_safe
     desc = t("shared.common.description").html_safe
+    if params[:controller] == 'root' && params[:action] == 'experiment' && @experiment.present? && @experiment.intro.present?
+      desc = strip_tags(@experiment.intro)
+    end
   -%>
 
   <meta charset="utf-8">
