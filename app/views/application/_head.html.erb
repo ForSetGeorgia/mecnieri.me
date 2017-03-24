@@ -14,13 +14,14 @@
   <meta property="og:title" content="<%= title %>">
   <meta name="description" content="<%= desc %>">
   <meta property="og:description" content="<%= desc %>" />
-  <meta property="og:type" content="non_profit" />
+  <meta property="og:type" content="website" />
   <meta property="og:url" content="<%= current_url %>" />
   <% if @experiment.present? && @experiment.thumbnail1.exists? %>
     <meta property="og:image" content="<%= full_url(@experiment.thumbnail1.url(:original)) %>" />
   <% end %>
   <meta property="og:image" content="<%= asset_url("fb-share.jpg") %>" />
   <meta property="og:site_name" content="<%= t("shared.common.name") %>" />
+  <meta property="fb:app_id" content="<%= ENV['FACEBOOK_APP_ID'] %>" /> 
 
 
   <%= csrf_meta_tags %>
