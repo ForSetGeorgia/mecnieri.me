@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html html="<%= I18n.locale %>">
   <%= render partial: 'application/head' %>
-  <body class="<%= controller_name %> <%= action_name %> <%= @body_class %>">
+  <body class="<%= controller_name %> <%= action_name %> <%= @body_class %>" data-no-turbolink="true">
     <%= Gon::Base.render_data %>
     
     <div id="fb-root"></div>
