@@ -1,4 +1,4 @@
-set :domain, 'delta.jumpstart.ge'
+set :domain, 'pins.ge'
 set :user, 'mecnieri'
 set :application, 'Mecnieri'
 # easier to use https; if you use ssh then you have to create key on server
