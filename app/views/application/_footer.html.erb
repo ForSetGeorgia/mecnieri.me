@@ -1,10 +1,10 @@
 
 <footer class='app-footer-wrapper'>
 	<div class='app-footer container'>
+<% if false %>
 		<div class="footer-left addthis_toolbox addthis_default_style"  addthis:url="<%= root_url %>">
 			<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
 		</div>
-
 		<div class="fb-follow show-follow" data-href="https://facebook.com/JumpStartGeorgia/" data-layout="standard" data-size="small" data-show-faces="false"></div>
 
 		<div class="fb-follow hide-follow" data-href="https://facebook.com/JumpStartGeorgia/" data-layout="button_count" data-size="small" data-show-faces="false"></div>
@@ -15,6 +15,8 @@
 			              target: '_blank',
 			              title: t('shared.common.jumpstart.slogan') %>
 		</div>
+<% end %>
+
 	</div>
 
 
